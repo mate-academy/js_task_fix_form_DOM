@@ -11,6 +11,21 @@ for (const input of inputs) {
   label.setAttribute('class', 'field-label');
   input.parentElement.append(label);
 
-  input.placeholder = input.name[0]
-    .toUpperCase() + input.name.slice(1);
+  input.placeholder = normalCase(input.name);
+}
+
+function normalCase(str) {
+  let newStringNormalCase = '';
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      newStringNormalCase += ' ';
+    }
+    newStringNormalCase += str[i].toLowerCase();
+  }
+
+  newStringNormalCase = newStringNormalCase
+    .charAt(0).toUpperCase() + newStringNormalCase.substr(1);
+
+  return newStringNormalCase;
 }
