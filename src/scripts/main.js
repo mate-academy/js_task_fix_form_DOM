@@ -13,7 +13,7 @@ inputs.forEach((x, i) => {
   label.htmlFor = x.id;
   label.innerText = x.name.toUpperCase();
   labels.push(label);
-  x.placeholder = x.name;
+  x.placeholder = x.name.replace(x.name[0], x.name[0].toUpperCase());
   fields[i].append(labels[i]);
 });
 
