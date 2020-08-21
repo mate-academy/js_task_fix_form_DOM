@@ -9,7 +9,7 @@ inputs.forEach((input) => {
     ${input.name}
   </label>`;
 
-  input.parentElement.insertAdjacentHTML('afterbegin', label);
+  input.insertAdjacentHTML('beforebegin', label);
 });
 
 // Set placeholder for each input
