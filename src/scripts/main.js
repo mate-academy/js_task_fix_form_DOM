@@ -22,5 +22,6 @@ inputs.forEach((input, ind) => {
 
   label.className = 'field-label';
   label.htmlFor = input.getAttribute('id');
+  label.textContent = placeholderName;
   divs[ind].append(label);
 });
