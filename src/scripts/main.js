@@ -21,8 +21,5 @@ function isCapitalized(string) {
 }
 
 function splitNames(input) {
-  return input === 'firstName'
-    || input === 'lastName'
-    ? input.slice(0, input.length - 4) + ' Name'
-    : input;
+  return input.replace(/([A-Z])/g, ' $1').trim();
 }
