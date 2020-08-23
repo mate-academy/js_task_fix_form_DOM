@@ -6,14 +6,17 @@ const addLabel = function(list) {
   list.forEach(input => {
     input.insertAdjacentHTML('beforebegin', `
       <label class="field-label", for="${input.id}">
-        ${input.name}
+        ${camelToSpaced(input.name)}
       </label>
     `);
 
-    input.placeholder = `${
-      input.name[0].toUpperCase() + input.name.slice(1).toLowerCase()
-    }`;
+    input.placeholder = camelToSpaced(input.name)[0].toUpperCase()
+    + camelToSpaced(input.name).slice(1).toLowerCase();
   });
 };
+
+function camelToSpaced(str) {
+  return str.split(/(?=[A-Z])/).join(' ');
+}
 
 addLabel(inputList);
