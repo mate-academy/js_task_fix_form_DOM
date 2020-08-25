@@ -3,7 +3,7 @@
 const field = document.querySelectorAll('.field-text');
 
 [...field].map(input =>
-  input.setAttribute('placeholder', isCapitalized(splitNames(input.name))));
+  input.setAttribute('placeholder', getCapitalized(splitNames(input.name))));
 
 const fieldsWrapper = document.querySelectorAll('.field');
 
@@ -16,7 +16,7 @@ const fieldsWrapper = document.querySelectorAll('.field');
   `);
 });
 
-function isCapitalized(string) {
+function getCapitalized(string) {
   return string[0].toUpperCase() + string.slice(1);
 }
 
