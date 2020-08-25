@@ -6,7 +6,8 @@ for (const input of [...inputs]) {
   let placeholderName = input.name[0].toUpperCase();
 
   for (let i = 1; i < input.name.length; i++) {
-    if (input.name[i] >= 'a' && input.name[i] <= 'z') {
+    if (input.name.charCodeAt(i) >= 'a'.charCodeAt(0)
+      && input.name.charCodeAt(i) <= 'z'.charCodeAt(0)) {
       placeholderName += input.name[i];
     } else {
       placeholderName += ' ' + input.name[i].toLowerCase();
