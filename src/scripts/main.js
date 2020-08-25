@@ -8,7 +8,7 @@ for (let i = 0; i < inputs.length; i++) {
   const label = document.createElement('label');
 
   label.htmlFor = inputs[i].id;
-  label.textContent = inputs[i].name;
+  label.textContent = inputs[i].name.replace(/([A-Z])/g, ' $1').toUpperCase();
   label.className = 'field-label';
   inputs[i].parentElement.append(label);
 
