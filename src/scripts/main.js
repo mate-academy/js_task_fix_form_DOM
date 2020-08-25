@@ -13,7 +13,7 @@ input.forEach(x => {
 
   label.className = 'field-label';
   label.htmlFor = x.id;
-  label.innerText = x.name.toUpperCase();
+  label.innerText = x.name.split('t').join('t ').toUpperCase();
 
   box.prepend(label);
 });
