@@ -7,7 +7,7 @@ document.querySelectorAll('.field')
 
     label.className = 'field-label';
     label.htmlFor = input.id;
-    label.textContent = input.name.toUpperCase();
+    label.textContent = input.name.replace(/([A-Z])/g, ' $1').toUpperCase();
 
     field.prepend(label);
 
