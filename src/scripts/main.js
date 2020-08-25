@@ -6,7 +6,9 @@ const inputs = document.querySelectorAll('input');
 inputs.forEach((input) => {
   const label = `
   <label for="${input.id}" class="field-label">
-    ${input.name}
+    ${input.name.includes('Name')
+    ? input.name.split('N').join(' n')
+    : input.name}
   </label>`;
 
   input.insertAdjacentHTML('beforebegin', label);
