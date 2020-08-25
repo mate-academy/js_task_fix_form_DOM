@@ -3,11 +3,11 @@
 const inputs = document.getElementsByTagName('input');
 
 for (const input of inputs) {
-  const toAdd = document.createElement('label');
+  const label = document.createElement('label');
 
-  toAdd.className = 'field-label';
-  toAdd.htmlFor = input.id;
-  toAdd.textContent = input.name;
-  input.closest('div').appendChild(toAdd);
-  input.placeholder = input.name.toUpperCase();
+  label.className = 'field-label';
+  label.htmlFor = input.id;
+  label.textContent = input.name;
+  input.closest('div').appendChild(label);
+  input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
 }
