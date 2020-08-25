@@ -2,15 +2,15 @@
 
 document.querySelectorAll('.field')
   .forEach(field => {
-    const lab = document.createElement('label');
+    const label = document.createElement('label');
     const input = field.firstElementChild;
 
-    lab.className = 'field-label';
-    lab.htmlFor = input.id;
-    lab.textContent = input.name.toUpperCase();
+    label.className = 'field-label';
+    label.htmlFor = input.id;
+    label.textContent = input.name.toUpperCase();
 
-    field.prepend(lab);
+    field.prepend(label);
 
     input.setAttribute('placeholder', input.name[0].toUpperCase()
-    + input.name.slice(1));
+    + input.name.slice(1).replace(/([A-Z])/g, ' $1').toLowerCase());
   });
