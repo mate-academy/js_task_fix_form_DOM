@@ -4,8 +4,12 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
+  const name = (!input.name.includes('Name'))
+    ? input.name
+    : input.name.split('Name')[0] + ' Name';
+
   input.insertAdjacentHTML('afterend', `
-    <label class=field-label for=${input.id}>${input.name}</label>
+    <label class=field-label for=${input.id}>${name}</label>
   `);
 
   const capitalazedPlaceholder = (!input.id.includes('name'))
