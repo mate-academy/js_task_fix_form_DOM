@@ -1,7 +1,9 @@
 'use strict';
 
 [...document.querySelectorAll('.field-text')]
-  .map(x => x.setAttribute('placeholder', `${x.name}`));
+  .map(x => x.setAttribute('placeholder',
+    `${x.name[0]
+      .toUpperCase()}${x.name.substr(1).toLowerCase().split('t').join('t ')}`));
 
 const input = document.querySelectorAll('.field-text');
 
