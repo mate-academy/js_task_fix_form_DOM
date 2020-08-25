@@ -11,6 +11,6 @@ for (let i = 0; i < inputs.length; i++) {
   label.textContent = inputs[i].name;
   inputs[i].before(label);
 
-  inputs[i].placeholder = inputs[i].name[0].toLocaleUpperCase()
+  inputs[i].placeholder = inputs[i].name[0].toUpperCase()
     + inputs[i].name.substring(1);
 };
