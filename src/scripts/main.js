@@ -9,6 +9,11 @@ for (let i = 0; i < inputs.length; i++) {
   label.className = 'field-label';
   label.htmlFor = inputs[i].id;
   label.textContent = inputs[i].name;
-  inputs[i].placeholder = inputs[i].name.toUpperCase();
+
+  const placeHolderValue = inputs[i].name[0].toUpperCase()
+    + inputs[i].name.slice(1).replace(/([A-Z])/g, ' $1').toLowerCase();
+
+  inputs[i].placeholder = placeHolderValue;
+
   field[i].append(label);
 };
