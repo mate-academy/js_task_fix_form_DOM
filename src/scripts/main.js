@@ -5,7 +5,7 @@ const inputs = [...document.querySelectorAll('input')];
 for (const input of inputs) {
   const label = document.createElement('label');
 
-  label.textContent = input.name;
+  label.textContent = capitalize(input.name);
   label.setAttribute('for', input.id);
   label.setAttribute('class', 'field-label');
   input.parentElement.append(label);
@@ -14,17 +14,17 @@ for (const input of inputs) {
 }
 
 function capitalize(str) {
-  let newStringNormalCase = '';
+  let newStringSentenceCase = '';
 
   for (let i = 0; i < str.length; i++) {
     if (str[i] === str[i].toUpperCase()) {
-      newStringNormalCase += ' ';
+      newStringSentenceCase += ' ';
     }
-    newStringNormalCase += str[i].toLowerCase();
+    newStringSentenceCase += str[i].toLowerCase();
   }
 
-  newStringNormalCase = newStringNormalCase
-    .charAt(0).toUpperCase() + newStringNormalCase.substr(1);
+  newStringSentenceCase = newStringSentenceCase
+    .charAt(0).toUpperCase() + newStringSentenceCase.substr(1);
 
-  return newStringNormalCase;
+  return newStringSentenceCase;
 }
