@@ -1,26 +1,31 @@
 'use strict';
 
-const fieldContainers = document.querySelectorAll('.field');
+const inputContainers = document.querySelectorAll('.field');
 
-for (const field of [...fieldContainers]) {
-  const thisFieldInput = field.querySelector('input');
+for (const inputContainer of [...inputContainers]) {
+  const input = inputContainer.querySelector('input');
 
   const label = document.createElement('label');
 
   label.className = 'field-label';
-  label.textContent = thisFieldInput.name;
-  label.htmlFor = thisFieldInput.id;
+  label.textContent = input.name;
+  label.htmlFor = input.id;
 
-  field.prepend(label);
+  inputContainer.prepend(label);
 
-  thisFieldInput.placeholder = (thisFieldInput.name)
+  const formattedPlaceholder = [];
+
+  (input.name)
     .split('')
-    .map((letter, index) => {
+    .forEach((letter, index) => {
       if (index === 0) {
-        return letter.toUpperCase();
+        formattedPlaceholder.push(letter.toUpperCase());
+      } else if (letter.toUpperCase() === letter) {
+        formattedPlaceholder.push(` ${letter}`);
       } else {
-        return letter.toLowerCase();
+        formattedPlaceholder.push(letter);
       }
-    })
-    .join('');
+    });
+
+  input.placeholder = formattedPlaceholder.join('');
 }
