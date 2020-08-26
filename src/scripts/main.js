@@ -8,8 +8,7 @@ inputs.forEach(input => {
   label.classList.add('field-label');
   label.htmlFor = input.id;
 
-  label.innerText = input.name.replace(/([A-Z])/g, ' $1')
-    .trim();
+  label.innerText = input.name.replace(/([A-Z])/g, ' $1');
 
   input.placeholder = (
     input.name[0].toUpperCase() + input.name.slice(1))
