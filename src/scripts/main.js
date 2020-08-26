@@ -7,10 +7,10 @@ for (const element of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = element.id;
-  label.textContent = element.name;
+  label.textContent = element.name.replace(/([A-Z])/g, ' $1');
   element.before(label);
 
   element.placeholder
     = element.name.charAt(0).toUpperCase()
-    + element.name.slice(1);
+    + element.name.slice(1).replace(/([A-Z])/g, ' $1');
 }
