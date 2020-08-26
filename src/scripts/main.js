@@ -2,14 +2,18 @@
 
 const inputs = document.querySelectorAll('input');
 
-for (const input of [...inputs]) {
+const stringFormat = function(str) {
+  const result = str.name.split('N').join(' n');
+
+  return result[0].toUpperCase() + result.slice(1);
+};
+
+for (const input of inputs) {
   const label = document.createElement('label');
 
-  label.className = 'field-label';
+  label.className = ('field-label');
   label.htmlFor = input.id;
-  label.textContent = input.name;
-
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
-
+  label.innerText = stringFormat(input);
   input.before(label);
-}
+  input.placeholder = stringFormat(input);
+};
