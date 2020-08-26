@@ -4,7 +4,7 @@ for (const elem of document.querySelectorAll('.field')) {
   const label = document.createElement('label');
   const input = elem.firstElementChild;
 
-  label.textContent = input.name.toUpperCase();
+  label.textContent = input.name.replace(/([A-Z])/g, ' $1').toUpperCase();
   label.htmlFor = input.id;
   label.className = 'elem-label';
 
