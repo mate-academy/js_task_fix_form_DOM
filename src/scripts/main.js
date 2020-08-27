@@ -2,8 +2,7 @@
 
 [...document.querySelectorAll('.field-text')]
   .map(x => x.setAttribute('placeholder',
-    `${x.name[0]
-      .toUpperCase()}${x.name.substr(1).toLowerCase().split('t').join('t ')}`));
+    `${sentence(x.name)}`));
 
 const input = document.querySelectorAll('.field-text');
 
@@ -13,7 +12,13 @@ input.forEach(x => {
 
   label.className = 'field-label';
   label.htmlFor = x.id;
-  label.innerText = x.name.split('t').join('t ').toUpperCase();
+  label.innerText = sentence(x.name).toUpperCase();
 
   box.prepend(label);
 });
+
+function sentence(str) {
+  return str[0].toUpperCase()
+    + str.substr(1).replace(/([A-Z])/, ' $1')
+      .toLowerCase();
+}
