@@ -13,12 +13,13 @@ for (const input of inputs) {
     placeholder += input.name[i].toLowerCase();
   }
 
+  input.placeholder = placeholder;
+
   const label = document.createElement('label');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = placeholder.toUpperCase();
 
-  input.placeholder = placeholder;
   input.parentNode.append(label);
 }
