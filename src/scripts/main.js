@@ -11,6 +11,6 @@ for (let i = 0; i < inputs.length; i++) {
 
   inputs[i].parentElement.append(label);
 
-  inputs[i].placeholder
-  = inputs[i].name.split('')[0].toUpperCase() + inputs[i].name.substring(1);
+  inputs[i].placeholder = inputs[i].name[0].toUpperCase()
+    + inputs[i].name.slice(1).replace(/([A-Z])/g, ' $1').toLowerCase();
 };
