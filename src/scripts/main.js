@@ -11,7 +11,6 @@ fields
           for="${field.lastElementChild.id}"
           class="field-label"
         >${field.lastElementChild.name.replace(/[A-Z]/g, ' $&')}
-
         </label>
       `
     )
