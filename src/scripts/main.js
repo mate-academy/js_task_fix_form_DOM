@@ -9,7 +9,7 @@ for (const input of inputs) {
 
   inputLabel.textContent = input.name;
 
-  inputLabel.for = input.id;
+  inputLabel.setAttribute('for', input.id);
 
   input.parentElement.appendChild(inputLabel);
 
