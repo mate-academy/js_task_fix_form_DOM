@@ -1,6 +1,6 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('.field-text');
 const parent = document.querySelectorAll('.field');
 
 inputs.forEach((item, index) => {
@@ -10,14 +10,11 @@ inputs.forEach((item, index) => {
   label.htmlFor = item.id;
   label.textContent = item.getAttribute('name');
 
-  parent[index].insertBefore(label, item);
+  parent[index].append(label);
 
-  let placeholder = item.getAttribute('name').split('');
-
-  placeholder[0] = placeholder[0].toUpperCase();
-  placeholder = placeholder.join('');
+  let placeholder = item.name[0].toUpperCase() + item.name.slice(1);
 
   placeholder = placeholder.replace('N', ' n');
 
-  item.setAttribute('placeholder', placeholder);
+  item.placeholder = placeholder;
 });
