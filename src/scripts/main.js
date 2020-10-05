@@ -12,10 +12,12 @@ inputs.forEach((item, index) => {
 
   parent[index].insertBefore(label, item);
 
-  let placeholder = item.getAttribute('name').toLowerCase().split('');
+  let placeholder = item.getAttribute('name').split('');
 
   placeholder[0] = placeholder[0].toUpperCase();
   placeholder = placeholder.join('');
+
+  placeholder = placeholder.replace('N', ' n');
 
   item.setAttribute('placeholder', placeholder);
 });
