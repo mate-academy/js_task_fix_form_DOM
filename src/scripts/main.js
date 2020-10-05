@@ -8,6 +8,7 @@ inputs.forEach((item, index) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', item.getAttribute('id'));
+  label.textContent = item.getAttribute('name');
 
   parent[index].insertBefore(label, item);
 
