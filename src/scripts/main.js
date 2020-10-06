@@ -8,7 +8,7 @@ inputs.forEach((item, index) => {
 
   label.classList.add('field-label');
   label.htmlFor = item.id;
-  label.textContent = item.getAttribute('name');
+  label.textContent = item.name;
 
   parent[index].append(label);
 
