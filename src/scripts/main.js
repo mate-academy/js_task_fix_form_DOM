@@ -13,7 +13,10 @@ for (const input of inputs) {
 
   input.parentElement.appendChild(inputLabel);
 
-  const placeholderText = input.name[0].toUpperCase() + input.name.slice(1);
+  const placeHoldName = input.name.replace(/([A-Z])/g, ` $1`).toLowerCase();
+
+  // eslint-disable-next-line max-len
+  const placeholderText = placeHoldName[0].toUpperCase() + placeHoldName.slice(1);
 
   input.placeholder = placeholderText;
 }
