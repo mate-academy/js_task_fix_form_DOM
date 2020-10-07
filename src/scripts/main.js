@@ -1,36 +1,25 @@
 'use strict';
 
 const fields = document.querySelectorAll('.field');
-const labelTemplate = document.createElement('label');
-
-labelTemplate.className = 'field-label';
 
 for (const field of fields) {
-  const lable = labelTemplate.cloneNode();
-  const input = field.lastElementChild;
-  const inputName = formatInputName(input.getAttribute('name'));
+  const label = document.createElement('label');
+  const input = field.querySelector('input');
+  const inputName = toNormalCase(input.name);
 
-  lable.textContent = inputName;
-  lable.htmlFor = input.id;
+  label.className = 'field-label';
 
-  input.setAttribute('placeholder', capitalizInputName(inputName));
-  field.append(lable);
+  label.textContent = inputName;
+  label.htmlFor = input.id;
+  input.placeholder = inputName;
+
+  field.append(label);
 }
 
-function formatInputName(str) {
-  const capitalIndex = [...str].findIndex(char => char.codePointAt(0) < 91);
+function toNormalCase(inputName) {
+  const spacedInputName = inputName.replace(/([A-Z])/g, ' $1');
 
-  if (capitalIndex < 0) {
-    return str;
-  }
-
-  return str.slice(0, capitalIndex) + ' ' + str.slice(capitalIndex);
-}
-
-function capitalizInputName(str) {
-  const capitalLetterStr = str.split(' ').map(word => {
+  return spacedInputName.split(' ').map(word => {
     return word[0].toUpperCase() + word.slice(1);
-  });
-
-  return capitalLetterStr.join(' ');
+  }).join(' ');
 }
