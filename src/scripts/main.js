@@ -14,7 +14,7 @@ inputs.forEach((item, index) => {
 
   let placeholder = item.name.replace(/([A-Z])/g, ` $1`).toLowerCase();
 
-  placeholder = placeholder.charAt(0).toUpperCase() + placeholder.slice(1);
+  placeholder = placeholder[0].toUpperCase() + placeholder.slice(1);
 
   item.placeholder = placeholder;
 });
