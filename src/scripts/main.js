@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('.field-text');
 
 const stringFormat = function(str) {
-  const result = str.name.replace(/([A-Z])/g, ` $1`).toLowerCase()
+  const result = str.name.replace(/([A-Z])/g, ` $1`).toLowerCase();
 
   return result[0].toUpperCase() + result.slice(1);
 };
