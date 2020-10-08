@@ -10,7 +10,8 @@ const addLabel = (list) => {
 
     const parent = input.parentElement;
 
-    const placeholdText = input.name[0].toUpperCase() + input.name.slice(1);
+    const placeholdText = input.name[0].toUpperCase() + input.name.slice(1)
+      .replace('Name', ' Name');
 
     label.htmlFor = input.id;
     label.textContent = input.name;
