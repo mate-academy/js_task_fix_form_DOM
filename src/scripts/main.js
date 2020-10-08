@@ -14,5 +14,5 @@ for (const input of inputs) {
   label.htmlFor = input.id;
   label.textContent = inputName;
 
-  parentOfInput.append(label);
+  parentOfInput.prepend(label);
 }
