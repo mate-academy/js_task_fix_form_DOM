@@ -8,22 +8,25 @@ inputs.forEach(input => {
 
   label.className = 'field-label';
   label.htmlFor = id;
-  label.textContent = fixedName(name);
+  label.textContent = getFixedName(name);
 
-  input.placeholder = fixedName(name);
+  input.placeholder = getFixedName(name);
 
-  const parentForInput = input.closest('.field');
-
-  parentForInput.prepend(label);
+  input.parentElement.prepend(label);
 });
 
-function fixedName(name) {
-  const indexOfBigLetter = [...name].findIndex(letter => {
-    return letter.toUpperCase() === letter;
+function getFixedName(name) {
+  let fixedName = '';
+
+  [...name].forEach(letter => {
+    if (!fixedName) {
+      fixedName += letter.toUpperCase();
+    } else {
+      letter.toUpperCase() === letter
+        ? fixedName += ' ' + letter.toLowerCase()
+        : fixedName += letter;
+    }
   });
 
-  const firstWord = name.substring(0, indexOfBigLetter);
-  const secondWord = name.substring(indexOfBigLetter).toLowerCase();
-
-  return firstWord + ' ' + secondWord;
+  return fixedName;
 }
