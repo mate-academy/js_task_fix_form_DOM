@@ -15,11 +15,11 @@ for (const input of inputs) {
 function convertString(string) {
   let stringConverted = '';
 
-  for (const i of string) {
-    if (i === i.toUpperCase() && string.indexOf('i') !== 0) {
+  for (const char of string) {
+    if (char === char.toUpperCase() && string.indexOf('char') !== 0) {
       stringConverted += ' ';
     }
-    stringConverted += i;
+    stringConverted += char;
   }
 
   return stringConverted[0].toUpperCase()
