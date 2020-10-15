@@ -14,4 +14,4 @@ for (const element of fields) {
 
   element.placeholder = name[0].toUpperCase()
     + name.slice(1).replace(/([A-Z])/g, ' $1');
-}
+};
