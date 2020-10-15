@@ -11,7 +11,6 @@ for (const inputCover of inputCovers) {
   label.className = 'field-label';
   label.textContent = inputName;
   label.htmlFor = input.id;
-
   inputCover.append(label);
 
   let placeholder = inputName.toLowerCase();
