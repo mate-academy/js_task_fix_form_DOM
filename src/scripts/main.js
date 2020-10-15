@@ -3,13 +3,14 @@
 const inputElements = document.querySelectorAll('.field-text');
 
 for (const inputElement of inputElements) {
-  let inputName = inputElement.name;
+  let inputName = inputElement.name[0].toUpperCase()
+    + inputElement.name.slice(1);
 
   if (inputElement.name.indexOf('Name') !== -1) {
-    inputName = inputElement.name.replace('Name', '') + ' Name';
+    inputName = inputName.replace('Name', '') + ' Name';
   }
 
-  inputElement.setAttribute('placeholder', `${inputName.toUpperCase()}`);
+  inputElement.setAttribute('placeholder', `${inputName}`);
 
   const labelElement = document.createElement('label');
 
