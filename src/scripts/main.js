@@ -12,5 +12,7 @@ inputsForm.forEach((input, index) => {
 
   parentInputs[index].append(labelForInput);
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  const inputName = input.name.toLowerCase();
+
+  input.placeholder = inputName[0].toUpperCase() + inputName.slice(1);
 });
