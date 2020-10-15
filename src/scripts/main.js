@@ -9,11 +9,10 @@ for (const input of inputsNodes) {
 
   label.htmlFor = input.id;
 
-  label.textContent = input.name.toUpperCase();
+  label.textContent = input.name;
 
-  const placeholder = input.name.toLowerCase();
-
-  input.placeholder = placeholder[0].toUpperCase() + placeholder.slice(1);
+  input.placeholder = input.name[0].toUpperCase()
+    + input.name.slice(1).toLowerCase();
 
   input.before(label);
 }
