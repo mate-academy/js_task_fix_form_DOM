@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('input');
 
 inputs.forEach(input => {
-  const label = document.createElement('label')
+  const label = document.createElement('label');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
@@ -11,4 +11,4 @@ inputs.forEach(input => {
 
   input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
   input.parentElement.append(label);
-})
+});
