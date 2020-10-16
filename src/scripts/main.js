@@ -12,7 +12,7 @@ for (let i = 0; i < [...inputs].length; i++) {
   labels.textContent = inputsName;
   inputs[i].placeholder = inputsName;
 
-  inputs[i].placeholder = inputs[i].placeholder.charAt(0).toUpperCase()
+  inputs[i].placeholder = inputs[i].placeholder[0].toUpperCase()
     + inputs[i].placeholder.slice(1);
 
   inputs[i].parentElement.append(labels);
