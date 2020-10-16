@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const parent = document.querySelectorAll('.field');
 const fields = document.querySelectorAll('.field-text');
 
