@@ -3,8 +3,11 @@
 const input = document.querySelectorAll('input');
 
 for (const elem of [...input]) {
-  elem.placeholder = elem.name;
-  elem.placeholder[0].toUpperCase();
+  // elem.placeholder = elem.name[0].toUpperCase() + elem.name.slice(1);
+  elem.placeholder = elem.name.replace(/([A-Z])/, ` $1`).toLowerCase();
+
+  elem.placeholder = elem.placeholder[0].toUpperCase()
+  + elem.placeholder.slice(1);
 
   const label = document.createElement('label');
 
