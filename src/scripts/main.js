@@ -11,5 +11,5 @@ for (const input of inputs) {
 
   input.parentElement.append(item);
 
-  input.setAttribute('placeholder', input.name.toUpperCase());
+  input.setAttribute('placeholder', input.name[0].toUpperCase() + input.name.substring(1));
 }
