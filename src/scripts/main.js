@@ -10,7 +10,7 @@ formInputs.forEach((element, index) => {
   label.classList.add('field-label');
 
   label.htmlFor = element.id;
-  label.textContent = element.name;
+  label.textContent = splitByUpperChar(element.name);
   inputWrappers[index].append(label);
 
   const placeholder = capitalize(splitByUpperChar(element.name));
