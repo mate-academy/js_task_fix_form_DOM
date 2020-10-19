@@ -6,7 +6,6 @@ for (const input of inputs) {
   const label = document.createElement('label');
 
   label.className = 'field-label';
-  label.textContent = input.getAttribute('name').toUpperCase();
   label.htmlFor = input.id;
 
   input.parentElement.prepend(label);
@@ -16,6 +15,8 @@ for (const input of inputs) {
   const placeholderText = (
     placeholderName[0].toUpperCase() + placeholderName.slice(1)
   );
+
+  label.textContent = placeholderText.toUpperCase();
 
   input.placeholder = placeholderText;
 }
