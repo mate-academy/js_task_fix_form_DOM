@@ -1,9 +1,10 @@
 'use strict';
 
 const inputs = document.querySelectorAll('input');
-const label = document.createElement('label');
 
 for (const key of inputs) {
+  const label = document.createElement('label');
+
   label.className = [ 'field-label' ];
   label.textContent = key.name;
   label.htmlFor = key.id;
