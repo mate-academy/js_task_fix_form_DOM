@@ -31,7 +31,7 @@ describe('Input field', () => {
     cy.get('#sign-up-name').parent().children('label');
   });
 
-  it('should have abel for last name in sign up form', () => {
+  it('should have label for last name in sign up form', () => {
     cy.get('#sign-up-last-name').parent().children('label');
   });
 
