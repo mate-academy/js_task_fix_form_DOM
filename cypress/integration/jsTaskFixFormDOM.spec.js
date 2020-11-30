@@ -1,53 +1,53 @@
-describe('Fixed form', () => {
+describe('Input field', () => {
   beforeEach(() => {
     cy.visit('/');
   });
 
-  it('should have placeholder for first name', () => {
-    cy.get(':nth-child(1) > :nth-child(1) > input').should('have.attr', 'placeholder');
+  it('should have placeholder for first name in sign up form', () => {
+    cy.get('#sign-up-name').should('have.attr', 'placeholder');
   });
 
-  it('should have placeholder for last name', () => {
-    cy.get(':nth-child(1) > :nth-child(2) > input').should('have.attr', 'placeholder');
+  it('should have placeholder for last name in sign up form', () => {
+    cy.get('#sign-up-last-name').should('have.attr', 'placeholder');
   });
 
-  it('should have placeholder for email', () => {
-    cy.get(':nth-child(1) > :nth-child(3) > input').should('have.attr', 'placeholder');
+  it('should have placeholder for email in sign up form', () => {
+    cy.get('#sign-up-email').should('have.attr', 'placeholder');
   });
 
-  it('should have placeholder for password', () => {
-    cy.get(':nth-child(1) > :nth-child(4) > input').should('have.attr', 'placeholder');
+  it('should have placeholder for password in sign up form', () => {
+    cy.get('#sign-up-password').should('have.attr', 'placeholder');
   });
 
-  it('should have placeholder for email', () => {
-    cy.get('form:nth-child(2) .field:nth-child(1) > input').should('have.attr', 'placeholder');
+  it('should have placeholder for email in sign in form', () => {
+    cy.get('#sign-in-email').should('have.attr', 'placeholder');
   });
 
-  it('should have placeholder for password', () => {
-    cy.get('form:nth-child(2) .field:nth-child(2) > input').should('have.attr', 'placeholder');
+  it('should have placeholder for password in sign in form', () => {
+    cy.get('#sign-in-password').should('have.attr', 'placeholder');
   });
 
-  it('should have label for first name', () => {
-    cy.get('form:nth-child(1) > :nth-child(1) > label').should('exist');
+  it('should have label for first name in sign up form', () => {
+    cy.get('#sign-up-name').parent().children('label');
   });
 
-  it('should have abel for last name', () => {
-    cy.get('form:nth-child(1) > :nth-child(2) > label').should('exist');
+  it('should have abel for last name in sign up form', () => {
+    cy.get('#sign-up-last-name').parent().children('label');
   });
 
-  it('should have label for email', () => {
-    cy.get('form:nth-child(1) > :nth-child(3) > label').should('exist');
+  it('should have label for email in sign up form', () => {
+    cy.get('#sign-up-password').parent().children('label');
   });
 
-  it('should have label for password', () => {
-    cy.get('form:nth-child(1) > :nth-child(4) > label').should('exist');
+  it('should have label for password in sign up form', () => {
+    cy.get('#sign-up-password').parent().children('label');
   });
 
-  it('should have label for email', () => {
-    cy.get('form:nth-child(2) > :nth-child(1) > label').should('exist');
+  it('should have label for email in sign in form', () => {
+    cy.get('#sign-in-email').parent().children('label');
   });
 
-  it('should have label for password', () => {
-    cy.get('form:nth-child(2) :nth-child(2) label').should('exist');
+  it('should have label for password in sign in form', () => {
+    cy.get('#sign-in-password').parent().children('label');
   });
 });
