@@ -1,7 +1,9 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_fix_form_DOM/)
+    - [DEMO LINK](https://sasha39612.github.io/js_task_fix_form_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
-    - There are no tests for this task so use `npm run lint` command instead of `npm test` 
+    - Run `npm run test` command to test your code;
+    - Run `npm run test:only -- -n` to run fast test ignoring linter;
+    - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
 
 ### Task: Auth form fix
 
@@ -9,11 +11,11 @@ Look at this form... Looks like something is missing here. Labels? Placeholders?
 
 ![Preview](./src/images/preview.png)
 
-Your task is to make script, which is able to fix all problems in this form.
+Your task is to make script, which fixes problems in this form.
 1) Add `<label>` for inputs.
 2) Add placeholders for each input.
 
-Both rely on the `name` of input.
+Rely on the `name` of the input when writing your script.
 
 You can read about placeholders and labels here:
 - [MDN Placeholder attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-placeholder)
@@ -21,14 +23,14 @@ You can read about placeholders and labels here:
 
 ##### Steps to do this challenge:
 1) Get all `inputs` from `form` tag on the page.
-2) For each `input` element create element `label` with `class` `field-label` (it needs for correct style applying) and `for` attribute where set `id` of current input. Set `textContent` for label rely on `input` name.
-3) For each `input` set `placeholder` rely on `input` name. Capitalize it.
-4) Append `label` elements to the parent container of `input` (do not cover inputs by the label in this task)
+2) For each `input` element create element `label` with `class` `field-label` (it is needed to apply css styles) and `for` attribute where set `id` of current input. Set `textContent` for label rely on `input` name.
+3) For each `input` set `placeholder` based on `input` name. Capitalize it.
+4) Append `label` elements to the parent container of `input` (do not wrap inputs into the label in this task)
 5) Done.
 
-Hints: p.2 and p.4 can be done in one loop circle
+Hints: p.2 and p.4 can be done in one loop
 
-You no need to change styles or HTML layout in this task. Change only `main.js` file.
+Do not change styles or HTML layout in this task. Change only `main.js` file.
 
 Expected result:
 
