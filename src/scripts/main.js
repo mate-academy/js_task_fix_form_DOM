@@ -7,7 +7,7 @@ allInputs.forEach(element => {
 
   label.setAttribute('class', `field-label`);
   label.setAttribute('for', element.id);
-  label.textContent = element.name;
+  label.textContent = splitByUpperLetter(element.name).toUpperCase();
 
   element.parentElement.append(label);
 
