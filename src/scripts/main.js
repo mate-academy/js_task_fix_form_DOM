@@ -12,5 +12,6 @@ for (let i = 0; i < allInputs.length; i++) {
 
   rootElement[i].append(label);
 
-  allInputs[i].placeholder = allInputs[i].name;
+  allInputs[i].placeholder = allInputs[i].name[0].toUpperCase()
+  + allInputs[i].name.slice(1);
 }
