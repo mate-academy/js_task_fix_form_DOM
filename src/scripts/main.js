@@ -20,8 +20,17 @@ for (let i = 0; i < inputs.length; i++) {
 function capitalize(str) {
   let resultStr = str;
 
-  resultStr = resultStr.split('').map(char => char.toLowerCase());
-  resultStr[0] = resultStr[0].toUpperCase();
+  resultStr = resultStr.split('').map((char, i) => {
+    let item = char;
+
+    if (i === 0) {
+      item = item.toUpperCase();
+    } else {
+      item = item.toLowerCase();
+    }
+
+    return item;
+  });
 
   return resultStr.join('');
 }
