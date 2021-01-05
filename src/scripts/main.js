@@ -9,5 +9,6 @@ inputs.forEach(item => {
     </label>
   `);
 
-  item.placeholder = item.name[0].toUpperCase() + item.name.slice(1);
+  item.placeholder = (item.name[0].toUpperCase() + item.name.slice(1))
+    .replace(/Name/, ' Name');
 });
