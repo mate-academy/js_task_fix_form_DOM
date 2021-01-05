@@ -7,13 +7,13 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = editingPlaceholderAndLabel(input.name);
 
   input.parentNode.append(label);
-  input.placeholder = editingPlaceholder(input.name);
+  input.placeholder = editingPlaceholderAndLabel(input.name);
 }
 
-function editingPlaceholder(string) {
+function editingPlaceholderAndLabel(string) {
   const letters = [];
 
   for (const symbol of string.slice(1)) {
