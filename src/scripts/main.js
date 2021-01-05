@@ -25,8 +25,10 @@ function capitalize(str) {
 
     if (i === 0) {
       item = item.toUpperCase();
-    } else {
-      item = item.toLowerCase();
+    };
+
+    if (item === item.toUpperCase()) {
+      item = ` ${item}`;
     }
 
     return item;
