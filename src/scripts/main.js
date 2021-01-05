@@ -2,10 +2,8 @@
 
 const wrapper = document.querySelectorAll('.field');
 
-for (const item of wrapper) {
-  const inputName = item.children[0].name;
-
-  const textPlaceholder = inputName.split('').map((letter, index) => {
+function slice(input) {
+  const result = input.split('').map((letter, index) => {
     return letter === letter.toUpperCase()
       ? ' ' + letter
       : index === 0
@@ -13,11 +11,17 @@ for (const item of wrapper) {
         : letter;
   }).join('');
 
-  item.children[0].placeholder = textPlaceholder;
+  return result;
+}
+
+for (const item of wrapper) {
+  const inputName = item.children[0].name;
+
+  item.children[0].placeholder = slice(inputName);
 
   item.insertAdjacentHTML('afterbegin', `
       <label class="field-label" for="${item.children[0].id}">
-      ${inputName}
+      ${slice(inputName)}
       </label>
       `);
 }
