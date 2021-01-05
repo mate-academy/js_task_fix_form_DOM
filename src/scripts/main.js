@@ -4,16 +4,16 @@ const inputList = document.getElementsByTagName('input');
 
 for (const element of inputList) {
   element.setAttribute('placeholder',
-    `${formatPlaceholder(element.name)}`);
+    `${formatName(element.name)}`);
 
   element.insertAdjacentHTML('beforebegin', `
     <label class="field-label" for="${element.id}">
-      ${element.name}
+      ${formatName(element.name)}
     </label>
   `);
 }
 
-function formatPlaceholder(str) {
+function formatName(str) {
   const newStr = str.slice(1);
   let result = '';
 
