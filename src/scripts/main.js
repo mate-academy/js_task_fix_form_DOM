@@ -1,8 +1,8 @@
 'use strict';
 
-const list = document.querySelectorAll('input');
+const inputsList = document.querySelectorAll('input');
 
-for (const input of list) {
+for (const input of inputsList) {
   const label = document.createElement('label');
 
   label.className = 'field-label';
