@@ -5,7 +5,7 @@ const inputs = document.querySelectorAll('.field-text');
 inputs.forEach(item => {
   item.insertAdjacentHTML('beforebegin', `
     <label class="field-label" for="${item.id}">
-      ${item.name}
+      ${item.name.replace(/Name/, ' Name')}
     </label>
   `);
 
