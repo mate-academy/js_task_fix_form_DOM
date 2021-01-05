@@ -3,9 +3,14 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  const label
-  = `<label class="field-label" for="${input.id}">${input.name}</label>`;
+  const separatedName = input.name.replace(/([A-Z])/, ' $1');
 
-  input.insertAdjacentHTML('beforebegin', label);
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  input.placeholder = separatedName[0].toUpperCase() + separatedName.slice(1);
+
+  input.insertAdjacentHTML(
+    'beforebegin',
+    `<label class="field-label" for="${input.id}">
+      ${separatedName}
+    </label>`
+  );
 }
