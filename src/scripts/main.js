@@ -13,7 +13,7 @@ forms.forEach(form => {
 
     parentDiv.insertAdjacentHTML('afterbegin', `
       <label class="field-label" for = ${inputName}>
-        ${inputName}
+        ${capitalize(inputName)}
       </label>
     `);
   });
