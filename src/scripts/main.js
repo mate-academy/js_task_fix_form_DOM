@@ -3,15 +3,24 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  const lableElement = document.createElement('label');
+  const labelElement = document.createElement('label');
+  let lebelName = '';
 
-  lableElement.className = 'field-label';
-  lableElement.textContent = input.name;
-  input.after(lableElement);
+  for (const letter of input.name) {
+    if (letter.charCodeAt(0) < 97) {
+      lebelName += ` ${letter}`;
+    } else {
+      lebelName += letter;
+    }
+  }
+
+  labelElement.className = 'field-label';
+  labelElement.textContent = lebelName;
+  input.after(labelElement);
 
   const inputAtr = input.getAttribute('id');
 
-  lableElement.setAttribute('for', inputAtr);
+  labelElement.setAttribute('for', inputAtr);
 
   const textPlaceholder = input.name.slice(0, 1).toUpperCase()
     + input.name.slice(1);
