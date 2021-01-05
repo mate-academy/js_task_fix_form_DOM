@@ -1,6 +1,6 @@
 'use strict';
 
-const inputs = [...document.querySelectorAll('input')];
+const inputs = [...document.querySelectorAll('.field-text')];
 
 inputs.forEach(input => {
   input.placeholder = splitWord(input.name);
