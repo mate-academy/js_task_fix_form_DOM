@@ -1,14 +1,14 @@
 'use strict';
 
-const inputs = [...document.querySelectorAll('.field')];
+const inputs = [...document.querySelectorAll('input')];
 
-inputs.forEach(div => {
-  div.insertAdjacentHTML('afterbegin', '<label></label>');
+inputs.forEach(input => {
+  input.insertAdjacentHTML('beforebegin', '<label></label>');
 
-  div.children[0].className = 'field-label';
-  div.children[0].htmlFor = div.children[1].id;
-  div.children[0].textContent = div.children[1].name;
+  input.previousElementSibling.className = 'field-label';
+  input.previousElementSibling.htmlFor = input.id;
+  input.previousElementSibling.textContent = input.name;
 
-  div.children[1].placeholder = div.children[1].name[0].toUpperCase()
-  + div.children[1].name.slice(1);
+  input.placeholder = input.name[0].toUpperCase()
+  + input.name.slice(1);
 });
