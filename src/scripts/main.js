@@ -10,5 +10,5 @@ inputs.forEach(div => {
   div.children[0].textContent = div.children[1].name;
 
   div.children[1].placeholder = div.children[1].name[0].toUpperCase()
-  + div.children[1].name.slice(1);
+  + div.children[1].name.slice(1).replace(/Name/, ' Name');
 });
