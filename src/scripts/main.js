@@ -9,5 +9,7 @@ for (const inp of inputs) {
         ${inp.name.replace(/([A-Z])/g, ' $1')}
     </label>
   `);
-  inp.placeholder = inp.name[0].toUpperCase() + inp.name.slice(1);
+
+  inp.placeholder = inp.name[0].toUpperCase() + inp.name.slice(1)
+    .replace(/([A-Z])/g, ' $1');
 }
