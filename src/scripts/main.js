@@ -7,13 +7,22 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name.toUpperCase();
+
+  const separatedName = input.name.split(/(?=[A-Z])/);
+
+  label.textContent = separatedName.join(' ').toUpperCase();
+
+  const placeholderText = [];
+
+  for (const word of separatedName) {
+    placeholderText.push(word.toLowerCase().charAt(0).toUpperCase()
+      + word.toLowerCase().slice(1));
+  }
 
   input.before(label);
 
   input.setAttribute(
     'placeholder',
-    input.name.toLowerCase().charAt(0).toUpperCase()
-      + input.name.toLowerCase().slice(1)
+    placeholderText.join(' ')
   );
 }
