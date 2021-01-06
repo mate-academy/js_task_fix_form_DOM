@@ -20,6 +20,7 @@ const getCapitalizeName = (str) => {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
+  label.textContent = getCapitalizeName(input.name);
 
   input.insertAdjacentElement('beforebegin', label);
   input.placeholder = getCapitalizeName(input.name);
