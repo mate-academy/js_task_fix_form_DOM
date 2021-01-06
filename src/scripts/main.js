@@ -24,5 +24,5 @@ function editingPlaceholderAndLabel(string) {
     }
   }
 
-  return string[0].toUpperCase() + letters.join('').toUpperCase();
+  return string[0].toUpperCase() + letters.join('');
 }
