@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const inputs = document.querySelectorAll('input');
 
 for (const inp of inputs) {
