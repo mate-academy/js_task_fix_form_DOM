@@ -8,5 +8,7 @@ for (const input of inputs) {
       ${input.name.replace(/Name/, ' Name')}
     </label>
   `);
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+
+  input.placeholder = input.name[0].toUpperCase()
+    + input.name.slice(1).replace(/Name/, ' Name');
 }
