@@ -8,7 +8,7 @@ for (let i = 0; i < inputs.length; i++) {
 
   label.className = 'field-label';
   label.htmlFor = inputs[i].getAttribute('id');
-  label.textContent = inputs[i].getAttribute('name');
+  label.textContent = capitalize(inputs[i].getAttribute('name'));
 
   const placeholder = capitalize(inputs[i].getAttribute('name'));
 
