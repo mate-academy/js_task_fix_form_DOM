@@ -7,7 +7,7 @@ inputs.forEach(input => {
 
   input.insertAdjacentHTML('beforebegin',
     `<label for="${input.id}" class="field-label">
-      ${input.name}
+      ${toUpper(input.name)}
     </label>`);
 });
 
