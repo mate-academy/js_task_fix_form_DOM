@@ -18,6 +18,7 @@ for (const key of arrOfInputs) {
   const label = document.createElement('label');
 
   label.htmlFor = key.id;
+  label.className = 'field-label';
   label.innerText = fromCamelCase(key.name).toUpperCase();
   key.before(label);
 }
