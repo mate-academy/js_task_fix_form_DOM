@@ -11,7 +11,7 @@ const inputs = document.querySelectorAll('input');
   label.htmlFor = input.id;
   label.textContent = input.name.toUpperCase();
 
-  parentDiv.prepend(label);
+  container.prepend(label);
   input.placeholder = capitalize(input.name);
 });
 
