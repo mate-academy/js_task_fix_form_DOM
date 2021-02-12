@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('input');
 
 [...inputs].forEach(input => {
-  const parentDiv = input.closest('div');
+  const container = input.closest('div');
   const label = document.createElement('label');
 
   label.name = input.name;
