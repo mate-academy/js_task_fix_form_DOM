@@ -7,7 +7,7 @@ const capitalize = (str) => {
   + str.slice(1).replace(/([a-z])([A-Z])/, '$1 $2');
 };
 
-[...inputs].map(input => {
+[...inputs].forEach(input => {
   input.placeholder = capitalize(input.name);
 
   input.insertAdjacentHTML('beforebegin', `
