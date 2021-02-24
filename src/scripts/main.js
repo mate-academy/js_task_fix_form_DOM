@@ -11,9 +11,9 @@ for (let i = 0; i < input.length; i++) {
     }
 
     return letter;
-  }).join('');
+  });
 
-  const word = firstLetter + separatedWord;
+  const word = (firstLetter + separatedWord.join(''));
 
   label[i] = document.createElement('label');
 
