@@ -3,19 +3,23 @@
 const input = document.querySelectorAll('input');
 const label = document.createElement('label');
 
+function converterToSeparateWordWithFirstLetterToUpperCase(wordsToConvert) {
+  const wordWithoutFirstLetter
+    = wordsToConvert.split('').slice(1).map(letter => {
+      if (letter === letter.toUpperCase()) {
+        return ` ${letter}`;
+      }
+
+      return letter;
+    });
+
+  const firstLetter = wordsToConvert[0].toUpperCase();
+
+  return firstLetter + wordWithoutFirstLetter.join('');
+}
+
 for (let i = 0; i < input.length; i++) {
-  const inputName = input[i].name.split('');
-  const firstLetter = inputName[0].toUpperCase();
-
-  const separatedWord = inputName.slice(1).map(letter => {
-    if (letter === letter.toUpperCase()) {
-      return ` ${letter}`;
-    }
-
-    return letter;
-  });
-
-  const word = firstLetter + separatedWord.join('');
+  const word = converterToSeparateWordWithFirstLetterToUpperCase(input[i].name);
 
   label[i] = document.createElement('label');
 
