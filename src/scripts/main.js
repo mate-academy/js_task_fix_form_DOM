@@ -5,11 +5,18 @@ const input = document.querySelectorAll('input');
 const label = document.createElement('label');
 
 function capitalize(string) {
-  return string.split(' ').map(word => (
+  const inputTextWord = (word) => (
     word.substring(0, 1).toUpperCase() + word.substring(1)
-  )).join(' ').split('').map(letter => (
+  );
+  const firstLetterToUpperCase = string.split(' ').map(inputTextWord).join(' ');
+
+  const inputTextLetter = (letter) => (
     letter === letter.toUpperCase() ? ' ' + letter : letter
-  )).join('');
+  );
+  const splitWords
+    = firstLetterToUpperCase.split('').map(inputTextLetter).join('');
+
+  return splitWords;
 }
 
 for (let i = 0; i < input.length; i++) {
