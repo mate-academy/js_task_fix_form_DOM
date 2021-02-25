@@ -1,11 +1,16 @@
 'use strict';
 
-const form = document.querySelectorAll('form');
-const topInputs = form[0].querySelectorAll('input');
-const bottomInputs = form[1].querySelectorAll('input');
-const allInputs = [...topInputs, ...bottomInputs];
+const [...inputs] = document.querySelectorAll('input');
 
-for (const input of allInputs) {
+const stringConverter = (letter, i) => {
+  if (letter === letter.toUpperCase() && i !== 0) {
+    return ` ${letter}`;
+  }
+
+  return letter;
+};
+
+for (const input of inputs) {
   const label = document.createElement('label');
 
   label.className = 'field-label';
@@ -16,13 +21,10 @@ for (const input of allInputs) {
 
   input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
 
-  const rewritedName = input.placeholder.split('').map((letter, i) => {
-    if (letter === letter.toUpperCase() && i !== 0) {
-      return ` ${letter}`;
-    }
-
-    return letter;
-  }).join('');
+  const rewritedName = input.placeholder
+    .split('')
+    .map(stringConverter)
+    .join('');
 
   label.textContent = rewritedName;
   input.placeholder = rewritedName;
