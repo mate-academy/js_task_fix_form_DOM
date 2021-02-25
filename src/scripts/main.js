@@ -7,12 +7,16 @@ for (const input of inputsList) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name.toUpperCase();
+  label.textContent = splitWords(input.name).toUpperCase();
 
   input.parentElement.append(label);
-  input.placeholder = capitalize(input.name);
+  input.placeholder = capitalize(splitWords(input.name));
 }
 
 function capitalize(word) {
-  return word[0].toUpperCase() + word.slice(1).replace(/[A-Z]/g, ' $&');
+  return word[0].toUpperCase() + word.slice(1);
+}
+
+function splitWords(word) {
+  return word.replace(/[A-Z]/g, ' $&');
 }
