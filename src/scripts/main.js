@@ -15,17 +15,14 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
 
-  input.closest('.field').append(label);
-
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
-
-  const rewritedName = input.placeholder
+  const rewritedName = input.name
     .split('')
     .map(stringConverter)
     .join('');
 
   label.textContent = rewritedName;
-  input.placeholder = rewritedName;
+  input.placeholder = rewritedName[0].toUpperCase() + rewritedName.slice(1);
+
+  input.closest('.field').append(label);
 }
