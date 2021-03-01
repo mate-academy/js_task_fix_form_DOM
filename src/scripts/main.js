@@ -2,17 +2,27 @@
 
 const inputs = document.querySelectorAll('input');
 
-function formatingText(text = 'email') {
-  const newText = text.split('');
-  const i = newText.findIndex(el => el === el.toUpperCase());
+function formatingText(text) {
+  let splitText = text.split('');
+  let i = splitText.findIndex(el => el === el.toUpperCase());
 
-  newText[0] = newText[0].toUpperCase();
-
-  if (i > 0) {
-    newText.splice(i, 0, ' ');
+  while (i > 0) {
+    splitText[i] = splitText[i].toLowerCase();
+    splitText.splice(i, 0, ' ');
+    i = splitText.findIndex(el => el === el.toUpperCase() && el !== ' ');
   }
 
-  return newText.join('');
+  splitText = splitText.join('').split(' ');
+
+  splitText = splitText.map(word => {
+    const wordArr = word.split('');
+
+    wordArr[0] = wordArr[0].toUpperCase();
+
+    return wordArr.join('');
+  });
+
+  return splitText.join(' ');
 };
 
 [...inputs].forEach(element => {
