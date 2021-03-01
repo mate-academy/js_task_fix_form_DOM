@@ -30,8 +30,8 @@ function formatingText(text) {
 
   element.insertAdjacentHTML('beforebegin', `
     <label
-    for="${element.id}"
-    class="field-label"
+      for="${element.id}"
+      class="field-label"
     >
       ${formatingText(element.name)}
     </label>
