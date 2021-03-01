@@ -3,26 +3,18 @@
 const inputs = document.querySelectorAll('input');
 
 function formatingText(text) {
-  let splitText = text.split('');
-  let i = splitText.findIndex(el => el === el.toUpperCase());
+  const splitText = text.split('');
 
-  while (i > 0) {
-    splitText[i] = splitText[i].toLowerCase();
-    splitText.splice(i, 0, ' ');
-    i = splitText.findIndex(el => el === el.toUpperCase() && el !== ' ');
+  splitText[0] = splitText[0].toUpperCase();
+
+  for (let i = 1; i < splitText.length; i++) {
+    if (splitText[i] === splitText[i].toUpperCase()) {
+      splitText.splice(i, 0, ' ');
+      i++;
+    }
   }
 
-  splitText = splitText.join('').split(' ');
-
-  splitText = splitText.map(word => {
-    const wordArr = word.split('');
-
-    wordArr[0] = wordArr[0].toUpperCase();
-
-    return wordArr.join('');
-  });
-
-  return splitText.join(' ');
+  return splitText.join('');
 };
 
 [...inputs].forEach(element => {
