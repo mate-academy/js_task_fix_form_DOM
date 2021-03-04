@@ -11,7 +11,7 @@ function capitalizeFirstLetter(string) {
     splitedTitle += letter;
   }
 
-  return splitedTitle.charAt(0).toUpperCase() + splitedTitle.slice(1);
+  return splitedTitle[0].toUpperCase() + splitedTitle.slice(1);
 }
 
 const listOfInputs = Array.from(document.querySelectorAll('input'));
