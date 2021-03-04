@@ -24,5 +24,5 @@ function capitalizeFirstLetter(string) {
     modifiedString += letter;
   }
 
-  return modifiedString.charAt(0).toUpperCase() + modifiedString.slice(1);
+  return modifiedString[0].toUpperCase() + modifiedString.slice(1);
 }
