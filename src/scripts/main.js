@@ -1,9 +1,9 @@
 'use strict';
 
-function capitalizeFirstLetter(string) {
+function formatingTitle(title) {
   let splitedTitle = '';
 
-  for (const letter of string) {
+  for (const letter of title) {
     if (letter === letter.toUpperCase()) {
       splitedTitle += ' ';
     }
@@ -21,8 +21,8 @@ listOfInputs.forEach(input => {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = capitalizeFirstLetter(input.name);
+  label.textContent = formatingTitle(input.name);
 
-  input.setAttribute('placeholder', capitalizeFirstLetter(input.name));
+  input.setAttribute('placeholder', formatingTitle(input.name));
   input.before(label);
 });
