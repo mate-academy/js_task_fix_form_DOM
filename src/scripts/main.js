@@ -8,11 +8,14 @@ for (const input of inputs) {
   label.className = 'field-label';
   label.htmlFor = input.id;
   label.textContent = splitWords(input.name);
-  input.placeholder = splitWords(input.name);
-  input.placeholder = input.placeholder.toUpperCase();
+  input.placeholder = splitWords(capitalize(input.name));
   input.parentElement.append(label);
 }
 
 function splitWords(word) {
   return word.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+function capitalize(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
