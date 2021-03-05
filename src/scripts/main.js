@@ -1,13 +1,15 @@
 'use strict';
 
 // write code here
-const formInputs = [...document.body.querySelectorAll('.field-text')];
+const formInputs = document.body.querySelectorAll('.field-text');
 
-formInputs.forEach(item => {
-  item.insertAdjacentHTML('beforebegin',
+formInputs.forEach(input => {
+  input.insertAdjacentHTML('beforebegin',
     `<label
         class="field-label"
-        for="${item.id}"
-    >${item.name}</label>`);
-  item.placeholder = item.name[0].toUpperCase() + item.name.slice(1);
+        for="${input.id}"
+     >
+      ${input.name}
+     </label>`);
+  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
 });
