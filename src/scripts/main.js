@@ -9,7 +9,7 @@ formInputs.forEach(input => {
         class="field-label"
         for="${input.id}"
      >
-      ${input.name}
+      ${splitWords(input.name)}
 </label>`);
 
   input.placeholder = splitWords(
