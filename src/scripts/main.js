@@ -7,7 +7,7 @@ const allInputs = document.querySelectorAll('.field-text');
 [...allInputs].map(elem =>
   elem.insertAdjacentHTML('beforebegin', `
   <label for="${elem.id}" class="field-label">
-    ${elem.name}
+    ${elem.name.replace(/[A-Z]/g, ' $&')}
   </label>
 `));
 
