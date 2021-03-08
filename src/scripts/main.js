@@ -6,7 +6,7 @@ class Label {
 
     newLabel.className = 'field-label';
     newLabel.htmlFor = id;
-    newLabel.textContent = inputName.toUpperCase();
+    newLabel.textContent = inputName;
 
     return newLabel;
   }
@@ -16,10 +16,7 @@ const fields = [...document.querySelectorAll('.field')];
 
 for (const field of fields) {
   const input = field.children[0];
-  let inputName = input.name.split('');
-
-  inputName[0] = inputName[0].toUpperCase();
-  inputName = inputName.join('');
+  const inputName = input.name[0].toUpperCase() + input.name.slice(1);
 
   input.placeholder = inputName;
 
