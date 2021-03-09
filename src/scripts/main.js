@@ -4,16 +4,24 @@
 
 const allInputs = document.querySelectorAll('.field-text');
 
+function splitLabelWord(word) {
+  return word.replace(/[A-Z]/g, ' $&');
+}
+
+function splitPlaceholderWord(word) {
+  const capitalizeLetter = word[0].toUpperCase() + word.slice(1);
+  const addSpaceBetween = capitalizeLetter.replace(/[A-Z]/g, ' $&').trim();
+
+  return addSpaceBetween;
+}
+
 [...allInputs].map(elem =>
   elem.insertAdjacentHTML('beforebegin', `
   <label for="${elem.id}" class="field-label">
-    ${elem.name.replace(/[A-Z]/g, ' $&')}
+    ${splitLabelWord(elem.name)}
   </label>
 `));
 
 [...allInputs].map(elem =>
-  elem.setAttribute(
-    'placeholder', (elem.name[0].toUpperCase()
-    + elem.name.slice(1)).replace(/[A-Z]/g, ' $&').trim()
-  )
+  elem.setAttribute('placeholder', splitPlaceholderWord(elem.name))
 );
