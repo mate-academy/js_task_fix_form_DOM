@@ -5,9 +5,11 @@ const inputs = document.querySelectorAll('input');
 for (const input of inputs) {
   const label = document.createElement('label');
 
-  label.textContent = input.name;
+  const match = input.name.match(/([A-Z]?[^A-Z]*)/g);
 
-  const inputName = input.name;
+  const inputName = `${match[0]} ${match[1]}`;
+
+  label.textContent = inputName;
 
   input.parentNode.append(label);
 
