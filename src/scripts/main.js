@@ -2,26 +2,26 @@
 
 const inputs = document.querySelectorAll('input');
 
-inputs.forEach((element) => {
+inputs.forEach((input) => {
   const field = document.createElement('label');
 
-  field.htmlFor = element.id;
+  field.htmlFor = input.id;
   field.className = 'field-label';
-  field.textContent = capitalize(element.name);
-  element.parentElement.append(field);
-  element.placeholder = capitalize(element.name);
+  field.textContent = capitalize(input.name);
+  input.parentElement.append(field);
+  input.placeholder = capitalize(input.name);
 });
 
 function capitalize(string) {
   const words = string.split('');
 
-  words.forEach((element, index) => {
+  words.forEach((letter, index) => {
     if (index === 0) {
-      words[index] = words[index].toUpperCase();
+      words[index] = letter.toUpperCase();
     }
 
-    if (words[index].charCodeAt(0) < 91 && words[index].charCodeAt(0) > 64) {
-      words[index] = ' ' + words[index].toUpperCase();
+    if (letter.toUpperCase() === letter) {
+      words[index] = ' ' + letter.toUpperCase();
     }
   });
 
