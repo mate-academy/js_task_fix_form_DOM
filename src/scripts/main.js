@@ -7,6 +7,22 @@ function replacePlaceHolder(
     .toUpperCase() + placeholder.slice(charIndexFrom, charIndexTo);
 }
 
+function formatingWord(indexOfUpperSymbol, placeholderValue) {
+  let newWord = '';
+
+  const firstPart = replacePlaceHolder(
+    placeholderValue, 1, indexOfUpperSymbol
+  );
+
+  const secondPart = replacePlaceHolder(
+    placeholderValue, indexOfUpperSymbol, placeholderValue.length
+  );
+
+  newWord = `${firstPart} ${secondPart}`;
+
+  return newWord;
+}
+
 const dataInputs = document.querySelectorAll('.field-text');
 
 for (let i = 0; i < dataInputs.length; i++) {
@@ -18,15 +34,7 @@ for (let i = 0; i < dataInputs.length; i++) {
     .indexOf(placeholderValue.match(/[A-Z]/g));
 
   if (indexOfUpperSymbol > 0) {
-    const firstPart = replacePlaceHolder(
-      placeholderValue, 1, indexOfUpperSymbol
-    );
-
-    const secondPart = replacePlaceHolder(
-      placeholderValue, indexOfUpperSymbol, placeholderValue.length
-    );
-
-    placeholderValue = `${firstPart} ${secondPart}`;
+    placeholderValue = formatingWord(indexOfUpperSymbol, placeholderValue);
   } else {
     placeholderValue = replacePlaceHolder(placeholderValue, 1);
   }
@@ -38,5 +46,5 @@ for (let i = 0; i < dataInputs.length; i++) {
   label.className = 'field-label';
   label.innerText = placeholderValue;
 
-  dataInputs[i].setAttribute('placeholder', `${placeholderValue}`);
+  dataInputs[i].placeholder = `${placeholderValue}`;
 }
