@@ -4,19 +4,14 @@ const inputs = [...document.querySelectorAll('input')];
 
 function capitalize(string) {
   const letters = string.split('');
-  const formattedLetters = [];
 
-  formattedLetters.push(letters[0].toUpperCase());
+  const words = letters.map(x => x === x.toUpperCase() ? ' ' + x : x);
+  const firstLetter = letters[0].toUpperCase();
 
-  for (let i = 1; i < letters.length; i++) {
-    if (letters[i] === letters[i].toUpperCase()) {
-      formattedLetters.push(' ', letters[i]);
-    } else {
-      formattedLetters.push(letters[i]);
-    }
-  }
+  words.splice(0, 1);
+  words.unshift(firstLetter);
 
-  return formattedLetters.join('');
+  return words.join('');
 }
 
 inputs.map((input) => {
