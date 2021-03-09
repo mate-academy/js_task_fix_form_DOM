@@ -13,6 +13,7 @@ const allInputs = document.querySelectorAll('.field-text');
 
 [...allInputs].map(elem =>
   elem.setAttribute(
-    'placeholder', elem.name[0].toUpperCase() + elem.name.slice(1)
+    'placeholder', (elem.name[0].toUpperCase()
+    + elem.name.slice(1)).replace(/[A-Z]/g, ' $&').trim()
   )
 );
