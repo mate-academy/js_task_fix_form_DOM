@@ -4,6 +4,9 @@ const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
   const label = document.createElement('label');
+
+  label.textContent = input.name;
+
   const inputName = input.name;
 
   input.parentNode.append(label);
