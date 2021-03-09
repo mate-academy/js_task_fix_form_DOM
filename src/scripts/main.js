@@ -1,9 +1,16 @@
 'use strict';
 
+function replacePlaceHolder(
+  placeholder, charIndexFrom, charIndexTo = placeholder.length
+) {
+  return placeholder[0]
+    .toUpperCase() + placeholder.slice(charIndexFrom, charIndexTo);
+}
+
 const dataInputs = document.querySelectorAll('.field-text');
 
 for (let i = 0; i < dataInputs.length; i++) {
-  let placeholderValue = dataInputs[i].getAttribute('name');
+  let placeholderValue = dataInputs[i].name;
 
   const inputParent = dataInputs[i].parentElement;
 
@@ -11,16 +18,17 @@ for (let i = 0; i < dataInputs.length; i++) {
     .indexOf(placeholderValue.match(/[A-Z]/g));
 
   if (indexOfUpperSymbol > 0) {
-    const firstPart = placeholderValue[0]
-      .toUpperCase() + placeholderValue.slice(1, indexOfUpperSymbol);
+    const firstPart = replacePlaceHolder(
+      placeholderValue, 1, indexOfUpperSymbol
+    );
 
-    const secondPart = placeholderValue
-      .slice(indexOfUpperSymbol, placeholderValue.length);
+    const secondPart = replacePlaceHolder(
+      placeholderValue, indexOfUpperSymbol, placeholderValue.length
+    );
 
     placeholderValue = `${firstPart} ${secondPart}`;
   } else {
-    placeholderValue = placeholderValue[0]
-      .toUpperCase() + placeholderValue.slice(1);
+    placeholderValue = replacePlaceHolder(placeholderValue, 1);
   }
 
   const label = document.createElement('label');
