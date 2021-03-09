@@ -3,29 +3,31 @@
 const inputs = document.querySelectorAll('.field-text');
 
 function addGap(text) {
-  const result = [];
-  const newText = text.split('');
+  const textWithgap = [];
+  const splittedWord = text.split('');
 
-  result.push(newText[0].toUpperCase());
+  textWithgap.push(splittedWord[0].toUpperCase());
 
-  for (let i = 1; i < newText.length; i++) {
-    if (newText[i] === newText[i].toUpperCase()) {
-      result.push(' ');
+  for (let i = 1; i < splittedWord.length; i++) {
+    if (splittedWord[i] === splittedWord[i].toUpperCase()) {
+      textWithgap.push(' ');
     }
 
-    result.push(newText[i]);
+    textWithgap.push(splittedWord[i]);
   }
 
-  return result.join('');
+  return textWithgap.join('');
 }
 
+document.createElement('label');
+
 for (const input of inputs) {
-  input.insertAdjacentHTML('afterend',
-    `<label
-      for='${input.name}'
-      class='field-label' >${input.name}
-    </label>`
-  );
+  const label = document.createElement('label');
+
+  label.htmlFor = input.name;
+  label.className = 'field-label';
+  label.textContent = input.name;
+  input.before(label);
 
   input.placeholder = addGap(input.name);
 }
