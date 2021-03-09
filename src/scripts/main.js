@@ -12,15 +12,15 @@ class Label {
   }
 }
 
-const fields = [...document.querySelectorAll('.field')];
+const fields = [...document.querySelectorAll('.field-text')];
 
 for (const field of fields) {
-  const input = field.children[0];
+  const input = field;
   const inputName = input.name[0].toUpperCase() + input.name.slice(1);
 
-  input.placeholder = inputName;
+  input.placeholder = inputName.replace('N', ' N');
 
   const inputLabel = new Label(input.id, inputName);
 
-  field.insertBefore(inputLabel, input);
+  field.before(inputLabel, input);
 }
