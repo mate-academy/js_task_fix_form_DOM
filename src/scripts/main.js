@@ -9,17 +9,20 @@ const inputs = document.querySelectorAll('input');
   label.htmlFor = input.id;
   label.textContent = input.name.toUpperCase();
 
-  const splittedName = input.name.split('');
+  function addSpaces(string) {
+    const splittedName = string.split('');
 
-  for (let i = 0; i < splittedName.length; i++) {
-    if (splittedName[i] === splittedName[i].toUpperCase()) {
-      splittedName[i] = ` ${splittedName[i]}`;
+    for (let i = 0; i < splittedName.length; i++) {
+      if (splittedName[i] === splittedName[i].toUpperCase()) {
+        splittedName[i] = ` ${splittedName[i]}`;
+      }
     }
+
+    return splittedName.join('');
   }
 
-  const joinedName = splittedName.join('');
-
-  input.placeholder = joinedName[0].toUpperCase() + joinedName.slice(1);
+  input.placeholder = addSpaces(input.name)[0].toUpperCase()
+  + addSpaces(input.name).slice(1);
 
   input.parentElement.append(label);
 });
