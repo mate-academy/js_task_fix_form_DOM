@@ -15,5 +15,5 @@ for (const input of inputs) {
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', inputName);
-  input.setAttribute('placeholder', inputName);
+  input.setAttribute('placeholder', inputName.toUpperCase());
 }
