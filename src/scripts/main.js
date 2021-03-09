@@ -9,7 +9,17 @@ const inputs = document.querySelectorAll('input');
   label.htmlFor = input.id;
   label.textContent = input.name.toUpperCase();
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  const splittedName = input.name.split('');
+
+  for (let i = 0; i < splittedName.length; i++) {
+    if (splittedName[i] === splittedName[i].toUpperCase()) {
+      splittedName[i] = ` ${splittedName[i]}`;
+    }
+  }
+
+  const joinedName = splittedName.join('');
+
+  input.placeholder = joinedName[0].toUpperCase() + joinedName.slice(1);
 
   input.parentElement.append(label);
 });
