@@ -20,8 +20,7 @@ function addSpaces(string) {
   label.className = 'field-label';
   label.htmlFor = input.id;
 
-  label.textContent = addSpaces(input.name)[0].toUpperCase()
-  + addSpaces(input.name).slice(1).toUpperCase();
+  label.textContent = addSpaces(input.name).toUpperCase();
 
   input.placeholder = addSpaces(input.name)[0].toUpperCase()
   + addSpaces(input.name).slice(1);
