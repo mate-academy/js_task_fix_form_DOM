@@ -13,7 +13,9 @@ for (const input of inputs) {
 
   input.parentNode.append(label);
 
-  label.setAttribute('class', 'field-label');
-  label.setAttribute('for', inputName);
-  input.setAttribute('placeholder', inputName.toUpperCase());
+  label.className = 'field-label';
+  label.htmlFor = inputName;
+
+  input.placeholder = inputName.substring(0, 1).toUpperCase()
+    + inputName.substring(1);
 }
