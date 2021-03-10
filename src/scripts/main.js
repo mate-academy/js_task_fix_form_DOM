@@ -2,26 +2,19 @@
 
 // write code here
 
-const allInputs = document.querySelectorAll('.field-text');
+const inputs = document.querySelectorAll('.field-text');
 
-function splitLabelWord(word) {
+function splitWord(word) {
   return word.replace(/[A-Z]/g, ' $&');
 }
 
-function splitPlaceholderWord(word) {
-  const capitalizeLetter = word[0].toUpperCase() + word.slice(1);
-  const addSpaceBetween = capitalizeLetter.replace(/[A-Z]/g, ' $&').trim();
+for (const input of inputs) {
+  input.insertAdjacentHTML('beforebegin',
+    `<label class="field-label" for="${input.id}">
+        ${splitWord(input.name)}
+    </label>`
+  );
 
-  return addSpaceBetween;
+  input.placeholder = input.name[0].toUpperCase()
+    + splitWord(input.name.slice(1));
 }
-
-[...allInputs].map(elem =>
-  elem.insertAdjacentHTML('beforebegin', `
-  <label for="${elem.id}" class="field-label">
-    ${splitLabelWord(elem.name)}
-  </label>
-`));
-
-[...allInputs].map(elem =>
-  elem.setAttribute('placeholder', splitPlaceholderWord(elem.name))
-);
