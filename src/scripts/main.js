@@ -4,11 +4,17 @@ const inputs = document.querySelectorAll('input');
 const inputsArr = [...inputs];
 
 for (let i = 0; i < inputsArr.length; i++) {
-  inputsArr[i].insertAdjacentHTML('beforebegin', `
+  const htmlInnerValue = `
   <label class="field-label" for="${inputsArr[i].id}
-  ">${inputsArr[i].name.replace(/Name/, ' Name')}</label>`);
+  ">${inputsArr[i].name.replace(/Name/, ' Name')}</label>
+  `;
 
-  inputsArr[i].placeholder
-      = inputsArr[i].name[0].toUpperCase() + inputsArr[i].name
-      .slice(1).replace(/Name/, ' Name');
+  inputsArr[i].insertAdjacentHTML('beforebegin', htmlInnerValue);
+
+  inputsArr[i].placeholder = addPlaceholder(i, 'Name');
+}
+
+function addPlaceholder(i, pattern) {
+  return inputsArr[i].name[0].toUpperCase() + inputsArr[i].name
+    .slice(1).replace(pattern, ` ${pattern}`);
 }
