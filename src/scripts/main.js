@@ -2,19 +2,19 @@
 
 const inputs = [...document.querySelectorAll('input')];
 
-for (let i = 0; i < inputsArr.length; i++) {
+inputs.forEach((input, i) => {
   const htmlInnerValue = `
-    <label class="field-label" for="${inputsArr[i].id}">
-      ${inputsArr[i].name.replace(/Name/, ' Name')}
+    <label class="field-label" for="${input.id}">
+      ${input.name.replace(/Name/, ' Name')}
     </label>
   `;
 
-  inputsArr[i].insertAdjacentHTML('beforebegin', htmlInnerValue);
+  inputs[i].insertAdjacentHTML('beforebegin', htmlInnerValue);
 
-  inputsArr[i].placeholder = addPlaceholder(i, 'Name');
-}
+  inputs[i].placeholder = formatWord(i, 'Name');
+});
 
-function addPlaceholder(i, pattern) {
-  return inputsArr[i].name[0].toUpperCase() + inputsArr[i].name
+function formatWord(i, pattern) {
+  return inputs[i].name[0].toUpperCase() + inputs[i].name
     .slice(1).replace(pattern, ` ${pattern}`);
 }
