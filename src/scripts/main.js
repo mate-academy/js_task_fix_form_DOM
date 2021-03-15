@@ -4,8 +4,9 @@ const inputs = [...document.querySelectorAll('input')];
 
 for (let i = 0; i < inputsArr.length; i++) {
   const htmlInnerValue = `
-  <label class="field-label" for="${inputsArr[i].id}
-  ">${inputsArr[i].name.replace(/Name/, ' Name')}</label>
+    <label class="field-label" for="${inputsArr[i].id}">
+      ${inputsArr[i].name.replace(/Name/, ' Name')}
+    </label>
   `;
 
   inputsArr[i].insertAdjacentHTML('beforebegin', htmlInnerValue);
