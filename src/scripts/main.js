@@ -1,7 +1,6 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
-const inputsArr = [...inputs];
+const inputs = [...document.querySelectorAll('input')];
 
 for (let i = 0; i < inputsArr.length; i++) {
   const htmlInnerValue = `
