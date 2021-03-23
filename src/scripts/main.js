@@ -10,7 +10,10 @@ for (const input of inputs) {
   label.innerText = input.name;
 
   const placeholder = input.name[0].toUpperCase()
-  + input.name.slice(1);
+  + input.name
+    .slice(1)
+    .replace(/([A-Z][a-z]+)/g, ' $1 ')
+    .trim();
 
   input.placeholder = placeholder;
 
