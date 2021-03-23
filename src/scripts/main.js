@@ -11,7 +11,7 @@ for (let i = 0; i < inputs.length; i++) {
 
   const label = document.createElement('label');
 
-  label.for = inputs[i].id;
+  label.htmlFor = inputs[i].id;
   label.textContent = placeholder;
   label.className = 'field-label';
 
