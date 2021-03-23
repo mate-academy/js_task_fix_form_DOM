@@ -3,11 +3,11 @@
 // write code here
 const inputs = document.querySelectorAll('input');
 
-for (const labels of inputs) {
-  labels.insertAdjacentHTML('beforebegin',
-    `<label class = "field-label" for = "${labels.id}">${labels.name}</label>`
+for (const input of inputs) {
+  input.insertAdjacentHTML('beforebegin',
+    `<label class = "field-label" for = "${input.id}">${input.name}</label>`
   );
 
-  labels.setAttribute('placeholder',
-    `${labels.name[0].toUpperCase() + labels.name.slice(1)}`);
+  input.setAttribute('placeholder',
+    `${input.name[0].toUpperCase() + input.name.slice(1)}`);
 }
