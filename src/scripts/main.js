@@ -3,8 +3,8 @@
 const inputs = document.querySelectorAll('input');
 const inputsBlock = document.querySelectorAll('.field');
 
-const capitalize = (word) => {
-  return word.charAt(0).toUpperCase() + word.slice(1);
+const capitalize = (text) => {
+  return text.charAt(0).toUpperCase() + text.slice(1);
 };
 
 for (let i = 0; i < inputs.length; i++) {
