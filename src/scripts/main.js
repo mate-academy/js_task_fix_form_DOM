@@ -9,5 +9,9 @@ for (const input of inputs) {
   );
 
   input.setAttribute('placeholder',
-    `${input.name[0].toUpperCase() + input.name.slice(1)}`);
+    `${input.name[0]
+      .toUpperCase() + input.name
+      .slice(1)
+      .replace(/([A-Z][a-z]+)/g, ' $1')}
+    `);
 }
