@@ -10,15 +10,16 @@ const camelToString = function(camelCase) {
 
 const fields = document.querySelectorAll('.field');
 
-for (let i = 0; i < fields.length; i++) {
-  const input = fields[i].querySelector('.field-text');
-  const label = document.createElement('label');
+for (const field of fields) {
+  const input = field.querySelector('.field-text');
 
-  label.className = 'field-label';
-  label.htmlFor = `${input.id}`;
-  label.textContent = camelToString(input.name);
-
-  fields[i].prepend(label);
+  field.insertAdjacentHTML('afterbegin', `
+    <label
+      class="field-label"
+      for="${input.id}"
+    >
+      ${camelToString(input.name)}
+    </label>`);
 
   input.placeholder = camelToString(input.name);
 }
