@@ -8,5 +8,5 @@ for (const input of inputs) {
   `);
 
   input.placeholder = input.name.charAt(0).toUpperCase()
-    + input.name.slice(1).toLowerCase();
+    + input.name.slice(1).replace(/([A-Z][a-z]+)/g, ' $1');
 };
