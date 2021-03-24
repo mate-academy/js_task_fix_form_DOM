@@ -11,7 +11,7 @@ for (let a = 0; a < result.length; a++) {
     .trim();
 
   result[a].insertAdjacentHTML('afterbegin', `
-  <label for="${selector.id}" class = "field-label">${selector.name}</label>
+  <label for="${selector.id}" class = "field-label">${placeholder}</label>
   `);
 
   selector.placeholder = placeholder;
