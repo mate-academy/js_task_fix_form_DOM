@@ -1,13 +1,17 @@
 'use strict';
 
 [...document.querySelectorAll('.field-text')]
-  .map(item => {
-    const lable = document.createElement('label');
+  .map(input => {
+    const lable = `
+    <label class="field-label" for="${input.id}">
+      ${separateWords(input.name)}
+    </label>
+    `;
 
-    lable.className = 'field-label';
-    lable.textContent = `${item.name}`;
-    lable.setAttribute('for', `${item.id}`);
-
-    item.placeholder = `${item.name}`;
-    item.before(lable);
+    input.placeholder = `${separateWords(input.name)}`;
+    input.insertAdjacentHTML('beforebegin', lable);
   });
+
+function separateWords(string) {
+  return string.replace(/([A-Z])/g, ' $1');
+};
