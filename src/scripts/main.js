@@ -21,9 +21,11 @@ function splitWords(string) {
 }
 
 inputsList.forEach(input => {
+  const text = splitWords(input.name);
+
   input.insertAdjacentHTML('beforebegin',
     `<label class="field-label" for="${input.id}">`
-  + `${splitWords(input.name)}</label>`);
-  input.setAttribute('placeholder', splitWords(input.name));
+  + `${text}</label>`);
+  input.setAttribute('placeholder', text);
 }
 );
