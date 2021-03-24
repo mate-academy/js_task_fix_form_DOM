@@ -18,7 +18,7 @@ for (let i = 0; i < allInput.length; i++) {
 
   allFiled[i].insertAdjacentHTML('afterbegin', `
   <label class="field-label" for="${allInput[i].id}">
-    ${allInput[i].name.toUpperCase()}
+    ${holder.join('').toUpperCase()}
   </label>
 `);
 }
