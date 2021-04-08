@@ -3,7 +3,7 @@
 const list = document.querySelectorAll('form input');
 
 [...list].forEach(item => {
-  item.placeholder = item.name;
+  item.placeholder = item.name.toUpperCase();
   createLabelFor(item);
 });
 
