@@ -3,15 +3,13 @@
 const inputs = [...document.querySelectorAll('input')];
 
 for (let i = 0; i < inputs.length; i++) {
-  const currentInput = inputs[i];
+  inputs[i].placeholder = inputs[i].name;
 
-  currentInput.placeholder = currentInput.name;
+  const label = document.createElement('label');
 
-  const item = document.createElement('label');
+  label.setAttribute('for', inputs[i].id);
+  label.className = 'field-label';
+  label.textContent = inputs[i].name.toUpperCase();
 
-  item.setAttribute('for', currentInput.id);
-  item.className = 'field-label';
-  item.textContent = currentInput.name.toUpperCase();
-
-  currentInput.parentNode.append(item);
+  inputs[i].parentNode.append(label);
 }
