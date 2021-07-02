@@ -1,17 +1,16 @@
 'use strict';
 
-const inputs = document.querySelectorAll('.field-text');
+const inputs = document.querySelectorAll('input');
 
-inputs.forEach(input => {
-  const inputParent = input.parentElement;
+for (const input of inputs) {
   const inputLabel = document.createElement('label');
 
-  inputLabel.for = input.id;
-  inputLabel.textContent = input.name.toUpperCase();
-  inputLabel.className += 'field-label';
+  inputLabel.className = 'field-label';
+  inputLabel.setAttribute('for', input.id);
+  inputLabel.textContent = input.name;
 
-  inputParent.appendChild(inputLabel);
-});
+  input.parentElement.prepend(inputLabel);
+}
 
 inputs.forEach(input => {
   switch (input.name) {
