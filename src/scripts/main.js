@@ -10,7 +10,7 @@ for (let i = 0; i < inputs.length; i++) {
   let title = input.name[0].toUpperCase() + input.name.slice(1);
   const splittedTitleForCycle = title.split('');
 
-  field.style.paddingTop = '20px';
+  label.className = 'field-label';
   label.htmlFor = input.id;
   title = title.split('');
 
