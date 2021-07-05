@@ -8,7 +8,10 @@ for (let i = 0; i < inputs.length; i++) {
   const inputName = inputs[i].name;
 
   label.className = 'field-label';
-  label.innerText = inputName.toUpperCase();
+
+  label.innerText = inputName
+    .replace(/([A-Z]+)*([A-Z][a-z])/g, '$1 $2')
+    .toUpperCase();
   label.htmlFor = inputs[i].id;
 
   inputsContainer[i].prepend(label);
