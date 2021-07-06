@@ -13,25 +13,15 @@ for (const input of inputs) {
 }
 
 inputs.forEach(input => {
-  switch (input.name) {
-    case 'firstName': {
-      input.placeholder = 'First Name';
-      break;
+  let placeholder = '';
+
+  for (let i = 1; i < input.name.length; i++) {
+    if (input.name[i] !== input.name[i].toLowerCase()) {
+      placeholder += ' ';
     }
 
-    case 'lastName': {
-      input.placeholder = 'Last Name';
-      break;
-    }
-
-    case 'email': {
-      input.placeholder = 'Email';
-      break;
-    }
-
-    case 'password': {
-      input.placeholder = 'Password';
-      break;
-    }
+    placeholder += input.name[i];
   }
+
+  input.placeholder = input.name[0].toUpperCase() + placeholder;
 });
