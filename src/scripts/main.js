@@ -1,22 +1,21 @@
 'use strict';
 
-const inputsContainer = document.querySelectorAll('.field');
 const inputs = document.querySelectorAll('.field-text');
 
-for (let i = 0; i < inputs.length; i++) {
+const fromCamelCaseToNormalWord = (camelCase) => {
+  return camelCase.replace(/([A-Z]+)*([A-Z][a-z])/g, '$1 $2');
+};
+
+for (const input of inputs) {
   const label = document.createElement('label');
-  const inputName = inputs[i].name;
+  const inputName = input.name;
 
   label.className = 'field-label';
+  label.innerText = fromCamelCaseToNormalWord(inputName).toUpperCase();
+  label.htmlFor = input.id;
+  input.parentElement.prepend(label);
 
-  label.innerText = inputName
-    .replace(/([A-Z]+)*([A-Z][a-z])/g, '$1 $2')
-    .toUpperCase();
-  label.htmlFor = inputs[i].id;
-
-  inputsContainer[i].prepend(label);
-
-  inputs[i].placeholder
-    = (inputName.charAt(0).toUpperCase() + inputName.slice(1))
-      .replace(/([A-Z]+)*([A-Z][a-z])/g, '$1 $2');
+  input.placeholder = fromCamelCaseToNormalWord(
+    inputName.charAt(0).toUpperCase() + inputName.slice(1)
+  ).trim();
 }
