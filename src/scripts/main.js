@@ -1,29 +1,23 @@
 'use strict';
 
 const inputs = document.querySelectorAll('input');
-const fields = document.querySelectorAll('.field');
 
-for (let i = 0; i < inputs.length; i++) {
+for (const input of inputs) {
   const label = document.createElement('label');
-  const input = inputs[i];
-  const field = fields[i];
+  const field = input.parentElement;
   let title = input.name[0].toUpperCase() + input.name.slice(1);
-  const splittedTitleForCycle = title.split('');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  title = title.split('');
 
-  for (let j = 1; j < splittedTitleForCycle.length; j++) {
-    if (
-      splittedTitleForCycle[j].toUpperCase()
-      === splittedTitleForCycle[j]
-    ) {
-      title.splice(j, 0, ' ');
-    }
+  const bigLettersInTitle = title.match(/[A-Z]/g);
+
+  if (bigLettersInTitle.length > 1) {
+    title = title.split('');
+    title.splice(title.indexOf(bigLettersInTitle[1]), 0, ' ');
+    title = title.join('');
   }
 
-  title = title.join('');
   label.innerText = title;
   input.placeholder = title;
 
