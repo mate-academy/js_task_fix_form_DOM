@@ -1,6 +1,14 @@
 'use strict';
 
 const inputs = document.querySelectorAll('input');
+const makeTitleCase = (string) => {
+  const copitalizedString = string[0].toUpperCase() + string.slice(1);
+
+  return copitalizedString
+    .replace(/([A-Z]+)/g, ' $1')
+    .replace(/([A-Z][a-z])/g, ' $1')
+    .trim();
+};
 
 inputs.forEach(input => {
   const label = document.createElement('label');
@@ -9,14 +17,5 @@ inputs.forEach(input => {
   label.setAttribute('for', input.id);
   label.textContent = input.name;
   input.parentElement.prepend(label);
-
-  if (input.name === 'firstName') {
-    input.placeholder = 'First Name';
-  } else if (input.name === 'lastName') {
-    input.placeholder = 'Last Name';
-  } else if (input.name === 'email') {
-    input.placeholder = 'Email';
-  } else {
-    input.placeholder = 'Password';
-  }
+  input.placeholder = makeTitleCase(input.name);
 });
