@@ -1,3 +1,18 @@
 'use strict';
 
-// write code here
+const inputsForm = document.querySelectorAll('.field-text');
+const parentInputs = document.querySelectorAll('.field');
+
+inputsForm.forEach((input, index) => {
+  const labelForInput = document.createElement('label');
+
+  labelForInput.className = 'field-label';
+  labelForInput.htmlFor = input.id;
+  labelForInput.textContent = input.name;
+
+  parentInputs[index].append(labelForInput);
+
+  const inputName = input.name.toLowerCase();
+
+  input.placeholder = inputName[0].toUpperCase() + inputName.slice(1);
+});
