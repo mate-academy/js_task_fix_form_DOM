@@ -10,8 +10,7 @@ for (let i = 0; i < allInputs.length; i++) {
 
   elementLabel.setAttribute('for', value.id);
 
-  value.placeholder = value.name[0].toUpperCase()
-  + value.name.slice(1);
+  value.placeholder = value.name[0].toUpperCase() + value.name.slice(1);
 
   if (value.placeholder.includes('N')) {
     value.placeholder = value.name[0]
@@ -19,7 +18,6 @@ for (let i = 0; i < allInputs.length; i++) {
     + ' ' + value.name.slice(index, value.name.length);
   }
   elementLabel.textContent = value.placeholder;
-  elementLabel.textContent = value.name;
   elementLabel.classList.add('field-label');
   forLabel[i].append(elementLabel);
 }
