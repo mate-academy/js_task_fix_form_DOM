@@ -3,8 +3,9 @@
 const inputs = document.querySelectorAll('input');
 const label = document.createElement('label');
 
+label.classList.add('field-label');
+
 inputs.forEach(input => {
-  label.classList.add('field-label');
   label.innerText = input.name;
   label.htmlFor = input.id;
   input.insertAdjacentHTML('beforebegin', label.outerHTML);

@@ -76,6 +76,13 @@ form {
   width: 100%;
   padding: 15px 30px;
   border: none;
+  border-radius: 3px;
+
+  cursor: pointer;
+
+  &:hover {
+    filter: brightness(105%);
+  }
 }
 
 .field-button--submit {
