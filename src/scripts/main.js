@@ -1,14 +1,14 @@
 'use strict';
 
 const inputs = document.querySelectorAll('input');
-const label = document.createElement('label');
-
-label.classList.add('field-label');
 
 inputs.forEach(input => {
-  label.innerText = input.name;
+  const label = document.createElement('label');
+
+  label.classList.add('field-label');
+  label.innerText = capitalize(input.name);
   label.htmlFor = input.id;
-  input.insertAdjacentHTML('beforebegin', label.outerHTML);
+  input.parentElement.prepend(label);
   input.placeholder = capitalize(input.name);
 });
 
