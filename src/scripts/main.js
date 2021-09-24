@@ -15,20 +15,4 @@ function finishTagInputs(inputs) {
   }
 }
 
-// or
-// function finishTagInputs(inputs) {
-
-//   for (const input of [...inputs]) {
-//     const parentEl = input.parentElement;
-//     const label = document.createElement('label');
-
-//     label.classList.add('field-label');
-//     label.setAttribute('for', input.id);
-//     label.innerText = input.name;
-//     parentEl.prepend(label);
-
-//     input.setAttribute('placeholder', input.name);
-//   }
-// }
-
 finishTagInputs(fields);
