@@ -7,6 +7,7 @@ for (const input of inputs) {
 
   label.setAttribute('for', input.id);
   label.className = 'field-label';
+  label.innerText = firstLetterToUpperCase(input.name);
   input.placeholder = firstLetterToUpperCase(input.name);
 
   input.before(label);
