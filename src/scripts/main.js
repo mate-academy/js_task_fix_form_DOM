@@ -2,18 +2,18 @@
 
 const inputs = document.querySelectorAll('.field > input');
 
-inputs.forEach(item => {
-  const parsedName = capitalize(item.name);
+inputs.forEach(input => {
+  const parsedName = capitalize(input.name);
 
-  item.setAttribute('placeholder', parsedName);
+  input.setAttribute('placeholder', parsedName);
 
   const label = document.createElement('label');
 
-  label.setAttribute('for', item.id);
+  label.setAttribute('for', input.id);
   label.textContent = parsedName;
   label.classList.add('field-label');
 
-  item.closest('div.field').prepend(label);
+  input.closest('div.field').prepend(label);
 });
 
 function capitalize(str = '') {
