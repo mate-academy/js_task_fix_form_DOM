@@ -7,6 +7,14 @@ for (const input of listInputs) {
 
   input.placeholder = placeH[0].toUpperCase() + placeH.slice(1);
 
+  if (input.placeholder === 'Firstname') {
+    input.placeholder = 'First name';
+  }
+
+  if (input.placeholder === 'Lastname') {
+    input.placeholder = 'Last name';
+  }
+
   const label = document.createElement('label');
 
   label.className = 'field-label';
