@@ -1,13 +1,21 @@
 'use strict';
 
 function capitalize(string) {
-  const capitalizeString = string.charAt(0).toUpperCase()
-  + string.slice(1).toLowerCase();
+  if (string === 'firstName') {
+    return 'First name';
+  }
 
-  return capitalizeString;
+  if (string === 'lastName') {
+    return 'Last name';
+  }
+
+  const capitalizedString = string.charAt(0).toUpperCase()
+    + string.slice(1).toLowerCase();
+
+  return capitalizedString;
 }
 
-const inputs = document.querySelectorAll('form input');
+const inputs = document.querySelectorAll('.field-text');
 
 for (const input of inputs) {
   const label = document.createElement('label');
