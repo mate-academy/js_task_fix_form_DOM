@@ -1,16 +1,9 @@
 'use strict';
 
 function capitalize(string) {
-  if (string === 'firstName') {
-    return 'First name';
-  }
-
-  if (string === 'lastName') {
-    return 'Last name';
-  }
-
-  const capitalizedString = string.charAt(0).toUpperCase()
-    + string.slice(1).toLowerCase();
+  const convertString = string.replace(/([A-Z])/g, ' $1');
+  const capitalizedString = convertString.charAt(0).toUpperCase()
+    + convertString.slice(1).toLowerCase();
 
   return capitalizedString;
 }
