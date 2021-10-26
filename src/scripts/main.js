@@ -8,6 +8,14 @@
   label.className = 'field-label';
   label.htmlFor = input.id;
   label.textContent = input.name;
-  input.append(label);
-  input.placeholder = input.name;
+  input.parentElement.prepend(label);
+  input.placeholder = (input.name).toUpperCase();
+
+  if (input.placeholder === 'FIRSTNAME') {
+    input.placeholder = 'FIRST NAME';
+  };
+
+  if (input.placeholder === 'LASTNAME') {
+    input.placeholder = 'LAST NAME';
+  };
 });
