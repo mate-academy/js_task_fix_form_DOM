@@ -2,20 +2,49 @@
 
 // write code here
 
+function findTheGapToUpperCase(string) {
+  const gap = [...string].findIndex(letter => letter === letter.toUpperCase());
+  const firstWord = (string.slice(0, gap)).toUpperCase();
+  const secondWord = (string.slice(gap)).toUpperCase();
+
+  const result = `${firstWord} ${secondWord}`;
+
+  if (gap === -1) {
+    return string.toUpperCase();
+  }
+
+  return result;
+}
+
+function findTheGap(string) {
+  const gap = [...string].findIndex(letter => letter === letter.toUpperCase());
+  let firstWord = string.slice(0, gap);
+  const firstLetter = firstWord.slice(0, 1).toUpperCase();
+
+  firstWord = `${firstLetter}${firstWord.slice(1)}`;
+
+  const secondWord = string.slice(gap);
+
+  const result = `${firstWord} ${secondWord}`;
+
+  if (gap === -1) {
+    const firstLetterOfInput = string.slice(0, 1).toUpperCase();
+
+    const word = string.slice(1);
+
+    return `${firstLetterOfInput}${word}`;
+  }
+
+  return result;
+}
+
 [...document.querySelectorAll('input')].map(input => {
   const label = document.createElement('label');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+
+  label.textContent = findTheGapToUpperCase(input.name);
   input.parentElement.prepend(label);
-  input.placeholder = (input.name).toUpperCase();
-
-  if (input.placeholder === 'FIRSTNAME') {
-    input.placeholder = 'FIRST NAME';
-  };
-
-  if (input.placeholder === 'LASTNAME') {
-    input.placeholder = 'LAST NAME';
-  };
+  input.placeholder = findTheGap(input.name);
 });
