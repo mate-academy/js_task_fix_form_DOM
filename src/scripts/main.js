@@ -8,8 +8,11 @@ for (const item of input) {
 
     labelName.htmlFor = item.id;
     labelName.className = 'field-label';
-    labelName.textContent = item.name;
-    item.placeholder = item.name.toUpperCase()[0] + item.name.slice(1);
+
+    labelName.textContent = item.name.replace('N', ' N');
+
+    item.placeholder = item.name.toUpperCase()[0]
+     + item.name.replace('N', ' N').slice(1);
     item.parentElement.append(labelName);
   }
 
@@ -18,8 +21,11 @@ for (const item of input) {
 
     labelLastName.htmlFor = item.id;
     labelLastName.className = 'field-label';
-    labelLastName.textContent = item.name;
-    item.placeholder = item.name.toUpperCase()[0] + item.name.slice(1);
+
+    labelLastName.textContent = item.name.replace('N', ' N');
+
+    item.placeholder = item.name.toUpperCase()[0]
+    + item.name.replace('N', ' N').slice(1);
     item.parentElement.append(labelLastName);
   }
 
