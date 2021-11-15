@@ -1,5 +1,24 @@
 'use strict';
 
+const splitByWords = input => {
+  const position = input
+    .indexOf([
+      ...input]
+      .filter(ch =>
+        ch >= 'A' && ch <= 'Z')[0]);
+
+  if (position === -1) {
+    return input[0].toUpperCase() + input.slice(1);
+  }
+
+  const firstWord = input.slice(0, position);
+  const firstChToUpperCase = firstWord[0].toUpperCase() + firstWord.slice(1);
+
+  return firstChToUpperCase
+      + ' '
+      + input.slice(position);
+};
+
 const inputs = document
   .querySelectorAll('input');
 
@@ -10,13 +29,12 @@ const inputs = document
 
     label.setAttribute('class', 'field-label');
     label.setAttribute('for', input.id);
-    label.innerText = input.name;
+    label.innerText = splitByWords(input.name);
 
     input
       .parentElement
       .insertAdjacentElement('afterbegin', label);
 
     input
-      .setAttribute('placeholder',
-        input.name[0].toUpperCase() + input.name.slice(1));
+      .setAttribute('placeholder', splitByWords(input.name));
   });
