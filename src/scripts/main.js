@@ -1,8 +1,8 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
-
 function fillForms() {
+  const inputs = document.querySelectorAll('input');
+
   for (const input of inputs) {
     const label = document.createElement('label');
 
