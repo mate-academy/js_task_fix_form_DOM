@@ -9,5 +9,6 @@ for (const input of getAllInputs) {
   </label>
   `);
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  input.placeholder = (input.name[0].toUpperCase() + input.name.slice(1))
+    .split(/(?=[A-Z])/).join(' ');
 }
