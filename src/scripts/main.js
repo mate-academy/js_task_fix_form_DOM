@@ -5,7 +5,7 @@ const getAllInputs = document.querySelectorAll('input');
 for (const input of getAllInputs) {
   input.insertAdjacentHTML('beforebegin', `
   <label class="field-label" for=${input.id}>
-  ${input.name}
+  ${input.name.split(/(?=[A-Z])/).join(' ')}
   </label>
   `);
 
