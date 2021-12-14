@@ -11,6 +11,23 @@ const inputs = document.querySelectorAll('.field-text');
 
   input.parentElement.append(label);
 
-  input.setAttribute('placeholder', input.name[0].toUpperCase()
-  + input.name.slice(1));
+  function spliter(x) {
+    let word = '';
+    const array = x.split('');
+
+    for (let i = 0; i < array.length; i++) {
+      if (array[i] === array[i].toLowerCase()) {
+        word += array[i];
+      } else {
+        word += ' ' + array[i];
+      }
+    }
+
+    word = word[0].toUpperCase()
+    + word.slice(1);
+
+    return word;
+  };
+
+  input.setAttribute('placeholder', spliter(input.name));
 });
