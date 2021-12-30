@@ -7,8 +7,14 @@ for (let i = 0; i < inputs.length; i++) {
 
   newEl.className = 'field-label';
   newEl.htmlFor = inputs[i].id;
-  newEl.textContent = inputs[i].name;
-  inputs[i].placeholder = inputs[i].name;
+
+  const nameForReplace = inputs[i].name.split(/(?=[A-Z])/).join(' ');
+
+  newEl.textContent = nameForReplace;
+
+  inputs[i].placeholder
+    = nameForReplace.charAt(0).toUpperCase()
+    + nameForReplace.slice(1);
 
   const thisParent = (inputs[i].parentElement);
 
