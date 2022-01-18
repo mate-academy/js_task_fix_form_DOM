@@ -17,7 +17,7 @@ for (const field of fields) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = input.name.replace(/([A-Z])/g, ' $1');
 
   field.append(label);
 }
