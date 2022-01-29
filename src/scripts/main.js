@@ -11,8 +11,9 @@ for (let i = 0; i < inputs.length; i++) {
 
   inputs[i].append(label);
 
-  const placeholderText = inputs[i].name[0].toUpperCase()
-  + inputs[i].name.slice(1);
+  let text = inputs[i].name.replace(/([A-Z])/g, ' $1');
 
-  inputs[i].setAttribute('placeholder', placeholderText);
+  text = text[0].toUpperCase() + text.slice(1);
+
+  inputs[i].setAttribute('placeholder', text);
 }
