@@ -9,7 +9,7 @@ for (const input of inputs) {
   inputParent.append(label);
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.innerText = input.name;
+  label.innerText = toCapitalize(input.name);
   input.placeholder = toCapitalize(input.name);
 }
 
