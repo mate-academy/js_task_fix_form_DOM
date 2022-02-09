@@ -9,10 +9,13 @@ for (const element of inputsArr) {
 
   parrentElem.insertBefore(label, element);
   label.className = 'field-label';
-  label.textContent = element.attributes.name.nodeValue;
+
+  label.textContent = (element.attributes.name.nodeValue)
+    .replace(/([A-Z])/g, ' $1').trim();
 
   element.setAttribute('placeholder', `${
-    label.textContent.charAt(0).toUpperCase() + label.textContent.slice(1)}`);
+    (label.textContent.charAt(0).toUpperCase() + label.textContent.slice(1))
+      .replace(/([A-Z])/g, ' $1').trim()}`);
 
   const forAttr = element.attributes.id.nodeValue;
 
