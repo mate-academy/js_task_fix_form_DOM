@@ -2,12 +2,14 @@
 
 const initialList = document.querySelectorAll('input');
 const rootElement = document.getElementsByClassName('field');
+const mass = ['FIRST NAME', 'LAST NAME', 'EMAIL', 
+'PASSWORD', 'EMAIL', 'PASSWORD'];
 
 for (let i = 0; i < initialList.length; i++) {
   const item = document.createElement('label');
 
   item.className = 'field-label';
-  item.textContent = initialList[i].name.toUpperCase();
+  item.textContent = mass[i];
   item.htmlFor = initialList[i].id;
   rootElement[i].append(item);
 }
