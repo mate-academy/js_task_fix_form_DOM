@@ -7,7 +7,7 @@ inputs.forEach((field) => {
     'afterbegin',
     `
     <label class ="field-label" for = "${field.children[0].id}">
-      ${field.children[0].name}
+      ${field.children[0].name.split('Name').join(' Name')}
     </label>
     `
   );
