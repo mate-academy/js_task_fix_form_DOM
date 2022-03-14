@@ -14,5 +14,5 @@ inputs.forEach((field) => {
 
   field.children[1].placeholder
     = field.children[1].name.toUpperCase()[0]
-    + field.children[1].name.slice(1);
+    + field.children[1].name.slice(1).split('Name').join(' Name');
 });
