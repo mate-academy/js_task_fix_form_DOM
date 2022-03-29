@@ -8,7 +8,6 @@ for (let i = 0; i < input.length; i++) {
 
   label.className = 'field-label';
   label.setAttribute('for', input[i].id);
-  label.innerHTML = input[i].name;
 
   const slpitName = input[i].name.split('');
   const toUpper = slpitName[0].toLocaleUpperCase();
@@ -16,9 +15,19 @@ for (let i = 0; i < input.length; i++) {
 
   rest.splice(0, 1);
 
-  const capitalize = [toUpper, ...rest].join('');
+  let capitalize = [toUpper, ...rest].join('');
+
+  if (capitalize === 'FirstName' || capitalize === 'LastName') {
+    const name = capitalize.slice(-4);
+    const firstPart = capitalize.slice(0, -4);
+
+    capitalize = `${firstPart} ${name}`;
+  }
 
   input[i].setAttribute('placeholder', capitalize);
+  label.innerHTML = capitalize;
 
   div[i].append(label);
+
+  console.log(capitalize);
 }
