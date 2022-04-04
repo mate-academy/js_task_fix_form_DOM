@@ -6,6 +6,8 @@ const inputs = document.querySelectorAll('input');
 for (const input of inputs) {
   const label = document.createElement('label');
 
+  input.name = input.name.split('N').join(' N');
+
   label.className = 'field-label';
   label.htmlFor = input.id;
   label.textContent = input.name;
