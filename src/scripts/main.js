@@ -10,8 +10,8 @@ for (const input of inputs) {
   label.htmlFor = input.id;
   label.textContent = input.name;
 
-  const n = input.name;
-
-  input.placeholder = n.replace(n[0], n[0].toUpperCase());
+  input.placeholder = input.name.replace(
+    input.name[0], input.name[0].toUpperCase()
+  );
   input.parentElement.append(label);
 }
