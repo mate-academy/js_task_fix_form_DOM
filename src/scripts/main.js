@@ -1,12 +1,12 @@
 'use strict';
 
-const input = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input');
 
-for (const i of [...input]) {
-  i.insertAdjacentHTML('beforebegin', `
-    <label for = "${i.id}" class = "field-label">
-      ${i.name}    
+for (const input of [...inputs]) {
+  input.insertAdjacentHTML('beforebegin', `
+    <label for = "${input.id}" class = "field-label">
+      ${input.name}
     </label>
   `);
-  i.placeholder = i.name.toUpperCase();
+  input.placeholder = input.name.toUpperCase();
 }
