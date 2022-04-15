@@ -6,12 +6,16 @@ for (const field of fields) {
   const input = field.firstElementChild;
 
   const check = nameAttribute => {
-    if (nameAttribute === 'firstName') {
-      return 'FIRST NAME';
+    let separator;
+
+    for (const letter of nameAttribute) {
+      if (letter === letter.toUpperCase()) {
+        separator = letter;
+      }
     }
 
-    if (nameAttribute === 'lastName') {
-      return 'LAST NAME';
+    if (separator) {
+      return nameAttribute.split(separator).join(` ${separator}`).toUpperCase();
     }
 
     return nameAttribute.toUpperCase();
