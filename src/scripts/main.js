@@ -9,6 +9,8 @@ fields.forEach(field => {
   const toUpper = attributeName => {
     let separator;
 
+    const newName = attributeName[0].toUpperCase() + attributeName.slice(1);
+
     for (const letter of attributeName) {
       if (letter === letter.toUpperCase()) {
         separator = letter;
@@ -16,10 +18,10 @@ fields.forEach(field => {
     }
 
     if (separator) {
-      return attributeName.split(separator).join(` ${separator}`).toUpperCase();
+      return newName.split(separator).join(` ${separator}`);
     }
 
-    return attributeName.toUpperCase();
+    return newName;
   };
 
   input.placeholder = `${toUpper(input.name)}`;
