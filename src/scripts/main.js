@@ -10,7 +10,7 @@ formInputs.forEach(input => {
   input.parentElement.insertAdjacentHTML('beforeend', `
     <label
       class = "field-label"
-      for = "${input.getAttribute('id')}"}>
+      for = "${input.id"}>
       ${inputName.toUpperCase()}
     </label>
   `);
