@@ -1,7 +1,7 @@
 'use strict';
 
 const fields = [...document.querySelectorAll('.field')];
-const toUpper = attributeName => {
+const capitalize = attributeName => {
   let separator;
 
   const newName = attributeName[0].toUpperCase() + attributeName.slice(1);
@@ -23,11 +23,11 @@ fields.forEach(field => {
   const input = field.firstElementChild;
   const label = document.createElement('label');
 
-  input.placeholder = `${toUpper(input.name)}`;
+  input.placeholder = `${capitalize(input.name)}`;
 
   label.className = 'field-label';
   label.htmlFor = `${input.id}`;
-  label.textContent = `${toUpper(input.name)}`;
+  label.textContent = `${capitalize(input.name)}`;
 
   field.append(label);
 });
