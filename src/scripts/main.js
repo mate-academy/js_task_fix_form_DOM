@@ -2,14 +2,20 @@
 
 const list = [...document.querySelectorAll('input')];
 
+const modifyName = (text) => {
+  const splitCamel = text.split(/(?=[A-Z])/).join(' ');
+
+  return splitCamel.charAt(0).toUpperCase() + splitCamel.slice(1);
+};
+
 function addLabel(arr) {
   arr.forEach(input => {
+    const text = modifyName(input.name);
     const label = `<label class="field-label" for="${input.id}">
-      ${input.name}
+      ${text}
     </label>`;
 
-    input.placeholder = input.name.charAt(0).toUpperCase()
-    + input.name.slice(1);
+    input.placeholder = text;
     input.insertAdjacentHTML('beforebegin', label);
   });
 }
