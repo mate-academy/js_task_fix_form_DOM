@@ -7,5 +7,9 @@ for (const input of inputs) {
     + input.name.slice(1)}`);
 
   input.parentElement.append(document.createElement('label'));
-  input.parentElement.querySelector('label').setAttribute('for', `${input.id}`);
+
+  const label = input.parentElement.querySelector('label');
+
+  label.setAttribute('for', `${input.id}`);
+  label.className = 'fieldLabel';
 }
