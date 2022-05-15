@@ -3,13 +3,17 @@
 const inputs = [...document.querySelectorAll('[name]')].slice(1);
 
 for (const input of inputs) {
-  input.setAttribute('placeholder', `${(input.name).slice(0, 1).toUpperCase()
-    + input.name.slice(1)}`);
+  const camelSplit = input.name
+    .split(/(?=[A-Z])/).join(' ');
+  const modifiedName = camelSplit.charAt(0).toUpperCase() + camelSplit.slice(1);
 
-  input.parentElement.append(document.createElement('label'));
+  input.placeholder = modifiedName;
 
-  const label = input.parentElement.querySelector('label');
+  const label = document.createElement('label');
 
-  label.setAttribute('for', `${input.id}`);
-  label.className = 'fieldLabel';
+  label.className = 'field-label';
+  label.htmlFor = input.id;
+  label.textContent = modifiedName;
+
+  input.before(label);
 }
