@@ -9,16 +9,14 @@ for (const input of inputs) {
   label.htmlFor = input.id;
 
   let inputName = input.name;
-  console.log(inputName)
 
-  if(inputName === 'firstName' || inputName === 'lastName') {
+  if (inputName === 'firstName' || inputName === 'lastName') {
     inputName = input.name.split('N').join(' n');
   };
 
   label.textContent = inputName;
 
   inputName = inputName[0].toUpperCase() + inputName.substring(1);
-  console.log(inputName);
 
   input.placeholder = inputName;
 
