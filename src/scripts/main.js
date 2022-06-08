@@ -1,5 +1,13 @@
 'use strict';
 
+function getCapitalCase(string) {
+  return string
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, char => {
+      return char.toUpperCase();
+    });
+}
+
 const inputs = document.querySelectorAll('input');
 
 inputs.forEach(input => {
@@ -11,6 +19,5 @@ inputs.forEach(input => {
   label.setAttribute('for', input.getAttribute('id'));
   input.parentElement.append(label);
 
-  input.placeholder = input.name.slice(0, 1).toUpperCase()
-    + input.name.slice(1);
+  input.placeholder = getCapitalCase(input.name);
 });
