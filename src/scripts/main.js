@@ -11,7 +11,13 @@ for (let i = 0; i < inputs.length; i++) {
   label.className = 'field-label';
   label.htmlFor = inputs[i].id;
 
-  inputs[i].placeholder = inputs[i].name.toUpperCase();
+  if (inputs[i].name === 'firstName') {
+    inputs[i].placeholder = 'First Name';
+  } else if (inputs[i].name === 'lastName') {
+    inputs[i].placeholder = 'Last Name';
+  } else {
+    inputs[i].placeholder = inputs[i].name.toUpperCase();
+  }
 
   inputs[i].parentElement.appendChild(label);
 }
