@@ -7,10 +7,11 @@ for (let i = 0; i < input.length; i++) {
 
   label.className = 'field-label';
   label.setAttribute('for', input[i].id);
-  label.textContent = input[i].name.toUpperCase();
+  label.textContent = input[i].name.split(/(?=[A-Z])/).join(' ').toUpperCase();
 
   input[i].placeholder = input[i]
-    .name[0].toUpperCase() + input[i].name.slice(1);
+    .name[0].toUpperCase() + input[i].name
+      .split(/(?=[A-Z])/).join(' ').slice(1);
 
   input[i].parentElement.append(label);
 }
