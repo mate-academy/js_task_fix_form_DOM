@@ -2,25 +2,18 @@
 
 const inputs = document.querySelectorAll('input');
 
-function capitalize(text) {
-  const arr = text.split('');
-
-  return arr.map((el, i) =>
-    i === 0
-      ? el[i].toUpperCase()
-      : el).join('');
-}
-
 for (const input of inputs) {
+  const placeholderName = input.name.replace(/[A-Z]/g, ' ' + '$&');
   const label = document.createElement('label');
+
+  input.setAttribute(
+    'placeholder',
+    `${placeholderName[0].toUpperCase() + placeholderName.slice(1)}`
+  );
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
-
-  input.placeholder = capitalize(input.name);
+  label.textContent = `${placeholderName}`;
 
   input.before(label);
 }
-
-
