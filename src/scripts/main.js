@@ -9,13 +9,12 @@ inputs.forEach(input => {
 
   label.className = ['field-label'];
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = input.name.includes('Name')
+    ? input.name.replace('Name', ' Name')
+    : input.name;
 
   input.parentElement.append(label);
 
-  if (input.name.includes('Name')) {
-    input.name = input.name.replace('Name', ' Name');
-  }
-  input.placeholder = input.name[0].toLocaleUpperCase()
-    + input.name.substring(1);
+  input.placeholder = label.textContent[0].toLocaleUpperCase()
+    + label.textContent.substring(1);
 });
