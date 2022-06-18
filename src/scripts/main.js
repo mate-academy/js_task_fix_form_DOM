@@ -13,6 +13,9 @@ inputs.forEach(input => {
 
   input.parentElement.append(label);
 
+  if (input.name.includes('Name')) {
+    input.name = input.name.replace('Name', ' Name');
+  }
   input.placeholder = input.name[0].toLocaleUpperCase()
     + input.name.substring(1);
 });
