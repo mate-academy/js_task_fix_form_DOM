@@ -15,7 +15,12 @@ Your task is to make script, which fixes problems in this form.
 1) Add `<label>` for inputs.
 2) Add placeholders for each input.
 
+Ваша задача сделать скрипт, исправляющий проблемы в этой форме.
+1) Добавьте `<label>` для входных данных.
+2) Добавьте placeholders для каждого входа.
+
 Rely on the `name` of the input when writing your script.
+При написании скрипта полагайтесь на `name` ввода.
 
 You can read about placeholders and labels here:
 - [MDN Placeholder attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-placeholder)
@@ -27,8 +32,14 @@ You can read about placeholders and labels here:
 3) For each `input` set `placeholder` based on `input` name. Capitalize it.
 4) Append `label` elements to the parent container of `input` (do not wrap inputs into the label in this task)
 5) Done.
+1) Получить все входные данные из тега form на странице.
+2) Для каждого элемента `input` создайте элемент `label` с `class` `field-label` (необходим для применения стилей css) и атрибутом `for`, где установите `id` текущего ввода. Установите `textContent` для label, полагаясь на имя `input`.
+3) Для каждого «input» установите «placeholder» на основе имени «input». С большой буквы.
+4) Добавьте элементы `label` к родительскому контейнеру `input` (не переносите входы в метку в этой задаче)
+5) Готово.
 
 Hints: p.2 and p.4 can be done in one loop
+Подсказка: п.2 и п.4 можно делать в одну петлю
 
 Do not change styles or HTML layout in this task. Change only `main.js` file.
 
