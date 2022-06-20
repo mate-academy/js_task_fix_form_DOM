@@ -18,3 +18,5 @@ label[0].htmlFor = 'sign-up-name';
 label[1].htmlFor = 'sign-up-last-name';
 label[2].htmlFor = 'sign-up-email';
 label[3].htmlFor = 'sign-up-password';
+label[4].htmlFor = 'sign-in-email';
+label[5].htmlFor = 'sign-in-password';
