@@ -8,7 +8,7 @@ const inputs = document.querySelectorAll('input');
 
   label.htmlFor = input.id;
   label.classList.toggle('field-label');
-  label.textContent = inputNameSplited.join('').toUpperCase();
+  label.textContent = inputNameSplited.join(' ').toUpperCase();
 
   input.parentElement.append(label);
 
