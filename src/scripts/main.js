@@ -12,4 +12,12 @@ for (const value of allForms) {
 
   value.placeholder = value.name[0].toUpperCase()
     + value.name.slice(1);
+
+  if (value.name === 'firstName') {
+    value.placeholder = 'First Name';
+  }
+
+  if (value.name === 'lastName') {
+    value.placeholder = 'Last Name';
+  }
 }
