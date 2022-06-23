@@ -12,6 +12,6 @@ for (const item of list) {
   label.textContent = item.name;
 
   item.placeholder
-  = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+    = item.name.charAt(0).toUpperCase() + item.name.slice(1);
   item.parentElement.append(label);
 }
