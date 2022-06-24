@@ -9,9 +9,18 @@ for (const item of list) {
 
   label.className = 'field-label';
   label.setAttribute('for', item.id);
+
+  if (item.name === 'firstName') {
+    item.name = 'First Name';
+  }
+
+  if (item.name === 'lastName') {
+    item.name = 'Last Name';
+  }
+
   label.textContent = item.name;
 
   item.placeholder
-    = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+    = item.name;
   item.parentElement.append(label);
 }
