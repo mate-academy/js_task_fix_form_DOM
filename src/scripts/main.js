@@ -13,7 +13,7 @@ fields.map(function(element) {
   const idName = input.getAttribute('id');
 
   label.setAttribute('for', idName);
-  label.innerText = attributeName;
-  input.setAttribute('placeholder', attributeName);
+  label.innerText = attributeName.split('N').join(' n');
+  input.setAttribute('placeholder', attributeName.split('N').join(' n'));
   element.append(label);
 });
