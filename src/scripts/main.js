@@ -9,11 +9,12 @@ fields.map(function(element) {
 
   const input = element.querySelector('input');
 
-  const attributeName = input.getAttribute('name');
-  const idName = input.getAttribute('id');
+  // eslint-disable-next-line no-shadow
+  const name = input.getAttribute('name').split(/(?=[A-Z])/).join(' ');
+  const id = input.getAttribute('id');
 
-  label.setAttribute('for', idName);
-  label.innerText = attributeName.split('N').join(' n');
-  input.setAttribute('placeholder', attributeName.split('N').join(' n'));
+  label.setAttribute('for', id);
+  label.innerText = name;
+  input.placeholder = name.toUpperCase();
   element.append(label);
 });
