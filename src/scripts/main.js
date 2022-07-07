@@ -23,7 +23,7 @@ inputs.forEach(input => {
       }
     }
 
-    inputName = currentLetter;
+    inputName += currentLetter;
   }
 
   input.placeholder = inputName;
