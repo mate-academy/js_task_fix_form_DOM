@@ -3,13 +3,15 @@
 const inputList = document.querySelectorAll('input');
 
 inputList.forEach(item => {
+  const itemName = item.name.split(/(?=[A-Z])/).join(' ');
+
   item.insertAdjacentHTML(
     'beforebegin',
     `<label class="field-label" for="${item.id}">
-      ${item.name.toUpperCase()}
+      ${itemName.toUpperCase()}
     </label>`
   );
 
-  item.placeholder = item.name.charAt(0).toUpperCase()
-    + item.name.substring(1).toLowerCase();
+  item.placeholder = itemName.charAt(0).toUpperCase()
+    + itemName.substring(1).toLowerCase();
 });
