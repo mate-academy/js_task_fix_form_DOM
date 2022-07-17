@@ -84,10 +84,22 @@ form {
   color: white;
 }
 
+.field-button--submit:hover {
+  border: none;
+  background: #638334;
+  box-shadow: inset 0 -5px 0 #638334;
+}
+
 .field-button--facebook {
   background: $blue;
   box-shadow: inset 0 -5px 0 darken($blue, 10%);
   color: white;
+}
+
+.field-button--facebook:hover {
+  border: none;
+  background: #435780;
+  box-shadow: inset 0 -5px 0 #435780;
 }
 
 .login-row {
