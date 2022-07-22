@@ -1,17 +1,21 @@
 'use strict';
 
-const inputs = [...document.querySelectorAll('.field-text')];
+const inputs = document.querySelectorAll('.field-text');
 
 inputs.forEach((item) => {
-    const label = document.createElement('label');
+  const label = document.createElement('label');
 
-    label.innerHTML = item.name;
-    label.htmlFor = item.id;
+  label.innerHTML = item.name;
+  label.htmlFor = item.id;
 
-    let placeholder = item.id.split('-').slice(2).join(' ');
-    placeholder = placeholder.charAt(0).toUpperCase() + placeholder.slice(1);
+  let placeholder = item.id.split('-').slice(2).join(' ');
 
-    item.placeholder = placeholder;
+  item.placeholder = rightPlaceholder(placeholder);
 
-    item.parentElement.prepend(label);
+  item.parentElement.prepend(label);
 });
+
+
+function rightPlaceholder(item) {
+  return item.charAt(0).toUpperCase() + item.slice(1);
+}
