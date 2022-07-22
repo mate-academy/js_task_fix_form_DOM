@@ -1,0 +1,343 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 12,
+    "passes": 5,
+    "pending": 0,
+    "failures": 7,
+    "start": "2022-07-22T21:14:30.446Z",
+    "end": "2022-07-22T21:15:04.332Z",
+    "duration": 33476,
+    "testsRegistered": 12,
+    "passPercent": 41.666666666666664,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "dfb853cb-cc21-4646-acc0-4aaf079c170e",
+      "title": "",
+      "fullFile": "cypress\\integration\\jsTaskFixFormDOM.spec.js",
+      "file": "cypress\\integration\\jsTaskFixFormDOM.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "538d3da1-83ef-4d3b-967a-45ba10135664",
+          "title": "Input field",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should have placeholder for first name in sign up form",
+              "fullTitle": "Input field should have placeholder for first name in sign up form",
+              "timedOut": null,
+              "duration": 326,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-name').should('have.attr', 'placeholder');",
+              "err": {},
+              "uuid": "815a619d-a0c3-424d-911e-81a682363b14",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have placeholder for last name in sign up form",
+              "fullTitle": "Input field should have placeholder for last name in sign up form",
+              "timedOut": null,
+              "duration": 193,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-last-name').should('have.attr', 'placeholder');",
+              "err": {},
+              "uuid": "8257ad0f-9ef9-4e88-9c74-50bf520f3127",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have placeholder for email in sign up form",
+              "fullTitle": "Input field should have placeholder for email in sign up form",
+              "timedOut": null,
+              "duration": 4688,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-email').should('have.attr', 'placeholder');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `#sign-up-email`, but never found it.",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `#sign-up-email`, but never found it.\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:110:30)",
+                "diff": null
+              },
+              "uuid": "d325636b-4606-4388-a0ae-8011700f38c2",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have placeholder for password in sign up form",
+              "fullTitle": "Input field should have placeholder for password in sign up form",
+              "timedOut": null,
+              "duration": 207,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-password').should('have.attr', 'placeholder');",
+              "err": {},
+              "uuid": "87ca61e2-27fd-45fd-b4f8-818ed349455a",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have placeholder for email in sign in form",
+              "fullTitle": "Input field should have placeholder for email in sign in form",
+              "timedOut": null,
+              "duration": 172,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-in-email').should('have.attr', 'placeholder');",
+              "err": {},
+              "uuid": "e3978558-25bb-4fb2-9d7c-cd923d09a798",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have placeholder for password in sign in form",
+              "fullTitle": "Input field should have placeholder for password in sign in form",
+              "timedOut": null,
+              "duration": 166,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-in-password').should('have.attr', 'placeholder');",
+              "err": {},
+              "uuid": "e356ef2d-b98b-4b1e-9185-6b522cf97379",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have label for first name in sign up form",
+              "fullTitle": "Input field should have label for first name in sign up form",
+              "timedOut": null,
+              "duration": 4593,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-name').parent().children('label');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:122:38)",
+                "diff": null
+              },
+              "uuid": "808b1075-5c04-4c35-8d6b-3986ffde6014",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have label for last name in sign up form",
+              "fullTitle": "Input field should have label for last name in sign up form",
+              "timedOut": null,
+              "duration": 4573,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-last-name').parent().children('label');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:125:43)",
+                "diff": null
+              },
+              "uuid": "55db5ea1-2344-424c-aad1-52d2c932433b",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have label for email in sign up form",
+              "fullTitle": "Input field should have label for email in sign up form",
+              "timedOut": null,
+              "duration": 4837,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-password').parent().children('label');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:128:42)",
+                "diff": null
+              },
+              "uuid": "01ce9ac5-2a2b-41d9-98b7-e00b8a166c79",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have label for password in sign up form",
+              "fullTitle": "Input field should have label for password in sign up form",
+              "timedOut": null,
+              "duration": 4566,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-up-password').parent().children('label');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field>\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:131:42)",
+                "diff": null
+              },
+              "uuid": "3a587fa4-fd04-481c-acd8-2e2e85c2abfa",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have label for email in sign in form",
+              "fullTitle": "Input field should have label for email in sign in form",
+              "timedOut": null,
+              "duration": 4543,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-in-email').parent().children('label');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field.field--full>",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field.field--full>\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:134:39)",
+                "diff": null
+              },
+              "uuid": "27eba419-c376-410a-a104-98d4e30106a2",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should have label for password in sign in form",
+              "fullTitle": "Input field should have label for password in sign in form",
+              "timedOut": null,
+              "duration": 4612,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#sign-in-password').parent().children('label');",
+              "err": {
+                "message": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field.field--full>",
+                "estack": "AssertionError: Timed out retrying: Expected to find element: `label`, but never found it. Queried from element: <div.field.field--full>\n    at Context.eval (http://localhost:8080/__cypress/tests?p=cypress\\integration\\jsTaskFixFormDOM.spec.js:137:42)",
+                "diff": null
+              },
+              "uuid": "114d4a54-665d-44a9-a988-b66d5c02418b",
+              "parentUUID": "538d3da1-83ef-4d3b-967a-45ba10135664",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "815a619d-a0c3-424d-911e-81a682363b14",
+            "8257ad0f-9ef9-4e88-9c74-50bf520f3127",
+            "87ca61e2-27fd-45fd-b4f8-818ed349455a",
+            "e3978558-25bb-4fb2-9d7c-cd923d09a798",
+            "e356ef2d-b98b-4b1e-9185-6b522cf97379"
+          ],
+          "failures": [
+            "d325636b-4606-4388-a0ae-8011700f38c2",
+            "808b1075-5c04-4c35-8d6b-3986ffde6014",
+            "55db5ea1-2344-424c-aad1-52d2c932433b",
+            "01ce9ac5-2a2b-41d9-98b7-e00b8a166c79",
+            "3a587fa4-fd04-481c-acd8-2e2e85c2abfa",
+            "27eba419-c376-410a-a104-98d4e30106a2",
+            "114d4a54-665d-44a9-a988-b66d5c02418b"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 33476,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.1"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "raw_reports",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "5.1.0"
+    }
+  }
+}
