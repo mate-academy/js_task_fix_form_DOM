@@ -10,6 +10,6 @@ inputs.forEach(element => {
   label.textContent = element.name;
 
   element.placeholder = element.name[0].toUpperCase()
-  + element.name.substring(1);
+  + element.name.substring(1).split('Name').join(' Name');
   element.parentElement.append(label);
 });
