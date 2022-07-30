@@ -5,7 +5,7 @@ const inputs = document.querySelectorAll('input');
 for (const input of inputs) {
   const lable = document.createElement('label');
 
-  lable.setAttribute('class', 'form-field');
+  lable.className = 'field-label';
   lable.setAttribute('for', input.getAttribute('id'));
   lable.textContent = input.getAttribute('name');
 
