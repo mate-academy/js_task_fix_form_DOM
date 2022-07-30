@@ -1,3 +1,17 @@
 'use strict';
 
-// write code here
+const inputs = document.querySelectorAll('input');
+
+for (const input of inputs) {
+  const lable = document.createElement('label');
+
+  lable.className = 'field-label';
+  lable.setAttribute('for', input.getAttribute('id'));
+  lable.textContent = input.getAttribute('name');
+
+  const placeholderValue = input.getAttribute('name')[0].toUpperCase()
+    + input.getAttribute('name').slice(1);
+
+  input.setAttribute('placeholder', placeholderValue);
+  input.before(lable);
+}
