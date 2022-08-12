@@ -16,7 +16,7 @@ forms.forEach(form => {
 
     input.setAttribute(
       'placeholder',
-      name[0].toUpperCase() + name.slice(1)
+      name[0].toUpperCase() + name.slice(1).replace(/([A-Z])/g, ' $1'),
     );
     input.before(label);
   });
