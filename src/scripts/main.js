@@ -8,10 +8,11 @@ function capitalize(word) {
 
 for (const input of inputs) {
   const label = document.createElement('label');
+  const inputName = input.name.replace(/[A-Z]/g, (letter) => ` ${letter}`);
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = capitalize(input.name);
-  input.placeholder = capitalize(input.name);
+  label.textContent = capitalize(inputName);
+  input.placeholder = capitalize(inputName);
   input.parentElement.append(label);
 };
