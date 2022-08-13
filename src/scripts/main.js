@@ -3,13 +3,21 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
+  let nameWithSpace = '';
+
+  for (const letter of input.name) {
+    letter === letter.toUpperCase()
+      ? nameWithSpace += ' ' + letter
+      : nameWithSpace += letter;
+  }
+
   input.insertAdjacentHTML(
     'beforebegin',
 
     `<label for="${input.id}" class="field-label">
-      ${input.name}
+      ${nameWithSpace}
     </label>`
   );
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  input.placeholder = nameWithSpace[0].toUpperCase() + nameWithSpace.slice(1);
 }
