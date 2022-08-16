@@ -1,13 +1,12 @@
 'use strict';
 
-const fields = document.querySelectorAll('.field');
 const inputs = document.querySelectorAll('input');
 
-fields.forEach((item, i) => {
-  item.insertAdjacentHTML('afterbegin', `
-  <label class="field-label" for="${inputs[i].id}">${inputs[i].name}</label>
+inputs.forEach((item, i) => {
+  item.insertAdjacentHTML('beforebegin', `
+  <label class="field-label" for="${item.id}">${item.name}</label>
   `);
 
-  inputs[i].placeholder = inputs[i].name[0].toUpperCase()
-    + inputs[i].name.slice(1);
+  item.placeholder = item.name[0].toUpperCase()
+    + item.name.slice(1);
 });
