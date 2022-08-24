@@ -20,6 +20,6 @@ inputs.forEach(input => {
   label.setAttribute('for', getId);
   label.textContent = camelToUpper(input.getAttribute('name'));
 
-  input.insertAdjacentElement('beforebegin', label);
   input.setAttribute('placeholder', camelToTitle(input.getAttribute('name')));
+  input.insertAdjacentElement('beforebegin', label);
 });
