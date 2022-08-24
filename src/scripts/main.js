@@ -2,18 +2,18 @@
 
 const inputs = document.querySelectorAll('input');
 
-inputs.forEach((item) => {
-  item.insertAdjacentHTML('beforebegin', `
-  <label class="field-label" for="${item.id}">${item.name}</label>
+inputs.forEach((input) => {
+  input.insertAdjacentHTML('beforebegin', `
+  <label class="field-label" for="${input.id}">${input.name}</label>
   `);
 
-  item.placeholder = item.name[0].toUpperCase();
+  input.placeholder = input.name[0].toUpperCase();
 
-  for (let i = 1; i < item.name.length; i++) {
-    if (item.name[i] === item.name[i].toUpperCase()) {
-      item.placeholder += ` ${item.name[i]}`;
+  for (let i = 1; i < input.name.length; i++) {
+    if (input.name[i] === input.name[i].toUpperCase()) {
+      input.placeholder += ` ${input.name[i]}`;
     } else {
-      item.placeholder += item.name[i];
+      input.placeholder += input.name[i];
     }
   }
 });
