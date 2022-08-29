@@ -12,9 +12,11 @@ inputs.forEach(input => {
 
   label.className = 'field-label';
   label.setAttribute('for', inputId);
-  label.textContent = textLabel;
+  label.textContent = textLabel.split(/(?=[A-Z])/).join(' ');
 
-  const placeholderValue = capitalizeFirstLetter(input.name);
+  const placeholderValue = capitalizeFirstLetter(input.name)
+    .split(/(?=[A-Z])/)
+    .join(' ');
 
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
