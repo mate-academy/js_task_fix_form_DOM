@@ -14,9 +14,11 @@ for (let i = 0; i < inputArray.length; i++) {
   label.innerText = inputArray[i].name.toLocaleUpperCase();
 
   const placeholder
-  = inputArray[i].name.toLowerCase().split('').map((item, position) => {
+  = inputArray[i].name.split('').map((item, position) => {
     if (position === 0) {
       return item.toLocaleUpperCase();
+    } else if (item === item.toUpperCase()) {
+      return ' ' + item;
     } else {
       return item;
     }
@@ -26,5 +28,3 @@ for (let i = 0; i < inputArray.length; i++) {
 
   parentElement.append(label);
 }
-
-// console.log(inputList);
