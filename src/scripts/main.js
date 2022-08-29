@@ -9,7 +9,7 @@ const createLabel = function(input) {
 
   label.className = 'field-label';
   label.for = input.id;
-  label.textContent = input.name;
+  label.textContent = cpitalizeIt(input.name);
 
   input.parentElement.append(label);
   input.placeholder = cpitalizeIt(input.name);
@@ -20,7 +20,7 @@ function cpitalizeIt(text) {
 
   for (let i = 1; i < text.length; i++) {
     if (text[i] === text[i].toUpperCase()) {
-      result += ' ' + text[i].toLowerCase();
+      result += ' ' + text[i];
     } else {
       result += text[i];
     }
