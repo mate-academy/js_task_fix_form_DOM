@@ -11,7 +11,14 @@ for (let i = 0; i < inputArray.length; i++) {
 
   label.className = `field-label`;
   label.htmlFor = inputArray[i].id;
-  label.innerText = inputArray[i].name.toLocaleUpperCase();
+
+  label.innerText = inputArray[i].name.split('').map(item => {
+    if (item === item.toUpperCase()) {
+      return ' ' + item;
+    } else {
+      return item;
+    }
+  }).join('');
 
   const placeholder
   = inputArray[i].name.split('').map((item, position) => {
