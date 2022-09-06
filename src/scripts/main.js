@@ -4,17 +4,24 @@ const inputs = document.querySelectorAll('input');
 
 inputs.forEach(input => {
   const label = document.createElement('label');
+
   label.for = input.id;
   label.class = `field-label`;
-  label.textContent = input.name.toUpperCase();
 
-  input.placeholder = input.name.replace(/([A-Z])/g, ' $1')
-  // please help to come up with easier solution to turn camelCase into Camel case
-  .replace(/^./, function(str){ return str.toUpperCase(); });
+  let placeholderName = '';
 
-  input.textContent = input.name;
+  for (let i = 0; i < input.name.length; i++) {
+    if (input.name[i] !== input.name[i].toLowerCase()) {
+      placeholderName += ' ' + input.name[i].toLowerCase();
+    } else {
+      placeholderName += input.name[i];
+    }
+  }
+
+  label.textContent = placeholderName.toUpperCase();
+
+  input.placeholder = placeholderName.charAt(0).toLocaleUpperCase()
+  + placeholderName.slice(1);
 
   input.parentElement.insertAdjacentElement('afterbegin', label);
-
-  console.log(input.parentElement.innerHTML)
-})
+});
