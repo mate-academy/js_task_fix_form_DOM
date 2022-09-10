@@ -20,8 +20,10 @@ inputs.forEach(input => {
 
   label.textContent = placeholderName.toUpperCase();
 
-  input.placeholder = placeholderName.charAt(0).toLocaleUpperCase()
+  input.placeholder = placeholderName.charAt(0).toUpperCase()
   + placeholderName.slice(1);
 
   input.parentElement.insertAdjacentElement('afterbegin', label);
 });
+
+document.querySelector('.login-wrap').style.height = '612px';
