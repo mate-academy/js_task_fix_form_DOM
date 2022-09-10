@@ -21,11 +21,17 @@ inputs.forEach(inp => {
     inp.placeholder = label.textContent[0].toUpperCase()
     + label.textContent.substring(1, 5) + ' '
     + label.textContent.substring(5);
+
+    label.textContent = inp.name.slice(0, 5)
+    + ' ' + inp.name.slice(5);
   };
 
   if (inp.name === 'lastName') {
     inp.placeholder = label.textContent[0].toUpperCase()
     + label.textContent.substring(1, 4) + ' '
     + label.textContent.substring(4);
+
+    label.textContent = inp.name.slice(0, 4)
+    + ' ' + inp.name.slice(4);
   };
 });
