@@ -10,7 +10,7 @@ const inputs = document.querySelectorAll('input');
   label.textContent = input.name;
 
   input.placeholder = input.name.charAt(0).toUpperCase()
-                    + input.name.substring(1).toLowerCase();
+    + input.name.substring(1).toLowerCase();
 
   input.parentElement.append(label);
 });
