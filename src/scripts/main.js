@@ -4,12 +4,14 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
+  const inputName = input.name.replace(/[A-Z]/g, (letter) => ` ${letter}`);
+
   input.parentElement.insertAdjacentHTML(
     'afterbegin',
     `<label class="field-label" for="${input.id}">
-    ${input.name.toUpperCase()}
+    ${inputName.toUpperCase()}
     </label>`
   );
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  input.placeholder = inputName[0].toUpperCase() + inputName.slice(1);
 }
