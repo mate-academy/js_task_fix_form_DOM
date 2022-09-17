@@ -6,7 +6,7 @@ inputs.forEach(input => {
   const label = document.createElement('label');
 
   label.for = input.id;
-  label.class = `field-label`;
+  label.className = `field-label`;
 
   let placeholderName = '';
 
@@ -25,5 +25,3 @@ inputs.forEach(input => {
 
   input.parentElement.insertAdjacentElement('afterbegin', label);
 });
-
-document.querySelector('.login-wrap').style.height = '612px';
