@@ -3,7 +3,7 @@
 // write code here
 const inputs = document.querySelectorAll('input');
 
-const formatName = (inputName) => {
+const formatInputName = (inputName) => {
   let formatedName = inputName[0].toUpperCase();
 
   for (let i = 1; i < inputName.length; i++) {
@@ -20,7 +20,7 @@ const formatName = (inputName) => {
 };
 
 inputs.forEach((input) => {
-  const inputName = formatName(input.name);
+  const inputName = formatInputName(input.name);
 
   const label = `
     <label class="field-label" for="${input.id}">
