@@ -3,16 +3,21 @@
 const inputs = document.querySelectorAll('input');
 
 const splitLabel = text => {
-  switch (true) {
-    case text.toLowerCase() === 'firstname':
-      return 'First Name';
+  let res = '';
 
-    case text.toLowerCase() === 'lastname':
-      return 'Last Name';
+  for (let i = 0; i < text.length; i++) {
+    if (i === 0) {
+      res += text[i].toUpperCase();
+      continue;
+    }
 
-    default:
-      return text[0].toUpperCase() + text.slice(1);
+    if (text[i] === text[i].toUpperCase()) {
+      res += ' ';
+    }
+    res += text[i];
   }
+
+  return res;
 };
 
 for (const input of inputs) {
