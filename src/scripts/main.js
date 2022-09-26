@@ -10,6 +10,5 @@ for (const input of inputs) {
   label.setAttribute('for', input.id);
   label.textContent = input.name;
   input.setAttribute('placeholder', input.name.toUpperCase());
-
   input.prepend(label);
 }
