@@ -6,19 +6,20 @@ const item = document.createElement('label');
 item.className = 'field-label';
 
 inputs.forEach(input => {
-  let newName = input.name.toLowerCase();
+  const newName = input.name.split('');
+  let newWordIndex;
 
-  if (newName.includes('name')) {
-    newName = newName
-      .slice(0, newName.indexOf('name'));
-    newName += ' name';
-  }
+  do {
+    newWordIndex = newName.findIndex(char => char.toLowerCase() !== char);
 
-  const newPlaceholder = newName
-    .replace(newName[0], newName[0].toUpperCase());
+    if (newWordIndex !== -1) {
+      newName.splice(newWordIndex, 1, ' ', newName[newWordIndex].toLowerCase());
+    }
+  } while (newWordIndex !== -1);
 
+  newName[0] = newName[0].toUpperCase();
   item.htmlFor = input.id;
-  item.innerText = newName.toUpperCase();
+  item.innerText = newName.join('').toUpperCase();
   input.before(item.cloneNode(true));
-  input.placeholder = newPlaceholder;
+  input.placeholder = newName.join('');
 });
