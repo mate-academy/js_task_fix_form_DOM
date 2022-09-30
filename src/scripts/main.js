@@ -12,7 +12,7 @@ inputs.forEach(input => {
     = indexOfName !== -1
       ? inputName[0].toUpperCase() + inputName.slice(1, indexOfName)
       + ' ' + inputName.slice(indexOfName)
-      : inputName[0].toUpperCase() + inputName.slice(1, indexOfName);
+      : inputName[0].toUpperCase() + inputName.slice(1);
 
   input.placeholder = formatPlaceholder;
 
