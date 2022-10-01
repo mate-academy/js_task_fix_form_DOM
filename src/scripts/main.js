@@ -3,8 +3,17 @@
 const inputElements = document.querySelectorAll('input');
 
 function capitalizeText(currText) {
-  return currText.charAt(0).toUpperCase()
-    + currText.slice(1);
+  let resultText = currText.slice(0, 1).toUpperCase();
+
+  for (let i = 1; i < currText.length; i++) {
+    if (currText[i] === currText[i].toUpperCase()) {
+      resultText += ' ' + currText[i].toLowerCase();
+      i++;
+    }
+    resultText += currText[i];
+  }
+
+  return resultText;
 }
 
 for (const inputElement of inputElements) {
