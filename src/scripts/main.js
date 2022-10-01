@@ -1,19 +1,12 @@
 'use strict';
-// get array of input tags
 
 const inputCollection = [...document.querySelectorAll('input')];
-
-// get div's of the first form
 
 const firstForm = [...document.querySelector('.login-wrap')
   .firstElementChild.children].slice(0, 4);
 
-// get div's of the second form
-
 const secondForm = [...document.querySelector('.login-wrap')
   .lastElementChild.children].slice(0, 2);
-
-// function that creates label tag for each input
 
 function newlabel(inpt) {
   const item = document.createElement('label');
@@ -25,32 +18,31 @@ function newlabel(inpt) {
   return item;
 }
 
-// get array of label tags
-
 const labelsArray = inputCollection.map(newlabel);
 
-// function that capitalize first letter
+function stringOfPlaceholder(str) {
+  let res = '';
 
-function cap(str) {
-  return str[0].toUpperCase() + str.slice(1);
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      res += ' ' + str[i];
+    } else {
+      res += str[i];
+    }
+  }
+
+  return res[0].toUpperCase() + res.slice(1);
 }
-
-// capitalizing first letter of a placeholder
 
 for (const inpt of inputCollection) {
-  inpt.placeholder = cap(inpt.name);
+  inpt.placeholder = stringOfPlaceholder(inpt.name);
 }
 
-// function labelPast that append relevant label elements
-// to the parent container of input
-
-function labelPast(divArr, labArr) {
+function labelInsert(divArr, labArr) {
   for (let i = 0; i < divArr.length; i++) {
     divArr[i].append(labArr[i]);
   }
 }
 
-// call function labelPast for each form
-
-labelPast(firstForm, labelsArray.slice(0, 4));
-labelPast(secondForm, labelsArray.slice(4));
+labelInsert(firstForm, labelsArray.slice(0, 4));
+labelInsert(secondForm, labelsArray.slice(4));
