@@ -18,7 +18,7 @@ function textFormatting(word) {
 
 inputs.map(input => {
   input.insertAdjacentHTML('beforebegin', `
-    <label class="field-label" for="${input.id}"">
+    <label class="field-label" for="${input.id}">
       ${textFormatting(input.name)}
     </label>`);
   input.placeholder = textFormatting(input.name);
