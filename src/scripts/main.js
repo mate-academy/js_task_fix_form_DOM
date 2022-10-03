@@ -8,19 +8,7 @@ const firstForm = [...document.querySelector('.login-wrap')
 const secondForm = [...document.querySelector('.login-wrap')
   .lastElementChild.children].slice(0, 2);
 
-function newlabel(inpt) {
-  const item = document.createElement('label');
-
-  item.className = 'field-label';
-  item.htmlFor = `${inpt.id}`;
-  item.innerText = `${inpt.name}`;
-
-  return item;
-}
-
-const labelsArray = inputCollection.map(newlabel);
-
-function stringOfPlaceholder(str) {
+function stringMod(str) {
   let res = '';
 
   for (let i = 0; i < str.length; i++) {
@@ -35,8 +23,21 @@ function stringOfPlaceholder(str) {
 }
 
 for (const inpt of inputCollection) {
-  inpt.placeholder = stringOfPlaceholder(inpt.name);
+  inpt.name = stringMod(inpt.name);
+  inpt.setAttribute('placeholder', `${inpt.name}`);
 }
+
+function newlabel(inpt) {
+  const item = document.createElement('label');
+
+  item.className = 'field-label';
+  item.htmlFor = `${inpt.id}`;
+  item.innerText = `${inpt.name}`;
+
+  return item;
+}
+
+const labelsArray = inputCollection.map(newlabel);
 
 function labelInsert(divArr, labArr) {
   for (let i = 0; i < divArr.length; i++) {
