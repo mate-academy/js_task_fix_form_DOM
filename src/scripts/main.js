@@ -12,5 +12,6 @@ for (const input of [...inputs]) {
 };
 
 function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.slice(0, 1).toUpperCase()
+  + string.slice(1).split(/(?=[A-Z])/g).join(' ');
 };
