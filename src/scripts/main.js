@@ -17,11 +17,13 @@ function capitalizeText(currText) {
 }
 
 for (const inputElement of inputElements) {
-  inputElement.placeholder = capitalizeText(inputElement.name);
+  const elementName = capitalizeText(inputElement.name);
+
+  inputElement.placeholder = elementName;
 
   inputElement.insertAdjacentHTML('beforebegin', `
   <label class="field-label" for="${inputElement.id}">
-  ${inputElement.name.toUpperCase()}
+  ${elementName.toUpperCase()}
   </label>
 `);
 }
