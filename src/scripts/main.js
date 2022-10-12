@@ -1,5 +1,17 @@
 'use strict';
 
+const separatingWords = function(s) {
+  const splited = s.split('');
+
+  for (let i = 0; i < splited.length; i++) {
+    if (splited[i] === 'N') {
+      splited[i] = ' N';
+    }
+  }
+
+  return splited.join('');
+};
+
 const forms = document.querySelectorAll('form');
 const inputs = [...forms].map(form =>
   [...form.querySelectorAll('div')].map(el => el.querySelector('input')));
@@ -18,5 +30,5 @@ for (let i = 0; i < input.length; i++) {
 
   const placeholder = input[i].name[0].toUpperCase();
 
-  input[i].placeholder = placeholder + input[i].name.slice(1);
+  input[i].placeholder = separatingWords(placeholder + input[i].name.slice(1));
 }
