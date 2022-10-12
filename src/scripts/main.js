@@ -10,12 +10,17 @@ list.forEach((item) => {
   let nameInput = '';
 
   for (let i = 0; i < upName.length; i++) {
+    if (i === 0) {
+      nameInput += item.name[i].toUpperCase();
+      continue;
+    }
+
     if (item.name[i] === upName[i]) {
       nameInput += ' ' + item.name[i];
     } else {
       nameInput += item.name[i];
     }
-  }
+  };
 
   item.placeholder = nameInput;
 
