@@ -1,16 +1,9 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('.field-text');
 
-inputs.forEach(input => {
-  const label = document.createElement('label');
-
-  label.htmlFor = input.id;
-  label.className = 'field-label';
-  label.textContent = input.name;
-
-  const placeholder = input.name
-    .split('')
+const makeCamelCase = (word) => {
+  return word.split('')
     .map(char => {
       if (char === char.toUpperCase()) {
         return ' ' + char;
@@ -19,6 +12,17 @@ inputs.forEach(input => {
       return char;
     })
     .join('');
+};
+
+inputs.forEach(input => {
+  const label = document.createElement('label');
+  const fieldName = makeCamelCase(input.name);
+
+  label.htmlFor = input.id;
+  label.className = 'field-label';
+  label.textContent = fieldName;
+
+  const placeholder = fieldName;
 
   input.placeholder = placeholder[0].toUpperCase()
     + placeholder.slice(1);
