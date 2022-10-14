@@ -1,22 +1,25 @@
 'use strict';
 
-const list = [...document.querySelectorAll('input')];
-
 function devide(word) {
-  const stringWord = String(word);
-
   let result = '';
 
-  for (let i = 0; i < stringWord.length; i++) {
-    if (stringWord[i] === stringWord[i].toUpperCase()) {
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === word[i].toUpperCase()) {
       result += ' ';
     }
 
-    i === 0 ? result += stringWord[i].toUpperCase() : result += stringWord[i];
+    // i === 0 ? result += word[i].toUpperCase()
+    // : result += word[i];                         // my option
+
+    const char = i === 0 ? word[i].toUpperCase() : word[i];
+
+    result += char;
   }
 
   return result;
 }
+
+const list = [...document.querySelectorAll('input')]; // array
 
 for (const input of list) {
   const item = document.createElement('label');
