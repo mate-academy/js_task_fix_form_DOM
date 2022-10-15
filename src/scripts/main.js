@@ -3,9 +3,11 @@
 const inputs = [...document.querySelectorAll('input')];
 
 inputs.map(el => {
-  el.insertAdjacentHTML('beforebegin', `<label class ='field-label' for ='${
-    el.id}'>${el.name}</label>`);
+  const splitedName = el.name.replace(/([a-z](?=[A-Z]))/g, '$1 ');
 
-  el.placeholder = `${el.name}`.charAt(0).toUpperCase() + `${
-    el.name}`.slice(1);
+  el.insertAdjacentHTML('beforebegin', `<label class ='field-label' for ='${
+    el.id}'>${splitedName.toUpperCase()}</label>`);
+
+  el.placeholder = `${splitedName}`.charAt(0).toUpperCase() + `${
+    splitedName}`.slice(1);
 });
