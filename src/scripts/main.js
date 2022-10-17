@@ -3,9 +3,9 @@
 const separatingWords = function(s) {
   const splited = s.split('');
 
-  for (let i = 0; i < splited.length; i++) {
-    if (splited[i] === 'N') {
-      splited[i] = ' N';
+  for (let i = 1; i < splited.length; i++) {
+    if (splited[i] === splited[i].toUpperCase()) {
+      splited[i] = ` ${splited[i]}`;
     }
   }
 
@@ -16,14 +16,14 @@ const forms = document.querySelectorAll('form');
 const inputs = [...forms].map(form =>
   [...form.querySelectorAll('div')].map(el => el.querySelector('input')));
 
-const inputWithEmtyEl = [...inputs[0], ...inputs[1]];
-const input = inputWithEmtyEl.filter(el => el != null);
+const inputWithEmptyEl = [...inputs[0], ...inputs[1]];
+const input = inputWithEmptyEl.filter(el => el !== null);
 
 for (let i = 0; i < input.length; i++) {
   const label = document.createElement('label');
 
   label.className = 'field-label';
-  label.textContent = input[i].name;
+  label.textContent = separatingWords(input[i].name);
   label.htmlFor = input[i].id;
 
   input[i].before(label);
