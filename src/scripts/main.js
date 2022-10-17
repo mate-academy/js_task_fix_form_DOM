@@ -1,11 +1,11 @@
 'use strict';
 
-const kebabCase = require('../../node_modules/lodash/kebabCase');
+const startCase = require('../../node_modules/lodash/startCase');
 
 const inputList = [...document.querySelectorAll('input')];
 
 for (const field of inputList) {
-  const inputText = kebabCase(field.name).split('-').join(' ').toUpperCase();
+  const inputText = startCase(field.name).toUpperCase();
 
   const label = document.createElement('label');
 
