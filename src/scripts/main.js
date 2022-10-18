@@ -2,8 +2,8 @@
 
 const inputs = document.querySelectorAll('input');
 
-function splitUpperText(string) {
-  return string.name
+function splitUpperText(camelString) {
+  return camelString.name
     .replace(/[A-Z]/, ' $&').toUpperCase();
 }
 
