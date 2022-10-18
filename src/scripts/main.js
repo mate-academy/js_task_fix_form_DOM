@@ -5,7 +5,7 @@ const startCase = require('../../node_modules/lodash/startCase');
 const inputList = [...document.querySelectorAll('input')];
 
 for (const field of inputList) {
-  const inputText = startCase(field.name).toUpperCase();
+  const inputText = startCase(field.name);
 
   const label = document.createElement('label');
 
