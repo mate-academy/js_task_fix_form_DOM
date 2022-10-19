@@ -15,4 +15,5 @@ for (const element of inputs) {
   element.before(label);
 
   label.textContent = `${splitUpperText(element)}`;
+  label.style.fontWeight = 'bold';
 }
