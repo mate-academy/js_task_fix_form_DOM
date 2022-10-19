@@ -1,15 +1,12 @@
 'use strict';
 
-function devide(word) {
+function divide(word) {
   let result = '';
 
   for (let i = 0; i < word.length; i++) {
     if (word[i] === word[i].toUpperCase()) {
       result += ' ';
     }
-
-    // i === 0 ? result += word[i].toUpperCase()
-    // : result += word[i];                         // my option
 
     const char = i === 0 ? word[i].toUpperCase() : word[i];
 
@@ -19,17 +16,18 @@ function devide(word) {
   return result;
 }
 
-const list = [...document.querySelectorAll('input')]; // array
+const list = [...document.querySelectorAll('input')];
 
 for (const input of list) {
+  const inputName = divide(input.name);
   const item = document.createElement('label');
 
-  input.setAttribute('placeholder', devide(input.name));
+  input.setAttribute('placeholder', inputName);
 
   item.htmlFor = input.id;
   item.classList = 'field-label';
 
-  item.innerText = (devide(input.name)).toUpperCase();
+  item.innerText = inputName.toUpperCase();
 
   input.parentElement.prepend(item);
 }
