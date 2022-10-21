@@ -7,15 +7,21 @@ const inputs = document.querySelectorAll('input');
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = formatInputName(input.name);
 
   return input.parentElement.append(label);
 });
 
 [...inputs].map(input => {
-  return input.setAttribute('placeholder', capitalize(input.name));
+  return input.setAttribute('placeholder',
+    formatInputName(input.name));
 });
 
-function capitalize(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+function formatInputName(inputName) {
+  const result = inputName
+    .split('')
+    .map(char => (char === char.toUpperCase() ? ' ' + char : char))
+    .join('');
+
+  return result.replace(inputName[0], inputName[0].toUpperCase());
+}
