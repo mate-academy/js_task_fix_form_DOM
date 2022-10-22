@@ -1,20 +1,19 @@
 'use strict';
 
 const inputs = document.querySelectorAll('input');
-const field = document.querySelectorAll('.field');
 
-const newInputs = [...inputs].map(input => `
-<label for="${input.id}">
-${input.name.toUpperCase()}
-</label>
-<input type="${input.type}"
-name="${input.name}"
-class="field-label"
-id="${input.id}"
-placeholder="${input.name[0].toUpperCase()}${input.name.slice(1)}"
-autocomplete="${input.autocomplete}">
-`);
+[...inputs].map(input => {
+  const label = document.createElement('label');
 
-for (let i = 0; i < newInputs.length; i++) {
-  field[i].innerHTML = newInputs[i];
-};
+  label.setAttribute('for', input.id);
+  label.classList.add('field-label');
+
+  label.textContent = input.name
+    .replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  input.setAttribute('placeholder', label.textContent[0].toUpperCase()
+  + label.textContent.slice(1).toLowerCase());
+
+  input.parentNode.prepend(label);
+}
+);
