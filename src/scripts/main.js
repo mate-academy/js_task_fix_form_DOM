@@ -2,18 +2,18 @@
 
 const inputs = document.querySelectorAll('input');
 
-[...inputs].map(input => {
+[...inputs].forEach(input => {
   const label = document.createElement('label');
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
   label.textContent = formatInputName(input.name);
 
-  return input.parentElement.append(label);
+  input.parentElement.append(label);
 });
 
-[...inputs].map(input => {
-  return input.setAttribute('placeholder',
+[...inputs].forEach(input => {
+  input.setAttribute('placeholder',
     formatInputName(input.name));
 });
 
