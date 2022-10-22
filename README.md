@@ -1,5 +1,6 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_fix_form_DOM/)
+    - [DEMO LINK](https://kolya-movchan
+.github.io/js_task_fix_form_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -25,6 +26,8 @@ You can read about placeholders and labels here:
 1) Get all `inputs` from `form` tag on the page.
 2) For each `input` element create element `label` with `class` `field-label` (it is needed to apply css styles) and `for` attribute where set `id` of current input. Set `textContent` for label rely on `input` name.
 3) For each `input` set `placeholder` based on `input` name. Capitalize it.
+
+
 4) Append `label` elements to the parent container of `input` (do not wrap inputs into the label in this task)
 5) Done.
 
