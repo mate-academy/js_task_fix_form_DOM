@@ -12,8 +12,7 @@ const inputs = document.querySelectorAll('input');
     .replace(/([a-z])([A-Z])/g, '$1 $2');
 
   input.setAttribute('placeholder', label.textContent[0].toUpperCase()
-  + label.textContent.slice(1).toLowerCase());
+  + label.textContent.slice(1));
 
   input.parentNode.prepend(label);
-}
-);
+});
