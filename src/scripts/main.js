@@ -10,9 +10,11 @@ function fixForm(form) {
 }
 
 function addLabel(input) {
+  const separatedLabel = separateWords(input.name);
+
   input.insertAdjacentHTML('beforebegin', `
     <label for=${input.id} class='field-label'>
-      ${input.name}
+      ${separatedLabel}
     </label>
   `);
 }
