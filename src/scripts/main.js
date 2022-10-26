@@ -9,13 +9,21 @@ for (const form of forms) {
     const input = div.querySelector('input');
 
     if (input) {
+      let labelName = input.name[0].toUpperCase()
+       + input.name.slice(1).toLowerCase();
+
+      if (labelName === 'Firstname') {
+        labelName = 'First Name';
+      } else if (labelName === 'Lastname') {
+        labelName = 'Last Name';
+      }
+
       const label = `<label for="${input.id ? input.id : null}"
       class="field-label">
-      ${input.name}
+      ${labelName}
     </label>`;
 
-      input.placeholder = input.name[0].toUpperCase()
-        + input.name.slice(1).toLowerCase();
+      input.placeholder = labelName;
 
       div.innerHTML = label + input.outerHTML;
     }
