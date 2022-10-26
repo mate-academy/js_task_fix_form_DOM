@@ -14,7 +14,7 @@ for (const input of [...inputs]) {
   let inpName = input.name[0].toUpperCase();
 
   for (let i = 1; i < input.name.length; i++) {
-    inpName += input.name[i] === 'N'
+    inpName += input.name[i] === input.name[i].toUpperCase()
       ? ' ' + input.name[i].toLowerCase()
       : input.name[i];
   }
