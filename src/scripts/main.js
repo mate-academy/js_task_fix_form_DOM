@@ -2,15 +2,15 @@
 
 const inputsList = document.getElementsByTagName('input');
 
-for (const el of inputsList) {
+for (const inputItem of inputsList) {
   const newElement = document.createElement('label');
 
   newElement.setAttribute('class', `field-label`);
-  newElement.setAttribute('for', `${el.id}`);
-  newElement.innerText = el.name;
+  newElement.setAttribute('for', `${inputItem.id}`);
+  inputItem.setAttribute('placeholder', `${inputItem.name}`);
+  newElement.innerText = `${inputItem.name}`;
 
-  const parentElement = el.parentElement;
+  const itemParent = inputItem.parentElement;
 
-  newElement.append(el);
-  parentElement.append(newElement);
+  itemParent.prepend(newElement);
 }
