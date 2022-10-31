@@ -7,7 +7,7 @@ const arrOfInputs = [...inputs];
 for (const el of arrOfInputs) {
   el.insertAdjacentHTML('beforebegin', `
     <label for='${el.id}' class='field-label'> 
-      ${el.name}
+    ${Capitalize(el.name)}
     </label>
     `);
 
