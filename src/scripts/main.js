@@ -2,6 +2,13 @@
 
 const inputs = [...document.querySelectorAll('input')];
 
+function fixingText(input, number) {
+  return input.name[0].toUpperCase()
+  + input.name.slice(1, number)
+  + ' '
+  + input.name.slice(number);
+}
+
 inputs.forEach(inp => {
   const label = document.createElement('label');
 
@@ -16,26 +23,14 @@ inputs.forEach(inp => {
     + label.textContent.substring(1);
 
   if (inp.name === 'firstName') {
-    inp.placeholder = inp.name[0].toUpperCase()
-    + inp.name.slice(1, 5)
-    + ' '
-    + inp.name.slice(5);
+    inp.placeholder = fixingText(inp, 5);
 
-    label.textContent = inp.name[0].toUpperCase()
-    + inp.name.slice(1, 5)
-    + ' '
-    + inp.name.slice(5);
+    label.textContent = fixingText(inp, 5);
   }
 
   if (inp.name === 'lastName') {
-    inp.placeholder = inp.name[0].toUpperCase()
-    + inp.name.slice(1, 4)
-    + ' '
-    + inp.name.slice(4);
+    inp.placeholder = fixingText(inp, 4);
 
-    label.textContent = inp.name[0].toUpperCase()
-    + inp.name.slice(1, 4)
-    + ' '
-    + inp.name.slice(4);
+    label.textContent = fixingText(inp, 4);
   }
 });
