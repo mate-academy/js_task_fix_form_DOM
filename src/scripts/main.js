@@ -18,15 +18,14 @@ function addElements(elements) {
 
 function formatText(text) {
   return text.split('')
-    .map(el => {
+    .map((el, i) => {
       if (el === el.toUpperCase()) {
         return ' ' + el;
       }
 
-      return el;
+      return (i) ? el : el.toUpperCase();
     })
-    .join('')
-    .toUpperCase();
+    .join('');
 }
 
 addElements(input);
