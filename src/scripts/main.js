@@ -11,7 +11,7 @@ for (const el of arrOfInputs) {
     </label>
     `);
 
-  el.placeholder = upCase(el.name);
+  el.placeholder = el.name.toUpperCase();
 };
 
 function upCase(str) {
