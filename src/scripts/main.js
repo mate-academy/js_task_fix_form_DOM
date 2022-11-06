@@ -7,14 +7,15 @@ const arrOfInputs = [...inputs];
 for (const el of arrOfInputs) {
   el.insertAdjacentHTML('beforebegin', `
     <label for='${el.id}' class='field-label'> 
-    ${upCase(el.name)}
+    ${caps(el.name)}
     </label>
     `);
 
-  el.placeholder = el.name.charAt(0).toUpperCase() + el.name.slice(1);
+  el.placeholder = el.name[0]
+    .toUpperCase() + caps(el.name).toLowerCase().slice(1);
 };
 
-function upCase(str) {
+function caps(str) {
   let result = str;
 
   for (let i = 1; i < str.length; i++) {
