@@ -1,4 +1,4 @@
-1. Replace `<your_account>` with your Github username in the link
+1. Replace `gord-oleg` with your Github username in the link
     - [DEMO LINK](https://<your_account>.github.io/js_task_fix_form_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
@@ -35,3 +35,28 @@ Do not change styles or HTML layout in this task. Change only `main.js` file.
 Expected result:
 
 ![Preview](./src/images/result.png)
+
+Подивіться на цю форму... Здається, тут чогось не вистачає. Мітки? Заповнювачі? так..
+
+![Попередній перегляд](./src/images/preview.png)
+
+Ваше завдання - зробити скрипт, який виправляє проблеми в цій формі.
+1) Додайте `<label>` для вводів.
+2) Додайте заповнювачі для кожного введення.
+
+Під час написання сценарію покладайтеся на `ім’я` вхідних даних.
+
+Ви можете прочитати про заповнювачі та мітки тут:
+- [Атрибут заповнювача MDN] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-placeholder)
+- [тег мітки MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+
+##### Кроки для виконання цього завдання:
+1) Отримати всі `вхідні дані` з тегу `form` на сторінці.
+2) Для кожного елемента `input` створіть елемент `label` з `class` `field-label` (він потрібен для застосування стилів CSS) і атрибут `for`, де встановіть `id` поточного введення. Установіть `textContent` для мітки, спираючись на назву `введення`.
+3) Для кожного `input` встановіть `placeholder` на основі імені `input`. Напишіть це з великої літери.
+4) Додайте елементи `label` до батьківського контейнера `input` (не загортайте вхідні дані в мітку в цьому завданні)
+5) Готово.
+
+Підказки: п.2 і п.4 можна виконувати в одній петлі
+
+Не змінюйте стилі чи макет HTML у цьому завданні. Змінити лише файл `main.js`.
