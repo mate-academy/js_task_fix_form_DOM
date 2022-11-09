@@ -7,11 +7,22 @@ inputs.forEach(input => {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+
+  let inputName = '';
+
+  for (let i = 0; i < input.name.length; i++) {
+    if (i === 0) {
+      inputName += input.name[i].toUpperCase();
+    } else if (input.name[i].toUpperCase() === input.name[i]) {
+      inputName += ` ${input.name[i]}`;
+    } else {
+      inputName += input.name[i];
+    };
+  }
+
+  label.textContent = inputName;
 
   input.parentElement.append(label);
-
-  const inputName = input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
   input.setAttribute('placeholder', inputName);
 });
