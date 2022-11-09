@@ -3,7 +3,13 @@
 const input = document.querySelectorAll('input');
 
 for (let i = 0; i < input.length; i++) {
-  const text = input[i].name;
+  let text = input[i].name;
+
+  for (let j = text.length - 1; j >= 0; j--) {
+    if (text[j] === text[j].toUpperCase()) {
+      text = text.slice(0, j) + ' ' + text.slice(j);
+    }
+  }
 
   input[i].insertAdjacentHTML('beforebegin',
     `<label class="field-label"
