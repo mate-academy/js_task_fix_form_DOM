@@ -21,6 +21,7 @@ function addSpace(str) {
     if (str[i] && str[i] === str[i].toUpperCase()) {
       words += ' ';
     }
+    
     words += str[i];
   }
 
