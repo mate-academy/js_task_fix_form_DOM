@@ -10,7 +10,7 @@ fields.forEach(field => {
 
   label.for = field.getAttribute('id');
   label.textContent = addSpace(names);
-  field.placeholder = names[0].toUpperCase() + names.slice(1);
+  field.placeholder = addSpace(names[0].toUpperCase() + names.slice(1));
   field.parentElement.append(label);
 });
 
