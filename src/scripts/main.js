@@ -5,10 +5,14 @@ const allInput = document.querySelectorAll('input');
 function correctName(text) {
   let newText = '';
 
-  for (let i = 0; i < text.length; i++) {
-    i === 0 ? newText += text[i].toUpperCase()
-      : text[i].charCodeAt(0) !== text[i].toUpperCase().charCodeAt(0)
-        ? newText += text[i] : newText += ` ${text[i].toLowerCase()}`;
+  newText += text[0].toUpperCase();
+
+  for (let i = 1; i < text.length; i++) {
+    if (text[i].charCodeAt(0) !== text[i].toUpperCase().charCodeAt(0)) {
+      newText += text[i];
+    } else {
+      newText += ` ${text[i].toLowerCase()}`;
+    }
   }
 
   return newText;
