@@ -19,7 +19,7 @@ for (const input of [...allInput]) {
 
   label.className = `field-label`;
   label.htmlFor = input.id;
-  label.textContent = input.name.toUpperCase();
+  label.textContent = correctName(input.name).toUpperCase();
   input.placeholder = correctName(input.name);
   input.parentElement.append(label);
 }
