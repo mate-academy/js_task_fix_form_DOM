@@ -2,7 +2,7 @@
 
 const inputs = document.querySelectorAll('.field-text');
 
-for (const el of [...inputs]) {
+for (const el of inputs) {
   el.insertAdjacentHTML('beforebegin', `
     <label class="field-label" for="${el.id}">
       ${normalize(el.name)}
