@@ -10,16 +10,19 @@ for (let j = 0; j < formArray.length; j++) {
 
   for (let i = 0; i < inputArray.length; i++) {
     const inputElement = inputArray[i];
-    let strName = inputElement.name;
+    const strName = inputElement.name;
     const placeholderText = strName[0].toUpperCase() + strName.slice(1);
+
     inputElement.placeholder = placeholderText;
+
     const myLabel = document.createElement('label');
+
     myLabel.textContent = inputElement.name;
-    myLabel.setAttribute("for", inputElement.id);
+    myLabel.setAttribute('for', inputElement.id);
     myLabel.className = 'field-label';
+
     const inputParentNode = inputElement.parentNode;
+
     inputParentNode.appendChild(myLabel);
-
   }
-
 }
