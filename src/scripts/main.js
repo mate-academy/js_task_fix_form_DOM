@@ -7,9 +7,13 @@ inputs.forEach(item => {
 
   label.htmlFor = item.id;
   label.classList.add('field-label');
-  label.innerText = item.name.toUpperCase();
+  label.innerText = separateWords(item.name);
   item.parentElement.appendChild(label);
-
-  item.placeholder = item.name[0].toUpperCase()
-    + item.name.slice(1).toLowerCase();
+  item.placeholder = separateWords(item.name);
 });
+
+function separateWords(item) {
+  const word = item.split(/(?=[A-Z])/).join(' ');
+
+  return word[0].toUpperCase() + word.slice(1);
+}
