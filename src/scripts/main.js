@@ -11,23 +11,23 @@ for (let j = 0; j < formArray.length; j++) {
   for (let i = 0; i < inputArray.length; i++) {
     const inputElement = inputArray[i];
     const strName = inputElement.name;
-    const placeholderText = strName[0].toUpperCase() + strName.slice(1);
+    let strNameWithSpace = '';
 
-    inputElement.placeholder = placeholderText;
+    for (let x = 0; x < strName.length; x++) {
+      if (strName[x] === strName[x].toUpperCase()) {
+        strNameWithSpace += ' ';
+      }
+      strNameWithSpace += strName[x];
+    }
 
     const myLabel = document.createElement('label');
 
-    myLabel.textContent = inputElement.name;
+    myLabel.textContent = strNameWithSpace;
 
-    if (inputElement.name === 'firstName') {
-      myLabel.textContent = 'first name';
-      inputElement.placeholder = 'First Name';
-    }
+    const placeholderText = strNameWithSpace[0].toUpperCase() + 
+    strNameWithSpace.slice(1);
 
-    if (inputElement.name === 'lastName') {
-      myLabel.textContent = 'last name';
-      inputElement.placeholder = 'Last Name';
-    }
+    inputElement.placeholder = placeholderText;
 
     myLabel.setAttribute('for', inputElement.id);
     myLabel.className = 'field-label';
