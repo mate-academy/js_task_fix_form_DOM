@@ -18,6 +18,16 @@ for (let j = 0; j < formArray.length; j++) {
     const myLabel = document.createElement('label');
 
     myLabel.textContent = inputElement.name;
+
+    if(inputElement.name === 'firstName'){
+        myLabel.textContent = 'first name';
+        inputElement.placeholder = 'First Name';
+    }
+    if(inputElement.name === 'lastName'){
+        myLabel.textContent = 'last name';
+        inputElement.placeholder = 'Last Name';  
+    }
+    
     myLabel.setAttribute('for', inputElement.id);
     myLabel.className = 'field-label';
 
