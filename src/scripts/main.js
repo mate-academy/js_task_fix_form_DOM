@@ -5,7 +5,7 @@ const inputs = document.querySelectorAll('input');
 inputs.forEach(input => {
   input.parentElement.insertAdjacentHTML('beforeend', `
     <label class="field-label" for="#${input.id}">
-      ${input.name}
+      ${capitalizeName(input.name)}
     </label>
   `);
 
