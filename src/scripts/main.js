@@ -5,26 +5,26 @@ const allInputs = [...document.body.querySelectorAll('input')];
 for (const input of allInputs) {
   const labelElement = document.createElement('label');
 
-  const inputNameCapitalized = (item) => {
-    let updatedPlaceholder = '';
+  const updateStrings = (item) => {
+    let updatedString = '';
 
-    updatedPlaceholder = item[0].toUpperCase() + item.slice(1);
+    updatedString = item[0].toUpperCase() + item.slice(1);
 
-    for (let i = 1; i < updatedPlaceholder.length; i++) {
-      if (updatedPlaceholder[i] === updatedPlaceholder[i].toUpperCase()) {
-        updatedPlaceholder = updatedPlaceholder.slice(0, i)
+    for (let i = 1; i < updatedString.length; i++) {
+      if (updatedString[i] === updatedString[i].toUpperCase()) {
+        updatedString = updatedString.slice(0, i)
           + ' '
-          + updatedPlaceholder.slice(i).toLowerCase();
+          + updatedString.slice(i).toLowerCase();
       }
     }
 
-    return updatedPlaceholder;
+    return updatedString;
   };
 
   labelElement.className = 'field-label';
   labelElement.setAttribute('for', input.id);
-  labelElement.textContent = input.name.toUpperCase();
-  input.setAttribute('placeholder', inputNameCapitalized(input.name));
+  labelElement.textContent = updateStrings(input.name).toUpperCase();
+  input.setAttribute('placeholder', updateStrings(input.name));
 
   input.parentElement.insertAdjacentElement('afterbegin', labelElement);
 };
