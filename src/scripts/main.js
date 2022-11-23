@@ -8,10 +8,18 @@ for (let i = 0; i < list.length; i++) {
 
   label.className = 'field-label';
 
-  label.textContent = inputList[i].name;
+  if (inputList[i].name.toLowerCase() === 'lastname') {
+    label.textContent = 'Last name';
+    inputList[i].placeholder = 'Last name';
+  } else if (inputList[i].name.toLowerCase() === 'firstname') {
+    label.textContent = 'First name';
+    inputList[i].placeholder = 'First name';
+  } else {
+    label.textContent = inputList[i].name;
 
-  inputList[i].placeholder = inputList[i].name[0].toUpperCase()
-    + inputList[i].name.slice(1);
+    inputList[i].placeholder = inputList[i].name[0].toUpperCase()
+      + inputList[i].name.slice(1);
+  }
 
   label.htmlFor = inputList[i].id;
   list[i].append(label);
