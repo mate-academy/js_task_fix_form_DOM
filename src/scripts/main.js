@@ -1,27 +1,32 @@
 'use strict';
 
-const items = document.querySelectorAll('.field-text');
+const formFields = document.querySelectorAll('.field-text');
 
-for (const node of [...items]) {
-  const item = document.createElement('label');
+for (const textField of [...formFields]) {
+  const label = document.createElement('label');
 
-  item.className = 'field-label';
-  item.textContent = `${node.name}`;
-  item.setAttribute('for', `${node.id}`);
-  node.parentElement.insertBefore(item, node);
+  if (textField.name === 'firstName' || `${textField.name}` === 'lastName') {
+    label.textContent = textField.name.split('N').join(' N');
+  } else {
+    label.textContent = `${textField.name}`;
+  }
 
-  switch (node.name) {
+  label.className = 'field-label';
+  label.setAttribute('for', `${textField.id}`);
+  textField.parentElement.insertBefore(label, textField);
+
+  switch (textField.name) {
     case 'firstName':
-      node.placeholder = 'firstName'.toUpperCase();
+      textField.placeholder = 'first Name'.toUpperCase();
       break;
     case 'lastName':
-      node.placeholder = 'lastName'.toUpperCase();
+      textField.placeholder = 'last Name'.toUpperCase();
       break;
     case 'email':
-      node.placeholder = 'email'.toUpperCase();
+      textField.placeholder = 'email'.toUpperCase();
       break;
     case 'password':
-      node.placeholder = 'password'.toUpperCase();
+      textField.placeholder = 'password'.toUpperCase();
       break;
   }
 }
