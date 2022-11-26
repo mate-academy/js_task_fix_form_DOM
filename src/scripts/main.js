@@ -12,7 +12,7 @@ for (const input of [...inputs]) {
 
   label.setAttribute('for', input.id);
   label.className = 'field-label';
-  label.textContent = input.name.toUpperCase();
+  label.textContent = normalizeName(input.name).toUpperCase();
 
   input.placeholder = normalizeName(input.name);
 
