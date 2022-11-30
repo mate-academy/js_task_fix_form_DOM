@@ -1,7 +1,6 @@
 'use strict';
 
 const inputs = document.querySelectorAll('input');
-const capitalLetters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
 for (const input of [...inputs]) {
   const label = document.createElement('label');
