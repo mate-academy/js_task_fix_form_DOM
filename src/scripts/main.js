@@ -13,7 +13,7 @@ for (const input of [...inputs]) {
   let fieldName = input.name[0].toUpperCase();
 
   for (let i = 1; i < input.name.length; i++) {
-    if (capitalLetters.includes(input.name[i])) {
+    if (input.name[i] === input.name[i].toUpperCase()) {
       fieldName += ' ' + input.name[i];
     } else {
       fieldName += input.name[i];
