@@ -5,13 +5,14 @@ const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
   const label = document.createElement('label');
+  const inputName = input.name.replace('N', ' N');
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = inputName;
   input.parentNode.append(label);
 
-  const placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  const placeholder = inputName[0].toUpperCase() + inputName.slice(1);
 
   input.setAttribute('placeholder', placeholder);
 }
