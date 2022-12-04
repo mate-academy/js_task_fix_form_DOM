@@ -3,9 +3,17 @@
 // write code here
 const inputs = document.querySelectorAll('input');
 
+
 for (const input of inputs) {
   const label = document.createElement('label');
-  const inputName = input.name.replace('N', ' N');
+  const inputName = input.name
+    .split('')
+    .map((ch) => {
+      if (ch === ch.toUpperCase()) {
+        return ' ' + ch;
+      }
+      return ch;
+    }).join('');
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
