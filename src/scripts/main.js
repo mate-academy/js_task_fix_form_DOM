@@ -4,10 +4,10 @@ const formInputs = document.querySelectorAll('input');
 
 formInputs.forEach((input) => {
   input.insertAdjacentHTML(
-    'afterbegin',
+    'beforebegin',
 
     `<label class="field-label" for=${input.id}>
-    ${input.name}
+    ${input.name.toLowerCase()}
     </label>`
   );
 
