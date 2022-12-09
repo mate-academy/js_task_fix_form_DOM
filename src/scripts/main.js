@@ -1,17 +1,15 @@
 'use strict';
 
-const allInputs = document.querySelectorAll('input');
+ const inputs = document.querySelectorAll('.field-text');
 
-for (const input of allInputs) {
-  const label = document.createElement('label');
+inputs.forEach(input => {
+  const plcName = input.name.split(/(?=[A-Z])/).join(' ');
 
-  label.className = 'field-label';
-  label.htmlFor = input.getAttribute('id');
-  label.textContent = input.name;
-
-  input.parentElement.append(label);
-
-  input.setAttribute(
-    'placeholder', `${input.name[0].toUpperCase()} ${input.name.slice(1)}`
+  input.insertAdjacentHTML('beforebegin',
+    `<label for="${input.id}" class="field-label">
+        ${input.name}
+    </label>`
   );
-}
+
+  input.placeholder = `${plcName[0].toUpperCase() + plcName.slice(1)}`;
+});
