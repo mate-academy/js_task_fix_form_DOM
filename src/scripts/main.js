@@ -12,6 +12,6 @@ for (const input of allInputs) {
   input.parentElement.append(label);
 
   input.setAttribute(
-    'placeholder', `${input.name[0].toUpperCase()}${input.name.slice(1)}`
+    'placeholder', `${input.name[0].toUpperCase()} ${input.name.slice(1)}`
   );
 }
