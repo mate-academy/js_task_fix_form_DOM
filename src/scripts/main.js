@@ -3,14 +3,17 @@
 const formInputs = document.querySelectorAll('input');
 
 formInputs.forEach((input) => {
+  const formText = (input.name === 'firstName') ? 'first Name' : input.name
+    && (input.name === 'lastName') ? 'last Name' : input.name;
+
   input.insertAdjacentHTML(
     'beforebegin',
 
     `<label class="field-label" for=${input.id}>
-    ${input.name.toLowerCase()}
+    ${formText}
     </label>`
   );
 
-  input.placeholder = input.name.substring(0, 1).toUpperCase()
-    + input.name.substring(1, input.name.length);
+  input.placeholder = formText.substring(0, 1).toUpperCase()
+    + formText.substring(1, formText.length);
 });
