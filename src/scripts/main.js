@@ -3,17 +3,22 @@
 const formInputs = document.querySelectorAll('input');
 
 formInputs.forEach((input) => {
-  const formtext = (input.name === 'firstName') ? 'first Name' : input.name
-    && (input.name === 'lastName') ? 'last Name' : input.name;
+  const formText = input.name.split('').map((letter) => {
+    if (letter === letter.toUpperCase()) {
+      return ` ${letter}`;
+    }
+
+    return letter;
+  }).join('');
 
   input.insertAdjacentHTML(
     'beforebegin',
 
     `<label class="field-label" for=${input.id}>
-    ${formtext}
+    ${formText}
     </label>`
   );
 
-  input.placeholder = formtext.substring(0, 1).toUpperCase()
-    + formtext.substring(1, formtext.length);
+  input.placeholder = formText.substring(0, 1).toUpperCase()
+    + formText.substring(1, formText.length);
 });
