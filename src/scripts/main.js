@@ -8,6 +8,12 @@ const input = document.body.querySelectorAll('input');
   item.before(label);
   label.classList.add('field-label');
   label.setAttribute('for', `${item.id}`);
-  label.textContent = `${item.name}`;
-  item.setAttribute('placeholder', `${item.name}`);
+
+  if (item.name.includes('Name')) {
+    label.textContent = `${item.name.split('N').join(' n')}`;
+    item.setAttribute('placeholder', `${item.name.split('N').join(' n')}`);
+  } else {
+    label.textContent = `${item.name}`;
+    item.setAttribute('placeholder', `${item.name}`);
+  }
 });
