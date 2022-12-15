@@ -2,14 +2,17 @@
 
 const inputs = document.querySelectorAll('.field-text');
 
-inputs.forEach(input => {
-  const hldrName = input.name.split(/(?=[A-Z])/).join(' ');
+for (const input of inputs) {
+  input.insertAdjacentHTML('beforebegin', `
+    <label class="field-label" for="${input.id}">
+      ${normalize(input.name)}
+    </label>
+  `);
+  input.placeholder = normalize(input.name);
+}
 
-  input.insertAdjacentHTML('beforebegin',
-    `<label for="${input.id}" class="field-label">
-        ${input.name}
-    </label>`
-  );
+function normalize(item) {
+  const word = item.split(/(?=[A-Z])/).join(' ');
 
-  input.placeholder = `${hldrName[0].toUpperCase() + hldrName.slice(1)}`;
-});
+  return word[0].toUpperCase() + word.slice(1);
+}
