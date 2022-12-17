@@ -6,7 +6,7 @@ const fieldsForms = document.querySelectorAll('.field');
 fieldsForms.forEach(field => {
   const list = [...field.children];
   const capitalize = str =>
-    str.slice(0, 1).toUpperCase() + str.slice(1);
+    str.slice(0, 1).toUpperCase() + str.slice(1).split(/(?=[A-Z])/).join(' ');
 
   field.children[0].setAttribute('placeholder',
     `${capitalize(list[0].attributes.name.value)}`);
