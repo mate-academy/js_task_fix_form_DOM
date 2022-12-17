@@ -9,11 +9,16 @@ const input = document.body.querySelectorAll('input');
   label.classList.add('field-label');
   label.setAttribute('for', `${item.id}`);
 
-  if (item.name.includes('Name')) {
-    label.textContent = `${item.name.split('N').join(' n')}`;
-    item.setAttribute('placeholder', `${item.name.split('N').join(' n')}`);
-  } else {
-    label.textContent = `${item.name}`;
-    item.setAttribute('placeholder', `${item.name}`);
+  label.textContent = `${item.name}`;
+  item.setAttribute('placeholder', `${item.name}`);
+
+  for (const ch of item.name) {
+    if (ch === ch.toUpperCase()) {
+      label.textContent = `${item.name.split(ch).join(` ${ch}`)}`;
+
+      item.setAttribute('placeholder',
+        `${item.name.split(ch).join(` ${ch.toLowerCase()}`)}`
+      );
+    }
   }
 });
