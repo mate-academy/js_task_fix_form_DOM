@@ -17,10 +17,9 @@ const fields = document.querySelectorAll('.field');
 
 fields.forEach((el, index) => {
   el.insertAdjacentHTML('afterbegin',
-    `<label for=${inputs[index].id} class=field-label>
-    ${addSpace(inputs[index].name)}
-    </input>
-  </label>`);
+    `<label for="${inputs[index].id}" class="field-label">
+      ${addSpace(inputs[index].name)}
+    </label>`);
 });
 
 inputs.forEach(el => {
