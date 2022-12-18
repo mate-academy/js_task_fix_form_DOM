@@ -1,15 +1,15 @@
 'use strict';
 
-const addSpace = (text, words, letters) => {
-  if (text.includes(words)) {
-    const separate = text.split('');
+const addSpace = (text) => {
+  const result = text.split('');
 
-    separate.splice(text.indexOf(letters), 0, ' ');
+  result.forEach((el, index) => {
+    if (el === el.toUpperCase() && result[index - 1] !== ' ') {
+      result.splice(index, 0, ' ');
+    }
+  });
 
-    return separate.join('');
-  }
-
-  return text;
+  return result.join('');
 };
 
 const inputs = document.querySelectorAll('input');
@@ -18,12 +18,12 @@ const fields = document.querySelectorAll('.field');
 fields.forEach((el, index) => {
   el.insertAdjacentHTML('afterbegin',
     `<label for=${inputs[index].id} class=field-label>
-    ${addSpace(inputs[index].name, 'Name', 'N')}
+    ${addSpace(inputs[index].name)}
     </input>
   </label>`);
 });
 
 inputs.forEach(el => {
-  el.placeholder = addSpace(el.name, 'Name', 'N')
-    .charAt(0).toUpperCase() + addSpace(el.name, 'Name', 'N').slice(1);
+  el.placeholder = addSpace(el.name)
+    .charAt(0).toUpperCase() + addSpace(el.name).slice(1);
 });
