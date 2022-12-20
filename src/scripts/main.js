@@ -5,14 +5,15 @@ const [...inputs] = document.querySelectorAll('input');
 const [...fields] = document.querySelectorAll('.field');
 
 function splitter(text) {
-  let res = text;
+  const res = text;
+
   if (text !== text.toLowerCase()) {
     const word = res.split(/(?=[A-Z])/).join(' ');
 
-    return word;
+    return word.charAt(0).toUpperCase() + word.slice(1);
   }
 
-  return text;
+  return text.charAt(0).toUpperCase() + text.slice(1);
 }
 
 [...inputs].map((elem, index) => {
