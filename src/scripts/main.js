@@ -9,9 +9,7 @@ inputs.forEach(el => {
   item.htmlFor = `${el.id}`;
   item.textContent = `${el.name}`;
 
-  const par = el.parentElement;
-
-  par.append(item);
+  el.parentElement.append(item);
 });
 
 inputs.forEach(el => {
