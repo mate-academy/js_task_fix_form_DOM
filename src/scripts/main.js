@@ -7,12 +7,12 @@ const firstLatterUp = (word = '') => {
     return (
       word.charAt(0).toUpperCase() + word.slice(1)
     );
-  } else {
-    return word;
   }
+
+  return word;
 };
 
-[...inputs].forEach(input => {
+inputs.forEach(input => {
   const inputId = input.id;
   const inputName = input.name;
 
