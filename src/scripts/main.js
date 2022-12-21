@@ -2,7 +2,7 @@
 
 const inputs = document.querySelectorAll('input');
 const inputClass = 'field-label';
-const firstLatterUp = (word = '') => {
+const makeCapitalizes = (word = '') => {
   if (word.length > 0) {
     return (
       word.charAt(0).toUpperCase() + word.slice(1)
@@ -14,7 +14,14 @@ const firstLatterUp = (word = '') => {
 
 inputs.forEach(input => {
   const inputId = input.id;
-  const inputName = input.name;
+  let inputName = input.name;
+
+  if (inputName.endsWith('Name')) {
+    inputName = inputName
+      .slice(0, inputName.indexOf('Name'))
+      .concat(' ')
+      .concat('Name');
+  }
 
   input.insertAdjacentHTML('beforebegin', `
     <label
@@ -25,5 +32,5 @@ inputs.forEach(input => {
     </label>
   `);
 
-  input.placeholder = firstLatterUp(inputName);
+  input.placeholder = makeCapitalizes(inputName);
 });
