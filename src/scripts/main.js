@@ -13,15 +13,13 @@ const makeCapitalizes = (word = '') => {
 };
 
 inputs.forEach(input => {
-  const inputId = input.id;
-  let inputName = input.name;
-
-  if (inputName.endsWith('Name')) {
-    inputName = inputName
-      .slice(0, inputName.indexOf('Name'))
+  const { id, name: nameInput } = input;
+  const inputId = id;
+  const inputName = (nameInput).endsWith('Name')
+    ? (nameInput.slice(0, nameInput.indexOf('Name'))
       .concat(' ')
-      .concat('Name');
-  }
+      .concat('Name'))
+    : (nameInput);
 
   input.insertAdjacentHTML('beforebegin', `
     <label
