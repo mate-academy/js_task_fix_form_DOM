@@ -7,8 +7,8 @@ for (const input of inputs) {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.setAttribute('textContent', input.name);
-  input.parentElement.append(label);
+  label.insertAdjacentText('afterbegin', input.name);
+  input.parentElement.prepend(label);
 
   let capitalized = input.name.charAt(0).toUpperCase()
   + input.name.slice(1);
