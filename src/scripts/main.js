@@ -7,10 +7,14 @@ for (let i = 0; i < div.length; i++) {
 
   lab.setAttribute('for', div[i].firstElementChild.getAttribute('id'));
   lab.className = 'field-label';
-  lab.textContent = div[i].firstElementChild.getAttribute('name').toUpperCase();
+
+  lab.textContent = div[i].firstElementChild.name.toUpperCase();
 
   div[i].append(lab);
 
-  div[i].firstElementChild.placeholder
-  = div[i].firstElementChild.getAttribute('name').toUpperCase();
+  let nameCap = div[i].firstElementChild.name;
+
+  nameCap = nameCap.charAt(0).toUpperCase() + nameCap.slice(1);
+
+  div[i].firstElementChild.placeholder = nameCap;
 };
