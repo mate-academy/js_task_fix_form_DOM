@@ -8,23 +8,31 @@ fields.forEach(field => {
 
   field.insertAdjacentHTML('afterbegin', `
     <label class="field-label" for="${inputID}">
-      ${capitalized(inputName)}
+      ${capitalize(inputName)}
     </label>
   `);
 
-  inputElement.placeholder = capitalized(inputName);
+  inputElement.placeholder = capitalize(inputName);
 });
 
-function capitalized(str) {
-  switch (str) {
-    case 'firstName': {
-      return 'First Name';
-    }
+function capitalize(str) {
+  const result = [];
 
-    case 'lastName': {
-      return 'Last Name';
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      result.push(str.slice(0, i));
+      result.push(str.slice(i));
     }
-  };
+  }
 
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  if (result.length === 0) {
+    result.push(str);
+  }
+
+  const firstLetter = result[0].charAt(0).toUpperCase();
+  const nextLetters = result[0].slice(1);
+
+  result[0] = firstLetter + nextLetters;
+
+  return result.join(' ');
 };
