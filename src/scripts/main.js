@@ -5,15 +5,15 @@ const formInputs = document.querySelectorAll('input');
 formInputs.forEach(item => {
   const label = `
     <label class="field-label" for="${item.id}">
-      ${changeToSpaces(item.name).toUpperCase()}
+      ${addSpace(item.name).toUpperCase()}
     </label>
   `;
 
   item.insertAdjacentHTML('beforebegin', label);
-  item.setAttribute('placeholder', `${capitalize(changeToSpaces(item.name))}`);
+  item.setAttribute('placeholder', `${capitalize(addSpace(item.name))}`);
 });
 
-function changeToSpaces(str) {
+function addSpace(str) {
   for (let i = 0; i < str.length; i++) {
     if (str[i] === str[i].toUpperCase()) {
       return `${str.slice(0, i)} ${str.slice(i)}`;
