@@ -2,7 +2,7 @@
 
 const inputs = document.querySelectorAll('input');
 
-function textmodifier(att) {
+function capitalizedText(att) {
   const capitilized = att.charAt(0).toUpperCase()
     + att.slice(1);
 
@@ -14,8 +14,8 @@ inputs.forEach((input) => {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = textmodifier(input.name);
+  label.textContent = capitalizedText(input.name);
   input.parentElement.append(label);
 
-  input.setAttribute('placeholder', textmodifier(input.name));
+  input.setAttribute('placeholder', capitalizedText(input.name));
 });
