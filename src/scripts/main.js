@@ -13,6 +13,6 @@ for (const i of inputs) {
   label.htmlFor = i.id;
   label.textContent = getCapitalizeName(i.name);
 
-  i.placeholder = getCapitalizeName(i.name[0].toUpperCase() + i.name.slice(1));
+  i.placeholder = getCapitalizeName(i.name);
   i.parentElement.append(label);
 }
