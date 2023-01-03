@@ -10,14 +10,19 @@ const input = document.body.querySelectorAll('input');
   label.setAttribute('for', item.id);
 
   label.textContent = item.name;
-  item.setAttribute('placeholder', item.name);
 
-  for (const ch of item.name) {
+  item.setAttribute('placeholder',
+    item.name[0].toUpperCase() + item.name.slice(1));
+
+  for (let i = 1; i < item.name.length; i++) {
+    const ch = item.name[i];
+
     if (ch === ch.toUpperCase()) {
       label.textContent = `${item.name.split(ch).join(` ${ch}`)}`;
 
       item.setAttribute('placeholder',
-        `${item.name.split(ch).join(` ${ch.toLowerCase()}`)}`
+        `${item.name[0].toUpperCase() + item.name
+          .split(ch).join(` ${ch.toLowerCase()}`).slice(1)}`
       );
     }
   }
