@@ -16,7 +16,8 @@ function addLabel(elements) {
 
 function addPlaceholder(element) {
   function capitalizeName(names) {
-    return names.charAt(0).toUpperCase() + names.slice(1);
+    return (names.charAt(0).toUpperCase()
+      + names.slice(1).replace((/(?=[A-Z])/g), ' '));
   };
 
   return element.forEach((input) => {
