@@ -10,7 +10,7 @@ function addLabel(elements) {
 
     inputLabel.classList = 'field-label';
     inputLabel.setAttribute('for', element.id);
-    inputLabel.textContent = element.name;
+    inputLabel.textContent = element.name.replace(/(?=[A-Z])/g, ' ');
   });
 };
 
