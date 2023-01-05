@@ -22,7 +22,7 @@ const input = document.body.querySelectorAll('input');
 
       item.setAttribute('placeholder',
         `${item.name[0].toUpperCase() + item.name
-          .split(ch).join(` ${ch.toLowerCase()}`).slice(1)}`
+          .split(ch).join(` ${ch}`).slice(1)}`
       );
     }
   }
