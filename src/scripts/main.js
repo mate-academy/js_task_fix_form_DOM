@@ -7,9 +7,9 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = `${input.name.replace(/([A-Z])/g, ' $1').trim()}`;
+  label.textContent = `${input.name.replace(/([A-Z])/g, ' $1')}`;
   input.parentElement.append(label);
 
   input.placeholder = input.name[0].toUpperCase()
-    + input.name.slice(1).replace(/([A-Z])/g, ' $1').trim();
+    + input.name.slice(1).replace(/([A-Z])/g, ' $1');
 }
