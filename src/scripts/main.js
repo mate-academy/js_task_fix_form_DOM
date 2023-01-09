@@ -1,22 +1,13 @@
 'use strict';
 
-const lists = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input');
 
-for (const list of lists) {
-  const label = document.createElement('label');
+[...inputs].forEach(input => input
+  .setAttribute('placeholder', input.name[0]
+    .toUpperCase() + input.name.substring(1).toLowerCase()));
 
-  label.className = 'field-label';
-  label.setAttribute('for', list.id);
-
-  if (list.name === 'firstName') {
-    list.name = 'First Name';
-  };
-
-  if (list.name === 'lastName') {
-    list.name = 'Last Name';
-  };
-
-  label.textContent = list.name;
-  list.placeholder = list.name;
-  list.parentElement.append(label);
-};
+[...inputs].forEach(input => input.insertAdjacentHTML('beforebegin', `
+  <label for="${input.id}" class="field-label">
+    ${input.name}
+  </label>
+`));
