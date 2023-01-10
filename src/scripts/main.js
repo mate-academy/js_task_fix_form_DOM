@@ -2,16 +2,16 @@
 
 const inputs = [...document.querySelectorAll('input')];
 
-inputs.forEach(el => {
+inputs.forEach(input => {
   const label = document.createElement('label');
   let placeholder = document.createElement('placeholder');
 
   label.className = 'field-label';
-  label.htmlFor = el.id;
-  label.textContent = el.name.toUpperCase();
-  placeholder = convertText(el.name);
-  el.placeholder = placeholder;
-  el.before(label);
+  label.htmlFor = input.id;
+  label.textContent = convertText(input.name).toUpperCase();
+  placeholder = convertText(input.name);
+  input.placeholder = placeholder;
+  input.before(label);
 });
 
 function convertText(text) {
