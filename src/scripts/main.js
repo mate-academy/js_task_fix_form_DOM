@@ -10,16 +10,12 @@ const allInputs = document.querySelectorAll('input');
   newLabel.htmlFor = input.id;
   newLabel.textContent = rightName;
 
-  input.placeholder = rightName[0].toUpperCase() + rightName.slice(1);
+  input.placeholder = rightName;
   input.parentElement.append(newLabel);
 });
 
 function divideWords(words) {
-  return words.split('').reduce((result, letter, index) => {
-    if (index && letter === letter.toUpperCase()) {
-      return result + ` ${letter}`;
-    }
+  const splitedWords = words.replace(/([A-Z])/g, ' $1');
 
-    return result + letter;
-  }, '');
+  return splitedWords[0].toUpperCase() + splitedWords.slice(1);
 }
