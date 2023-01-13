@@ -12,6 +12,7 @@ for (const input of inputs) {
   const atribFor = document.createAttribute('for');
   let inputName = input.getAttribute('name');
   let inputNameStyle = '';
+  let temporary = '';
 
   atribClass.value = 'field-label';
   atribFor.value = input.getAttribute('id');
@@ -19,11 +20,15 @@ for (const input of inputs) {
   newLabel.setAttributeNode(atribClass);
   newLabel.setAttributeNode(atribFor);
 
-  if (inputName === 'firstName') {
-    inputName = 'First Name';
-  } else if (inputName === 'lastName') {
-    inputName = 'Last Name';
+  for (let i = 0; i < inputName.length; i++) {
+    if (inputName[i] === inputName[i].toUpperCase()) {
+      temporary += ' ' + inputName[i];
+    } else {
+      temporary += inputName[i];
+    }
   }
+
+  inputName = temporary;
 
   newLabel.textContent = inputName.toUpperCase();
 
