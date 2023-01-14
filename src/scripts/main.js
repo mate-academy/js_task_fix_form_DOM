@@ -3,12 +3,11 @@
 const inputs = document.querySelectorAll('.field');
 const input = document.querySelectorAll('input');
 const idArray = [];
-const nameLabels = [
-  'First name', 'Email', 'Last name', 'Password', 'Email', 'Password',
-];
+const nameLabels = [];
 
 for (const item of input) {
   idArray.push(item.id);
+  nameLabels.push(`${item.name[0].toUpperCase()}${item.name.slice(1)}`);
 };
 
 for (let i = 0; i < inputs.length; i++) {
