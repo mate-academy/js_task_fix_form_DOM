@@ -7,13 +7,13 @@ const createLabel = function(input) {
 
   label.className = 'field-label';
   label.for = input.id;
-  label.textContent = cpitalizeIt(input.name);
+  label.textContent = capitalizeIt(input.name);
 
   input.parentElement.append(label);
-  input.placeholder = cpitalizeIt(input.name);
+  input.placeholder = capitalizeIt(input.name);
 };
 
-function cpitalizeIt(text) {
+function capitalizeIt(text) {
   let result = text.slice(0, 1).toUpperCase();
 
   for (let i = 1; i < text.length; i++) {
