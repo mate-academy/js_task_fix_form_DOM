@@ -15,6 +15,7 @@ for (const form of forms) {
     formInput.before(formLabel);
 
     formInput.placeholder = formInput.getAttribute('name')[0].toUpperCase()
-      + formInput.getAttribute('name').slice(1).toLowerCase();
+      + formInput.getAttribute('name').slice(1).toLowerCase()
+        .replace('name', ' name');
   }
 }
