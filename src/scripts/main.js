@@ -3,15 +3,16 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  const labels = document.createElement('label');
+  const label = document.createElement('label');
+  const inputId = input.getAttribute('id');
+  const inputName = input.getAttribute('name').split(/(?=[A-Z])/).join(' ');
 
-  labels.className = 'field-label';
-  labels.htmlFor = input.getAttribute('id');
-  labels.textContent = input.name;
+  label.className = 'field-label';
+  label.htmlFor = inputId;
+  label.textContent = inputName;
 
-  input.parentElement.append(labels);
+  input.setAttribute('placeholder', inputName[0].toLocaleUpperCase()
+    + inputName.slice(1));
 
-  input.setAttribute(
-    'placeholder', `${input.name[0].toUpperCase()}${input.name}`
-  );
+  input.parentElement.append(label);
 }
