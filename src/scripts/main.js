@@ -11,8 +11,6 @@ for (const input of inputs) {
     newName = `${newName.slice(0, -4)} ${newName.slice(-4)}`;
   }
 
-  // console.log(newName);
-
   label.className = 'field-label';
   label.setAttribute('for', input.id);
   label.textContent = input.name;
