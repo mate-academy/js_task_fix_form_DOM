@@ -17,8 +17,8 @@ function capitalize(value) {
   let result = value[0].toUpperCase();
 
   for (let i = 1; i < value.length; i++) {
-    if (value[i] === 'N') {
-      result += ' N';
+    if (value[i] === value[i].toUpperCase()) {
+      result += ` ${value[i]}`;
     } else {
       result += value[i];
     }
