@@ -8,23 +8,7 @@ for (const input of inputs) {
   label.htmlFor = input.id;
   label.className = 'field-label';
 
-  switch (input.name) {
-    case 'firstName':
-      input.placeholder = 'First name';
-      break;
-
-    case 'lastName':
-      input.placeholder = 'Last name';
-      break;
-
-    case 'email':
-      input.placeholder = 'Email';
-      break;
-
-    case 'password':
-      input.placeholder = 'Password';
-      break;
-  }
+  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
 
   label.textContent = input.placeholder;
 
