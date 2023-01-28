@@ -8,7 +8,9 @@ for (const input of inputs) {
   label.htmlFor = input.id;
   label.className = 'field-label';
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  const inputName = input.name.split('N').join(' N');
+
+  input.placeholder = inputName[0].toUpperCase() + inputName.slice(1);
 
   label.textContent = input.placeholder;
 
