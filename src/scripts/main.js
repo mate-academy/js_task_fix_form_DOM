@@ -9,23 +9,35 @@ for (const input of inputs) {
 
   label.setAttribute('for', input.getAttribute('id'));
 
-  label.textContent = input.getAttribute('name');
+  let labelName = input.getAttribute('name');
+
+  const indexLargeLetterLabel = Array.from(labelName).findIndex(
+    letter => letter === letter.toUpperCase());
+
+  if (indexLargeLetterLabel !== -1) {
+    const partOfLabel = labelName.slice(0, indexLargeLetterLabel);
+    const partOfLabel2 = labelName.slice(indexLargeLetterLabel);
+
+    labelName = `${partOfLabel + ' ' + partOfLabel2}`;
+  }
+
+  label.textContent = labelName.toLowerCase();
 
   let placeholder = input.getAttribute('name');
 
-  const indexLargeLetter = Array.from(placeholder).findIndex(
+  const indexLargeLetterPlaceholder = Array.from(placeholder).findIndex(
     letter => letter === letter.toUpperCase());
 
-  if (indexLargeLetter !== -1) {
-    const partOfPlaceholder = placeholder.slice(0, indexLargeLetter);
-    const partOfPlaceholder2 = placeholder.slice(indexLargeLetter);
+  if (indexLargeLetterPlaceholder !== -1) {
+    const partOfPlaceholder = placeholder.slice(0, indexLargeLetterPlaceholder);
+    const partOfPlaceholder2 = placeholder.slice(indexLargeLetterPlaceholder);
 
     placeholder = `${partOfPlaceholder[0].toUpperCase()
-    + partOfPlaceholder.slice(1)}` + ' '
-    + `${partOfPlaceholder2[0].toUpperCase() + partOfPlaceholder2.slice(1)}`;
+      + partOfPlaceholder.slice(1)}` + ' '
+      + `${partOfPlaceholder2[0].toUpperCase() + partOfPlaceholder2.slice(1)}`;
   } else {
     placeholder = input.getAttribute('name')[0].toUpperCase()
-    + input.getAttribute('name').slice(1);
+      + input.getAttribute('name').slice(1);
   }
 
   input.setAttribute('placeholder', placeholder);
