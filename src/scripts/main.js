@@ -8,19 +8,20 @@ for (const input of inputs) {
   label.className = 'field-label';
   label.htmlFor = input.id;
 
-  let inputName = input.name[0].toUpperCase();
+  let startName = input.name[0].toUpperCase();
+  const inputName = input.name;
 
-  for (let i = 1; i < input.name.length; i++) {
-    if (input.name[i] === input.name[i].toUpperCase()) {
-      inputName += ' ';
+  for (let i = 1; i < inputName.length; i++) {
+    if (inputName[i] === inputName[i].toUpperCase()) {
+      startName += ' ';
     }
 
-    inputName += input.name[i];
+    startName += inputName[i];
   }
 
-  label.innerHTML = inputName;
+  label.innerHTML = startName;
 
   input.before(label);
 
-  input.setAttribute('placeholder', `${inputName}`);
+  input.setAttribute('placeholder', `${startName}`);
 }
