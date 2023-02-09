@@ -7,7 +7,7 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.getAttribute('name');
+  label.textContent = capitalize(input.getAttribute('name'));
 
   input.before(label);
 
