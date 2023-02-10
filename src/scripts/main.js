@@ -14,7 +14,7 @@ for (const input of inputElements) {
       break;
 
     case 'lastName':
-      input.placeholder = 'LastName';
+      input.placeholder = 'Last Name';
       break;
 
     case 'email':
