@@ -1,7 +1,6 @@
 'use strict';
 
-const form = document.querySelector('form');
-const inputs = form.querySelectorAll('input');
+const inputs = document.querySelectorAll('form input');
 
 function capitalize(someText) {
   someText[0].toUpperCase();
