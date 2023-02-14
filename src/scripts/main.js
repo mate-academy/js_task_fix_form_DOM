@@ -9,7 +9,7 @@ for (const n of allInputs) {
   item.className = 'field-label';
 
   item.htmlFor = n.id;
-  item.textContent = n.id.split('-').splice(2, 2).join('').toUpperCase();
+  item.textContent = n.id.split('-').splice(2, 2).join(' ').toUpperCase();
 
   const field = document.querySelectorAll('.field')[i];
 
@@ -18,7 +18,7 @@ for (const n of allInputs) {
 }
 
 for (const item of allInputs) {
-  const text = item.id.split('-').splice(2, 2).join('');
+  const text = item.id.split('-').splice(2, 2).join(' ');
   const str = function capitalize(s) {
     return s[0].toUpperCase() + text.slice(1);
   };
