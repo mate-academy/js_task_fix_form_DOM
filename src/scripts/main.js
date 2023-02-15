@@ -1,16 +1,18 @@
 'use strict';
 
 const words = ['Name', 'Last name', 'Email', 'Password', 'Email', 'Password'];
+let countWords = 0;
 
 const inputRows = document.querySelectorAll('input');
 
-for (let i = 0; i < inputRows.length; i++) {
-  inputRows[i].placeholder = words[i];
+for (const index of inputRows) {
+  index.placeholder = words[countWords];
 
   const elementInDiv = document.createElement('label');
 
   elementInDiv.className = 'field-label';
-  elementInDiv.htmlFor = inputRows[i].id;
-  elementInDiv.textContent = words[i].toUpperCase();
-  inputRows[i].parentElement.append(elementInDiv);
+  elementInDiv.htmlFor = index.id;
+  elementInDiv.textContent = words[countWords].toUpperCase();
+  index.parentElement.append(elementInDiv);
+  countWords++;
 }
