@@ -10,13 +10,13 @@ function separateAndCapitalize(str) {
   );
 }
 
-for (const index of inputRows) {
-  index.placeholder = separateAndCapitalize(index.name);
+for (const input of inputRows) {
+  input.placeholder = separateAndCapitalize(input.name);
 
   const label = document.createElement('label');
 
   label.className = 'field-label';
-  label.htmlFor = index.id;
-  label.textContent = (separateAndCapitalize(index.name).toUpperCase());
-  index.parentElement.append(label);
+  label.htmlFor = input.id;
+  label.textContent = (separateAndCapitalize(input.name).toUpperCase());
+  input.parentElement.append(label);
 }
