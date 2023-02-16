@@ -3,9 +3,11 @@
 const inputs = document.querySelectorAll('form input');
 
 function capitalize(someText) {
-  someText[0].toUpperCase();
+  const newString = someText.split('');
 
-  return someText;
+  newString[0] = newString[0].toUpperCase();
+
+  return newString.join('').replace(/([A-Z])/g, ' $1').trim();
 }
 
 for (const input of inputs) {
