@@ -18,11 +18,9 @@ function textFormat(string) {
   let result = string[0].toUpperCase();
 
   for (let i = 1; i < string.length; i++) {
-    if (string[i] === string[i].toUpperCase()) {
-      result += ` ${string[i]}`;
-    } else {
-      result += string[i];
-    }
+    result += string[i] === string[i].toUpperCase()
+      ? ` ${string[i]}`
+      : string[i];
   }
 
   return result;
