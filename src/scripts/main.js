@@ -9,7 +9,7 @@ inputs.forEach(inputWraper => {
   input.setAttribute('placeholder', placeholder);
 
   inputWraper.insertAdjacentHTML('afterbegin',
-    `<label for="${input.id}" class=field-label>
+    `<label for="${input.id}" class="field-label">
       ${input.name}
     </label>`
   );
