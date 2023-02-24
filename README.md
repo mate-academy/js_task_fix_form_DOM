@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_fix_form_DOM/)
+    - [DEMO LINK](https://ruslanliapin.github.io/js_task_fix_form_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -29,7 +29,6 @@ You can read about placeholders and labels here:
 5) Done.
 
 Hints: p.2 and p.4 can be done in one loop
-
 Do not change styles or HTML layout in this task. Change only `main.js` file.
 
 Expected result:
