@@ -23,7 +23,7 @@ inputs.forEach(input => {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name.toUpperCase();
+  label.textContent = camelToTitleCase(input.name).toUpperCase();
   input.placeholder = camelToTitleCase(input.name);
 
   const parentInput = input.closest('.field');
