@@ -7,10 +7,10 @@ const inputs = document.querySelectorAll('input');
 const textPlaceholders = [
   'First Name', 'Last Name', 'Email', 'Password', 'Email', 'Password',
 ];
+const label = document.createElement('label');
+const divField = document.querySelectorAll('.field');
 
 for (let i = 0; i < inputs.length; i++) {
-  const label = document.createElement('label');
-  const divField = document.querySelectorAll('.field');
   const textContentLabel = inputs[i].getAttribute('name');
 
   label.textContent = textContentLabel;
