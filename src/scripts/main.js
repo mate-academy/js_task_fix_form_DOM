@@ -2,35 +2,16 @@
 
 const allInputs = document.querySelectorAll('input');
 
-for (let i = 0; i < allInputs.length; i++) {
+for (const input of allInputs) {
   const newLabel = document.createElement('label');
 
-  const inputName = allInputs[i].getAttribute('name');
-
+  input.setAttribute('placeholder', (input.name).split('N').join(' N'));
+  input.style = 'text-transform: capitalize';
   newLabel.className = 'field-label';
-  newLabel.htmlFor = allInputs[i].id;
-  newLabel.textContent = inputName;
-  allInputs[i].parentElement.append(newLabel);
 
-  const toUpperLetter = inputName.charAt(0)
-    .toUpperCase() + inputName.slice(1);
+  newLabel.textContent = input.placeholder;
 
-  allInputs[i].placeholder = toUpperLetter;
-}
-
-for (let i = 0; i < allInputs.length; i++) {
-  const input = allInputs[i];
-  const inputName = input.name;
-
-  if (inputName === 'firstName') {
-    const label = input.parentElement.querySelector('label');
-    label.textContent = 'First Name';
-    input.placeholder = 'First Name';
-  }
-
-  if (inputName === 'lastName') {
-    const label = input.parentElement.querySelector('label');
-    label.textContent = 'Last Name';
-    input.placeholder = 'Last Name';
-  }
+  newLabel.setAttribute('for', input.id)
+  
+  input.before(newLabel);
 }
