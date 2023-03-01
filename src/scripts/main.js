@@ -1,3 +1,27 @@
 'use strict';
 
-// write code here
+const fields = document.querySelectorAll('.field');
+
+[...fields].map(field => {
+  const input = field.children[0];
+
+  const text = input.name.split('').map((char, i) => {
+    if (i === 0) {
+      return char.toUpperCase();
+    }
+
+    if (char.toUpperCase() === char) {
+      return ` ${char}`;
+    }
+
+    return char;
+  }).join('');
+
+  input.placeholder = text;
+
+  field.insertAdjacentHTML('beforeend', `
+    <label for=${input.id} class='field-label'>
+      ${text}
+    </label>
+  `);
+});
