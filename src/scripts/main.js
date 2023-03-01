@@ -33,4 +33,6 @@ for (const element of inputs) {
   element.placeholder = secondPart.length ? textWithCapital
     + ' '
     + secondPart : textWithCapital;
+
+  label.textContent = element.placeholder;
 }
