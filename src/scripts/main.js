@@ -10,7 +10,7 @@ const fields = document.querySelectorAll('.field');
       return char.toUpperCase();
     }
 
-    if (i !== 0 && char.toUpperCase() === char) {
+    if (char.toUpperCase() === char) {
       return ` ${char}`;
     }
 
