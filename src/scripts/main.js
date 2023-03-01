@@ -12,9 +12,14 @@ const fields = document.querySelectorAll('.field');
 
   input.placeholder = placeholder;
 
+  const labelText = input.name
+    .split('')
+    .map(el => el.toUpperCase() === el ? ` ${el}` : el)
+    .join('');
+
   field.insertAdjacentHTML('beforeend', `
     <label for=${input.id} class='field-label'>
-      ${input.name}
+      ${labelText}
     </label>
   `);
 });
