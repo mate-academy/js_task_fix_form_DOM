@@ -5,21 +5,23 @@ const fields = document.querySelectorAll('.field');
 [...fields].map(field => {
   const input = field.children[0];
 
-  const placeholder = input.name
-    .split('')
-    .map((el, i) => i === 0 ? el.toUpperCase() : el)
-    .join('');
+  const text = input.name.split('').map((char, i) => {
+    if (i === 0) {
+      return char.toUpperCase();
+    }
 
-  input.placeholder = placeholder;
+    if (i !== 0 && char.toUpperCase() === char) {
+      return ` ${char}`;
+    }
 
-  const labelText = input.name
-    .split('')
-    .map(el => el.toUpperCase() === el ? ` ${el}` : el)
-    .join('');
+    return char;
+  }).join('');
+
+  input.placeholder = text;
 
   field.insertAdjacentHTML('beforeend', `
     <label for=${input.id} class='field-label'>
-      ${labelText}
+      ${text}
     </label>
   `);
 });
