@@ -9,7 +9,10 @@ inputs.forEach((input) => {
 
   label.setAttribute('for', input.id);
 
-  label.textContent = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  const spacedString = input.name.replace(/([A-Z])/g, ' $1');
+
+  label.textContent = spacedString.charAt(0).toUpperCase()
+    + spacedString.slice(1);
 
   input.placeholder = label.textContent;
 
