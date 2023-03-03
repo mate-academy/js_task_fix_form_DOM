@@ -7,27 +7,48 @@ inputs.forEach(function(input) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = toUpCase(input.name);
-  input.placeholder = toUpCase(input.name);
+  label.textContent = transformToCase(input.name, 'upperCase');
+  input.placeholder = transformToCase(input.name, 'camelCase');
 
   input.after(label);
 });
 
-function toUpCase(word) {
+function transformToCase(word, condition) {
   const result = [];
-  let condition = false;
+  let oneWord = true;
 
   for (let i = 0; i < word.length; i++) {
     if (word[i] === word[i].toUpperCase()) {
-      condition = true;
+      oneWord = false;
       result.push(word.slice(0, i));
       result.push(word.slice(i));
     }
   }
 
-  if (condition) {
+  if (condition === 'upperCase') {
+    if (oneWord) {
+      return word.toUpperCase();
+    }
+
     return result.join(' ').toUpperCase();
   }
 
-  return word.toUpperCase();
+  if (condition === 'camelCase') {
+    if (oneWord) {
+      const temp = word.split('');
+
+      temp[0] = temp[0].toUpperCase();
+
+      return temp.join('');
+    }
+
+    for (let i = 0; i < result.length; i++) {
+      const temp = result[i].split('');
+
+      temp[0] = temp[0].toUpperCase();
+      result[i] = temp.join('');
+    }
+
+    return result.join(' ');
+  }
 }
