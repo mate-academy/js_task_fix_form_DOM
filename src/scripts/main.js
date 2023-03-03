@@ -9,8 +9,9 @@ function nameWithSpace(nameWithoutSpace) {
 
 for (let i = 0; i < forms.length; i++) {
   forms[i].insertAdjacentHTML('afterbegin', `
-  <label class='field-label' for='${inputs[i].id}'>${inputs[i].name}</label>
-  `);
+  <label class='field-label' for='${inputs[i].id}'>
+    ${nameWithSpace(inputs[i].name)}
+  </label>`);
 
   inputs[i].placeholder = nameWithSpace(inputs[i]
     .name[0].toLocaleUpperCase() + inputs[i].name.slice(1));
