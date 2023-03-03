@@ -13,5 +13,7 @@ for (const input of inputs) {
 
   label.htmlFor = input.id;
 
+  label.innerText = input.name;
+
   input.before(label);
 }
