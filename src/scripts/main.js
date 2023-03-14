@@ -10,15 +10,18 @@ divClassField.forEach(label => {
 
   const elementId = label.lastElementChild.id;
 
-  label.firstElementChild.setAttribute('for', elementId);
+  const lastElement = label.lastElementChild;
+  const firstElement = label.firstElementChild;
 
-  const elementName = label.lastElementChild.name;
+  firstElement.setAttribute('for', elementId);
 
-  label.firstElementChild.textContent = elementName;
+  const elementName = lastElement.name;
+
+  firstElement.textContent = elementName;
 
   const uppercasedElementName = toUppercase(elementName);
 
-  label.lastElementChild.setAttribute('placeholder', uppercasedElementName);
+  lastElement.setAttribute('placeholder', uppercasedElementName);
 });
 
 function toUppercase(elementName) {
