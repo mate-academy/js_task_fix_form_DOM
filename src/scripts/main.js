@@ -1,7 +1,5 @@
 'use strict';
 
-// const allDiv = [...document.querySelectorAll('.field')];
-
 const allInput = [...document.querySelectorAll('input')];
 
 for (const element of allInput) {
@@ -13,6 +11,11 @@ for (const element of allInput) {
   label.textContent = element.name;
   label.htmlFor = element.id;
   label.classList.add('field-label');
+
+  if (element.name.includes('Name')) {
+    element.placeholder = element.placeholder.replace(/Name/g, ' Name');
+    label.textContent = label.textContent.replace(/Name/g, ' Name');
+  }
 
   thisDiv.prepend(label);
 }
