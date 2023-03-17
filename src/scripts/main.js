@@ -16,6 +16,7 @@ inputs.map(inputList => {
       + input.name.slice(1)
     );
 
-    input.append(label);
+    const parent = input.parentElement;
+    parent.append(label);
   });
 });
