@@ -4,7 +4,9 @@ const allInputs = document.querySelectorAll('input');
 
 for (const input of allInputs) {
   const label = document.createElement('label');
-  const reqTextFormat = input.name.toUpperCase().split('N').join(' N');
+  const reqTextFormat = input.name.split('N').join(' N');
+
+  input.style = 'text-transform: capitalize;';
 
   label.className = 'field-label';
   label.textContent = reqTextFormat;
