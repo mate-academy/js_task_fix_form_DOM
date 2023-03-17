@@ -1,6 +1,6 @@
 'use strict';
 
-const allInputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input');
 
 function toUpperCaseFirstLetter(word) {
   let str = word[0].toUpperCase();
@@ -12,7 +12,7 @@ function toUpperCaseFirstLetter(word) {
   return str;
 }
 
-[...allInputs].forEach(input => {
+[...inputs].forEach(input => {
   const labelOfInput = document.createElement('label');
 
   labelOfInput.htmlFor = input.id;
