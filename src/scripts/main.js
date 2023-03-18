@@ -16,7 +16,12 @@ inputs.map(inputList => {
       + input.name.slice(1)
     );
 
-    const parent = input.parentElement;
-    parent.append(label);
+    const inputParent = input.parentElement;
+
+    inputParent.insertBefore(label, input);
+
+    if (input.type === 'email') {
+      input.setAttribute('pattern', '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$');
+    }
   });
 });
