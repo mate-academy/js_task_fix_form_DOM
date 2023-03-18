@@ -8,7 +8,7 @@ inputs.forEach(input => {
 
   label.className = 'field-label';
   label.setAttribute('for', id);
-  label.textContent = name.replace(/([A-Z])/g, ' $1');
+  label.textContent = inputName.replace(/([A-Z])/g, ' $1');
 
   input.setAttribute('placeholder',
     inputName === 'firstName' ? 'First Name'
