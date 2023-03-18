@@ -1,10 +1,8 @@
 'use strict';
 
-const forms = document.querySelectorAll('form');
-const inputs = [...forms].map(form => form.querySelectorAll('input'));
+const inputs = document.querySelectorAll('input');
 
-inputs.map(inputList => {
-  inputList.forEach(input => {
+inputs.forEach(input => {
     const label = document.createElement('label');
 
     label.className = 'field-label';
@@ -21,7 +19,6 @@ inputs.map(inputList => {
     inputParent.insertBefore(label, input);
 
     if (input.type === 'email') {
-      input.setAttribute('pattern', '[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$');
+      input.setAttribute('pattern', '[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$');
     }
   });
-});
