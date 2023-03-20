@@ -9,12 +9,12 @@ inputs.forEach(input => {
 
   label.htmlFor = input.id;
 
-  const textName = input.getAttribute('name');
+  const textName = input.getAttribute('name').split('N').join(' N');
 
   label.textContent = textName;
 
   input.setAttribute('placeholder', textName[0].toUpperCase()
-    + textName.slice(1));
+   + textName.slice(1));
 
   input.parentElement.append(label);
 });
