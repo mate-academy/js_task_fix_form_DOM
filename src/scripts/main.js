@@ -8,9 +8,10 @@ for (const input of inputs) {
   label.className = `field-label`;
   label.htmlFor = input.id;
   label.textContent = input.name;
+  input.textContent = input.name;
 
   input.placeholder = input.name
     .replace(/([a-z])([A-Z])/g, '$1 $2').replace(/\b\w/g, c => c.toUpperCase());
 
-  input.append(label);
+  input.after(label);
 }
