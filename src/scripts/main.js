@@ -9,9 +9,9 @@ const inputs = document.querySelectorAll('input');
 
   labels.setAttribute('for', inputElement.id);
 
-  labels.textContent = inputElement.name;
+  labels.textContent = (inputElement.name).replace('Name', ' Name');
 
   inputElement.setAttribute('placeholder',
-    (inputElement.name).charAt(0).toUpperCase() + (inputElement.name).slice(1));
+    ((inputElement.name).charAt(0).toUpperCase() + (inputElement.name).slice(1)).replace('Name', ' Name'));
   inputElement.after(labels);
 });
