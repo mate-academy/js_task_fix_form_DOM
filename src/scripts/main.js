@@ -12,6 +12,7 @@ const inputs = document.querySelectorAll('input');
   labels.textContent = (inputElement.name).replace('Name', ' Name');
 
   inputElement.setAttribute('placeholder',
-    ((inputElement.name).charAt(0).toUpperCase() + (inputElement.name).slice(1)).replace('Name', ' Name'));
+    ((inputElement.name).charAt(0).toUpperCase()
+    + (inputElement.name).slice(1)).replace('Name', ' Name'));
   inputElement.after(labels);
 });
