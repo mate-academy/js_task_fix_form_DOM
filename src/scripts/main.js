@@ -1,6 +1,6 @@
 'use strict';
 
-const formImputs = [...document.querySelectorAll('input')];
+const formInputs = [...document.querySelectorAll('input')];
 
 const createLabel = function(input) {
   const label = document.createElement('label');
@@ -12,11 +12,28 @@ const createLabel = function(input) {
   return label;
 };
 
-const labels = formImputs.map(createLabel);
+function createPlaceholder(string) {
+  let result = '';
 
-for (let i = 0; i < formImputs.length; i++) {
-  formImputs[i].parentElement.append(labels[i]);
+  for (let i = string.length - 1; i >= 0; i--) {
+    if (i === 0) {
+      result = string[i].toUpperCase() + result;
+    } else {
+      if (string[i].toUpperCase() === string[i]) {
+        result = ' ' + string[i] + result;
+      } else {
+        result = string[i] + result;
+      };
+    };
+  };
 
-  formImputs[i].placeholder
-    = formImputs[i].name[0].toUpperCase() + formImputs[i].name.slice(1);
+  return result;
+};
+
+const labels = formInputs.map(createLabel);
+
+for (let i = 0; i < formInputs.length; i++) {
+  formInputs[i].parentElement.append(labels[i]);
+
+  formInputs[i].placeholder = createPlaceholder(formInputs[i].name);
 };
