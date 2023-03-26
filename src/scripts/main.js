@@ -1,18 +1,20 @@
 'use strict';
 
-for (const inputElement of document.querySelectorAll('input')) {
+const inputElements = document.querySelectorAll('input');
+
+for (const inputElement of inputElements) {
   const labelElement = document.createElement('label');
 
   labelElement.htmlFor = inputElement.id;
   labelElement.className = 'field-label';
 
-  let inputNameUpperCase = inputElement.name.toUpperCase();
+  const fieldDescription = inputElement.name
+    .replace(/[A-Z]/g, (match) => ' ' + match)
+    .toLowerCase();
 
-  inputNameUpperCase = inputNameUpperCase.replace('NAME', ' NAME');
-
-  labelElement.textContent = inputNameUpperCase;
+  labelElement.textContent = fieldDescription;
   inputElement.before(labelElement);
 
-  inputElement.placeholder = inputNameUpperCase[0]
-    + inputNameUpperCase.slice(1).toLowerCase();
+  inputElement.placeholder = fieldDescription[0].toUpperCase()
+    + fieldDescription.slice(1);
 }
