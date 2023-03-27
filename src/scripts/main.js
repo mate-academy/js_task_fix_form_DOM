@@ -7,12 +7,12 @@ const createLabel = function(input) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.innerText = input.name;
+  label.innerText = createTextName(input.name);
 
   return label;
 };
 
-function createPlaceholder(string) {
+function createTextName(string) {
   let result = '';
 
   for (let i = string.length - 1; i >= 0; i--) {
@@ -35,5 +35,5 @@ const labels = formInputs.map(createLabel);
 for (let i = 0; i < formInputs.length; i++) {
   formInputs[i].parentElement.append(labels[i]);
 
-  formInputs[i].placeholder = createPlaceholder(formInputs[i].name);
+  formInputs[i].placeholder = createTextName(formInputs[i].name);
 };
