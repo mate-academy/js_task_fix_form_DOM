@@ -7,7 +7,7 @@ inputs.forEach(input => {
 
   label.className = `field-label`;
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = toOrdinaryText(input.name);
 
   input.parentElement.append(label);
   input.placeholder = toOrdinaryText(input.name);
