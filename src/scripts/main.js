@@ -7,7 +7,7 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = input.name.replace('N', ' N');
 
   input.placeholder = capitalize(input.name);
   input.parentElement.append(label);
