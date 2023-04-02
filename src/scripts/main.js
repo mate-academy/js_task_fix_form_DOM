@@ -7,7 +7,7 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name.replace('N', ' N');
+  label.textContent = separate(input.name);
 
   input.placeholder = capitalize(input.name);
   input.parentElement.append(label);
@@ -18,4 +18,16 @@ function capitalize(str) {
     = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 
   return capitalizeStr.replace('n', ' n');
+};
+
+function separate(str) {
+  let index = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== str[i].toLowerCase()) {
+      index = i;
+    }
+  }
+
+  return str.slice(0, index) + ' ' + str.slice(index);
 };
