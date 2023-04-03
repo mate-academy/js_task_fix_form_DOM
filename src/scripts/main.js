@@ -14,10 +14,11 @@ for (const input of inputs) {
 };
 
 function capitalize(str) {
+  const separateStr = separate(str);
   const capitalizeStr
-    = str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
+    = separateStr.charAt(0).toUpperCase() + separateStr.slice(1).toLowerCase();
 
-  return capitalizeStr.replace('n', ' n');
+  return capitalizeStr;
 };
 
 function separate(str) {
@@ -29,5 +30,9 @@ function separate(str) {
     }
   }
 
-  return str.slice(0, index) + ' ' + str.slice(index);
+  if (index) {
+    return str.slice(0, index) + ' ' + str.slice(index);
+  }
+
+  return str;
 };
