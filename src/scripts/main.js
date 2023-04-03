@@ -1,6 +1,6 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
+const inputs = [...document.querySelectorAll('input')];
 
 for (const input of inputs) {
   const resultInputs = input.name[0].toUpperCase() + input.name.slice(1);
@@ -13,4 +13,9 @@ for (const input of inputs) {
   label.textContent = resultInputs;
   label.setAttribute = ('for', input.id);
   input.before(label);
+
+  if (input.name.includes('Name')) {
+    input.placeholder = input.placeholder.replace(/Name/g, ' Name');
+    label.textContent = label.textContent.replace(/Name/g, ' Name');
+  }
 }
