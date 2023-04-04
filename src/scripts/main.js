@@ -7,11 +7,13 @@ inputs.forEach(input => {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = normalizeString(input.name);
   input.parentElement.append(label);
-  input.setAttribute('placeholder', capitalizeString(input.name));
+  input.setAttribute('placeholder', normalizeString(input.name));
 });
 
-function capitalizeString(str) {
-  return str[0].toUpperCase() + str.slice(1);
+function normalizeString(str) {
+  const normal = str.replace(/([a-z])([A-Z])/g, '$1 $2').toLowerCase();
+
+  return normal[0].toUpperCase() + normal.slice(1);
 }
