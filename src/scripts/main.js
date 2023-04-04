@@ -3,7 +3,7 @@
 const forms = document.querySelectorAll('input');
 
 for (const form of forms) {
-  const label = document.createElement('label');пщ
+  const label = document.createElement('label');
 
   label.htmlFor = form.id;
   label.className = 'field-label';
