@@ -1,10 +1,8 @@
 'use strict';
 
-const inputArr = document.querySelectorAll('input');
+const inputFields = document.querySelectorAll('input');
 
-// console.log(inputArr)
-
-for (const input of inputArr) {
+for (const input of inputFields) {
   input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
   for (let letter = 1; letter < input.name.length; letter++) {
