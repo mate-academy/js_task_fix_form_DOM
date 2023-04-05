@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  const textFormat = input.name.split('N').join(' N');
+  const textFormat = toNormalCase(input.name);
 
   input.insertAdjacentHTML('afterend', `
     <label
@@ -17,3 +17,7 @@ for (const input of inputs) {
   input.style = 'text-transform: capitalize;';
   input.placeholder = textFormat;
 }
+
+function toNormalCase(str) {
+  return str.replace(/([A-Z])/g, ' $1');
+};
