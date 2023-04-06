@@ -13,5 +13,5 @@ for (const input of inputFields) {
   }
 
   input.insertAdjacentHTML('beforebegin', `
-  <label class ="field-label" for="${input.id}">${input.name}</label>`);
+  <label class ="field-label" for="${input.id}">${input.placeholder}</label>`);
 };
