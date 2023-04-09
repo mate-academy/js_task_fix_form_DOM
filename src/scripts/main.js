@@ -6,6 +6,10 @@ inputs.map(input => {
   const inp = input.children[0];
   const label = document.createElement('label');
 
+  if (inp.name.includes('Name')) {
+    inp.name = inp.name.replaceAll('Name', ' Name');
+  };
+
   label.className = 'field-label';
   label.setAttribute('for', inp.name);
   label.textContent = inp.name.toUpperCase();
