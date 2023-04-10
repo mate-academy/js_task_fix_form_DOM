@@ -12,19 +12,18 @@ const blocks = document.querySelectorAll('.field');
   }
 
   function separName(word) {
-    return word.name.includes('Name')
-    ? word.name.split('Name').join(' ') + 'Name'
-    : word.name;
+    return word.includes('Name')
+    ? word.split('Name').join(' ') + 'Name'
+    : word;
   }
-
 
   label.className = 'field-label';
 
-  label.innerText = separName(inputBlock);
+  label.innerText = separName(inputBlock.name);
 
   label.htmlFor = inputBlock.id;
   inputBlock.setAttribute('placeholder', 
-  firstWord(separName(inputBlock)));
+  firstWord(separName(inputBlock.name)));
 
   block.prepend(label);
 });
