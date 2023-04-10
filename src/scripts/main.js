@@ -8,7 +8,11 @@ const inputs = document.querySelectorAll('input');
   newLabel.setAttribute('class', 'field-label');
   newLabel.setAttribute('for', `#${input.id}`);
 
-  const labelText = newLabel.textContent = input.name.toUpperCase();
+  const labelText = newLabel.textContent = input.name === 'firstName'
+    ? input.name.toUpperCase().slice(0, 5) + ' ' + input.name.slice(5)
+    : input.name === 'lastName'
+      ? input.name.toUpperCase().slice(0, 4) + ' ' + input.name.slice(4)
+      : input.name.toUpperCase();
 
   input.insertAdjacentElement('beforebegin', newLabel);
 
