@@ -3,13 +3,13 @@
 [...document.querySelectorAll('input')]
   .forEach(input => {
     const label = document.createElement('label');
+    const text = input.name.replace(/name/gi, ' name');
 
     label.classList.add('field-label');
     label.setAttribute('for', input.id);
-    label.textContent = input.name.toUpperCase();
+    label.textContent = text.toLowerCase();
 
-    input.placeholder = input.name[0].toUpperCase()
-      + input.name.toLowerCase().substring(1);
-
+    input.placeholder = text;
+    input.style = 'text-transform: capitalize;';
     input.parentNode.prepend(label);
   });
