@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const inputs = [...document.querySelectorAll('form input')];
 const formatFromCamelCase = (string) => {
   return string.replace(/([A-Z])/g, ' $1').charAt(0).toUpperCase()
