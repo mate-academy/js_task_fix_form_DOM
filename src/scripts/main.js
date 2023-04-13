@@ -4,7 +4,7 @@
 const inputs = [...document.querySelectorAll('form input')];
 const formatFromCamelCase = (string) => {
   return string.replace(/([A-Z])/g, ' $1').charAt(0).toUpperCase()
-  + string.replace(/([A-Z])/g, ' $1').slice(1); ;
+  + string.replace(/([A-Z])/g, ' $1').toLowerCase().slice(1); ;
 };
 
 inputs.forEach(input => {
