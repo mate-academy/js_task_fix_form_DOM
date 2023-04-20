@@ -7,7 +7,7 @@ const inputs = document.querySelectorAll('input');
 
   label.className = ['field-label'];
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = formatWord(input.name);
   input.before(label);
 
   input.placeholder = formatWord(input.name);
