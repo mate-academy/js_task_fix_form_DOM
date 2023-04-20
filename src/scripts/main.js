@@ -10,10 +10,19 @@ const inputs = document.querySelectorAll('input');
   label.textContent = input.name;
   input.before(label);
 
-  input.placeholder = capitalize(input.name);
+  input.placeholder = formatWord(input.name);
 });
 
-function capitalize(word) {
-  return word.slice(0, 1).toUpperCase()
-    + word.slice(1);
+function formatWord(word) {
+  let result = word.slice(0, 1).toUpperCase();
+
+  for (let i = 1; i < word.length; i++) {
+    if ((word[i] !== word[i].toLowerCase())) {
+      result += ' ' + word[i].toLowerCase();
+    } else {
+      result += word[i];
+    }
+  }
+
+  return result;
 }
