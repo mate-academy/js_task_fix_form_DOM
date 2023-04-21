@@ -2,14 +2,14 @@
 
 const inputsFromForm = document.querySelectorAll('.field-text');
 
-inputsFromForm.forEach(input => {
+inputsFromForm.forEach(inputs => {
   const label = document.createElement('label');
 
   label.className = 'field-label';
-  label.textContent = input.name;
-  label.htmlFor = input.id;
+  label.textContent = inputs.name;
+  label.htmlFor = inputs.id;
 
-  input.before(label);
+  inputs.before(label);
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  inputs.placeholder = inputs.name[0].toUpperCase() + inputs.name.slice(1);
 });
