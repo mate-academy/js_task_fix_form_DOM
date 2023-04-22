@@ -2,8 +2,8 @@
 
 const inputs = [...document.querySelectorAll('.field-text')];
 
-const capitalizeFristLetter = (string) => {
-  return string[0].toUpperCase() + string.slice(1).toLowerCase();
+const capitalizeFristLetter = (str) => {
+  return str[0].toUpperCase() + str.slice(1).toLowerCase();
 };
 
 function formatCamelCase(s) {
