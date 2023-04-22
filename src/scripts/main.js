@@ -29,5 +29,5 @@ for (const input of inputs) {
   input.parentElement.append(label);
 
   input.setAttribute('placeholder',
-  capitalizeFristLetter(formatCamelCase(input.name)));
+    capitalizeFristLetter(formatCamelCase(input.name)));
 };
