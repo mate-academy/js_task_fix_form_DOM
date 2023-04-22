@@ -2,7 +2,7 @@
 
 const inputs = [...document.querySelectorAll('.field-text')];
 
-const capitalizeFristLetter = (str) => {
+const capitalizeFirstLetter = (str) => {
   return str[0].toUpperCase() + str.slice(1).toLowerCase();
 };
 
@@ -29,5 +29,5 @@ for (const input of inputs) {
   input.parentElement.append(label);
 
   input.setAttribute('placeholder',
-    capitalizeFristLetter(formatCamelCase(input.name)));
+    capitalizeFirstLetter(formatCamelCase(input.name)));
 };
