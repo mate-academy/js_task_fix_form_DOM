@@ -9,5 +9,10 @@ inputs.forEach(input => {
   label.setAttribute('for', input.id);
   label.textContent = input.name;
   input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+
+  if (input.name.includes('Name')) {
+    input.placeholder = input.placeholder.replace(/Name/g, ' Name');
+    label.textContent = label.textContent.replace(/Name/g, ' Name');
+  }
   input.parentElement.appendChild(label);
 });
