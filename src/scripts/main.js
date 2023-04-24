@@ -13,20 +13,19 @@ for (let i = 0; i < inputsArray.length; i++) {
 
 const labelsArr = [ ...document.querySelectorAll('.field-label') ];
 
-for (let i = 0; i < labelsArr.length; i++) {
-  for (let y = 0; y < inputsArray[i].name.length; y++) {
-    if (inputsArray[i].name[y] === inputsArray[i].name[y].toUpperCase()
-      && y !== 0) {
-      labelsArr[i].textContent += ' ';
-      inputsArray[i].placeholder += ' ';
+inputsArray.forEach((input, inputIndex) => {
+  for (let letterIndx = 0; letterIndx < input.name.length; letterIndx++) {
+    if (input.name[letterIndx] === input.name[letterIndx].toUpperCase()
+      && letterIndx !== 0) {
+      labelsArr[inputIndex].textContent += ' ';
+      input.placeholder += ' ';
     }
 
-    if (y === 0) {
-      inputsArray[i].placeholder += inputsArray[i].name[y].toUpperCase();
-    } else {
-      inputsArray[i].placeholder += inputsArray[i].name[y];
-    }
+    const inputName = input.name[letterIndx];
 
-    labelsArr[i].textContent += inputsArray[i].name[y];
+    input.placeholder += letterIndx === 0
+      ? inputName.toUpperCase() : inputName;
+
+    labelsArr[inputIndex].textContent += input.name[letterIndx];
   }
-}
+});
