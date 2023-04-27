@@ -7,9 +7,11 @@ for (const input of inputs) {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+
+  label.textContent = input.name.charAt(0).toUpperCase()
+    + input.name.slice(1).split(/(?=[A-Z])/).join(' ');
 
   input.setAttribute('placeholder', input.name.charAt(0).toUpperCase()
-    + input.name.slice(1));
+    + input.name.slice(1).split(/(?=[A-Z])/).join(' '));
   input.parentNode.insertBefore(label, input);
 }
