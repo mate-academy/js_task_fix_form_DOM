@@ -1,25 +1,26 @@
 'use strict';
 
-// write code here
 const allInputs = document.querySelectorAll('input');
 
 [...allInputs].forEach(input => {
   const label = document.createElement('label');
+  let formName = input.name;
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
 
-  if (input.name === 'firstName' || input.name === 'lastName') {
-    const nIdx = input.name.indexOf('N');
+  if (formName === 'firstName' || formName === 'lastName') {
+    const nIdx = formName.indexOf('N');
 
-    input.name = input.name.substring(0, nIdx)
+    formName = formName.substring(0, nIdx)
     + ' '
-    + input.name.substring(nIdx);
-
-    input.name = input.name.toLowerCase();
+    + formName.substring(nIdx).toLowerCase();
   }
-  label.textContent = input.name;
+
+  label.textContent = formName;
+
+  const placeholderText = formName.charAt(0).toUpperCase() + formName.slice(1);
 
   input.after(label);
-  input.setAttribute('placeholder', input.name);
+  input.setAttribute('placeholder', placeholderText);
 });
