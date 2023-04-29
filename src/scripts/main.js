@@ -12,5 +12,5 @@ const inputs = document.querySelectorAll('input');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = input.name.split('N').join(' N');
 });
