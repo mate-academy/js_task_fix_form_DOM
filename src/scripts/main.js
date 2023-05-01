@@ -2,8 +2,8 @@
 
 const inputElements = document.querySelectorAll('.field-text');
 
-const valuePlaceholder = (value) => {
-  return value.slice(0, 1).toUpperCase() + value.slice(1);
+const textFormat = (value) => {
+  return value[0].toUpperCase() + value.slice(1).split('N').join(' N');
 };
 
 inputElements.forEach(input => {
@@ -11,9 +11,9 @@ inputElements.forEach(input => {
 
   label.className = 'field-label';
 
-  label.textContent = input.name;
+  label.textContent = textFormat(input.name);
   label.htmlFor = input.id;
-  input.placeholder = valuePlaceholder(input.name);
+  input.placeholder = textFormat(input.name);
 
   input.before(label);
 });
