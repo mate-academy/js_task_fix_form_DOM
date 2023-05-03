@@ -1,5 +1,4 @@
 'use strict';
-
 function capitalize(string) {
   return string[0].toUpperCase()
      + string.split(/(?=[A-Z])/).join(' ')
