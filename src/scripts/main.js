@@ -7,7 +7,10 @@ inputs.forEach((input) => {
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+
+  const labelWords = input.name.split(/(?=[A-Z])/).join(' ');
+
+  label.textContent = labelWords;
 
   input.insertAdjacentElement('beforebegin', label);
 
