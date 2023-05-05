@@ -17,7 +17,8 @@ for (let i = 0; i < input.length; i++) {
   label.setAttribute('for', inputId);
 
   // встановити текст для мітки
-  const labelText = document.createTextNode(input[i].name);
+  const labelText = document.createTextNode(input[i].name
+    .slice(0).split(/(?=[A-Z])/).join(' '));
 
   label.appendChild(labelText);
 
@@ -30,6 +31,6 @@ for (let i = 0; i < input.length; i++) {
 
     // робимо першу велику літеру
     inputs.placeholder = `${names.charAt(0).toUpperCase()
-       + names.substring(1)}`;
+       + names.substring(1).slice(0).split(/(?=[A-Z])/).join(' ')}`;
   });
 }
