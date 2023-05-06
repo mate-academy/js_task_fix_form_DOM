@@ -11,12 +11,17 @@ for (let i = 0; i < input.length; i++) {
 
   label.setAttribute('for', inputId);
 
-  const textLabel = document.createTextNode(input[i].name);
+  const textLabel = document.createTextNode((input[i].name)
+    .split(/(?=[A-Z])/)
+    .join(' '));
 
   label.append(textLabel);
 
   input.forEach(el => {
-    el.placeholder = `${el.name.charAt(0).toUpperCase() + el.name.slice(1)}`;
+    el.placeholder = `${el.name.charAt(0).toUpperCase() + el.name
+      .split(/(?=[A-Z])/)
+      .join(' ')
+      .slice(1)}`;
   });
 
   input[i].before(label);
