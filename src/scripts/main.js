@@ -15,8 +15,5 @@ formInputs.forEach(input => {
   label.textContent = nameArray;
   input.parentElement.appendChild(label);
 
-  input.placeholder = input.name.replace(/([A-Z])/g, ' $1')
-    .replace(/^./, function(str) {
-      return str.toUpperCase();
-    }); ;
+  input.placeholder = nameArray;
 });
