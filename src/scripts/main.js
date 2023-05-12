@@ -1,6 +1,6 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input')
 
 inputs.forEach(inp => {
   const label = document.createElement('label');
@@ -15,15 +15,15 @@ inputs.forEach(inp => {
 });
 
 function getName(value) {
-  let capitalize = value[0].toUpperCase();
+  let capitalizedName = value[0].toUpperCase();
 
   for (let i = 1; i < value.length; i++) {
     if (value[i] === value[i].toLowerCase()) {
-      capitalize += value[i];
+      capitalizedName += value[i];
     } else {
-      capitalize += ' ' + value[i].toLowerCase();
+      capitalizedName += ' ' + value[i].toLowerCase();
     }
   }
 
-  return capitalize;
+  return capitalizedName;
 }
