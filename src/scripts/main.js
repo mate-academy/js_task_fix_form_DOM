@@ -7,11 +7,11 @@ for (const field of fieldsHTML) {
 
   inputField.setAttribute('placeholder',
     inputField.name.charAt(0).toUpperCase()
-    + field.querySelector('input').name.slice(1).toLowerCase());
+    + inputField.name.slice(1).toLowerCase());
 
   const label = document.createElement('label');
 
-  label.setAttribute('for', field.querySelector('input').id);
+  label.setAttribute('for', inputField.id);
 
   label.innerText = inputField.name.charAt(0).toUpperCase()
     + inputField.name.slice(1).replace(/([A-Z])/g, ' $1').toLowerCase();
