@@ -14,14 +14,21 @@ for (const field of fieldsArray) {
   field.append(label);
 }
 
-const firstName = document.querySelector('label[for = sign-up-name]');
+/* const firstName = document.querySelector('label[for = sign-up-name]');
 const lastName = document.querySelector('label[for = sign-up-last-name]');
-const cutFirst = firstName.textContent.slice(0, 5);
-const cutName = firstName.textContent.slice(5);
-const cutLast = lastName.textContent.slice(0, 4);
+const mainArray = firstName.textContent.split(''); */
+// let cutPart1;
+// let cutPart2;
 
-firstName.textContent = `${cutFirst} ${cutName}`;
-lastName.textContent = `${cutLast} ${cutName}`;
+/* for (let i = 0; i <= mainArray.length; i++) {
+  if (mainArray[i] === mainArray[i].toUpperCase()) {
+    cutPart1 = firstName.textContent.slice(0, i);
+    cutPart2 = firstName.textContent.slice(i);
+  }
+} */
+
+// firstName.textContent = `${cutFirst} ${cutName}`;
+// lastName.textContent = `${cutLast} ${cutName}`;
 
 for (const input of inputsArray) {
   const nameFull = input.name;
