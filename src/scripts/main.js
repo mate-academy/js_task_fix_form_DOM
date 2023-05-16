@@ -10,5 +10,15 @@ for (const input of inputs) {
   label.textContent = input.name;
   input.parentNode.append(label);
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  let placeholder = '';
+
+  for (const letter of input.name) {
+    if (letter === letter.toUpperCase()) {
+      placeholder += ' ';
+    }
+
+    placeholder += letter;
+  }
+
+  input.placeholder = placeholder[0].toUpperCase() + placeholder.slice(1);
 }
