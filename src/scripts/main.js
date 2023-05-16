@@ -7,15 +7,15 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = separateName(input.name);
   input.parentNode.append(label);
 
-  const placeholder = separator(input.name);
+  const placeholder = separateName(input.name);
 
   input.placeholder = placeholder[0].toUpperCase() + placeholder.slice(1);
 }
 
-function separator(word) {
+function separateName(word) {
   let result = '';
 
   for (const letter of word) {
