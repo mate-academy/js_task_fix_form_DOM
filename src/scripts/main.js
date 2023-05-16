@@ -14,21 +14,26 @@ for (const field of fieldsArray) {
   field.append(label);
 }
 
-/* const firstName = document.querySelector('label[for = sign-up-name]');
+const firstName = document.querySelector('label[for = sign-up-name]');
 const lastName = document.querySelector('label[for = sign-up-last-name]');
-const mainArray = firstName.textContent.split(''); */
-// let cutPart1;
-// let cutPart2;
 
-/* for (let i = 0; i <= mainArray.length; i++) {
-  if (mainArray[i] === mainArray[i].toUpperCase()) {
-    cutPart1 = firstName.textContent.slice(0, i);
-    cutPart2 = firstName.textContent.slice(i);
+function separateLabel(elem) {
+  const mainArray = elem.textContent.split('');
+  let cutPart1;
+  let cutPart2;
+
+  for (let i = 0; i < mainArray.length; i++) {
+    if (mainArray[i] === mainArray[i].toUpperCase()) {
+      cutPart1 = elem.textContent.slice(0, i);
+      cutPart2 = elem.textContent.slice(i);
+    }
   }
-} */
 
-// firstName.textContent = `${cutFirst} ${cutName}`;
-// lastName.textContent = `${cutLast} ${cutName}`;
+  return `${cutPart1} ${cutPart2}`;
+}
+
+firstName.textContent = separateLabel(firstName);
+lastName.textContent = separateLabel(lastName);
 
 for (const input of inputsArray) {
   const nameFull = input.name;
@@ -40,9 +45,22 @@ for (const input of inputsArray) {
 
 const firstNameInput = document.querySelector('#sign-up-name');
 const lastNameInput = document.querySelector('#sign-up-last-name');
-const cutFirstPlaceholder = firstNameInput.placeholder.slice(0, 5);
-const cutNamePlaceholder = firstNameInput.placeholder.slice(5);
-const cutLastPlaceholder = lastNameInput.placeholder.slice(0, 4);
 
-firstNameInput.placeholder = `${cutFirstPlaceholder} ${cutNamePlaceholder}`;
-lastNameInput.placeholder = `${cutLastPlaceholder} ${cutNamePlaceholder}`;
+function separatePlaceholder(elem) {
+  const array = elem.name.split('');
+
+  let cutPart1;
+  let cutPart2;
+
+  for (let i = 0; i < array.length; i++) {
+    if (array[i] === array[i].toUpperCase()) {
+      cutPart1 = elem.placeholder.slice(0, i);
+      cutPart2 = elem.placeholder.slice(i);
+    }
+  }
+
+  return `${cutPart1} ${cutPart2}`;
+}
+
+firstNameInput.placeholder = separatePlaceholder(firstNameInput);
+lastNameInput.placeholder = separatePlaceholder(lastNameInput);
