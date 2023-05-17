@@ -13,7 +13,7 @@ for (const field of fieldsHTML) {
 
   label.setAttribute('for', inputField.id);
 
-  label.innerText = inputField.name.charAt(0).toUpperCase()
-    + inputField.name.slice(1).replace(/([A-Z])/g, ' $1').toLowerCase();
+  label.innerText = inputField.name.replace(/([A-Z])/g, ' $1');
+  label.className = 'field-label';
   field.prepend(label);
 }
