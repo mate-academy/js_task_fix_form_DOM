@@ -5,14 +5,19 @@ const divElem = document.querySelectorAll('.field');
 
 for (let i = 0; i < divElem.length; i++) {
   const label = document.createElement('label');
-  const capitalizedWord = inputs[i].name.replace(
+  let capitalizedWord = inputs[i].name.replace(
     inputs[i].name[0], inputs[i].name[0].toUpperCase());
 
-  inputs[i].placeholder = capitalizedWord;
+  if (capitalizedWord.includes('Name')) {
+    capitalizedWord = capitalizedWord.slice(0, capitalizedWord.indexOf('N'))
+    + ' '
+    + capitalizedWord.slice(capitalizedWord.indexOf('N'));
+  }
 
+  inputs[i].placeholder = capitalizedWord;
   label.className = 'field-label';
   label.htmlFor = inputs[i].id;
-  label.textContent = inputs[i].name;
+  label.textContent = capitalizedWord;
 
   divElem[i].append(label);
 }
