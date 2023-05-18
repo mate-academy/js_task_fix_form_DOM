@@ -1,8 +1,6 @@
 'use strict';
 
 const fields = document.querySelectorAll('.field');
-const inputs = document.querySelectorAll('input');
-const inputsArray = [ ...inputs ];
 const fieldsArray = [ ...fields ];
 
 function separateName(elem) {
@@ -29,12 +27,10 @@ for (const field of fieldsArray) {
   label.textContent = separateName(field.children[0]);
   label.htmlFor = field.children[0].id;
   field.append(label);
-}
 
-for (const input of inputsArray) {
-  const nameFull = separateName(input);
+  const nameFull = separateName(field.children[0]);
   const lower = nameFull.toLocaleLowerCase();
   const result = lower.charAt(0).toUpperCase() + lower.slice(1);
 
-  input.placeholder = result;
+  field.children[0].placeholder = result;
 }
