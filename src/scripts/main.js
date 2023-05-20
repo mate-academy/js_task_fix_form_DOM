@@ -3,26 +3,26 @@
 const inputs = document.querySelectorAll('input');
 
 inputs.forEach(input => {
-  let placeholder = input.name;
+  let inputName = input.name;
 
-  for (let i = 0; i < placeholder.length; i++) {
-    const lowerName = placeholder.toLocaleLowerCase();
+  for (let i = 0; i < inputName.length; i++) {
+    const lowerName = inputName.toLocaleLowerCase();
 
-    if (placeholder[i] !== lowerName[i]) {
-      const adaptedPhrase = placeholder.substring(0, i) + ' '
-        + placeholder.slice(i);
+    if (inputName[i] !== lowerName[i]) {
+      const adaptedPhrase = inputName.substring(0, i) + ' '
+        + inputName.slice(i);
 
-      placeholder = adaptedPhrase;
+      inputName = adaptedPhrase;
       i = i + 1;
     }
   }
 
-  input.placeholder = placeholder[0].toLocaleUpperCase() + placeholder.slice(1);
+  input.placeholder = inputName[0].toLocaleUpperCase() + inputName.slice(1);
 
   const label = document.createElement('label');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = inputName;
   input.before(label);
 });
