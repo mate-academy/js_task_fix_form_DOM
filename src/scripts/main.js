@@ -1,30 +1,30 @@
 'use strict';
 
-const allInput = document.querySelectorAll('input');
+const allInputs = document.querySelectorAll('input');
 
-for (const input of allInput) {
+for (const input of allInputs) {
   const value = input.name;
-  const firLetter = value.charAt(0).toUpperCase();
-  const res = firLetter + value.slice(1);
+  const firstLetter = value.charAt(0).toUpperCase();
+  const capitalizedName = firstLetter + value.slice(1);
 
-  const lab = document.createElement('label');
+  const label = document.createElement('label');
 
-  lab.for = value;
-  lab.className = 'field-label';
+  label.htmlFor = value;
+  label.className = 'field-label';
 
-  let newValue;
+  let formattedName;
 
   for (let i = 1; i < value.length; i++) {
     if (value[i] === value[i].toUpperCase()) {
-      newValue = `${value.substring(0, i)} ${value.substring(i)}`;
+      formattedName = `${value.substring(0, i)} ${value.substring(i)}`;
 
-      lab.textContent = newValue;
+      label.textContent = formattedName;
       break;
     }
 
-    lab.textContent = value;
+    label.textContent = value;
   }
 
-  input.before(lab);
-  input.setAttribute('placeholder', res);
+  input.before(label);
+  input.setAttribute('placeholder', capitalizedName);
 }
