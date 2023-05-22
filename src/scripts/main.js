@@ -11,7 +11,19 @@ for (const input of allInput) {
 
   lab.for = value;
   lab.className = 'field-label';
-  lab.textContent = value;
+
+  let newValue;
+
+  for (let i = 1; i < value.length; i++) {
+    if (value[i] === value[i].toUpperCase()) {
+      newValue = `${value.substring(0, i)} ${value.substring(i)}`;
+
+      lab.textContent = newValue;
+      break;
+    }
+
+    lab.textContent = value;
+  }
 
   input.before(lab);
   input.setAttribute('placeholder', res);
