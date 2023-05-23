@@ -7,7 +7,7 @@ inputs.forEach(input => {
 
   labelName.className = `field-label`;
   labelName.setAttribute('for', input.getAttribute('id'));
-  labelName.textContent = input.getAttribute('name');
+  labelName.textContent = capitalizeName(input.getAttribute('name'));
 
   input.parentElement.append(labelName);
   input.placeholder = capitalizeName(input.getAttribute('name'));
