@@ -7,12 +7,22 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name.toUpperCase();
+  label.textContent = formatString(input.name).toUpperCase();
   input.parentElement.append(label);
 
-  input.setAttribute('placeholder', capitalizeFirst(input.name));
+  input.setAttribute('placeholder', formatString(input.name));
 }
 
-function capitalizeFirst(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function formatString(string) {
+  let result = string;
+
+  if (string !== string.toLowerCase()) {
+    const upperCharInd = string.indexOf(string.replace(/[^A-Z]/g, ''));
+    const stringArr = string.split('');
+
+    stringArr.splice(upperCharInd, 0, ' ');
+    result = stringArr.join('').toLowerCase();
+  }
+
+  return result.charAt(0).toUpperCase() + result.slice(1);
 }
