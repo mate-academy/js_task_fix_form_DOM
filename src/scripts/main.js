@@ -9,11 +9,12 @@ newInput.forEach(item => {
 
   label.htmlFor = item.id;
 
-  label.textContent = item.name;
+  label.textContent = item.name.replace('N', ' N');
 
   item.parentElement.append(label);
 });
 
 newInput.forEach(item => {
-  item.placeholder = item.name.charAt(0).toUpperCase() + item.name.slice(1);
+  item.placeholder = item.name
+    .charAt(0).toUpperCase() + item.name.slice(1).replace('N', ' N');
 });
