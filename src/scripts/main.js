@@ -8,7 +8,9 @@ for (const thisInput of inputs) {
     ${thisInput.name}
     </label>
   `);
-  const placeFirstChar = thisInput.name[0].toUpperCase()
-  const placeOtherChars =  thisInput.name.slice(1).toLowerCase()
+
+  const placeFirstChar = thisInput.name[0].toUpperCase();
+  const placeOtherChars = thisInput.name.slice(1).toLowerCase();
+
   thisInput.setAttribute('placeholder', placeFirstChar + placeOtherChars);
 }
