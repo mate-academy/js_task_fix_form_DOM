@@ -2,6 +2,19 @@
 
 const myInputs = document.querySelectorAll('input');
 
+function capitalize(str) {
+  let newStr = str[0].toUpperCase();
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      newStr += ' ';
+    }
+    newStr += str[i];
+  }
+
+  return newStr;
+}
+
 function insertAfter(referenceNode, newNode) {
   referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
 }
@@ -12,15 +25,8 @@ for (const input of myInputs) {
   touchpad.className = 'field-label';
   touchpad.htmlFor = `${input.id}`;
 
-  console.log(touchpad.htmlFor);
-  console.log(touchpad.className);
-
-  const capitalized = input.name.charAt(0).toUpperCase() + input.name.slice(1);
-
-  touchpad.textContent = capitalized;
-  input.placeholder = capitalized;
-
   insertAfter(input, touchpad);
+
+  input.placeholder = capitalize(input.name);
+  touchpad.textContent = capitalize(input.name);
 }
-
-
