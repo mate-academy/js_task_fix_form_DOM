@@ -12,6 +12,19 @@ inputs.forEach(input => {
     </label>
   `);
 
-  input.placeholder = input.name;
-  input.style.cssText = 'text-transform: capitalize;';
+  input.placeholder = formatString(input.name);
 });
+
+function formatString(string) {
+  let result = string[0].toUpperCase();
+
+  for (let index = 1; index < string.length; index++) {
+    if (string[index] === string[index].toUpperCase()) {
+      result += ` ${string[index]}`;
+    } else {
+      result += string[index];
+    }
+  }
+
+  return result;
+}
