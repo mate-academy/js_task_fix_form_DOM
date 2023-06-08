@@ -20,7 +20,7 @@ function formatString(string) {
 
   for (let index = 1; index < string.length; index++) {
     if (string[index] === string[index].toUpperCase()) {
-      result += ` ${string[index]}`;
+      result += ` ${string[index].toLowerCase()}`;
     } else {
       result += string[index];
     }
