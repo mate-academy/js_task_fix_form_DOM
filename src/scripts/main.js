@@ -8,7 +8,7 @@ inputs.forEach(input => {
       class="field-label"
       for="${input.id}"
     >
-      ${input.name}
+      ${formatString(input.name)}
     </label>
   `);
 
