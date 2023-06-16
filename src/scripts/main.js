@@ -9,16 +9,23 @@ const fixForm = form => {
 
   for (const inputField of formInputs) {
     const { id: inputId, name: inputName } = inputField;
+
     const label = document.createElement('label');
 
-    inputField.setAttribute('placeholder', capitalizeWord(inputName));
+    const splittedInputName = splitCamelCase(inputName);
+
+    inputField.setAttribute('placeholder', capitalizeWord(splittedInputName));
 
     label.className = 'field-label';
     label.htmlFor = inputId;
-    label.textContent = inputName;
+    label.textContent = splittedInputName;
 
     inputField.before(label);
   }
+};
+
+const splitCamelCase = str => {
+  return str.replace(/([A-Z])/g, ' $1').trim();
 };
 
 const capitalizeWord = word => {
