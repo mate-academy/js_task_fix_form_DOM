@@ -7,7 +7,6 @@ return [...inputAll].forEach(input => {
   const idAttribute = input.getAttribute('id');
   const inputName = input.getAttribute('name');
   const parentContainer = input.parentElement;
-
   let modifiedName = '';
 
   modifiedName += inputName[0].toUpperCase();
