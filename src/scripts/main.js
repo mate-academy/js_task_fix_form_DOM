@@ -24,7 +24,8 @@ inputs.forEach(input => {
   inputLabel.setAttribute('for', inputId);
   inputLabel.textContent = inputName;
 
-  input.setAttribute('placeholder', inputName);
+  input.setAttribute('placeholder', inputName
+    .slice(0, 1) + '' + inputName.slice(1).toLowerCase());
 
   input.parentElement.prepend(inputLabel);
 });
