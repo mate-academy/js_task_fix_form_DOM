@@ -3,7 +3,6 @@
 const inputs = document.querySelectorAll('input');
 
 for (let i = 0; i < inputs.length; i++) {
-
   const input = inputs[i];
   const parentInput = input.parentNode;
   const label = document.createElement('label');
