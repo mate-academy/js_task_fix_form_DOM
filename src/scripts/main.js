@@ -11,8 +11,19 @@ function fixForm() {
 
       label.htmlFor = input.id;
       label.className = 'field-label';
-      label.textContent = input.name[0].toUpperCase() + input.name.slice(1);
-      input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+
+      const inputName = input.name;
+
+      const formattedName = inputName.replace(/([A-Z])/g, ' $1');
+
+      const placeholderFormatted = formattedName
+        .split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+
+      label.textContent = placeholderFormatted;
+      input.placeholder = placeholderFormatted;
+
       input.parentNode.appendChild(label);
     }
   }
