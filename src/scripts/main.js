@@ -14,12 +14,13 @@ document.addEventListener('DOMContentLoaded', function() {
       label.setAttribute('for', input.id);
 
       label.textContent
-        = inputName.charAt(0).toUpperCase() + inputName.slice(1);
+        = inputName.charAt(0).toUpperCase()
+        + inputName.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2');
 
       input.setAttribute('placeholder',
         inputName
-          .charAt(0)
-          .toUpperCase() + inputName.slice(1));
+          .charAt(0).toUpperCase()
+          + inputName.slice(1).replace(/([a-z])([A-Z])/g, '$1 $2'));
 
       input.parentNode.insertBefore(label, input);
     });
