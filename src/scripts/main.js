@@ -1,15 +1,16 @@
 'use strict';
 
 // write code here
-const input = document.querySelectorAll('input');
-const field = document.querySelectorAll('.field');
+const inputs = document.querySelectorAll('input');
+const fields = document.querySelectorAll('.field');
+const inputsArray = [...inputs];
 
-[...field].forEach((subject, index) => {
+[...fields].forEach((subject, index) => {
   const createLabel = document.createElement('label');
-  let correctName = [...input][`${index}`].name;
+  let correctName = inputsArray[`${index}`].name;
 
-  if ([...input][`${index}`].name.includes('Name')) {
-    const nameIndex = [...input][`${index}`].name.indexOf('N');
+  if (inputsArray[`${index}`].name.includes('Name')) {
+    const nameIndex = inputsArray[`${index}`].name.indexOf('N');
     const firstPart = correctName.slice(0, `${nameIndex}`);
     const secondPart = correctName.slice(`${nameIndex}`);
 
@@ -17,17 +18,17 @@ const field = document.querySelectorAll('.field');
   }
 
   createLabel.className = 'field-label';
-  createLabel.htmlFor = [...input][`${index}`].id;
+  createLabel.htmlFor = inputsArray[`${index}`].id;
   createLabel.textContent = correctName;
 
   subject.appendChild(createLabel);
 });
 
-[...input].forEach((item, index) => {
-  let correctPlaceholder = [...input][`${index}`].name;
+inputsArray.forEach((item, index) => {
+  let correctPlaceholder = inputsArray[`${index}`].name;
 
-  if ([...input][`${index}`].name.includes('Name')) {
-    const nameIndex = [...input][`${index}`].name.indexOf('N');
+  if (inputsArray[`${index}`].name.includes('Name')) {
+    const nameIndex = inputsArray[`${index}`].name.indexOf('N');
     const firstPart = correctPlaceholder.slice(0, `${nameIndex}`);
     const secondPart = correctPlaceholder.slice(`${nameIndex}`);
 
