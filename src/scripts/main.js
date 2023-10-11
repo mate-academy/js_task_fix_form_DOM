@@ -11,7 +11,13 @@ inputsInsideForm.forEach(input => {
 
   label.setAttribute('for', input.name);
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  const placeholderContent = input.name[0].toUpperCase() + input.name.slice(1);
+
+  input.placeholder = splitCamelCase(placeholderContent);
 
   input.parentNode.insertBefore(label, input.nextSibling);
 });
+
+function splitCamelCase(input) {
+  return input.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
