@@ -3,7 +3,19 @@
 const inputs = document.querySelectorAll('input');
 
 function firstUpper(str) {
-  return !str ? str : str[0].toUpperCase() + str.slice(1);
+  if (!str) {
+    return str;
+  }
+
+  let result = str[0].toUpperCase() + str.slice(1);
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase()) {
+      result = result.slice(0, i) + ' ' + result.slice(i);
+    }
+  }
+
+  return result;
 }
 
 for (const input of inputs) {
@@ -11,7 +23,7 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name.toUpperCase();
+  label.textContent = firstUpper(input.name).toUpperCase();
   input.placeholder = firstUpper(input.name);
   input.before(label);
 }
