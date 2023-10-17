@@ -1,8 +1,8 @@
 'use strict';
 
-// write code here
 function capitalize(string) {
-  return string.slice(0, 1).toUpperCase() + string.slice(1);
+  return (string.slice(0, 1).toUpperCase() + string.slice(1))
+    .replace(/([A-Z])/g, ' $1').trim();
 }
 
 const inputElements = document.querySelectorAll('input');
@@ -12,7 +12,7 @@ inputElements.forEach(element => {
 
   labelElement.classList.add('field-label');
   labelElement.htmlFor = element.id;
-  labelElement.textContent = element.name;
+  labelElement.textContent = capitalize(element.name);
 
   element.parentNode.appendChild(labelElement);
 
