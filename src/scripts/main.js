@@ -5,11 +5,13 @@ const inputs = document.querySelectorAll('input');
 
 const inputsAsArray = Array.from(inputs);
 
+
+
 inputsAsArray.forEach(entry => {
   const label = document.createElement('label');
 
-  const placeHolder = entry.name.charAt(0).toLocaleUpperCase()
-  + entry.name.toLocaleLowerCase().slice(1);
+  const placeHolder = (entry.name.charAt(0).toLocaleUpperCase()
+  + entry.name.slice(1)).split(/(?=[A-Z])/).join(' ');
 
   entry.placeholder = placeHolder;
 
@@ -17,7 +19,7 @@ inputsAsArray.forEach(entry => {
 
   label.setAttribute('for', entry.id);
 
-  label.insertAdjacentText('afterbegin', entry.name);
+  label.insertAdjacentText('afterbegin', placeHolder);
 
   entry.before(label);
 });
