@@ -18,5 +18,6 @@ for (const input of inputs) {
 }
 
 function getFirstLetterToUpper(word) {
-  return word.replace(word[0], word[0].toUpperCase());
+  return (word.charAt(0).toUpperCase()
+  + word.slice(1)).split(/(?=[A-Z])/).join(' ');
 }
