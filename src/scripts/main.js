@@ -9,10 +9,11 @@ inputs.forEach((input) => {
   label.className = 'field-label';
   label.textContent = input.name;
 
-  const capitalizedPlaceholder
-    = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  const capitalizedPlaceholder = input.name
+    ? input.name.charAt(0).toUpperCase() + input.name.slice(1)
+    : '';
 
   input.placeholder = capitalizedPlaceholder;
 
-  input.parentNode.appendChild(label);
+  input.parentNode.insertBefore(label, input);
 });
