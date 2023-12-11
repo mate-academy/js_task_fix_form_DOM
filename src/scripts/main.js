@@ -2,6 +2,13 @@
 
 const inputs = document.querySelectorAll('.field-text');
 
+function convertCamelCaseToWords(camelCaseString) {
+  return camelCaseString
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/([A-Z])([A-Z][a-z])/g, '$1 $2')
+    .replace(/^./, match => match.toUpperCase());
+}
+
 inputs.forEach(node => {
   const labelName = node.getAttribute('name');
   const inputLabel = document.createElement('label');
@@ -13,7 +20,5 @@ inputs.forEach(node => {
 
   node.after(inputLabel);
 
-  node.placeholder = labelName
-    .slice(0, 1)
-    .toUpperCase() + labelName.slice(1);
+  node.placeholder = convertCamelCaseToWords(labelName);
 });
