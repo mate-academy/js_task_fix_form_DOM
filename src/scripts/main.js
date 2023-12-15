@@ -12,12 +12,19 @@ for (const form of forms) {
     label.textContent = input.name;
     label.className = 'field-label';
     input.before(label);
-    input.setAttribute('placeholder', capitalize(input.name));
+    input.setAttribute('placeholder', formatName(input.name));
   }
 }
 
-function capitalize(string) {
-  const firstLetter = string[0].toUpperCase();
+function formatName(string) {
+  let resultString = string.toLowerCase();
 
-  return firstLetter + string.slice(1);
+  for (let i = 0; i < string.length; i++) {
+    if (string[i] !== string[i].toLowerCase()) {
+      resultString = resultString.slice(0, i) + ' '
+        + resultString.slice(i);
+    }
+  }
+
+  return resultString[0].toUpperCase() + resultString.slice(1);
 }
