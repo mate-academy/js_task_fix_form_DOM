@@ -5,7 +5,7 @@ function capitalize(string) {
   return string[0].toUpperCase() + string.slice(1);
 }
 
-function makeRealWords(string) {
+function makeWords(string) {
   if (string.toLowerCase() === string) {
     return string;
   }
@@ -21,7 +21,7 @@ const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
   const labelElement = document.createElement('label');
-  const inputName = makeRealWords(input.name);
+  const inputName = makeWords(input.name);
 
   labelElement.textContent = inputName;
   labelElement.setAttribute('for', input.id);
