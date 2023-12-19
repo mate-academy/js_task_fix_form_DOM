@@ -12,6 +12,8 @@ inputs.forEach(input => {
 
   labelElement.textContent = input.placeholder;
   labelElement.className = 'field-label';
+  labelElement.htmlFor = input.name;
+  input.id = input.name;
 
   input.parentNode.insertBefore(labelElement, input);
 });
