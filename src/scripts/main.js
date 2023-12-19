@@ -2,6 +2,8 @@
 
 const inputs = document.querySelectorAll('input');
 
+const divs = document.querySelectorAll('.field--full');
+
 inputs.forEach(input => {
   input.placeholder = input.name
     .split(/(?=[A-Z])/)
@@ -17,3 +19,11 @@ inputs.forEach(input => {
 
   input.parentNode.insertBefore(labelElement, input);
 });
+
+divs.forEach(div => {
+  const inputDiv = div.querySelector('input');
+  const labelDiv = div.querySelector('label');
+
+  inputDiv.id = inputDiv.name + 'last';
+  labelDiv.htmlFor = inputDiv.name + 'last';
+})
