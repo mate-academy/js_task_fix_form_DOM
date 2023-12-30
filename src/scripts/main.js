@@ -12,5 +12,6 @@ fields.forEach(field => {
   label.className = 'field-label';
   label.htmlFor = field.children[0].id;
   label.textContent = field.children[0].name;
+
   field.append(label);
 });
