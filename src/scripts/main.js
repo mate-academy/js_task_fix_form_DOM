@@ -8,6 +8,7 @@ for (const input of inputs) {
   labelElement.className = 'field-label';
   labelElement.textContent = getFirstLetterToUpper(input.name);
   labelElement.setAttribute('for', input.id);
+
   input.setAttribute('placeholder', getFirstLetterToUpper(input.name));
 
   input.parentElement.append(labelElement);
