@@ -3,7 +3,9 @@
 const inputs = document.querySelectorAll('.field-text');
 
 inputs.forEach(input => {
-  const labelName = input.getAttribute('name');
+  const labelName = input
+    .getAttribute('name')
+    .replace(/([a-z])([A-Z])/g, '$1 $2');
   const labelFor = input.getAttribute('id');
 
   const label = document.createElement('label');
