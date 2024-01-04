@@ -6,7 +6,7 @@ inputs.forEach(input => {
   const labelName = input.getAttribute('name');
   const labelFor = input.getAttribute('id');
 
-  const label = document.createElement('lable');
+  const label = document.createElement('label');
 
   label.className = 'field-label';
   label.textContent = labelName;
