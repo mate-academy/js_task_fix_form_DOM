@@ -9,9 +9,21 @@ inputs.forEach(input => {
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
   label.textContent = input.name;
-  input.setAttribute('placeholder', input.name);
 
-  // Adding the label to the parent container of the input
+  let placeholder = '';
+
+  for (const ch of input.name) {
+    if (ch === ch.toLocaleUpperCase()) {
+      placeholder += ' ' + ch;
+    } else {
+      placeholder += ch;
+    }
+  }
+
+  placeholder = placeholder[0].toLocaleUpperCase() + placeholder.slice(1);
+
+  input.setAttribute('placeholder', placeholder);
+
   const parentContainer = input.parentNode;
 
   parentContainer.appendChild(label);
