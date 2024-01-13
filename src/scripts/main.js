@@ -8,12 +8,13 @@ inputElementsArray.forEach(function(input) {
   const label = document.createElement('label');
 
   label.setAttribute('for', input.id);
-
   label.classList.add('field-label');
 
-  label.textContent = input.name;
+  const labelText = input.name.replace(/([a-z])([A-Z])/g, '$1 $2');
 
-  input.parentNode.appendChild(label);
+  label.textContent = labelText;
 
-  input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  input.parentNode.insertBefore(label, input.nextSibling);
+
+  input.placeholder = labelText.charAt(0).toUpperCase() + labelText.slice(1);
 });
