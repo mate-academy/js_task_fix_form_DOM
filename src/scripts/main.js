@@ -12,7 +12,7 @@ inputs.forEach(input => {
   label.setAttribute('for', labelFor);
 
   if (label.textContent.includes('Name')) {
-    label.textContent = label.textContent.replace('Name', ' name');
+    label.textContent = label.textContent.replace('Name', ' Name');
   }
 
   input.after(label);
