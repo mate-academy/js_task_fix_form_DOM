@@ -1,33 +1,21 @@
 'use strict';
 
-const normalizeName = (currentName) => {
-  let newName = '';
-
-  for (const ch of currentName) {
-    if (ch === ch.toLocaleUpperCase()) {
-      newName += ' ' + ch;
-    } else {
-      newName += ch;
-    }
-  }
-
-  newName = newName[0].toLocaleUpperCase() + newName.slice(1);
-
-  return newName;
-};
-
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('.field-text');
 
 inputs.forEach(input => {
+  const labelName = input
+    .getAttribute('name')
+    .replace(/([a-z])([A-Z])/g, '$1 $2');
+  const labelFor = input.getAttribute('id');
+
   const label = document.createElement('label');
-  const newName = normalizeName(input.name);
 
-  label.classList.add('field-label');
-  label.setAttribute('for', input.id);
-  label.textContent = newName;
-  input.setAttribute('placeholder', newName);
+  label.className = 'field-label';
+  label.textContent = labelName;
+  label.setAttribute('for', labelFor);
+  input.after(label);
 
-  const parentContainer = input.parentNode;
-
-  parentContainer.appendChild(label);
+  input.placeholder = labelName
+    .slice(0, 1)
+    .toUpperCase() + labelName.slice(1);
 });
