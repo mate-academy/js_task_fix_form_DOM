@@ -12,10 +12,9 @@ addEventListener('DOMContentLoaded', () => {
 
       const getLabel = (labelId, labelName) => {
         const label = document.createElement('label');
-        const labelNameWithSpace = labelName.replace(/([A-Z])/g, ' $1').trim();
 
         label.classList.add('field-label');
-        label.textContent = labelNameWithSpace;
+        label.textContent = labelName;
         label.for = labelId;
 
         return label;
@@ -23,7 +22,7 @@ addEventListener('DOMContentLoaded', () => {
 
       fields.forEach((field) => {
         const input = field.querySelector('.field-text');
-        const inputName = input.name;
+        const inputName = input.name.replace(/([A-Z])/g, ' $1').trim();
         const inputPlaceholder = getPlaceholder(inputName);
         const inputId = input.id;
         const label = getLabel(inputId, inputName);
