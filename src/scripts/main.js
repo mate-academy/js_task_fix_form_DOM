@@ -1,25 +1,19 @@
 'use strict';
 
-const inputsList = document.querySelectorAll('.field-text');
+const inputs = document.querySelectorAll('.field-text');
 
-function divideWords(word) {
-  let result;
+inputs.forEach(node => {
+  const labelName = node.getAttribute('name');
+  const labelFor = node.getAttribute('id');
+  const inputLabel = document.createElement('label');
 
-  if (word.includes('Name')) {
-    result = word.slice(0, -4) + ' Name';
+  inputLabel.className = 'field-label';
+  inputLabel.textContent = labelName;
+  inputLabel.setAttribute('for', labelFor);
 
-    return result;
-  }
+  node.after(inputLabel);
 
-  return word;
-}
-
-inputsList.forEach(element => {
-  element.insertAdjacentHTML('beforebegin',
-    `<label class="field-label" for=${element.id}>
-      ${divideWords(element.name)}
-    </label>`);
-
-  element.setAttribute('placeholder',
-    `${divideWords(element.name[0].toUpperCase() + element.name.slice(1))}`);
+  node.placeholder = labelName
+    .slice(0, 1)
+    .toUpperCase() + labelName.slice(1);
 });
