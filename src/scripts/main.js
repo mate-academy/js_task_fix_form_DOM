@@ -12,9 +12,10 @@ addEventListener('DOMContentLoaded', () => {
 
       const getLabel = (labelId, labelName) => {
         const label = document.createElement('label');
+        const labelNameWithSpace = labelName.replace(/([A-Z])/g, ' $1').trim();
 
         label.classList.add('field-label');
-        label.textContent = labelName;
+        label.textContent = labelNameWithSpace;
         label.for = labelId;
 
         return label;
