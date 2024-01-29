@@ -1,3 +1,37 @@
+/* eslint-disable max-len */
 'use strict';
 
-// write code here
+addEventListener('DOMContentLoaded', () => {
+  const fixFormInit = () => {
+    const fields = document.querySelectorAll('.field');
+
+    if (fields.length) {
+      const getPlaceholder = (inputName) => {
+        return inputName.charAt(0).toUpperCase() + inputName.slice(1);
+      };
+
+      const getLabel = (labelId, labelName) => {
+        const label = document.createElement('label');
+
+        label.classList.add('field-label');
+        label.textContent = labelName;
+        label.for = labelId;
+
+        return label;
+      };
+
+      fields.forEach((field) => {
+        const input = field.querySelector('.field-text');
+        const inputName = input.name.replace(/([A-Z])/g, ' $1').trim();
+        const inputPlaceholder = getPlaceholder(inputName);
+        const inputId = input.id;
+        const label = getLabel(inputId, inputName);
+
+        input.placeholder = inputPlaceholder;
+        field.prepend(label);
+      });
+    }
+  };
+
+  fixFormInit();
+});
