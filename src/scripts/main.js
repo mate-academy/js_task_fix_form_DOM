@@ -9,9 +9,12 @@ formInputs.forEach(input => {
 
   label.classList.add('field-label');
 
-  label.textContent = input.name;
+  label.textContent = input.name.replace(
+    /([A-Z])/g, ' $1').replace(/^./, function(str) {
+    return str.toUpperCase();
+  });
 
   input.parentNode.insertBefore(label, input);
 
-  input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  input.placeholder = label.textContent;
 });
