@@ -11,8 +11,8 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = capitalizeName(input.name.toUpperCase());
 
   input.placeholder = capitalizeName(input.name);
-  input.parentNode.appendChild(label);
+  input.parentElement.append(label);
 }
