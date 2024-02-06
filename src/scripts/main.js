@@ -7,12 +7,13 @@ function capitalizeName(string) {
 const inputs = [...document.querySelectorAll('input')];
 
 for (const input of inputs) {
+  const correctStr = capitalizeName(input.name);
   const label = document.createElement('label');
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = capitalizeName(input.name.toUpperCase());
+  label.textContent = correctStr.toUpperCase();
 
-  input.placeholder = capitalizeName(input.name);
+  input.placeholder = correctStr.charAt(0).toUpperCase() + correctStr.slice(1);
   input.parentElement.append(label);
 }
