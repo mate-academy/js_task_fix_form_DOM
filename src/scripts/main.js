@@ -1,7 +1,7 @@
 'use strict';
 
 function capitalizeName(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.split(/(?=[A-Z])/).join(' ');
 }
 
 const inputs = [...document.querySelectorAll('input')];
