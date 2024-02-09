@@ -4,7 +4,8 @@ const inputsList = document.querySelectorAll('input');
 
 function fixInputs(list) {
   list.forEach(input => {
-    const inputName = input.getAttribute('name');
+    const inputName
+      = input.getAttribute('name').replace(/[A-Z]/g, match => ` ${match}`);
     const inputId = input.getAttribute('id');
     const newName = inputName.slice(0, 1).toUpperCase() + inputName.slice(1);
 
@@ -16,7 +17,7 @@ function fixInputs(list) {
     label.setAttribute('class', 'field-label');
 
     label.textContent
-      = inputName.replace(/[A-Z]/g, match => ` ${match}`).toUpperCase();
+      = inputName.toUpperCase();
 
     input.before(label);
   });
