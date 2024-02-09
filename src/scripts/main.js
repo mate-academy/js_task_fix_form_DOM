@@ -14,7 +14,9 @@ function fixInputs(list) {
 
     label.setAttribute('for', inputId);
     label.setAttribute('class', 'field-label');
-    label.textContent = inputName.toUpperCase();
+
+    label.textContent
+      = inputName.replace(/[A-Z]/g, match => ` ${match}`).toUpperCase();
 
     input.before(label);
   });
