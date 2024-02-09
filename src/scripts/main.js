@@ -13,6 +13,7 @@ function fixInputs(list) {
     const label = document.createElement('label');
 
     label.setAttribute('for', inputId);
+    label.setAttribute('class', 'field-label');
     label.textContent = inputName.toUpperCase();
 
     input.before(label);
