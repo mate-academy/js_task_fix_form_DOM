@@ -2,6 +2,9 @@
 
 const inputs = document.querySelectorAll('input');
 
+inputs[0].name = 'first Name';
+inputs[1].name = 'last Name';
+
 [...inputs].forEach(input => {
   const label = document.createElement('label');
   const capitalizedInputName = input.name.charAt(0).toUpperCase()
