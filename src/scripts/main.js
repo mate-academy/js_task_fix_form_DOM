@@ -8,8 +8,10 @@ const inputElements = document.getElementsByTagName('input');
   input.placeholder = inputName.at(0).toUpperCase() + inputName.slice(1);
 
   const labelInput = document.createElement('label');
+
   labelInput.htmlFor = input.id;
   labelInput.textContent = inputName.toUpperCase();
+  labelInput.className = 'field-label';
 
   input.insertAdjacentElement('beforebegin', labelInput);
 });
