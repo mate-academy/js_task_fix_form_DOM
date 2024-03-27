@@ -1,33 +1,27 @@
 'use strict';
 
-function separate(text) {
-  let separatedText = '';
-
-  for (let i = 0; i < text.length; i++) {
+function getIndexOfBigLetter(text, fromIndex) {
+  for (let i = fromIndex; i < text.length; i++) {
     if (text[i] !== text[i].toLowerCase()) {
-      separatedText += ' ';
+      return i;
     }
-
-    separatedText += text[i];
   }
 
-  return separatedText;
+  return -1;
+}
+
+function separate(text) {
+  const index = getIndexOfBigLetter(text, 1);
+
+  if (index === -1) {
+    return text;
+  }
+
+  return text.slice(0, index) + ' ' + separate(text.slice(index));
 }
 
 function capitalize(text) {
-  let capitalizedText = '';
-
-  for (let i = 0; i < text.length; i++) {
-    if (i === 0) {
-      capitalizedText += text[i].toUpperCase();
-    } else if (text[i] !== text[i].toLowerCase()) {
-      capitalizedText += ' ' + text[i].toLowerCase();
-    } else {
-      capitalizedText += text[i];
-    }
-  }
-
-  return capitalizedText;
+  return text.slice(0, 1).toUpperCase() + separate(text.slice(1)).toLowerCase();
 }
 
 const inputs = document.querySelectorAll('input');
