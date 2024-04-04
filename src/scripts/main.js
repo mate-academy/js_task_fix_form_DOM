@@ -8,6 +8,7 @@ const inputs = document.querySelectorAll('input');
   label.classList.add('field-label');
   label.for = input.id;
   label.textContent = input.name;
-  input.placeholder = input.name;
+
+  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
   input.parentElement.append(label);
 });
