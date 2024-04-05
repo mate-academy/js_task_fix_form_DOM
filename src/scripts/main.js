@@ -7,8 +7,11 @@ const inputs = document.querySelectorAll('input');
 
   label.classList.add('field-label');
   label.for = input.id;
-  label.textContent = input.name;
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+  label.textContent = input.name.split(/(?=[A-Z])/).join(' ');
+
+  input.placeholder = (input.name[0].toUpperCase() + input.name.slice(1))
+    .split(/(?=[A-Z])/)
+    .join(' ');
   input.parentElement.append(label);
 });
