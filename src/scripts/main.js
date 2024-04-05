@@ -8,10 +8,12 @@ const inputs = document.querySelectorAll('input');
   label.classList.add('field-label');
   label.for = input.id;
 
-  label.textContent = input.name.split(/(?=[A-Z])/).join(' ');
+  const camelCaseToSpaces = (camel) => camel.split(/(?=[A-Z])/).join(' ');
 
-  input.placeholder = (input.name[0].toUpperCase() + input.name.slice(1))
-    .split(/(?=[A-Z])/)
-    .join(' ');
+  label.textContent = camelCaseToSpaces(input.name);
+
+  input.placeholder = camelCaseToSpaces(
+    input.name[0].toUpperCase() + input.name.slice(1),
+  );
   input.parentElement.append(label);
 });
