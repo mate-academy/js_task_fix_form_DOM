@@ -8,9 +8,9 @@ inputs.forEach((input) => {
 
   label.setAttribute('for', id);
   label.classList.add('field-label');
-  label.textContent = capitalizeString(input.getAttribute('name'));
+  label.textContent = capitalizeWords(input.getAttribute('name'));
 
-  const placeholderText = capitalizeString(input.getAttribute('name'));
+  const placeholderText = capitalizeWords(input.getAttribute('name'));
 
   input.setAttribute('placeholder', placeholderText);
 
@@ -19,18 +19,14 @@ inputs.forEach((input) => {
   parentForInput.insertBefore(label, input);
 });
 
-function capitalizeString(str) {
-  const capitalizeStr = str.split('').reduce((acc, char, index) => {
-    if (index === 0) {
-      return acc + char.toUpperCase();
-    }
+function splitInputName(string) {
+  return string.split(/(?=[A-Z])/);
+}
 
-    if (char === char.toUpperCase()) {
-      return acc + ` ${char}`;
-    }
+function capitalizeWords(string) {
+  const words = splitInputName(string);
 
-    return acc + char;
-  }, '');
-
-  return capitalizeStr;
+  return words
+    .map((word) => word.slice(0, 1).toUpperCase() + word.slice(1))
+    .join(' ');
 }
