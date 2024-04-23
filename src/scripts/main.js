@@ -11,11 +11,14 @@ inputs.forEach((input) => {
 
   input.insertAdjacentElement('afterend', label);
 
-  const placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  const placeholder = input.name.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
 
-  input.setAttribute('placeholder', placeholder);
+  const formattedPlaceholder =
+    placeholder.charAt(0).toUpperCase() + placeholder.slice(1);
 
-  label.textContent = placeholder;
+  input.setAttribute('placeholder', formattedPlaceholder);
+
+  label.textContent = formattedPlaceholder;
 
   input.parentElement.appendChild(label);
 });
