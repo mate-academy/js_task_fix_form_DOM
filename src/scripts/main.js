@@ -1,25 +1,25 @@
 'use strict';
 
 // write code here
-// Get all input elements within the form
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((input) => {
-  // Create a label
   const label = document.createElement('label');
 
-  const labelName = input.name;
+  label.classList.add('field-label');
 
-  label.className = 'field-label'; // Assign class for CSS styling
+  label.setAttribute('for', input.id);
 
-  label.htmlFor = input.id; // Link label to the input
+  input.insertAdjacentElement('afterend', label);
 
-  label.textContent = input.name.toUpperCase();
+  const placeholder = input.name.replace(/([a-z])([A-Z])/g, '$1 $2').trim();
 
-  // Set the input's placeholder
-  input.placeholder =
-    labelName.charAt(0).toUpperCase() + labelName.slice(1).toLowerCase();
+  const formattedPlaceholder =
+    placeholder.charAt(0).toUpperCase() + placeholder.slice(1);
 
-  // Append the label to the same parent container as the input
-  input.parentNode.insertBefore(label, input);
+  input.setAttribute('placeholder', formattedPlaceholder);
+
+  label.textContent = formattedPlaceholder;
+
+  input.parentElement.appendChild(label);
 });
