@@ -26,7 +26,7 @@ for (const input of inputs) {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name.toUpperCase();
+  label.textContent = getCapitalizedPhrase(input.name).toUpperCase();
 
   const placeholderText = getCapitalizedPhrase(input.name);
 
