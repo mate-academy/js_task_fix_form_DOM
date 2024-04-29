@@ -11,9 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
       label.setAttribute('class', 'field-label');
       label.setAttribute('for', input.id);
-      label.textContent = capitalize(input.getAttribute('name'));
 
-      input.setAttribute('placeholder', capitalize(input.getAttribute('name')));
+      const inputName = input.getAttribute('name');
+
+      if (inputName === 'firstName' || inputName === 'lastName') {
+        input.setAttribute(
+          'placeholder',
+          capitalize(inputName === 'lastName' ? 'last name' : 'first name'),
+        );
+
+        label.textContent = capitalize(
+          inputName === 'lastName' ? 'last name' : 'first name',
+        );
+      } else {
+        label.textContent = capitalize(inputName);
+        input.setAttribute('placeholder', capitalize(inputName));
+      }
 
       const parentInput = input.parentNode;
 
