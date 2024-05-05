@@ -7,11 +7,13 @@ allInputs.forEach((input) => {
 
   label.className = 'field-label';
   label.htmlFor = input.id;
-  label.textContent = input.name;
-  input.parentNode.appendChild(label);
 
   const inputName = input.name;
-  const capitalized = inputName.charAt(0).toUpperCase() + inputName.slice(1);
+  const separated = inputName.replace(/([A-Z])/g, ' $1');
+  const capitalized = separated.charAt(0).toUpperCase() + separated.slice(1);
+
+  label.textContent = capitalized;
+  input.parentNode.appendChild(label);
 
   input.placeholder = capitalized;
 });
