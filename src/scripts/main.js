@@ -7,17 +7,15 @@ inputsCollection.forEach((input) => {
   const inputId = input.getAttribute('id');
   const capitalizedInputName =
     inputName.charAt(0).toUpperCase() + inputName.slice(1);
-
-  if (capitalizedInputName.includes('Name')) {
-    capitalizedInputName.replace('Name', ' Name');
-  }
+  
+  const placeholder = capitalizedInputName.includes('Name') ? capitalizedInputName.replace('Name', ' Name') : capitalizedInputName;
 
   const label = document.createElement('label');
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', inputId);
-  label.textContent = capitalizedInputName;
+  label.textContent = placeholder;
 
-  input.setAttribute('placeholder', capitalizedInputName);
+  input.setAttribute('placeholder', placeholder);
   input.parentNode.appendChild(label);
 });
