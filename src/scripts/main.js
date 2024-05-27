@@ -19,7 +19,7 @@ const createLables = (items) => {
     const lable = document.createElement('label');
     const itemName = item.getAttribute('name');
 
-    lable.innerText = itemName;
+    lable.innerText = textTransform(itemName).toUpperCase();
     lable.setAttribute('for', item.id);
     lable.classList.add('field-label');
     item.setAttribute('placeholder', textTransform(itemName));
