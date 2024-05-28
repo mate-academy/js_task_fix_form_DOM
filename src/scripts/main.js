@@ -8,6 +8,20 @@ inputsCollection.forEach((item) => {
   item.insertAdjacentElement('beforebegin', newLabel);
   newLabel.setAttribute('class', 'field-label');
   newLabel.setAttribute('for', item.id);
-  newLabel.setAttribute('textContent', item.name);
-  item.setAttribute('placeholder', item.name.toUpperCase());
+
+  newLabel.setAttribute(
+    'textContent',
+    item.name
+      .split(/(?=[A-Z])/)
+      .join(' ')
+      .toUpperCase(),
+  );
+
+  item.setAttribute(
+    'placeholder',
+    item.name
+      .split(/(?=[A-Z])/)
+      .join(' ')
+      .toUpperCase(),
+  );
 });
