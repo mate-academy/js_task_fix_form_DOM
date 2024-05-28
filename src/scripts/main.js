@@ -11,5 +11,18 @@ inputElements.forEach((el) => {
 
   el.before(label);
 
-  el.setAttribute('placeholder', el.name);
+  el.setAttribute('placeholder', formatString(el.name));
 });
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+function addSpaceToCamelCase(string) {
+  return string.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
+function formatString(string) {
+  const stringWithSpaces = addSpaceToCamelCase(string);
+  return capitalizeFirstLetter(stringWithSpaces);
+}
