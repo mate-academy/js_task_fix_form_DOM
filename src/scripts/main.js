@@ -9,13 +9,10 @@ inputsCollection.forEach((item) => {
   newLabel.setAttribute('class', 'field-label');
   newLabel.setAttribute('for', item.id);
 
-  newLabel.setAttribute(
-    'textContent',
-    item.name
-      .split(/(?=[A-Z])/)
-      .join(' ')
-      .toUpperCase(),
-  );
+  newLabel.textContent = item.name
+    .split(/(?=[A-Z])/)
+    .join(' ')
+    .toUpperCase();
 
   item.setAttribute(
     'placeholder',
