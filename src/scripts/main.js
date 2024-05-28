@@ -24,5 +24,6 @@ function addSpaceToCamelCase(string) {
 
 function formatString(string) {
   const stringWithSpaces = addSpaceToCamelCase(string);
+
   return capitalizeFirstLetter(stringWithSpaces);
 }
