@@ -7,7 +7,7 @@ inputElements.forEach((el) => {
 
   label.className = 'field-label';
   label.setAttribute('for', el.id);
-  label.textContent = el.name.toUpperCase();
+  label.textContent = addSpaceToCamelCase(el.name).toUpperCase();
 
   el.before(label);
 
