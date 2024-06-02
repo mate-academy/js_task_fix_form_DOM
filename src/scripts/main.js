@@ -9,7 +9,7 @@ inputsForm.forEach((input) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.getAttribute('id'));
-  label.textContent = getName.replace(/([A-Z])/g, ' $1').trim();
+  label.textContent = wordSpace;
   input.before(label);
 
   input.setAttribute(
