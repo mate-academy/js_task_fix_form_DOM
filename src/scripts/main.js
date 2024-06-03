@@ -5,6 +5,8 @@ const inputs = document.querySelectorAll('input');
 inputs.forEach((element) => {
   const label = document.createElement('label');
 
+  label.classList.add('field-label');
+
   label.setAttribute('for', element.id);
 
   const labelName = element.name.split(/(?=[A-Z])/).join(' ');
@@ -17,5 +19,5 @@ inputs.forEach((element) => {
 
   element.placeholder = placeholderText;
 
-  element.parentNode.insertBefore(label, element);
+  element.insertAdjacentElement('beforebegin', label);
 });
