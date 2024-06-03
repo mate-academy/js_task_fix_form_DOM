@@ -7,13 +7,15 @@ inputs.forEach((element) => {
 
   label.setAttribute('for', element.id);
 
-  const labelName =
-    element.name.charAt(0).toUpperCase() + element.name.slice(1).toLowerCase();
+  const labelName = element.name.split(/(?=[A-Z])/).join(' ');
 
-  element.placeholder = labelName;
+  label.textContent = labelName.toUpperCase();
 
-  label.textContent = element.name.toUpperCase();
-  label.classList.add('field-label');
+  const placeholderText =
+    labelName.split(' ')[0].charAt(0).toUpperCase() +
+    labelName.slice(1).toLowerCase();
+
+  element.placeholder = placeholderText;
 
   element.parentNode.insertBefore(label, element);
 });
