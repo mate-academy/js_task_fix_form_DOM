@@ -4,7 +4,9 @@ const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((elem) => {
   const label = document.createElement('label');
-  const inputName = elem.getAttribute('name');
+  let inputName = elem.getAttribute('name');
+
+  inputName = inputName.replace(/([a-z])([A-Z])/g, '$1 $2');
 
   label.setAttribute('for', elem.id);
   label.className = 'field-label';
