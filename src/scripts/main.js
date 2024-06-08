@@ -18,9 +18,9 @@ inputs.forEach((input) => {
   label.textContent = input.getAttribute('name');
 });
 
-signUpName.setAttribute('placeholder', 'FIRST NAME');
-signUpLastName.setAttribute('placeholder', 'LAST NAME');
-signUpEmail.setAttribute('placeholder', 'EMAIL');
-signUpPassword.setAttribute('placeholder', 'PASSWORD');
-signInEmail.setAttribute('placeholder', 'EMAIL');
-signInPassword.setAttribute('placeholder', 'PASSWORD');
+signUpName.setAttribute('placeholder', 'First Name');
+signUpLastName.setAttribute('placeholder', 'Last Name');
+signUpEmail.setAttribute('placeholder', 'Email');
+signUpPassword.setAttribute('placeholder', 'Password');
+signInEmail.setAttribute('placeholder', 'Email');
+signInPassword.setAttribute('placeholder', 'Password');
