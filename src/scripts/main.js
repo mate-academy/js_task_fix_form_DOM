@@ -24,10 +24,12 @@ function capitalizeAndSpace(string) {
 
 for (const input of inputs) {
   const label = document.createElement('label');
+  const text = capitalizeAndSpace(input.name);
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
+  label.textContent = text;
 
   input.before(label);
-  input.placeholder = capitalizeAndSpace(input.name);
+  input.placeholder = text;
 }
