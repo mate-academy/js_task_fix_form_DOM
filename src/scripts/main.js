@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
     label.className = 'field-label';
     label.setAttribute('for', input.id);
 
-    label.textContent =
-      input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    const formattedName = input.name
+      .replace(/([a-z])([A-Z])/g, '$1 $2')
+      .replace(/\b\w/g, (char) => char.toUpperCase());
 
-    input.setAttribute(
-      'placeholder',
-      input.name.charAt(0).toUpperCase() + input.name.slice(1),
-    );
+    label.textContent = formattedName;
+
+    input.setAttribute('placeholder', formattedName);
 
     input.parentElement.insertBefore(label, input);
   });
