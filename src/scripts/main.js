@@ -3,9 +3,11 @@
 const inputs = [...document.querySelectorAll('.field-text')];
 
 inputs.forEach((input) => {
-  input.placeholder = input.name
+  const normalizedInputName = input.name
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .toUpperCase();
+
+  input.placeholder = normalizedInputName;
 
   input.insertAdjacentHTML(
     'afterend',
@@ -13,7 +15,7 @@ inputs.forEach((input) => {
       class='field-label'
       for=#${input.id}
     >
-      ${input.name}
+      ${normalizedInputName}
     </label>`,
   );
 });
