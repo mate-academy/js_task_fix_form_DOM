@@ -3,8 +3,9 @@
 const inputs = [...document.querySelectorAll('.field-text')];
 
 inputs.forEach((input) => {
-  input.placeholder =
-    input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
+  input.placeholder = input.name
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .toUpperCase();
 
   input.insertAdjacentHTML(
     'afterend',
