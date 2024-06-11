@@ -8,7 +8,31 @@ inputs.forEach((input) => {
 
   input.parentElement.appendChild(label);
   label.classList.add('field-label');
-  label.textContent = inputName;
+  label.textContent = prepareText(inputName);
   label.setAttribute('for', `${id}`);
-  input.setAttribute('placeholder', `${inputName.toLowerCase()}`);
+
+  input.setAttribute('placeholder', `${prepareText(inputName)}`);
 });
+
+function prepareText(str) {
+  const letters = str.split('');
+  const res = [];
+  let word = '';
+
+  letters.forEach((ch) => {
+    if (ch === ch.toUpperCase()) {
+      res.push(word);
+      word = '';
+    }
+
+    if (!word) {
+      word += ch.toUpperCase();
+    } else {
+      word += ch;
+    }
+  });
+
+  res.push(word);
+
+  return res.join(' ');
+}
