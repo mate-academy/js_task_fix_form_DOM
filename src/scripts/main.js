@@ -3,8 +3,9 @@
 const inputs = [...document.querySelectorAll('input')];
 
 inputs.forEach((input) => {
+  const formattedName = input.name.replace(/([a-z])([A-Z])/g, '$1 $2');
   const capitalizedInputName =
-    input.name[0].toUpperCase() + input.name.slice(1);
+    formattedName[0].toUpperCase() + formattedName.slice(1);
 
   input.placeholder = capitalizedInputName;
 
@@ -12,6 +13,6 @@ inputs.forEach((input) => {
 
   label.htmlFor = input.id;
   label.className = 'field-label';
-  label.textContent = input.name;
+  label.textContent = capitalizedInputName;
   input.insertAdjacentElement('beforebegin', label);
 });
