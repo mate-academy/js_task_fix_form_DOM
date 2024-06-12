@@ -27,8 +27,9 @@ for (let i = 0; i < inputs.length; i++) {
   const label = document.createElement('label');
 
   label.className = 'field-label';
+  label.textContent = normaliseName(inputs[i].name);
   label.setAttribute('for', inputs[i].id);
-  inputs[i].parentElement.append(label);
 
+  inputs[i].parentElement.append(label);
   inputs[i].placeholder = normaliseName(inputs[i].name);
 }
