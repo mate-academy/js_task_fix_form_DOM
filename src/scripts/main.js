@@ -2,12 +2,11 @@
 
 const inputs = [...document.querySelectorAll('input')];
 
-// eslint-disable-next-line no-shadow
-function normaliseName(name) {
+function normalise(text) {
   let result = '';
 
-  for (let i = 0; i < name.length; i++) {
-    const char = name[i];
+  for (let i = 0; i < text.length; i++) {
+    const char = text[i];
 
     if (i === 0) {
       result += char.toUpperCase();
@@ -27,9 +26,9 @@ for (let i = 0; i < inputs.length; i++) {
   const label = document.createElement('label');
 
   label.className = 'field-label';
-  label.textContent = normaliseName(inputs[i].name);
+  label.textContent = normalise(inputs[i].name);
   label.setAttribute('for', inputs[i].id);
 
   inputs[i].parentElement.append(label);
-  inputs[i].placeholder = normaliseName(inputs[i].name);
+  inputs[i].placeholder = normalise(inputs[i].name);
 }
