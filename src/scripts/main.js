@@ -17,12 +17,12 @@ const makeRigthPlaceholder = (nameValue) => {
 };
 
 inputs.forEach((el) => {
+  el.placeholder = makeRigthPlaceholder(el.name);
+
   el.insertAdjacentHTML(
     'beforebegin',
     `<label class="field-label" for="${el.id}">
-      ${el.name.toUpperCase()}
+      ${el.placeholder.toUpperCase()}
     </label>`,
   );
-
-  el.placeholder = makeRigthPlaceholder(el.name);
 });
