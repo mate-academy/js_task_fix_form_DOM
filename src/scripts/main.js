@@ -13,9 +13,15 @@ forms.forEach((form) => {
 
     label.className = 'field-label';
     label.htmlFor = inputId;
-    label.textContent = inputName.charAt(0).toUpperCase() + inputName.slice(1);
+
+    const formattedName = inputName.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+    label.textContent =
+      formattedName.charAt(0).toUpperCase() + formattedName.slice(1);
 
     input.parentNode.insertBefore(label, input);
-    input.placeholder = inputName.charAt(0).toUpperCase() + inputName.slice(1);
+
+    input.placeholder =
+      formattedName.charAt(0).toUpperCase() + formattedName.slice(1);
   });
 });
