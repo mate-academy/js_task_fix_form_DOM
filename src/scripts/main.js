@@ -11,11 +11,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
       label.classList.add('field-label');
 
-      label.textContent = input.name;
+      if (input.name === 'firstName') {
+        label.textContent = 'First Name';
+        input.placeholder = 'First Name';
+      } else if (input.name === 'lastName') {
+        label.textContent = 'Last Name';
+        input.placeholder = 'Last Name';
+      } else {
+        label.textContent = input.name;
+        input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
+      }
 
       label.setAttribute('for', input.id);
-
-      input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
 
       input.parentNode.insertBefore(label, input);
     });
