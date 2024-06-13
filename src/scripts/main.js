@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       label.setAttribute('for', input.id);
 
-      input.placeholder = input.name.toUpperCase();
+      input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
 
       input.parentNode.insertBefore(label, input);
     });
