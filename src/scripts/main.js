@@ -1,16 +1,21 @@
 'use strict';
 
-const inputs = document.querySelectorAll('form input');
+const inputs = document.querySelectorAll('input');
 
 inputs.forEach((input) => {
-  const inputName = input.getAttribute('name');
-  const placeholder = inputName.charAt(0).toUpperCase() + inputName.slice(1);
   const label = document.createElement('label');
+  let nameElement = input.name;
 
-  label.classList.add('field-label');
+  nameElement = nameElement[0].toUpperCase() + nameElement.slice(1);
+
+  if (nameElement.includes('Name')) {
+    nameElement = nameElement.replace('Name', ' Name');
+  }
+
   label.setAttribute('for', input.id);
-  label.textContent = inputName.toUpperCase();
-  input.placeholder = placeholder.replace(/([a-z])([A-Z])/g, '$1 $2');
+  label.textContent = nameElement.toUpperCase();
+  label.classList.add('field-label');
 
+  input.placeholder = nameElement;
   input.parentNode.appendChild(label);
 });
