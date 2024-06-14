@@ -9,9 +9,17 @@ const inputs = document.querySelectorAll('input');
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', id);
-  label.textContent = element.name;
+  let value;
 
-  const value = element.name[0].toUpperCase() + element.name.slice(1);
+  if (element.name === 'firstName') {
+    value = 'First Name';
+  } else if (element.name === 'lastName') {
+    value = 'Last Name';
+  } else {
+    value = element.name[0].toUpperCase() + element.name.slice(1);
+  }
+
+  label.textContent = value;
 
   element.setAttribute('placeholder', value);
 
