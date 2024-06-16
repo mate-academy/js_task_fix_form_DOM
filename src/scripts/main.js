@@ -1,14 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  function camelCaseToTitleCase(camelCaseText) {
-    const words = camelCaseText.replace(/([A-Z])/g, ' $1').split(' ');
-
-    const titleCaseText = words
-      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-      .join(' ');
-
-    return titleCaseText.join(' ');
-  }
-
   const inputs = document.querySelectorAll('form input');
 
   inputs.forEach((input) => {
@@ -19,10 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const inputName = input.name;
 
-    const capitalizedInputName = camelCaseToTitleCase(inputName);
+    const words = inputName.replace(/([A-Z])/g, ' $1').split(' ');
 
-    label.textContent = capitalizedInputName.toUpperCase();
-    input.placeholder = capitalizedInputName;
+    const titleCaseText = words
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+
+    label.textContent = titleCaseText.toUpperCase();
+    input.placeholder = titleCaseText;
 
     input.insertAdjacentElement('beforebegin', label);
   });
