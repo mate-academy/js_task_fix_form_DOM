@@ -7,8 +7,16 @@ inputs.forEach((input) => {
 
   label.setAttribute('for', input.id);
 
-  const labelName =
+  let labelName =
     input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
+
+  if (input.name === 'firstName') {
+    labelName = 'first Name';
+  }
+
+  if (input.name === 'lastName') {
+    labelName = 'last name';
+  }
 
   label.textContent = labelName;
   label.classList.add('field-label');
