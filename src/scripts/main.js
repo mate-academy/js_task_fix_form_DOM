@@ -7,15 +7,15 @@ inputs.forEach((input) => {
 
   label.setAttribute('for', input.id);
 
-  let labelName =
-    input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
+  let labelName;
 
   if (input.name === 'firstName') {
-    labelName = 'first Name';
-  }
-
-  if (input.name === 'lastName') {
-    labelName = 'last name';
+    labelName = 'First Name';
+  } else if (input.name === 'lastName') {
+    labelName = 'Last name';
+  } else {
+    labelName =
+      input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
   }
 
   label.textContent = labelName;
