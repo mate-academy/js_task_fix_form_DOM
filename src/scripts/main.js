@@ -12,7 +12,7 @@ inputs.forEach((input) => {
   if (input.name === 'firstName') {
     labelName = 'First Name';
   } else if (input.name === 'lastName') {
-    labelName = 'Last name';
+    labelName = 'Last Name';
   } else {
     labelName =
       input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
