@@ -9,10 +9,16 @@ inputs.forEach((input) => {
 
   let labelName;
 
-  if (input.name === 'firstName') {
-    labelName = 'First Name';
-  } else if (input.name === 'lastName') {
-    labelName = 'Last Name';
+  const camelCaseIndex = input.name
+    .split('')
+    .findIndex((letter) => letter === letter.toUpperCase());
+
+  if (camelCaseIndex > 0) {
+    labelName =
+      input.name.charAt(0).toUpperCase() +
+      input.name.slice(1, camelCaseIndex) +
+      ' ' +
+      input.name.slice(camelCaseIndex);
   } else {
     labelName =
       input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
