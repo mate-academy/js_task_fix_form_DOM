@@ -12,5 +12,8 @@ inputs.forEach((elem) => {
   formEl.innerText = inputName;
 
   elem.placeholder = inputName;
-  elem.parentNode.insertBefore(formEl, elem);
+
+  if (elem.parentNode !== null) {
+    elem.parentNode.insertBefore(formEl, elem);
+  }
 });
