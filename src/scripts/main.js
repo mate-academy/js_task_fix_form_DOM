@@ -1,13 +1,26 @@
 'use strict';
 
-const capitalize = (value) => {
-  return value[0].toUpperCase() + value.slice(1);
+const capitalize = (value) => value[0].toUpperCase() + value.slice(1);
+const parseStringFromCamelCase = (value) => {
+  let parsedString = '';
+
+  for (const char of value) {
+    if (char === char.toUpperCase()) {
+      parsedString += ` ${char}`;
+      continue;
+    }
+
+    parsedString += char;
+  }
+
+  return parsedString;
 };
 
 const inputsSelectors = [...document.querySelectorAll('input')];
 
 inputsSelectors.map((input) => {
-  const labelText = input.getAttribute('name');
+  const inputName = input.getAttribute('name');
+  const labelText = parseStringFromCamelCase(inputName);
 
   const labelId = input.getAttribute('id');
   const labelElement = document.createElement('label');
