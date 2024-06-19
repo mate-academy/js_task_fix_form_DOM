@@ -20,7 +20,7 @@ allInput.forEach((el) => {
 });
 
 function formatFiledName(str) {
-  const withSpaces = str.replace(/([a-z])(A-Z)/g, '$1 $2');
+  const withSpaces = str.replace(/([a-z])([A-Z])/g, '$1 $2');
 
   return withSpaces.charAt(0).toUpperCase() + withSpaces.slice(1);
 }
