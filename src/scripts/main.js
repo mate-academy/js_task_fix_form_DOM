@@ -14,7 +14,7 @@ for (const input of dataInput) {
 
   label.setAttribute('for', input.id);
   label.classList.add('field-label');
-  label.textContent = input.getAttribute('name');
+  label.textContent = camelCaseToText(input.getAttribute('name'));
 
   input.placeholder = camelCaseToText(input.getAttribute('name'));
   input.parentNode.append(label);
