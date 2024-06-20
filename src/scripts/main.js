@@ -2,16 +2,18 @@
 
 const inputs = document.querySelectorAll('input');
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function splitCamelCase(string) {
+  const spacedString = string.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  return spacedString.charAt(0).toUpperCase() + spacedString.slice(1);
 }
 
 inputs.forEach((item) => {
-  const label = `<label for="${item.id}" class="field-label">${item.name}</label>`;
+  const labelName = splitCamelCase(item.name);
+
+  const label = `<label for="${item.id}" class="field-label">${labelName}</label>`;
 
   item.insertAdjacentHTML('beforebegin', label);
 
-  const capitalizedLabel = capitalizeFirstLetter(item.name);
-
-  item.placeholder = capitalizedLabel;
+  item.placeholder = labelName;
 });
