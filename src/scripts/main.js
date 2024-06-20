@@ -14,7 +14,7 @@ const getUpperCaseWord = (word) => word[0].toUpperCase() + word.slice(1);
  * @param {string} str
  * @returns {string}
  */
-function getWithCapitalLetter(str) {
+function getFormattedString(str) {
   for (const ch of str) {
     const isUpperCaseLetter = ch !== ch.toLowerCase();
 
@@ -41,9 +41,9 @@ const addedLabelElement = (arrayOfInputs) => {
 
     labelElement.htmlFor = input.id;
     labelElement.classList.add('field-label');
-    labelElement.innerText = getWithCapitalLetter(input.name);
+    labelElement.innerText = getFormattedString(input.name);
 
-    input.placeholder = getWithCapitalLetter(input.name);
+    input.placeholder = getFormattedString(input.name);
     input.parentElement.prepend(labelElement);
   });
 };
