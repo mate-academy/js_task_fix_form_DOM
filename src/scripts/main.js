@@ -14,7 +14,7 @@ const getUpperCaseWord = (word) => word[0].toUpperCase() + word.slice(1);
  * @param {string} str
  * @returns {string}
  */
-function getFormattedString(str) {
+const getFormattedString = (str) => {
   for (const ch of str) {
     const isUpperCaseLetter = ch !== ch.toLowerCase();
 
@@ -28,7 +28,7 @@ function getFormattedString(str) {
   }
 
   return getUpperCaseWord(str);
-}
+};
 
 /**
  * @function addedLabelElement
