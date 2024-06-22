@@ -6,7 +6,7 @@ document.querySelectorAll('.field-text').forEach((elem) => {
   const lableElement = document.createElement('label');
 
   lableElement.setAttribute('for', idAttr);
-  lableElement.textContent = nameAttr.toUpperCase();
+  lableElement.textContent = convertToSeparatedWords(nameAttr).toUpperCase();
   lableElement.classList.add('field-label');
 
   elem.setAttribute(
@@ -17,13 +17,13 @@ document.querySelectorAll('.field-text').forEach((elem) => {
 });
 
 function firstLetterCap(word) {
-  return word.slice(0, 1).toUpperCase() + word.slice(1);
+  let sepWord = convertToSeparatedWords(word);
+
+  sepWord = sepWord.replace(/ ([A-Z])/g, (match) => match.toLowerCase());
+
+  return sepWord.slice(0, 1).toUpperCase() + sepWord.slice(1);
 }
 
 function convertToSeparatedWords(str) {
-  let result = str.replace(/([a-z])([A-Z])/g, '$1 $2');
-
-  result = result.replace(/ ([A-Z])/g, (match) => match.toLowerCase());
-
-  return result;
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2');
 }
