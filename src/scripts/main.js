@@ -11,7 +11,7 @@ for (const el of input) {
   let value = el.name[0].toUpperCase() + el.name.slice(1);
 
   if (value === 'LastName' || value === 'FirstName') {
-    value = value.slice(0, -4) + ' ' + value.slice(-4);
+    value = value.slice(0, -4).replace(/([A-Z])/g, ' $1');
   }
 
   label.textContent = value;
