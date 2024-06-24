@@ -10,10 +10,14 @@ for (let index = 0; index < inputs.length; index++) {
   label.setAttribute('for', inputs[index].id);
 
   const labelName = inputs[index].name;
+  const formattedName =
+    labelName.slice(0, 1).toUpperCase() +
+    labelName.slice(1).replace(/[A-Z]/g, ' $&');
+
+  label.textContent = formattedName;
 
   inputs[index].style.textTransform = 'capitalize';
-  label.textContent = labelName;
 
-  inputs[index].setAttribute('placeholder', inputs[index].name);
+  inputs[index].setAttribute('placeholder', formattedName);
   divs[index].append(label);
 }
