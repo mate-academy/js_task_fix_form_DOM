@@ -2,7 +2,7 @@
 
 const inputElement = document.querySelectorAll('input');
 
-const correctPlaceholder = (textInInput) => {
+const correctName = (textInInput) => {
   let correctText = '';
 
   for (let i = 0; i < textInInput.length; i++) {
@@ -20,11 +20,11 @@ const correctPlaceholder = (textInInput) => {
 
 const addLabel = (formInputs) => {
   formInputs.forEach((input) => {
-    input.placeholder = correctPlaceholder(input.name);
+    input.placeholder = correctName(input.name);
 
     input.insertAdjacentHTML(
       'beforebegin',
-      `<label for="${input.id}" class="field-label">${input.name}</label>`,
+      `<label for="${input.id}" class="field-label">${correctName(input.name)}</label>`,
     );
   });
 };
