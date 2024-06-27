@@ -1,6 +1,20 @@
 'use strict';
 
 const forms = document.getElementsByTagName('form');
+const separation = (placeholder) => {
+  const firstCharCut = placeholder.slice(1);
+  let finalParse = '';
+
+  Array.from(firstCharCut).forEach((ch) => {
+    if (ch === ch.toUpperCase()) {
+      finalParse += ' ';
+    }
+
+    finalParse += ch;
+  });
+
+  return placeholder.slice(0, 1).toUpperCase() + finalParse;
+};
 
 for (let i = 0; i < forms.length; i++) {
   Array.from(forms[i].getElementsByTagName('input')).map((input) => {
@@ -12,9 +26,6 @@ for (let i = 0; i < forms.length; i++) {
 
     input.parentNode.insertBefore(labelElement, input);
 
-    input.setAttribute(
-      'placeholder',
-      input.name.slice(0, 1).toUpperCase() + input.name.slice(1),
-    );
+    input.setAttribute('placeholder', separation(input.name));
   });
 }
