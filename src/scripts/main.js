@@ -22,7 +22,7 @@ for (let i = 0; i < forms.length; i++) {
 
     labelElement.classList.add('field-label');
     labelElement.setAttribute('for', input.id);
-    labelElement.textContent = input.name;
+    labelElement.textContent = separation(input.name);
 
     input.parentNode.insertBefore(labelElement, input);
 
