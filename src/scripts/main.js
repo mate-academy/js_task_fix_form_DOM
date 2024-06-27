@@ -1,5 +1,4 @@
 'use strict';
-// d
 
 const forms = document.getElementsByTagName('form');
 const separation = (placeholder) => {
