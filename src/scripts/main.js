@@ -1,7 +1,14 @@
 'use strict';
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  const spacedString = string.replace(/([A-Z])/g, ' $1').trim();
+
+  const capitalizedString = spacedString
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  return capitalizedString;
 }
 
 const inputs = document.querySelectorAll('input');
