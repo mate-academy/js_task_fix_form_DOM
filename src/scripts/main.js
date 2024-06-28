@@ -1,14 +1,17 @@
 'use strict';
 
 function capitalizeFirstLetter(string) {
-  const spacedString = string.replace(/([A-Z])/g, ' $1').trim();
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 
-  const capitalizedString = spacedString
-    .split(' ')
-    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
-    .join(' ');
+function splitWords(string) {
+  return string.replace(/([A-Z])/g, ' $1').trim();
+}
 
-  return capitalizedString;
+function formatString(string) {
+  const spacedString = splitWords(string);
+
+  return capitalizeFirstLetter(spacedString);
 }
 
 const inputs = document.querySelectorAll('input');
@@ -16,7 +19,8 @@ const inputs = document.querySelectorAll('input');
 for (const input of inputs) {
   input.insertAdjacentHTML(
     'beforebegin',
-    `<label class="field-label" for=${input.id}>${input.name}</label>`,
+    `<label class="field-label" for=${input.id}>${formatString(input.name)}</label>`,
   );
-  input.setAttribute('placeholder', capitalizeFirstLetter(input.name));
+
+  input.setAttribute('placeholder', formatString(input.name));
 }
