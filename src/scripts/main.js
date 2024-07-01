@@ -17,7 +17,25 @@ inputs.forEach((input) => {
 
   label.textContent = text;
 
-  input.setAttribute('placeholder', text.toUpperCase());
+  input.setAttribute('placeholder', capitalize(text));
 
   input.insertAdjacentElement('beforebegin', label);
 });
+
+function capitalize(text) {
+  let str = '';
+
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === text[i].toUpperCase()) {
+      str =
+        text.substring(0, i) +
+        ' ' +
+        text[i].toLowerCase() +
+        text.substring(i + 1);
+
+      return str;
+    }
+  }
+
+  return text;
+}
