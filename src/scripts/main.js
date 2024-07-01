@@ -28,14 +28,15 @@ function capitalize(text) {
   for (let i = 0; i < text.length; i++) {
     if (text[i] === text[i].toUpperCase()) {
       str =
-        text.substring(0, i) +
+        text[0].toUpperCase() +
+        text.substring(1, i) +
         ' ' +
-        text[i].toLowerCase() +
+        text[i].toUpperCase() +
         text.substring(i + 1);
 
       return str;
     }
   }
 
-  return text;
+  return text[0].toUpperCase() + text.substring(1);
 }
