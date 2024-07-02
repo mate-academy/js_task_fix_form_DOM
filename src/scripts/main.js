@@ -3,7 +3,7 @@
 // write code here
 
 function splitByUpperCase(str) {
-    return str.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); }).trim();
+    return str.replace(/([A-Z])/g, ' $1').replace(/^./, function(string){ return string.toUpperCase(); }).trim();
   }
 
 const allInputs = [...document.querySelectorAll('input')];
