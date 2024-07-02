@@ -9,9 +9,21 @@ inputs.forEach((input, index) => {
 
   label.setAttribute('for', input.id);
 
-  label.textContent = input.name;
+  label.textContent =
+    input.name === 'firstName'
+      ? 'first Name'
+      : input.name === 'lastName'
+        ? 'last Name'
+        : input.name;
 
-  input.setAttribute('placeholder', input.name);
+  input.setAttribute(
+    'placeholder',
+    input.name === 'firstName'
+      ? 'First Name'
+      : input.name === 'lastName'
+        ? 'Last Name'
+        : input.name,
+  );
 
   input.parentNode.insertAdjacentElement('afterbegin', label);
 });
