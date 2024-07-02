@@ -13,5 +13,8 @@ inputs.forEach((input) => {
 });
 
 function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+  return (string.charAt(0).toUpperCase() + string.slice(1)).replace(
+    /([a-z0-9])([A-Z])/g,
+    '$1 $2',
+  );
 }
