@@ -32,4 +32,9 @@ for (const input of allInput) {
       break;
   }
   input.before(creatLabel);
+  input.placeholder = capitalizeFirstLetter(input.name);
+}
+
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
