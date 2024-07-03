@@ -3,13 +3,15 @@
 const inputs = document.querySelectorAll('input');
 
 inputs.forEach((input) => {
-  let txt;
-  if (input.getAttribute('name') === 'firstName') {
-    txt = 'First name';
-  } else if (input.getAttribute('name') === 'lastName') {
-    txt = 'Last name';
+  const indx = input.getAttribute('name')?.indexOf('Name');
+  const tName = input.getAttribute('name')?.toLowerCase();
+  let txt = tName;
+
+  if (['firstName', 'lastName'].includes(input.getAttribute('name'))) {
+    txt = tName.slice(0, indx) + ' ' + tName.slice(indx);
+    txt = txt[0].toUpperCase() + txt.slice(1);
   } else {
-    txt = input.getAttribute('name');
+    txt = txt[0].toUpperCase() + txt.slice(1);
   }
 
   input.setAttribute('placeholder', txt);
