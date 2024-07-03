@@ -21,6 +21,4 @@ function addLableInput(obj) {
   );
 }
 
-list.forEach((elem) => {
-  addLableInput(elem);
-});
+list.forEach((elem) => addLableInput(elem));
