@@ -32,9 +32,11 @@ for (const input of allInput) {
       break;
   }
   input.before(creatLabel);
-  input.placeholder = capitalizeFirstLetter(input.name);
+  input.placeholder = capitalizeAndAddSpaces(input.name);
 }
 
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
+function capitalizeAndAddSpaces(string) {
+  const spacedString = string.replace(/([A-Z])/g, ' $1').trim();
+
+  return spacedString.charAt(0).toUpperCase() + spacedString.slice(1);
 }
