@@ -9,7 +9,7 @@ function addLableInput(obj) {
   const lableContainer = document.createElement('label');
   const element = obj.parentElement;
 
-  lable.textContent = obj.name;
+  lable.textContent = `${obj.name}`.replace(/([A-Z])/g, ' $1');
 
   lable.classList.add('field-label');
 
