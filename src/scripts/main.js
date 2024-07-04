@@ -13,7 +13,7 @@ function addLableInput(obj) {
 
   lable.classList.add('field-label');
 
-  obj.placeholder = `${obj.name}`;
+  obj.placeholder = `${obj.name}`.replace(/([A-Z])/g, ' $1');
 
   return (
     obj.insertAdjacentElement('beforebegin', lable),
@@ -21,4 +21,7 @@ function addLableInput(obj) {
   );
 }
 
-list.forEach((elem) => addLableInput(elem));
+list.forEach((elem) => {
+  addLableInput(elem);
+  elem.style.textTransform = 'capitalize';
+});
