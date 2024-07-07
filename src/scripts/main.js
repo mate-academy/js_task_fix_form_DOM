@@ -17,11 +17,11 @@ inputs.forEach((input) => {
     input.id = input.name;
   }
 
-  label.textContent = input.name.replace(/_/g, ' ');
+  label.textContent = input.name.replace(/([a-z])([A-Z])/g, '$1 $2');
 
   if (input.parentNode) {
     input.parentNode.insertBefore(label, input);
   }
 
-  input.placeholder = capitalizedName;
+  input.placeholder = capitalizedName.replace(/([a-z])([A-Z])/g, '$1 $2');
 });
