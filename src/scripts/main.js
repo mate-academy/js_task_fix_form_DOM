@@ -19,7 +19,10 @@ for (const input of inputsHolder) {
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+
+  label.textContent =
+    input.name[0].toLocaleUpperCase() +
+    input.name.slice(1).replace(/([A-Z])/g, ' $1');
   input.insertAdjacentElement('beforebegin', label);
 
   const placeholderText =
