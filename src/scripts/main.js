@@ -26,7 +26,8 @@ for (const input of inputsHolder) {
   input.insertAdjacentElement('beforebegin', label);
 
   const placeholderText =
-    input.name[0].toLocaleUpperCase() + input.name.slice(1);
+    input.name[0].toLocaleUpperCase() +
+    input.name.slice(1).replace(/([A-Z])/g, ' $1');
 
   input.placeholder = placeholderText;
 }
