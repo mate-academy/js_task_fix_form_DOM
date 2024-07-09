@@ -17,9 +17,12 @@ function formatInputName(inputName) {
 
 fields.forEach((fieldElement, index) => {
   const label = document.createElement('label');
+  const inputElement = inputs[index];
 
   label.className = 'field-label';
   label.setAttribute('for', inputIds[index]);
+  label.textContent = formatInputName(inputElement.name);
+
   fieldElement.insertAdjacentElement('afterbegin', label);
 });
 
