@@ -8,7 +8,11 @@ const inputIds = inputs.map((element) => element.id);
 function formatInputName(inputName) {
   const formattedName = inputName.split(/(?=[A-Z])/);
 
-  return formattedName.join(' ').toUpperCase();
+  const sentence = formattedName.join(' ').toLowerCase();
+  const capitalizedSentence =
+    sentence.charAt(0).toUpperCase() + sentence.slice(1);
+
+  return capitalizedSentence;
 }
 
 fields.forEach((fieldElement, index) => {
