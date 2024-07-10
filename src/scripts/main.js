@@ -15,6 +15,18 @@ function formatPlaceholder(inputName) {
   return formattedName.charAt(0).toUpperCase() + formattedName.slice(1);
 }
 
+function formatLabel(inputName) {
+  switch (inputName) {
+    case 'firstName':
+      return 'FIRST NAME';
+    case 'lastName':
+      return 'LAST NAME';
+    default:
+      return inputName.toUpperCase();
+  }
+    
+}
+
 const inputs = [...document.querySelectorAll('input')];
 
 inputs.forEach((input) => {
@@ -24,7 +36,7 @@ inputs.forEach((input) => {
   const label = document.createElement('label');
 
   label.classList.add('field-label');
-  label.textContent = inputName;
+  label.textContent = formatLabel(inputName);
   label.setAttribute('for', id);
   input.before(label);
 
