@@ -3,8 +3,8 @@
 function formatPlaceholder(inputName) {
   let formattedName = '';
 
-  for (let i = 0; i < name.length; i++) {
-    const char = name[i];
+  for (let i = 0; i < inputName.length; i++) {
+    const char = inputName[i];
 
     if (char === char.toUpperCase() && i !== 0) {
       formattedName += ' ';
