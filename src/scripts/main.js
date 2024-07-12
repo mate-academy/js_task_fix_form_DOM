@@ -6,6 +6,7 @@ inputs.forEach((input) => {
   const label = document.createElement('label');
 
   label.className = 'field-label';
+
   label.htmlFor = input.id;
 
   const labelText = input.name.replace(/([A-Z])/g, ' $1').trim();
