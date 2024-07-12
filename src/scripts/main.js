@@ -8,7 +8,7 @@ inputs.forEach((input) => {
   label.className = 'field-label';
   label.htmlFor = input.id;
 
-  const labelText = input.id.replace(/([A-Z])/g, ' $1').trim();
+  const labelText = input.name.replace(/([A-Z])/g, ' $1').trim();
 
   label.textContent = labelText.charAt(0).toUpperCase() + labelText.slice(1);
 
