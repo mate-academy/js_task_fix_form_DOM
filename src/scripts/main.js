@@ -3,19 +3,13 @@
 function preparePlaceholderOrLabel(inputId) {
   const strToArr = inputId.split('-');
 
+  strToArr.splice(0, 2);
+
   const capitalisedArr = strToArr.map((element) => {
     return element.charAt(0).toUpperCase() + element.slice(1);
   });
 
-  let placeholder = '';
-
-  if (capitalisedArr.length > 3) {
-    placeholder = `${capitalisedArr[capitalisedArr.length - 2]} ${capitalisedArr[capitalisedArr.length - 1]}`;
-  } else {
-    placeholder = capitalisedArr[capitalisedArr.length - 1];
-  }
-
-  return placeholder;
+  return capitalisedArr.join(' ');
 }
 
 const inputArr = document.querySelectorAll('input');
