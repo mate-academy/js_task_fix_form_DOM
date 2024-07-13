@@ -2,7 +2,7 @@
 
 const inputElements = document.querySelectorAll('input');
 
-function addLableForInput(inputs) {
+function addLableForInputs(inputs) {
   inputs.forEach((input) => {
     const label = document.createElement('label');
 
@@ -15,4 +15,4 @@ function addLableForInput(inputs) {
   });
 }
 
-addLableForInput(inputElements);
+addLableForInputs(inputElements);
