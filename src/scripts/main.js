@@ -7,9 +7,15 @@ inputs.forEach((input) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.innerText = input.name;
+  if (input.name === 'firstName') {
+    label.innerText = 'FIRST NAME';
+  } else if (input.name === 'lastName') {
+    label.innerText = 'LAST NAME';
+  } else {
+    label.innerText = input.name;
+  }
 
-  input.parentNode.insertBefore(label, input);
+  input.parentElement.insertBefore(label, input);
 
   if (input.name === 'firstName') {
     input.placeholder = 'FIRST NAME';
