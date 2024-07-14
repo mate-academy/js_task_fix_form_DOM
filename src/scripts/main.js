@@ -11,5 +11,11 @@ inputs.forEach((input) => {
 
   input.parentNode.insertBefore(label, input);
 
-  input.placeholder = input.name.toUpperCase();
+  if (input.name === 'firstName') {
+    input.placeholder = 'FIRST NAME';
+  } else if (input.name === 'lastName') {
+    input.placeholder = 'LAST NAME';
+  } else {
+    input.placeholder = input.name.toUpperCase();
+  }
 });
