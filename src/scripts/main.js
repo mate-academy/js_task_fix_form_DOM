@@ -30,6 +30,7 @@ inputDiv.forEach((divElement) => {
 
   label.textContent = preparePlaceholderOrLabel(input.id);
   label.classList.add('field-label');
+  label.setAttribute('for', input.id);
 
   divElement.prepend(label);
 });
