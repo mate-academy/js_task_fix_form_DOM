@@ -7,6 +7,7 @@ inputs.forEach((input) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
+
   if (input.name === 'firstName') {
     label.innerText = 'FIRST NAME';
   } else if (input.name === 'lastName') {
