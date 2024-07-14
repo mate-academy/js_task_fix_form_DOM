@@ -1,6 +1,10 @@
 'use strict';
 
 function preparePlaceholderOrLabel(inputId) {
+  if (inputId === 'sign-up-name') {
+    return 'First Name';
+  }
+
   const strToArr = inputId.split('-');
 
   strToArr.splice(0, 2);
