@@ -16,7 +16,7 @@ function addLableForInputs(inputs) {
 
     label.className = 'field-label';
     label.htmlFor = input.id;
-    label.textContent = input.name;
+    label.textContent = strFormat(input.name);
 
     input.placeholder = strFormat(input.name);
     input.parentNode.insertBefore(label, input);
