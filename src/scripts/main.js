@@ -2,6 +2,14 @@
 
 const allInputs = document.querySelectorAll('input');
 
+function strFormat(str) {
+  let capitalize = str.charAt(0).toUpperCase() + str.slice(1);
+
+  capitalize = capitalize.replace(/([A-Z])/g, ' $1').trim();
+
+  return capitalize;
+}
+
 function addLableForInputs(inputs) {
   inputs.forEach((input) => {
     const label = document.createElement('label');
@@ -10,7 +18,7 @@ function addLableForInputs(inputs) {
     label.htmlFor = input.id;
     label.textContent = input.name;
 
-    input.placeholder = `${input.name[0].toUpperCase()}${input.name.slice(1)}`;
+    input.placeholder = strFormat(input.name);
     input.parentNode.insertBefore(label, input);
   });
 }
