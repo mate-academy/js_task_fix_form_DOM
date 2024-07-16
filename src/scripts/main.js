@@ -8,7 +8,19 @@ function addLableForInputs(inputs) {
 
     label.className = 'field-label';
     label.htmlFor = input.id;
-    label.textContent = input.name;
+
+    const getName = input.name;
+    let formatedName = '';
+
+    for (let i = 0; i < getName.length; i++) {
+      if (getName[i] === getName[i].toUpperCase() && i !== 0) {
+        formatedName += ' ';
+      }
+
+      formatedName += getName[i];
+    }
+
+    label.textContent = formatedName.trim();
 
     input.placeholder = `${input.name[0].toUpperCase()}${input.name.slice(1)}`;
     input.parentNode.insertBefore(label, input);
