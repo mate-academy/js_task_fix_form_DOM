@@ -20,14 +20,14 @@ function addLableForInputs(inputs) {
       formattedName += inputName[i];
     }
 
-    const capitalizedFormattedName = formattedName
+    const displayFormattedName = formattedName
       .trim()
       .split(' ')
       .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
       .join(' ');
 
-    label.textContent = capitalizedFormattedName.toUpperCase();
-    input.placeholder = capitalizedFormattedName;
+    label.textContent = displayFormattedName.toUpperCase();
+    input.placeholder = displayFormattedName;
 
     input.parentNode.insertBefore(label, input);
   });
