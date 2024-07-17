@@ -1,22 +1,16 @@
 'use strict';
 
-const listInputs = [...document.querySelectorAll('input')];
-
-for (let i = 0; i < listInputs.length; i++) {
+document.querySelectorAll('input').forEach((el) => {
   const label = document.createElement('label');
-  const textContent = listInputs[i]
+  label.className = 'field-label';
+  label.setAttribute('for', el.id);
+  el.before(label);
+  const textContent = el
     .getAttribute('name')
     .split(/(?=[A-Z])/)
     .join(' ')
     .toLocaleLowerCase();
-
+  label.textContent = textContent;
   const capitalText = textContent[0].toUpperCase() + textContent.slice(1);
-  const text = document.createTextNode(capitalText);
-  const getAttibute = listInputs[i].getAttribute('id');
-
-  label.appendChild(text);
-  label.classList.add('field-label');
-  label.setAttribute('for', getAttibute);
-  listInputs[i].setAttribute('placeholder', capitalText);
-  listInputs[i].insertAdjacentElement('beforebegin', label);
-}
+  el.placeholder = capitalText;
+});
