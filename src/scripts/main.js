@@ -19,10 +19,17 @@ function getName(oldName) {
   return parts.join(' ');
 }
 
+function capitalizeFirstLetter(string) {
+  return string
+    .split(' ')
+    .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+}
+
 inputs.forEach((input) => {
   const newName = getName(input.name);
 
-  input.setAttribute('placeholder', newName);
+  input.setAttribute('placeholder', capitalizeFirstLetter(newName));
 
   const label = document.createElement('label');
 
