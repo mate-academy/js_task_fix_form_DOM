@@ -9,20 +9,26 @@ function addLableForInputs(inputs) {
     label.className = 'field-label';
     label.htmlFor = input.id;
 
-    const getName = input.name;
-    let formatedName = '';
+    const inputName = input.name;
+    let formattedName = '';
 
-    for (let i = 0; i < getName.length; i++) {
-      if (getName[i] === getName[i].toUpperCase() && i !== 0) {
-        formatedName += ' ';
+    for (let i = 0; i < inputName.length; i++) {
+      if (inputName[i] === inputName[i].toUpperCase() && i !== 0) {
+        formattedName += ' ';
       }
 
-      formatedName += getName[i];
+      formattedName += inputName[i];
     }
 
-    label.textContent = formatedName.trim();
+    const capitalizedFormattedName = formattedName
+      .trim()
+      .split(' ')
+      .map((word) => word[0].toUpperCase() + word.slice(1).toLowerCase())
+      .join(' ');
 
-    input.placeholder = `${input.name[0].toUpperCase()}${input.name.slice(1)}`;
+    label.textContent = capitalizedFormattedName.toUpperCase();
+    input.placeholder = capitalizedFormattedName;
+
     input.parentNode.insertBefore(label, input);
   });
 }
