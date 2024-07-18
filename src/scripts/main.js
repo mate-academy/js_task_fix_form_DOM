@@ -2,12 +2,25 @@
 
 const input = [...document.querySelectorAll('input')];
 
-for (const el of input) {
-  const lebel = document.createElement('lebel');
+function wordSpace(word) {
+  let wordWithSpace = word[0].toUpperCase();
 
-  el.setAttribute('placeholder', el.name.toUpperCase());
-  lebel.textContent = el.name;
-  lebel.className = 'field-label';
-  lebel.setAttribute('for', el.id);
-  el.before(lebel);
+  for (let i = 1; i < word.length; i++) {
+    if (word[i] === word[i].toUpperCase()) {
+      wordWithSpace += ' ';
+    }
+    wordWithSpace += word[i];
+  }
+
+  return wordWithSpace;
+}
+
+for (const el of input) {
+  const label = document.createElement('label');
+
+  el.setAttribute('placeholder', wordSpace(el.name));
+  label.textContent = wordSpace(el.name);
+  label.className = 'field-label';
+  label.setAttribute('for', el.id);
+  el.before(label);
 }
