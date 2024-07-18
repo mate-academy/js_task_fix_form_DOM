@@ -9,7 +9,11 @@ inputs.forEach(getPlaceholder);
 inputs.forEach(addLabel);
 
 function getPlaceholder(el) {
-  el.placeholder = el.getAttribute('name');
+  const firstLetter = el.getAttribute('name').slice(0, 1).toUpperCase();
+  const restLetter = el.getAttribute('name').slice(1, -1);
+  const placeholderText = firstLetter + restLetter;
+
+  el.placeholder = placeholderText;
 }
 
 function addLabel(el) {
@@ -20,4 +24,3 @@ function addLabel(el) {
   label.innerText = el.getAttribute('name');
   el.before(label);
 }
-
