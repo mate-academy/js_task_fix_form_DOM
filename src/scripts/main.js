@@ -1,6 +1,5 @@
 'use strict';
 
-
 const input = document.querySelectorAll('input');
 
 input.forEach((item) => {
