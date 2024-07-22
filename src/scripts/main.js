@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       label.textContent = labelText;
 
-      input.placeholder = capitalize(input.name);
+      input.placeholder = capitalize(labelText);
       input.parentNode.insertBefore(label, input);
     });
   });
