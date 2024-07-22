@@ -20,6 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function capitalize(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+    if (string === 'lastName') {
+      return 'Last Name';
+    } else if (string === 'firstName') {
+      return 'First Name';
+    } else {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
   }
 });
