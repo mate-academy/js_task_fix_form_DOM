@@ -10,7 +10,7 @@ inputs.forEach(addLabel);
 
 function getPlaceholder(el) {
   const firstLetter = el.getAttribute('name').slice(0, 1).toUpperCase();
-  const restLetter = el.getAttribute('name').slice(1, -1);
+  const restLetter = el.getAttribute('name').slice(1);
   const placeholderText = firstLetter + restLetter;
 
   el.placeholder = placeholderText;
