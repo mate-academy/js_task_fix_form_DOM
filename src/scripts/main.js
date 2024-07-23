@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const forms = document.querySelectorAll('form');
 const tagName = 'input';
 
