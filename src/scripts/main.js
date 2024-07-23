@@ -4,7 +4,6 @@ const inputArr = document.querySelectorAll('input');
 
 inputArr.forEach((element) => {
   const nameElemnt = element.getAttribute('name');
-  // const id = element.getAttribute('id');
 
   let changedName = ffui(nameElemnt);
 
