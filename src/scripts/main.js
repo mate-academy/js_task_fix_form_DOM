@@ -10,7 +10,6 @@ const capitalize = (text) => {
 
 const FieldLabel = ({ inputId, inputName }) => {
   const label = document.createElement('label');
-
   label.classList.add('field-label');
   label.textContent = inputName;
   label.setAttribute('for', inputId);
@@ -22,10 +21,12 @@ const createLabels = () => {
   for (const form of forms) {
     [...form.elements].forEach((input) => {
       if (input.tagName === tagName.toUpperCase()) {
-        const fieldLabel = FieldLabel({ id: input.id, name: input.name });
+        const fieldLabel = FieldLabel({
+          inputId: input.id,
+          inputName: input.name,
+        });
 
         input.placeholder = capitalize(input.name);
-
         input.parentElement.prepend(fieldLabel);
       }
     });
