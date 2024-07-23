@@ -12,8 +12,8 @@ const FieldLabel = ({ inputId, inputName }) => {
   const label = document.createElement('label');
 
   label.classList.add('field-label');
-  label.textContent = inputId;
-  label.setAttribute('for', inputName);
+  label.textContent = inputName;
+  label.setAttribute('for', inputId);
 
   return label;
 };
