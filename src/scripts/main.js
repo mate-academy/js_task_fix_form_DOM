@@ -23,6 +23,7 @@ inputs.forEach((input) => {
   } else if (input.name === 'lastName') {
     input.placeholder = 'LAST NAME';
   } else {
-    input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    input.placeholder =
+      input.name.charAt(0).toUpperCase() + input.name.slice(1);
   }
 });
