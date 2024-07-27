@@ -8,9 +8,11 @@ function goToUpperCase(str) {
 }
 
 function splitName(nameText) {
-  if (nameText.endsWith('Name')) {
+  if (nameText.toLowerCase().endsWith('name')) {
     return nameText.slice(0, -4) + ' ' + nameText.slice(-4);
   }
+
+  return nameText;
 }
 
 for (let i = 0; i < fields.length; i++) {
@@ -21,7 +23,7 @@ for (let i = 0; i < fields.length; i++) {
   label.setAttribute('for', id);
   label.setAttribute('class', 'field-label');
   fields[i].setAttribute('placeholder', splitName(goToUpperCase(nameField)));
-  label.textContent = nameField.toUpperCase();
+  label.textContent = splitName(nameField.toUpperCase());
 
   fields[i].insertAdjacentElement('beforebegin', label);
 }
