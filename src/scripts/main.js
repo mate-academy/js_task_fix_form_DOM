@@ -1,5 +1,13 @@
 'use strict';
 
+function capitalizeFirstLetter(str) {
+  if (!str) {
+    return str;
+  }
+
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
 const inputs = document.getElementsByClassName('field-text');
 
 Array.from(inputs).forEach((x) => {
@@ -7,11 +15,14 @@ Array.from(inputs).forEach((x) => {
 
   label.htmlFor = x.id;
 
-  const nameAttr = x.getAttribute('name').trim();
+  const nameAttr = x
+    .getAttribute('name')
+    .split(/(?=[A-Z])/)
+    .join(' ');
 
-  label.textContent = nameAttr.charAt(0).toUpperCase() + nameAttr.slice(1);
+  label.textContent = capitalizeFirstLetter(nameAttr);
 
-  x.placeholder = nameAttr.charAt(0).toUpperCase() + nameAttr.slice(1);
+  x.placeholder = capitalizeFirstLetter(nameAttr);
 
   x.parentNode.insertBefore(label, x);
 });
