@@ -15,6 +15,9 @@ Array.from(inputs).forEach((x) => {
 
   label.htmlFor = x.id;
 
+  label.style.position = 'absolute';
+  label.style.top = '20px';
+
   const nameAttr = x
     .getAttribute('name')
     .split(/(?=[A-Z])/)
