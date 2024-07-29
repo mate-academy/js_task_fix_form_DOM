@@ -1,7 +1,9 @@
 'use strict';
 
 function capitalize(str) {
-  return str[0].toUpperCase() + str.slice(1);
+  const capitalizedStr = str[0].toUpperCase() + str.slice(1);
+
+  return capitalizedStr.replace(/(?!^)([A-Z])/g, ' $1');
 }
 
 const forms = document.querySelectorAll('form');
