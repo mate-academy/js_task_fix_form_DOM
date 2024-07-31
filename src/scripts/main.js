@@ -9,7 +9,7 @@ for (const input of inputs) {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = camelToTitleCase(input.name);
 
   input.insertAdjacentElement('beforebegin', label);
 }
