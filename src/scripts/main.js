@@ -3,10 +3,7 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  input.setAttribute(
-    'placeholder',
-    input.name[0].toUpperCase() + input.name.slice(1),
-  );
+  input.setAttribute('placeholder', camelToTitleCase(input.name));
 
   const label = document.createElement('label');
 
@@ -15,4 +12,11 @@ for (const input of inputs) {
   label.textContent = input.name;
 
   input.insertAdjacentElement('beforebegin', label);
+}
+
+function camelToTitleCase(str) {
+  const strWithSpaces = str.replace(/([A-Z])/g, ' $1');
+  const titleCase = strWithSpaces[0].toUpperCase() + strWithSpaces.slice(1);
+
+  return titleCase;
 }
