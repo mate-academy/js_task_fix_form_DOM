@@ -9,6 +9,7 @@ allInput.forEach((item) => {
   const labelName = item.getAttribute('name').toUpperCase().replace('T', 'T ');
   const labelText = labelName.charAt(0).toUpperCase() + labelName.slice(1);
   const placeholder = labelText;
+  //
 
   label.textContent = labelText;
   label.classList.add('field-label');
