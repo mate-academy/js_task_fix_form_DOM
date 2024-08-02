@@ -6,20 +6,15 @@ const inputsArr2 = [...formsArr[1].querySelectorAll('input')];
 
 inputsArr1.forEach((item) => {
   const label = document.createElement('label');
-  const correctLabelName = item.name
-    .split(/(?=[A-Z])/)
-    .map((word) => word.toUpperCase())
-    .join(' ');
-
-  const correctPlaceholderName = item.name
+  const correctName = item.name
     .split(/(?=[A-Z])/)
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join(' ');
 
   label.className = 'field-label';
   label.setAttribute('for', item.id);
-  item.setAttribute('placeholder', correctPlaceholderName);
-  label.textContent = `${correctLabelName}`;
+  item.setAttribute('placeholder', correctName);
+  label.textContent = `${correctName}`;
   item.parentNode.insertBefore(label, item);
 });
 
