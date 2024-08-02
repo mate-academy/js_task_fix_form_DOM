@@ -20,12 +20,11 @@ inputsArr1.forEach((item) => {
 
 inputsArr2.forEach((item) => {
   const label = document.createElement('label');
-  const correcttLabelName = item.name.toUpperCase();
   const correctPlaceholderName =
     item.name[0].toUpperCase() + item.name.slice(1).toLowerCase();
 
   label.className = 'field-label';
-  label.textContent = correcttLabelName;
+  label.textContent = item.name;
   label.setAttribute('for', item.id);
   item.setAttribute('placeholder', correctPlaceholderName);
   item.parentNode.insertBefore(label, item);
