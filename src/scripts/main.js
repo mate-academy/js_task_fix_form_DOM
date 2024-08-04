@@ -9,10 +9,13 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.setAttribute('for', elementId);
-  label.textContent = input.name;
+
+  const labelText = input.name.replace(/([a-z])([A-Z])/g, '$1 $2');
+
+  label.textContent = labelText;
 
   const capitalizedPlaceholder =
-    input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    labelText.charAt(0).toUpperCase() + labelText.slice(1);
 
   input.setAttribute('placeholder', capitalizedPlaceholder);
 
