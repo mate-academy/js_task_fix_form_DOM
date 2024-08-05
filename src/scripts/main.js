@@ -5,6 +5,9 @@ const inputs = document.querySelectorAll('input');
 inputs.forEach((item) => {
   const label = document.createElement('label');
   const labelText = item.getAttribute('name').toUpperCase().replace('T', 'T ');
+
+  label.textContent = labelText;
+
   const placeholder =
     item.getAttribute('name').charAt(0).toUpperCase() +
     item.getAttribute('name').slice(1).replace('t', 't ');
