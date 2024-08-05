@@ -10,12 +10,15 @@ for (let i = 0; i < inputElements.length; i++) {
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', inputId);
-  label.textContent = inputName;
+  label.textContent = capitalize(inputName);
   input.setAttribute('placeholder', capitalize(inputName));
 
   input.before(label);
 }
 
 function capitalize(text) {
-  return text[0].toUpperCase() + text.slice(1, text.length);
+  const separator = text.match(/[A-Z]/g);
+  const upperText = text[0].toUpperCase() + text.slice(1, text.length);
+
+  return upperText.replace(separator, ' ' + separator);
 }
