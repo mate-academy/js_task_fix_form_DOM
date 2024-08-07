@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_fix_form_DOM/)
+    - [DEMO LINK](https://may-xxx.github.io/js_task_fix_form_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -19,7 +19,7 @@ Rely on the `name` of the input when writing your script.
 
 You can read about placeholders and labels here:
 - [MDN Placeholder attribute](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input#attr-placeholder)
-- [MDN Label tag](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
+- [MDN Label tag](httpsfor://developer.mozilla.org/en-US/docs/Web/HTML/Element/label)
 
 ##### Steps to do this challenge:
 1) Get all `inputs` from `form` tag on the page.
