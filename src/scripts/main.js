@@ -1,27 +1,16 @@
 'use strict';
 
-const formArr = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('input');
 
-setPlaceholder(formArr);
-createElement(formArr);
+for (const input of inputs) {
+  const label = document.createElement('label');
+  const attributeName = separateWords(input.name);
 
-function setPlaceholder(inputs) {
-  inputs.forEach((input) => {
-    const nameHolder = separateWords(input.getAttribute('name'));
-
-    input.setAttribute('placeholder', nameHolder);
-  });
-}
-
-function createElement(elements) {
-  elements.forEach((el) => {
-    const label = document.createElement('label');
-    const textLabel = separateWords(el.getAttribute('name')).toUpperCase();
-
-    label.setAttribute('class', 'field-label');
-
-    el.before(label, textLabel);
-  });
+  label.htmlFor = input.id;
+  label.innerText = attributeName;
+  label.className = 'field-label';
+  input.placeholder = attributeName;
+  input.before(label);
 }
 
 function separateWords(word) {
