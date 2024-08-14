@@ -9,21 +9,27 @@ function createLabelElement(input) {
   label.setAttribute('for', input.getAttribute('id'));
   label.setAttribute('id', input.getAttribute('name'));
   label.setAttribute('placeholder', input.getAttribute('name'));
-  label.textContent = input.getAttribute('name');
+
+  const labelText = input.getAttribute('name').replace(/([A-Z])/g, ' $1');
+
+  label.textContent = labelText;
 
   const parentContainer = input.parentElement;
 
   parentContainer.prepend(label);
 }
 
+function createPlaceholder(input) {
+  const placeholderValue = input.getAttribute('name');
+  const value = placeholderValue
+    .split(/(?=[A-Z])/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+
+  input.setAttribute('placeholder', value);
+}
+
 for (const input of inputs) {
   createLabelElement(input);
-
-  const placeholderValue = input.getAttribute('name');
-
-  const capitalizeValue =
-    placeholderValue.charAt(0).toUpperCase() +
-    placeholderValue.slice(1).toLowerCase();
-
-  input.setAttribute('placeholder', capitalizeValue);
+  createPlaceholder(input);
 }
