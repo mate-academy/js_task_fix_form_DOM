@@ -5,6 +5,14 @@ const input = [...document.getElementsByTagName('input')];
 function createLabelForInput() {
   const labels = input.map((value) => {
     const labelName = value.name;
+    let labelNameToUpperCase = '';
+
+    for (const l of labelName) {
+      if (l === l.toUpperCase()) {
+        labelNameToUpperCase += ' ';
+      }
+      labelNameToUpperCase += l;
+    }
 
     const labelId = value.id;
 
@@ -15,7 +23,7 @@ function createLabelForInput() {
     newLabel.classList.add(labelClass);
 
     newLabel.htmlFor = labelId;
-    newLabel.textContent = labelName;
+    newLabel.textContent = labelNameToUpperCase;
     value.insertAdjacentElement('beforebegin', newLabel);
 
     return newLabel;
@@ -27,9 +35,18 @@ function createLabelForInput() {
 function createPlaceholderForInput() {
   const placeholder = input.map((value) => {
     const placeholderName = value.name;
+    let placeholderToUpperCase = '';
+
+    for (const p of placeholderName) {
+      if (p === p.toUpperCase()) {
+        placeholderToUpperCase += ' ';
+      }
+      placeholderToUpperCase += p;
+    }
 
     const placeholderUpdate =
-      placeholderName.charAt(0).toUpperCase() + placeholderName.slice(1);
+      placeholderToUpperCase.charAt(0).toUpperCase() +
+      placeholderToUpperCase.slice(1);
 
     value.placeholder = placeholderUpdate;
 
