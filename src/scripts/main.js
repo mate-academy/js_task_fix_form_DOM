@@ -9,7 +9,9 @@ inputs.forEach((input) => {
 
     https://regexr.com/
   */
-  const inputName = input.name.split(/(?=[A-Z])/).join(' ');
+  const splitByUpperCase = /(?=[A-Z])/;
+
+  const inputName = input.name.split(splitByUpperCase).join(' ');
 
   input.insertAdjacentHTML(
     'beforebegin',
