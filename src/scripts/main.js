@@ -8,14 +8,18 @@ function addLabel() {
 
     label.classList.add('field-label');
     label.setAttribute('for', input.id);
-    label.textContent = input.name;
+    label.textContent = splitString(input.name);
     input.before(label);
   });
 }
 
+function splitString(string) {
+  return string.split(/(?=[A-Z])/).join(' ');
+}
+
 function addPlaceholder() {
   inputs.forEach((input) => {
-    input.placeholder = input.name.replace(
+    input.placeholder = splitString(input.name).replace(
       input.name[0],
       input.name[0].toUpperCase(),
     );
