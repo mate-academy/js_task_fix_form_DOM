@@ -11,26 +11,26 @@ function labelText(text) {
   const firstPart = text.slice(0, partLength);
   const secondPart = text.slice(partLength);
 
-  return firstPart + ' ' + secondPart;
+  if (text === 'firstName' || text === 'lastName') {
+    return firstPart + ' ' + secondPart;
+  }
+
+  return text;
 }
 
 inputs.forEach((el) => {
   const label = document.createElement('label');
 
-  if (
-    el.getAttribute('name') === 'firstName' ||
-    el.getAttribute('name') === 'lastName'
-  ) {
-    label.textContent = labelText(el.getAttribute('name'));
-  } else {
-    label.textContent = el.getAttribute('name');
-  }
+  label.textContent = labelText(el.getAttribute('name'));
 
   label.className = 'field-label';
 
   label.setAttribute('for', el.getAttribute('id'));
 
-  el.setAttribute('placeholder', capitalize(label.textContent));
+  el.setAttribute(
+    'placeholder',
+    capitalize(el.getAttribute('name').toLowerCase()),
+  );
 
   el.parentNode.prepend(label);
 });
