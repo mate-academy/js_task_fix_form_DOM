@@ -27,10 +27,7 @@ inputs.forEach((el) => {
 
   label.setAttribute('for', el.getAttribute('id'));
 
-  el.setAttribute(
-    'placeholder',
-    capitalize(el.getAttribute('name').toLowerCase()),
-  );
+  el.setAttribute('placeholder', capitalize(label.textContent));
 
   el.parentNode.prepend(label);
 });
