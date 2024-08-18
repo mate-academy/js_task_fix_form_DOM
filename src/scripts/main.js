@@ -4,6 +4,10 @@ function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 
+function splitCamelCase(str) {
+  return str.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
 const inputs = document.querySelectorAll('input');
 
 inputs.forEach((input) => {
@@ -13,7 +17,7 @@ inputs.forEach((input) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', id);
-  label.innerText = inputName;
+  label.innerText = splitCamelCase(inputName);
 
   input.setAttribute('placeholder', capitalize(inputName));
   input.parentElement.append(label);
