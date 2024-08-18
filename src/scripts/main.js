@@ -14,16 +14,13 @@ forms.forEach((field) => {
 });
 
 function normalizeInput(input) {
-  let normalizePlaceholder =
-    input[0].toUpperCase() + input.substring(1).toLowerCase();
+  let normalizePlaceholder = input[0].toUpperCase();
 
-  for (let i = 0; i < input.length; i++) {
+  for (let i = 1; i < input.length; i++) {
     if (input[i] === input[i].toUpperCase()) {
-      normalizePlaceholder =
-        input[0].toUpperCase() +
-        input.slice(1, i) +
-        ' ' +
-        input.slice(i).toLowerCase();
+      normalizePlaceholder += ` ${input[i].toLowerCase()}`;
+    } else {
+      normalizePlaceholder += input[i];
     }
   }
 
