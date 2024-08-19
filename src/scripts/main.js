@@ -22,10 +22,11 @@ function splitWords(str) {
     const ch = str[i];
 
     if (i !== 0 && ch === ch.toUpperCase()) {
-      result += ` ${ch.toLowerCase()}`;
+      result += ` ${ch}`;
+    } else {
+      result += ch;
     }
 
-    result += ch;
   }
 
   return result;
