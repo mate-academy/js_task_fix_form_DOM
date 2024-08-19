@@ -7,7 +7,10 @@ formInputs.forEach((input) => {
 
   label.setAttribute('for', input.id);
 
-  const labelText = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  const labelText = input.name
+    .split(/(?=[A-Z])/)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
 
   label.textContent = labelText;
 
