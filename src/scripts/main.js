@@ -4,7 +4,8 @@ const input = [...document.querySelectorAll('input')];
 
 input.forEach((el) => {
   const label = document.createElement('label');
-  const textContent = el.getAttribute('id').replace(/sign-up-|sign-in-/, '');
+
+  const textContent = el.name.split('N').join(' N');
 
   label.setAttribute('class', 'field-label');
   label.setAttribute('for', el.getAttribute('id'));
