@@ -26,7 +26,6 @@ function splitWords(str) {
     } else {
       result += ch;
     }
-
   }
 
   return result;
