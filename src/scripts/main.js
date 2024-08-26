@@ -16,8 +16,22 @@ forms.forEach((form) => {
     const capitalizedName =
       nameOfInput.charAt(0).toUpperCase() + nameOfInput.slice(1);
 
-    label.textContent = capitalizedName;
-    input.setAttribute('placeholder', capitalizedName);
+    const splitedName = capitalizedName.split('');
+
+    for (let i = 0; i < splitedName.length; i++) {
+      if (
+        splitedName[i] === splitedName[i].toLowerCase() &&
+        i + 1 < splitedName.length &&
+        splitedName[i + 1] === splitedName[i + 1].toUpperCase()
+      ) {
+        splitedName[i] += ' ';
+      }
+    }
+
+    const normalizedName = splitedName.join('');
+
+    label.textContent = normalizedName;
+    input.setAttribute('placeholder', normalizedName);
 
     input.parentNode.insertBefore(label, input);
   });
