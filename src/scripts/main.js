@@ -7,10 +7,14 @@ inpunts.forEach((input) => {
 
   label.classList.add('field-label');
   label.htmlFor = input.id;
-  label.textContent = input.name;
+  label.textContent = input.name.replace(/([A-Z])/g, ' $1');
 
   input.parentNode.insertBefore(label, input);
 
   input.placeholder =
-    input.name.charAt(0).toUpperCase() + input.name.slice(1).toLowerCase();
+    input.name.charAt(0).toUpperCase() +
+    input.name
+      .slice(1)
+      .replace(/([A-Z])/g, ' $1')
+      .toLowerCase();
 });
