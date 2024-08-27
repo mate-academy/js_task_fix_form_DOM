@@ -4,8 +4,9 @@ const inputsElem = Array.from(document.querySelectorAll('input'));
 
 function initializ() {
   for (const input of inputsElem) {
-    const atributeName =
-      input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    const atributeName = input.name
+      .replace(/([A-Z])/g, ' $1')
+      .replace(/^./, str => str.toUpperCase());
 
     const label = document.createElement('label');
 
