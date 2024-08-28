@@ -7,9 +7,16 @@ inputs.forEach((input) => {
 
   label.setAttribute('class', 'field-label');
 
-  label.textContent = `${input.name}`;
-
-  input.setAttribute('placeholder', `${input.name}`);
+  if (input.name === 'firstName') {
+    label.textContent = 'first name';
+    input.setAttribute('placeholder', 'FIRST NAME');
+  } else if (input.name === 'lastName') {
+    label.textContent = 'last name';
+    input.setAttribute('placeholder', 'LAST NAME');
+  } else {
+    label.textContent = `${input.name}`;
+    input.setAttribute('placeholder', `${input.name.toLocaleUpperCase()}`);
+  }
 
   input.parentNode.insertBefore(label, input);
 });
