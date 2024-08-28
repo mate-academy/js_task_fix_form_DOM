@@ -7,15 +7,17 @@ inputs.forEach((input) => {
 
   label.setAttribute('class', 'field-label');
 
+  const result = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+
   if (input.name === 'firstName') {
     label.textContent = 'first name';
-    input.setAttribute('placeholder', 'FIRST NAME');
+    input.setAttribute('placeholder', 'First name');
   } else if (input.name === 'lastName') {
     label.textContent = 'last name';
-    input.setAttribute('placeholder', 'LAST NAME');
+    input.setAttribute('placeholder', 'Last name');
   } else {
     label.textContent = `${input.name}`;
-    input.setAttribute('placeholder', `${input.name.toLocaleUpperCase()}`);
+    input.setAttribute('placeholder', `${result}`);
   }
 
   input.parentNode.insertBefore(label, input);
