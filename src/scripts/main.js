@@ -8,7 +8,20 @@ fieldElements.forEach((field) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', field.firstElementChild.id);
-  label.textContent = field.firstElementChild.name;
+
+  let labelName = '';
+
+  for (let i = 0; i < field.firstElementChild.name.length; i++) {
+    if (
+      field.firstElementChild.name[i] !==
+      field.firstElementChild.name[i].toLowerCase()
+    ) {
+      labelName += ' ' + field.firstElementChild.name[i];
+    } else {
+      labelName += field.firstElementChild.name[i];
+    }
+  }
+  label.textContent = labelName;
   field.prepend(label);
 });
 
