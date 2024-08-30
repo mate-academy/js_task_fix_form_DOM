@@ -35,3 +35,8 @@ fieldElements.forEach((field) => {
 inputElements.forEach((input) => {
   input.placeholder = setName(input);
 });
+
+[...fieldElements].slice(0, 2).forEach((field) => {
+  // eslint-disable-next-line no-console
+  console.log(field.firstElementChild.textContent);
+});
