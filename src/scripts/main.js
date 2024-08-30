@@ -13,5 +13,19 @@ fieldElements.forEach((field) => {
 });
 
 inputElements.forEach((input) => {
-  input.placeholder = input.name.toUpperCase();
+  let placeholderName = '';
+
+  for (let i = 0; i < input.name.length; i++) {
+    if (i === 0) {
+      placeholderName += input.name[i].toUpperCase();
+      continue;
+    }
+
+    if (input.name[i] !== input.name[i].toLowerCase()) {
+      placeholderName += ' ' + input.name[i];
+    } else {
+      placeholderName += input.name[i];
+    }
+  }
+  input.placeholder = placeholderName;
 });
