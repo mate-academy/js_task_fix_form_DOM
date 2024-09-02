@@ -1,6 +1,7 @@
 'use strict';
-
+// passing test
 // write code here
+
 const getAllInput = document.querySelectorAll('.field-text');
 
 function placeHolderText(textInputs) {
