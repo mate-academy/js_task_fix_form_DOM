@@ -6,12 +6,24 @@ for (const input of inputs) {
   const label = document.createElement('label');
 
   label.setAttribute('for', `${input.getAttribute('id')}`);
-  label.setAttribute('class', `field-label`);
-  label.innerHTML = `${input.getAttribute('name')}`;
+  label.classList.add('field-label');
+
+  let describes = input.getAttribute('name');
+
+  if (/[A-Z]/g.test(describes)) {
+    for (let i = 0; i < describes.length; i++) {
+      if (/[A-Z]/g.test(describes[i])) {
+        describes = describes.slice(0, i) + ' ' + describes.slice(i);
+        break;
+      }
+    }
+  }
+
+  label.innerHTML = `${describes}`;
 
   input.setAttribute(
     'placeholder',
-    `${input.getAttribute('name')[0].toUpperCase() + input.getAttribute('name').slice(1)}`,
+    `${describes[0].toUpperCase() + describes.slice(1)}`,
   );
   input.parentElement.prepend(label);
 }
