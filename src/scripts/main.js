@@ -9,7 +9,7 @@ allInputs.forEach((input) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = getPlaceholderValue(input.name);
   input.parentElement.prepend(label);
 });
 
