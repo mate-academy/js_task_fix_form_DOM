@@ -3,7 +3,7 @@
 const allInputs = [...document.querySelectorAll('input')];
 
 allInputs.forEach((input) => {
-  input.placeholder = input.name[0].toLocaleUpperCase() + input.name.slice(1);
+  input.placeholder = getPlaceholderValue(input.name);
 
   const label = document.createElement('label');
 
@@ -12,3 +12,9 @@ allInputs.forEach((input) => {
   label.textContent = input.name;
   input.parentElement.prepend(label);
 });
+
+function getPlaceholderValue(str) {
+  const dividedStr = str.replace(/([A-Z])/g, ' $1');
+
+  return dividedStr[0].toUpperCase() + dividedStr.slice(1);
+}
