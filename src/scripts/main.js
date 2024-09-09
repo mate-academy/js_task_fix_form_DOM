@@ -1,6 +1,6 @@
 'use strict';
 
-document.querySelectorAll('form input').forEach(input => {
+document.querySelectorAll('form input').forEach((input) => {
   const label = document.createElement('label');
 
   label.className = 'field-label';
