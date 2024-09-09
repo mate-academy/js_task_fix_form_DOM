@@ -21,7 +21,7 @@ function addLabels(forms) {
         '<label class="field-label" for="' +
           formInput.id +
           '">' +
-          formInput.name +
+          camelCaseToReadable(formInput.name) +
           '</label>',
       );
 
