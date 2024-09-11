@@ -8,12 +8,16 @@ document.querySelectorAll('form').forEach((form) => {
 
     label.className = 'field-label';
 
-    label.setAttribute('for', input.id);
+    label.htmlFor = input.id;
 
-    label.textContent =
-      input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    const formattedText = input.name.replace(/([a-z])([A-Z])/g, '$1 $2');
 
-    input.placeholder = label.textContent;
+    const formattedLabel =
+      formattedText.charAt(0).toUpperCase() + formattedText.slice(1);
+
+    label.textContent = formattedLabel;
+
+    input.placeholder = formattedLabel;
 
     input.parentNode.insertBefore(label, input);
   });
