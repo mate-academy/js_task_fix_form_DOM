@@ -2,8 +2,12 @@
 
 const inputs = document.querySelectorAll('form input');
 
+function formatName(value) {
+  return value.split(/(?=[A-Z])/).join(' ');
+}
+
 inputs.forEach((input) => {
-  const inputName = input.name;
+  const inputName = formatName(input.name);
   const inputId = input.id;
 
   const label = document.createElement('label');
