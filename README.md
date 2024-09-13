@@ -6,7 +6,7 @@
     - Run `npm run test:only -- -l` to run fast test with additional info in console ignoring linter.
 
 ### Task: Auth form fix
-
+ 
 Look at this form... Looks like something is missing here. Labels? Placeholders? Yeah..
 
 ![Preview](./src/images/preview.png)
