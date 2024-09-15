@@ -1,3 +1,5 @@
+'use strict';
+
 describe('Input field', () => {
   beforeEach(() => {
     cy.visit('/');
