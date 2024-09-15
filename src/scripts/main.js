@@ -11,7 +11,7 @@ inputs.forEach((inputElement) => {
   const label = document.createElement('label');
 
   label.textContent = inputElement.name;
-  label.className = 'field-label';
   label.setAttribute('for', inputElement.id);
+  label.className = 'field-label';
   inputElement.insertAdjacentElement('beforebegin', label);
 });
