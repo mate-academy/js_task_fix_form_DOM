@@ -1,6 +1,7 @@
-'use strict';
+// 'use strict';
 
 const inputs = document.querySelectorAll('form input');
+
 const splitAndCapitalize = (text) => {
   let result = '';
 
@@ -18,11 +19,11 @@ const splitAndCapitalize = (text) => {
 };
 
 inputs.forEach((input) => {
-  const createElement = document.createElement('label');
+  const label = document.createElement('label');
 
-  createElement.classList.add('field-label');
-  createElement.setAttribute('for', input.name);
-  createElement.textContent = splitAndCapitalize(input.name);
+  label.classList.add('field-label');
+  label.setAttribute('for', input.id);
+  input.parentNode.insertBefore(label, input);
+  label.textContent = input.getAttribute('name');
   input.setAttribute('placeholder', splitAndCapitalize(input.name));
-  input.parentNode.insertBefore(createElement, input);
 });
