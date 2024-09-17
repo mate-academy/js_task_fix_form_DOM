@@ -2,6 +2,14 @@
 
 const inputs = document.querySelectorAll('form input');
 
+function camelCaseToReadable(str) {
+  return str
+    .replace(/([a-z])([A-Z])/g, '$1 $2')
+    .replace(/^./, function (match) {
+      return match.toUpperCase();
+    });
+}
+
 const splitAndCapitalize = (text) => {
   let result = '';
 
@@ -24,6 +32,6 @@ inputs.forEach((input) => {
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
   input.parentNode.insertBefore(label, input);
-  label.textContent = input.getAttribute('name');
+  label.textContent = camelCaseToReadable(input.name);
   input.setAttribute('placeholder', splitAndCapitalize(input.name));
 });
