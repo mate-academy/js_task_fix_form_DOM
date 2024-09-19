@@ -14,16 +14,24 @@ forms.forEach((form) => {
 
     label.setAttribute('for', inputId);
 
-    label.textContent = input.name
-      ? `${input.name.charAt(0).toUpperCase() + input.name.slice(1)}`
+    function formatLabelName(str) {
+      return str
+        .replace(/([a-z])([A-Z])/g, '$1 $2')
+        .replace(/^[a-z]/, (match) => match.toUpperCase());
+    }
+
+    const inputFieldName = input.name;
+
+    label.textContent = inputFieldName
+      ? `${formatLabelName(inputFieldName)}`
       : 'Unnamed input';
 
     input.parentNode.insertBefore(label, input);
 
-    const placeholder = input.name
-      ? input.name.charAt(0).toUpperCase() + input.name.slice(1)
+    const placeholderText = inputFieldName
+      ? formatLabelName(inputFieldName)
       : '';
 
-    input.placeholder = placeholder;
+    input.placeholder = placeholderText;
   });
 });
