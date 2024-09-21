@@ -1,7 +1,5 @@
 'use strict';
 
-// write code here
-
 const forms = document.querySelectorAll('form');
 
 forms.forEach((form) => {
@@ -18,7 +16,16 @@ forms.forEach((form) => {
       input.name.charAt(0).toUpperCase() + input.name.slice(1),
     );
 
-    label.textContent = input.name;
+    let spaseText = '';
+
+    for (let i = 0; i < input.name.length; i++) {
+      if (input.name[i] === input.name[i].toUpperCase() && i !== 0) {
+        spaseText += ' ';
+      }
+
+      spaseText += input.name[i];
+    }
+    label.textContent = spaseText;
 
     input.insertAdjacentElement('beforebegin', label);
   });
