@@ -1,7 +1,6 @@
 'use strict';
 
-const inputEmail = document.getElementById('sign-in-email');
-const inputPassword = document.getElementById('sign-in-password');
+const fields = document.querySelectorAll('.field');
 
 function createLabelAndPlaceholder(input) {
   const label = document.createElement('label');
@@ -15,5 +14,10 @@ function createLabelAndPlaceholder(input) {
   input.parentNode.insertBefore(label, input);
 }
 
-createLabelAndPlaceholder(inputEmail);
-createLabelAndPlaceholder(inputPassword);
+fields.forEach((field) => {
+  const input = field.querySelector('input');
+
+  if (input) {
+    createLabelAndPlaceholder(input);
+  }
+});
