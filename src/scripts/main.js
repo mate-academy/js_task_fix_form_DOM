@@ -11,11 +11,6 @@ forms.forEach((form) => {
     label.setAttribute('class', 'field-label');
     label.setAttribute('for', input.id);
 
-    input.setAttribute(
-      'placeholder',
-      input.name.charAt(0).toUpperCase() + input.name.slice(1),
-    );
-
     let spaseText = '';
 
     for (let i = 0; i < input.name.length; i++) {
@@ -26,6 +21,11 @@ forms.forEach((form) => {
       spaseText += input.name[i];
     }
     label.textContent = spaseText;
+
+    input.setAttribute(
+      'placeholder',
+      spaseText.charAt(0).toUpperCase() + spaseText.slice(1),
+    );
 
     input.insertAdjacentElement('beforebegin', label);
   });
