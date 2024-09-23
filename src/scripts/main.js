@@ -11,9 +11,18 @@ forms.forEach((form) => {
     label.classList.add('field-label');
     label.setAttribute('for', input.id);
 
-    label.textContent = capitalizeFirstLetter(input.name);
+    if (input.name === 'firstName') {
+      label.textContent = 'First Name';
+      input.placeholder = 'First Name';
+    } else if (input.name === 'lastName') {
+      label.textContent = 'Last Name';
+      input.placeholder = 'Last Name';
+    } else {
+      const formattedName = capitalizeFirstLetter(input.name);
 
-    input.placeholder = capitalizeFirstLetter(input.name);
+      label.textContent = formattedName;
+      input.placeholder = formattedName;
+    }
 
     input.parentElement.insertBefore(label, input);
   });
