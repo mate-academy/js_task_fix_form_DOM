@@ -19,5 +19,5 @@ inputs.forEach((input) => {
   label.classList.add('field-label');
 
   label.innerText = title;
-  input.before(label, document.createElement('br'));
+  input.before(label);
 });
