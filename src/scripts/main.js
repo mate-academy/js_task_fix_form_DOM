@@ -2,7 +2,7 @@
 
 // write code here
 
-function AddSpace(word){
+function AddSpace(word) {
   return word.replace(/([a-z])([A-Z])/g, '$1 $2');
 }
 
