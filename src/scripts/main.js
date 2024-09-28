@@ -2,6 +2,10 @@
 
 // write code here
 
+function AddSpace(word){
+  return word.replace(/([a-z])([A-Z])/g, '$1 $2');
+}
+
 function firstUpperChar(word) {
   return word.charAt(0).toUpperCase() + word.slice(1);
 }
@@ -17,9 +21,9 @@ forms.forEach((form) => {
     label.setAttribute('for', input.id);
 
     label.classList.add('field-label');
-    label.textContent = input.name.toUpperCase();
+    label.textContent = AddSpace(input.name).toUpperCase();
 
-    input.placeholder = firstUpperChar(input.name);
+    input.placeholder = AddSpace(firstUpperChar(input.name));
     input.parentNode.insertBefore(label, input);
   });
 });
