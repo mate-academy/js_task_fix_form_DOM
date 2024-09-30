@@ -3,7 +3,13 @@
 const allInput = document.querySelectorAll('form input');
 
 allInput.forEach((input) => {
-  input.placeholder = `${input.name.charAt(0).toUpperCase() + input.name.slice(1)}`;
+  const formatPlaceholder = (inputName) => {
+    return inputName.replace(/([A-Z])/g, ' $1').trim();
+  };
+
+  input.placeholder = formatPlaceholder(
+    input.name.charAt(0).toUpperCase() + input.name.slice(1),
+  );
 
   const newLabel = document.createElement('label');
 
