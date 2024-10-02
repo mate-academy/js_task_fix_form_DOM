@@ -2,7 +2,7 @@
 
 const inputs = document.querySelectorAll('input');
 
-inputs.map((elementOfInput) => {
+inputs.forEach((elementOfInput) => {
   const labels = document.createElement('label');
 
   labels.className = 'field-label';
