@@ -9,7 +9,7 @@ const allLabels = document.querySelectorAll('label');
 
 for (let i = 0; i < allInputs.length; i++) {
   allInputs[i].setAttribute('placeholder', `${textFormat(allInputs[i].name)}`);
-  allLabels[i].textContent = allInputs[i].name;
+  allLabels[i].textContent = textFormat(allInputs[i].name);
   allLabels[i].setAttribute('class', 'field-label');
   allLabels[i].setAttribute('for', `${allInputs[i].id}`);
 }
