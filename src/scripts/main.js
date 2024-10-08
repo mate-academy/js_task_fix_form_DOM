@@ -11,6 +11,7 @@ for (const fieldText of fieldTexts) {
   label.setAttribute('for', idFromField);
   label.textContent = nameFromField;
 
-  fieldText.insertAdjacentElement('beforebegin', label);
+  fieldText.before(label);
+
   fieldText.setAttribute('placeholder', nameFromField);
 }
