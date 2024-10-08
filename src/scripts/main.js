@@ -18,8 +18,9 @@ for (const fieldText of fieldTexts) {
   label.classList.add('field-label');
   label.setAttribute('for', idFromField);
   label.textContent = nameFromField;
-
   fieldText.before(label);
 
-  fieldText.setAttribute('placeholder', nameFromField);
+  const placeholder = nameFromField[0].toUpperCase() + nameFromField.slice(1);
+
+  fieldText.setAttribute('placeholder', placeholder);
 }
