@@ -2,19 +2,34 @@
 
 const list = [...document.querySelectorAll('input')];
 
+const capitalizeFirstLetter = (string) => {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+};
+
+const transformName = (sourceName) => {
+  // Split the sourceName by capital letters
+  const sourceNameArr = sourceName.split(/(?=[A-Z])/);
+
+  sourceNameArr.forEach((word, index) => {
+    sourceNameArr[index] = capitalizeFirstLetter(word.toLowerCase());
+  });
+
+  return sourceNameArr.join(' ');
+};
+
 const createLabel = (input) => {
   const label = document.createElement('label');
 
-  label.textContent = input.name;
+  label.textContent = transformName(input.name);
   label.className = 'field-label';
   label.setAttribute('for', input.id);
   input.insertAdjacentElement('beforebegin', label);
 };
 
 const setPlaceholder = (input) => {
-  const inputName = input.name.toLowerCase();
+  const inputName = transformName(input.name);
 
-  input.placeholder = inputName.charAt(0).toUpperCase() + inputName.slice(1);
+  input.placeholder = capitalizeFirstLetter(inputName);
 };
 
 for (const input of list) {
