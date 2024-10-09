@@ -7,7 +7,6 @@ const capitalizeFirstLetter = (string) => {
 };
 
 const transformName = (sourceName) => {
-  // Split the sourceName by capital letters
   const sourceNameArr = sourceName.split(/(?=[A-Z])/);
 
   sourceNameArr.forEach((word, index) => {
