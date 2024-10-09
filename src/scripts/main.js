@@ -2,25 +2,33 @@
 
 const fieldTexts = document.querySelectorAll('.field-text');
 
+const changeName = function (nameCamelCase) {
+  let changedName = nameCamelCase[0].toUpperCase();
+
+  for (let i = 1; i < nameCamelCase.length; i++) {
+    if (nameCamelCase[i] === nameCamelCase[i].toUpperCase()) {
+      changedName += ' ' + nameCamelCase[i].toLowerCase();
+
+      continue;
+    }
+
+    changedName += nameCamelCase[i];
+  }
+
+  return changedName;
+};
+
 for (const fieldText of fieldTexts) {
   const idFromField = fieldText.getAttribute('id');
-  let nameFromField = fieldText.getAttribute('name');
+  const nameFromField = fieldText.getAttribute('name');
   const label = document.createElement('label');
 
-  if (nameFromField === 'firstName') {
-    nameFromField = 'first name';
-  }
-
-  if (nameFromField === 'lastName') {
-    nameFromField = 'last name';
-  }
+  const editName = changeName(nameFromField);
 
   label.classList.add('field-label');
   label.setAttribute('for', idFromField);
-  label.textContent = nameFromField;
+  label.textContent = editName;
   fieldText.before(label);
 
-  const placeholder = nameFromField[0].toUpperCase() + nameFromField.slice(1);
-
-  fieldText.setAttribute('placeholder', placeholder);
+  fieldText.setAttribute('placeholder', editName);
 }
