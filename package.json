@@ -53,5 +53,8 @@
       "backstop": false,
       "cypress": true
     }
+  },
+  "dependencies": {
+    "lightningcss": "^1.27.0"
   }
 }
