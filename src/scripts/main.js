@@ -10,6 +10,8 @@ inputs.forEach((elementOfInput) => {
   label.textContent = elementOfInput.name;
 
   elementOfInput.placeholder =
-    elementOfInput.name.charAt(0).toUpperCase() + elementOfInput.name.slice(1);
+    elementOfInput.name.charAt(0).toUpperCase() +
+    elementOfInput.name.slice(1).replace('N', ' N');
+
   elementOfInput.parentElement.appendChild(label);
 });
