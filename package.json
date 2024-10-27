@@ -53,5 +53,8 @@
       "backstop": false,
       "cypress": true
     }
+  },
+  "dependencies": {
+    "@lmdb/lmdb-win32-x64": "^3.1.3"
   }
 }
