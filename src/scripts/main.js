@@ -12,3 +12,4 @@ inputs.forEach((element) => {
   element.setAttribute('placeholder', labelText);
   element.parentNode.insertBefore(label, element);
 });
+
