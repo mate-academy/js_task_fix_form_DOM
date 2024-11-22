@@ -53,5 +53,8 @@
       "backstop": false,
       "cypress": true
     }
+  },
+  "dependencies": {
+    "caniuse-lite": "^1.0.30001660"
   }
 }
