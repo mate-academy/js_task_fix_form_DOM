@@ -53,5 +53,11 @@
       "backstop": false,
       "cypress": true
     }
+  },
+  "dependencies": {
+    "@lmdb/lmdb-win32-x64": "^3.2.0"
+  },
+  "optionalDependencies": {
+    "@parcel/watcher-linux-x64-glibc": "^2.5.0"
   }
 }
