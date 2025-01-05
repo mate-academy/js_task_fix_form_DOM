@@ -17,6 +17,8 @@ const formatName = (id) => {
       return 'Email';
     case 'sign-in-password':
       return 'Password';
+    default:
+      return undefined;
   }
 };
 
