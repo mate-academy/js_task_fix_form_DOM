@@ -9,6 +9,8 @@ for (const input of inputs) {
 
   label.className = 'field-label';
 
+  label.setAttribute('for', input.getAttribute('id'));
+
   label.innerHTML = input.getAttribute('name');
 
   input.before(label);
