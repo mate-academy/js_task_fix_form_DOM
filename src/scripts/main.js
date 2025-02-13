@@ -18,7 +18,8 @@ for (let i = 0; i < emptyInputs.length; i++) {
   const placeholderText = input
     .getAttribute('name')
     .replace(/([A-Z])/g, ' $1')
-    .trim();
+    .trim()
+    .replace(/^./, (match) => match.toUpperCase());
 
   input.setAttribute('placeholder', placeholderText);
 
