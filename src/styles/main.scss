@@ -18,6 +18,10 @@ body {
   font-family: sans-serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 .login-wrap {
   @include centered;
 
