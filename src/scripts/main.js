@@ -7,18 +7,26 @@ for (let i = 0; i < div.length; i++) {
   const label = document.createElement('label');
 
   label.classList.add('field-label');
-  label.setAttribute('for', input[i].getAttribute('id'));
-  label.textContent = input[i].getAttribute('name');
+
+  if (input[i].getAttribute('id')) {
+    label.setAttribute('for', input[i].getAttribute('id'));
+  }
+
+  if (input[i].getAttribute('name')) {
+    label.textContent = input[i].getAttribute('name');
+  }
 
   div[i].appendChild(label);
 
-  const splitted = input[i].getAttribute('name').split('');
+  if (input[i].getAttribute('name')) {
+    const splitted = input[i].getAttribute('name').split('');
 
-  const firstLetter = splitted[0].toUpperCase();
+    const firstLetter = splitted[0].toUpperCase();
 
-  splitted.splice(0, 1);
+    splitted.splice(0, 1);
 
-  const result = [firstLetter, ...splitted].join('');
+    const result = [firstLetter, ...splitted].join('');
 
-  input[i].placeholder = result;
+    input[i].placeholder = result;
+  }
 }
