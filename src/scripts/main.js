@@ -3,15 +3,15 @@
 const inputs = document.querySelectorAll('input');
 
 inputs.forEach(input => {
-  const label = document.createElement('label');
-  label.classList.add('field-label');
+  const labels = document.createElement('label');
+  labels.classList.add('field-label');
 
   if(!input.id) {
     input.id = input.name;
   }
-  label.setAttribute('for', input.id);
-  label.textContent = input.name.charAt(0).toUpperCase() + input.name.slice(1);
-  input.placeholder = label.textContent;
+  labels.setAttribute('for', input.id);
+  labels.textContent = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  input.placeholder = labels.textContent;
 
-  input.parentNode.insertBefore(label, input);
+  input.parentNode.insertBefore(labels, input);
 });
