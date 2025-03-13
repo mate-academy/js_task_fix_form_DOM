@@ -2,13 +2,13 @@
 
 function addLabel(inputs) {
   inputs.forEach((input) => {
-    const label = document.createElement('Label');
+    const label = document.createElement('label');
 
     label.textContent = input.name;
-    label.class = 'field-label';
+    label.className = 'field-label';
     label.htmlFor = input.id;
 
-    input.parentNode.insertBefore(label, input);
+    input.insertAdjacentElement('beforebegin', label);
   });
 }
 
