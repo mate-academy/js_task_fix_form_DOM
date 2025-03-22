@@ -1,20 +1,18 @@
 'use strict';
 
-// Get all inputs from the forms
-const inputs = document.querySelectorAll('form input');
+document.querySelectorAll('form .field').forEach((field) => {
+  const input = field.querySelector('input');
 
-// Process each input
-inputs.forEach((input) => {
-  // Create label element
+  if (!input) {
+    return;
+  }
+
   const label = document.createElement('label');
 
-  label.className = 'field-label';
+  label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
+  label.textContent = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  input.setAttribute('placeholder', label.textContent);
 
-  // Set placeholder (capitalized)
-  input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
-
-  // Add label before input in its parent container
-  input.parentElement.insertBefore(label, input);
+  field.insertBefore(label, input);
 });
