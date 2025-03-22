@@ -4,9 +4,10 @@
 const inputs = document.querySelectorAll('form input');
 
 // Process each input
-inputs.forEach(input => {
+inputs.forEach((input) => {
   // Create label element
   const label = document.createElement('label');
+
   label.className = 'field-label';
   label.setAttribute('for', input.id);
   label.textContent = input.name;
