@@ -1,7 +1,6 @@
 'use strict';
 
 function setLabelAndPlaceholderByName(node) {
-  // document.getElementsByName('firstName')[0]
   const label = document.createElement('span');
 
   label.classList.add('field-label');
