@@ -4,11 +4,14 @@ const elements = document.querySelectorAll('input');
 
 elements.forEach((p) => {
   const labels = document.createElement('label');
+  const nameAttr = p.getAttribute('name');
+  const idAttr = p.getAttribute('id');
 
-  labels.textContent = p.getAttribute('name');
+  labels.textContent = nameAttr;
   labels.classList.add('field-label');
+  labels.setAttribute('for', idAttr);
+
   p.parentNode.insertBefore(labels, p.nextElementSibling);
 
-  p.placeholder = p.getAttribute('name');
-  p.placeholder = p.name.charAt(0).toUpperCase() + p.name.slice(1);
+  p.placeholder = nameAttr.charAt(0).toUpperCase() + nameAttr.slice(1);
 });
