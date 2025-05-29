@@ -5,7 +5,7 @@ const inputs = document.querySelectorAll('input');
 inputs.forEach((input) => {
   const label = document.createElement('label');
   const capitalized =
-    input.name.charAt(0).toLocaleUpperCase() + input.name.slice(1);
+    input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
   input.placeholder = capitalized;
 
