@@ -10,10 +10,9 @@ inputs.forEach((input) => {
 
   label.setAttribute('for', input.id);
 
-  label.textContent = inputName;
-
   const capitalized = inputName.charAt(0).toUpperCase() + inputName.slice(1);
 
+  label.textContent = capitalized;
   input.placeholder = capitalized;
 
   input.parentNode.insertBefore(label, input);
