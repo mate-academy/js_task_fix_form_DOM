@@ -15,7 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     label.textContent =
       input.name.charAt(0).toUpperCase() + input.name.slice(1);
-    input.placeholder = label.textContent;
+
+    if (input.name) {
+      input.placeholder =
+        input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    }
     input.parentElement.insertBefore(label, input);
   });
 });
