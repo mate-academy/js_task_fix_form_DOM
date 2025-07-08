@@ -32,5 +32,5 @@ inputs.forEach((input) => {
 
   // add placeholder
 
-  input.ariaPlaceholder = capitalizedName;
+  input.placeholder = capitalizedName;
 });
