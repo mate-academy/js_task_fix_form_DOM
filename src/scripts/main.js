@@ -11,8 +11,6 @@ for (const form of forms) {
 
     label.classList.add('field-label');
 
-    label.textContent = input.name;
-
     if (!input.id) {
       input.id = input.name + '-id';
     }
@@ -24,6 +22,8 @@ for (const form of forms) {
     const string = input.name;
     const formatted = string.replace(/([A-Z])/g, ' $1').toLowerCase();
     const capitalized = formatted.charAt(0).toUpperCase() + formatted.slice(1);
+
+    label.textContent = capitalized;
 
     input.setAttribute('placeholder', capitalized);
   }
