@@ -20,7 +20,7 @@ for (const form of forms) {
     input.parentElement.prepend(label);
 
     const string = input.name;
-    const formatted = string.replace(/([A-Z])/g, ' $1').toLowerCase();
+    const formatted = string.replace(/([A-Z])/g, ' $1');
     const capitalized = formatted.charAt(0).toUpperCase() + formatted.slice(1);
 
     label.textContent = capitalized;
