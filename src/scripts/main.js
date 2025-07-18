@@ -16,7 +16,7 @@ if (forms) {
       input.placeholder =
         input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
-      input.parentElement.append(label);
+      input.parentElement.insertBefore(label, input);
     });
   });
 }
