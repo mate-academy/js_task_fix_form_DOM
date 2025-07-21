@@ -1,11 +1,12 @@
 'use strict';
 
-const formatLabel = (str) =>
+const formatLabel = (str) => {
   str
     .replace(/([a-z])([A-Z])/g, '$1 $2')
     .split(' ')
     .map((w) => w[0].toUpperCase() + w.slice(1))
     .join(' ');
+};
 
 const enhanceFormInputs = () => {
   const inputs = document.querySelectorAll('form input');
