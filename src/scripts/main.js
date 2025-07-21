@@ -6,6 +6,8 @@ const formatLabel = (str) => {
     .split(' ')
     .map((w) => w[0].toUpperCase() + w.slice(1))
     .join(' ');
+
+  return str;
 };
 
 const enhanceFormInputs = () => {
