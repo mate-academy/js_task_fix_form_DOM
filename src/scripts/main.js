@@ -23,5 +23,5 @@ for (const input of inputs) {
   label.textContent = `${capitalize(input.getAttribute('name'))}`;
 
   input.setAttribute('placeholder', `${capitalize(input.getAttribute('name'))}`);
-  input.parentElement.appendChild(label);
+  input.parentElement.insertBefore(label, input);
 }
