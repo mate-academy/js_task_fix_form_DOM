@@ -1,26 +1,23 @@
-'use strict';
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.querySelector('form');
+  const inputs = form.querySelectorAll('input');
 
-const form = document.querySelector('form');
-const inputs = form.querySelectorAll('input');
-inputs.forEach((input, index) => {
-  const label = document.createElement('label');
-  label.classList.add('field-label');
+  inputs.forEach(input => {
+    const inputName = input.name;
+    const inputId = input.id;
 
+    if (!inputName || !inputId) return;
 
-  if (!input.id) {
-    input.id = `input-${index}`;
-  }
+    const existingLabel = form.querySelector(`label[for="${inputId}"]`);
+    if (existingLabel) return;
 
-  label.setAttribute('for', input.id);
+    const label = document.createElement('label');
+    label.className = 'field-label';
+    label.setAttribute('for', inputId);
+    label.textContent = inputName.charAt(0).toUpperCase() + inputName.slice(1);
 
-  const inputName = input.name || `Поле ${index + 1}`;
-  label.textContent = inputName;
+    input.placeholder = inputName.charAt(0).toUpperCase() + inputName.slice(1);
 
-  const capitalizedPlaceholder = inputName.charAt(0).toUpperCase() + inputName.slice(1);
-  input.setAttribute('placeholder', capitalizedPlaceholder);
-
-  input.parentNode.insertBefore(label, input);
+    input.parentNode.insertBefore(label, input);
+  });
 });
-
-
-
