@@ -12,7 +12,7 @@ $inputElements.forEach((element) => {
   const inputLabel = document.createElement('label');
 
   inputLabel.textContent = capitalizedName;
-  inputLabel.for = element.getAttribute('id');
+  inputLabel.htmlFor = element.getAttribute('id');
   inputLabel.className = 'field-label';
 
   element.parentElement.prepend(inputLabel);
