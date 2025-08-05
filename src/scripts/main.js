@@ -1,6 +1,5 @@
 'use strict';
 
-// write code here
 const $inputElements = document.querySelectorAll('input');
 
 $inputElements.forEach((element) => {
