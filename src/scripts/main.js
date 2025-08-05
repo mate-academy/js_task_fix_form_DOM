@@ -18,13 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
       input.setAttribute('placeholder', capitalized);
 
+      if (!input.id) {
+        input.id = input.name;
+      }
+
       const label = document.createElement('label');
 
       label.className = 'field-label';
       label.setAttribute('for', input.id);
       label.textContent = capitalized;
 
-      // Append label before the input
       input.parentElement.insertBefore(label, input);
     });
   });
