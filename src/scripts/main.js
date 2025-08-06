@@ -12,6 +12,6 @@ Array.from(inputs).forEach((input) => {
   label.setAttribute('for', input.id);
   label.textContent = capitalizedName;
 
-  input.parentElement.insertBefore(label, input);
+  input.parentElement.appendChild(label);
   input.placeholder = capitalizedName;
 });
