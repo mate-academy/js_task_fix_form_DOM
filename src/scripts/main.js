@@ -3,8 +3,15 @@
 const inputs = document.querySelectorAll('input');
 
 Array.from(inputs).forEach((input) => {
-  const label = `<label class="field-label" for="${input.id}">${input.name}</label>`;
+  const capitalizedName =
+    input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
-  input.insertAdjacentHTML('beforebegin', label);
-  input.placeholder = input.name;
+  const label = document.createElement('label');
+
+  label.className = 'field-label';
+  label.setAttribute('for', input.id);
+  label.textContent = capitalizedName;
+
+  input.parentElement.insertBefore(label, input);
+  input.placeholder = capitalizedName;
 });
