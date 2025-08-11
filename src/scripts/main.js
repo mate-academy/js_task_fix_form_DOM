@@ -16,11 +16,13 @@ inputs.forEach((element) => {
 
     label.className = 'field-label';
     label.htmlFor = element.id;
-    label.textContent = inputName;
+
+    label.textContent =
+      inputName.charAt(0).toUpperCase() + inputName.slice(1).toLowerCase();
     element.before(label);
   }
 
-  if (!element.hasAttribute('placholder')) {
+  if (!element.hasAttribute('placeholder')) {
     element.placeholder =
       inputName.charAt(0).toUpperCase() + inputName.slice(1);
   }
