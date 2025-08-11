@@ -3,13 +3,25 @@
 const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((element) => {
-  const label = document.createElement('label');
   const inputName = element.getAttribute('name');
 
-  label.className = 'field-label';
-  label.htmlFor = element.id;
-  label.textContent = inputName;
-  element.before(label);
+  const existingLabel = element.previousElementSibling;
+  const hasLabel =
+    existingLabel &&
+    existingLabel.classList.contains('field-label') &&
+    existingLabel.htmlFor === element.id;
 
-  element.placeholder = inputName.charAt(0).toUpperCase() + inputName.slice(1);
+  if (!hasLabel) {
+    const label = document.createElement('label');
+
+    label.className = 'field-label';
+    label.htmlFor = element.id;
+    label.textContent = inputName;
+    element.before(label);
+  }
+
+  if (!element.hasAttribute('placholder')) {
+    element.placeholder =
+      inputName.charAt(0).toUpperCase() + inputName.slice(1);
+  }
 });
