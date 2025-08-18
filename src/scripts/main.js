@@ -1,14 +1,13 @@
 'use strict';
 
-const inputs = Array.from(document.querySelectorAll('input'));
+const inputs = Array.from(document.querySelectorAll('form input'));
 
 inputs.forEach((item) => {
-  const label = `<label class="field-label" for="${item.id}">${item.name}</label>`;
+  const capitalize = (str) => str.charAt(0).toUpperCase() + str.slice(1);
+  const capitalizedName = capitalize(item.name);
+
+  const label = `<label class="field-label" for="${item.id}">${capitalizedName}</label>`;
 
   item.insertAdjacentHTML('beforebegin', label);
-
-  const capitalizedString =
-    item.name.charAt(0).toUpperCase() + item.name.slice(1);
-
-  item.setAttribute('placeholder', capitalizedString);
+  item.setAttribute('placeholder', capitalizedName);
 });
