@@ -15,7 +15,7 @@ function textParser(text) {
   return parsText;
 }
 
-const inputList = document.querySelectorAll('input');
+const inputList = document.querySelectorAll('form input');
 
 inputList.forEach((element) => {
   const inputLablel = document.createElement('label');
@@ -24,9 +24,9 @@ inputList.forEach((element) => {
 
   inputLablel.setAttribute('for', element.getAttribute('id'));
 
-  element.after(inputLablel);
+  element.before(inputLablel);
 
-  inputLablel.textContent = textParser(element.getAttribute('name'));
+  inputLablel.textContent = element.name;
 
   element.setAttribute('placeholder', textParser(element.getAttribute('name')));
 });
