@@ -3,26 +3,26 @@
 function textParser(text) {
   let parsText = '';
 
-  for (let i = 0; i < text.length; i++) {
-    if (text[i] !== text[i].toUpperCase()) {
-      parsText += text[i];
-    } else {
-      parsText += ' ' + text[i];
-    }
-  }
-  parsText = parsText[0].toUpperCase() + parsText.slice(1);
+  parsText = text[0].toUpperCase() + text.slice(1);
 
   return parsText;
 }
 
 const inputList = document.querySelectorAll('form input');
 
-inputList.forEach((element) => {
+inputList.forEach((element, index) => {
   const inputLablel = document.createElement('label');
 
   inputLablel.classList.add('field-label');
 
-  inputLablel.setAttribute('for', element.getAttribute('id'));
+  if (element.getAttribute('id')) {
+    inputLablel.setAttribute('for', element.getAttribute('id'));
+  } else {
+    const castomId = `${element.name || 'input'}-${index}`;
+
+    element.id = castomId;
+    inputLablel.setAttribute('for', castomId);
+  }
 
   element.before(inputLablel);
 
