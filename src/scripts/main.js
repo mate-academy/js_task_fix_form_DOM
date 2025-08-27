@@ -1,21 +1,28 @@
 'use strict';
 
-const inputs = document.querySelectorAll('input');
+const form = document.querySelector('form');
+const inputs = form.querySelectorAll('input');
+
+const capitalize = (s) =>
+  s ? s[0].toUpperCase() + s.slice(1).toLowerCase() : '';
+
+let counter = 0;
 
 for (const el of inputs) {
   if (el.name) {
-    const text = el.name[0].toUpperCase() + el.name.slice(1).toLowerCase();
+    const text = capitalize(el.name);
 
     el.placeholder = text;
 
+    if (!el.id) {
+      el.id = `${el.name}-${counter++}`;
+    }
+
     const lab = document.createElement('label');
-
     lab.setAttribute('for', el.id);
-    lab.textContent = text.toUpperCase();
+    lab.textContent = text;
+    lab.classList.add('field-label');
 
-    // lab.style.fontWeight = 'bold';
-    // lab.style.fontSize = '13px';
-
-    el.parentNode.insertBefore(lab, el);
+    el.parentElement.appendChild(lab);
   }
 }
