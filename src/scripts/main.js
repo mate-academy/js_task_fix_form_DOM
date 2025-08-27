@@ -13,8 +13,8 @@ for (const el of inputs) {
     lab.setAttribute('for', el.id);
     lab.textContent = text.toUpperCase();
 
-    lab.style.fontWeight = 'bold';
-    lab.style.fontSize = '13px';
+    // lab.style.fontWeight = 'bold';
+    // lab.style.fontSize = '13px';
 
     el.parentNode.insertBefore(lab, el);
   }
