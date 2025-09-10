@@ -1,14 +1,21 @@
 'use strict';
 
-// Helper function to capitalize string
-function capitalizeFirstLetter(str) {
+// Helper function to normalize string
+function normalizeAndCapitalize(str) {
   if (!str) {
     return '';
   }
 
-  const trimmedStr = str.trim();
+  let normalized = str.replace(/[^a-zA-Z0-9]+/g, ' ');
 
-  return trimmedStr.charAt(0).toUpperCase() + trimmedStr.slice(1).toLowerCase();
+  normalized = normalized.replace(/\s+/g, ' ').trim();
+
+  const capitalized = normalized
+    .split(' ')
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(' ');
+
+  return capitalized;
 }
 
 function createLabel(inputEl) {
@@ -17,21 +24,28 @@ function createLabel(inputEl) {
   // Set label attributes
   label.classList.add('field-label');
   label.setAttribute('for', inputEl.id);
-  label.textContent = inputEl.name;
+  label.textContent = normalizeAndCapitalize(inputEl.name);
 
-  inputEl.parentNode.appendChild(label);
+  inputEl.parentElement.appendChild(label);
 }
 
 function setPlaceholder(inputEl) {
-  inputEl.setAttribute('placeholder', capitalizeFirstLetter(inputEl.name));
+  inputEl.setAttribute('placeholder', normalizeAndCapitalize(inputEl.name));
 }
 
-const form = document.querySelector('form');
-const inputElements = form ? [...form.querySelectorAll('input')] : [];
+const forms = [...document.querySelectorAll('form')];
+const inputElements = forms.flatMap((form) => [
+  ...form.querySelectorAll('input'),
+]);
 
+const ALLOWED_INPUT_TYPES = ['text', 'password', 'email'];
 let idCounter = 0;
 
 inputElements.forEach((el) => {
+  if (!ALLOWED_INPUT_TYPES.includes(el.type)) {
+    return;
+  }
+
   if (!el.name) {
     return;
   }
