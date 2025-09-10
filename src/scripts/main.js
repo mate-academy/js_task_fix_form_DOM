@@ -6,7 +6,9 @@ function capitalizeFirstLetter(str) {
     return '';
   }
 
-  return str.charAt(0).toUpperCase() + str.slice(1);
+  const trimmedStr = str.trim();
+
+  return trimmedStr.charAt(0).toUpperCase() + trimmedStr.slice(1).toLowerCase();
 }
 
 function createLabel(inputEl) {
@@ -17,16 +19,27 @@ function createLabel(inputEl) {
   label.setAttribute('for', inputEl.id);
   label.textContent = inputEl.name;
 
-  inputEl.parentNode.insertBefore(label, inputEl);
+  inputEl.parentNode.appendChild(label);
 }
 
 function setPlaceholder(inputEl) {
   inputEl.setAttribute('placeholder', capitalizeFirstLetter(inputEl.name));
 }
 
-const inputElements = [...document.getElementsByTagName('input')];
+const form = document.querySelector('form');
+const inputElements = form ? [...form.querySelectorAll('input')] : [];
+
+let idCounter = 0;
 
 inputElements.forEach((el) => {
+  if (!el.name) {
+    return;
+  }
+
+  if (!el.id) {
+    el.id = `generated-id-${idCounter++}`;
+  }
+
   createLabel(el);
   setPlaceholder(el);
 });
