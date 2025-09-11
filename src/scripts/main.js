@@ -8,20 +8,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!name) return;
 
     // --- 1) Ensure valid, unique id ---
-    let baseId = name
-      .toLowerCase()
-      .trim()
-      .replace(/\s+/g, "-") // replace spaces with dashes
-      .replace(/[^a-z0-9\-_:.]/g, ""); // strip invalid chars
+    if (!input.id) {
+      let baseId = name
+        .toLowerCase()
+        .trim()
+        .replace(/\s+/g, "-") // spaces → dashes
+        .replace(/[^a-z0-9\-_:.]/g, ""); // strip invalid chars
 
-    if (!baseId) baseId = "input"; // fallback if nothing left
+      if (!baseId) baseId = "input"; // fallback if nothing left
 
-    let uniqueId = baseId;
-    let counter = 1;
-    while (document.getElementById(uniqueId)) {
-      uniqueId = `${baseId}-${counter++}`;
+      let uniqueId = baseId;
+      let counter = 1;
+      while (document.getElementById(uniqueId)) {
+        uniqueId = `${baseId}-${counter++}`;
+      }
+
+      input.id = uniqueId;
     }
-    input.id = uniqueId;
 
     // --- 2) Capitalize nicely for label/placeholder ---
     const capitalized =
@@ -36,8 +39,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // --- 4) Add placeholder ---
     input.placeholder = capitalized;
 
-    // --- 5) Append label to same container ---
+    // --- 5) Append label to the parent container ---
     input.parentElement.appendChild(label);
   });
 });
+
 
