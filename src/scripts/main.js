@@ -1,9 +1,19 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const imputs = document.querySelectorAll('form input');
+  const inputs = document.querySelectorAll('form input');
+  let counter = 0;
 
-  for (const input of imputs) {
+  for (const input of inputs) {
+    if (!input.id) {
+      input.id = `${input.name}-${counter}`;
+      counter++;
+    }
+
+    if (document.querySelector(`label[for="${input.id}"]`)) {
+      continue;
+    }
+
     const label = document.createElement('label');
 
     label.classList.add('field-label');
