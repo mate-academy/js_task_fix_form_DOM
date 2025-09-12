@@ -2,13 +2,15 @@
 
 document.addEventListener('DOMContentLoaded', () => {
   const inputs = document.querySelectorAll('form input');
-  let counter = 0;
+  const counter = 0;
 
   for (const input of inputs) {
-    if (!input.id) {
-      input.id = `${input.name}-${counter}`;
-      counter++;
-    }
+    const raw = (input.name || '').trim();
+    const id =
+      input.id ||
+      (raw ? raw.replace(/\s+/g, '-').toLowerCase() : `input-${counter}`);
+
+    input.id = id;
 
     if (document.querySelector(`label[for="${input.id}"]`)) {
       continue;
@@ -21,8 +23,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     label.textContent = input.name;
 
-    input.placeholder =
-      input.name.charAt(0).toUpperCase() + input.name.slice(1);
+    if (raw) {
+      input.placeholder = raw.charAt(0).toUpperCase() + raw.slice(1);
+    }
 
     input.parentElement.appendChild(label);
   }
