@@ -1,71 +1,53 @@
 'use strict';
 
 if (typeof document !== 'undefined') {
-  const INPUT_TYPES_TO_SKIP = new Set([
-    'submit',
-    'button',
-    'reset',
-    'hidden',
-    'image',
-  ]);
+  const INPUT_TYPES_TO_SKIP = new Set(['submit', 'button', 'reset', 'hidden', 'image']);
 
-  function shouldProcessInput(input) {
+  const shouldProcessInput = (input) => {
     if (!input || !input.parentNode) return false;
-    const name = input.getAttribute('name');
-    if (!name || !name.trim()) return false;
+    const fieldName = input.getAttribute('name');
+    if (!fieldName || !fieldName.trim()) return false;
     const type = (input.getAttribute('type') || 'text').toLowerCase();
     if (INPUT_TYPES_TO_SKIP.has(type)) return false;
     return true;
-  }
+  };
 
-  function formatLabelText(name) {
-    const spaced = String(name)
-      .replace(/[_-]+/g, ' ')
-      .replace(/([a-z\d])([A-Z])/g, '$1 $2')
-      .replace(/\s+/g, ' ')
-      .trim()
-      .toLowerCase();
-    if (!spaced) return 'Field';
-    return spaced.charAt(0).toUpperCase() + spaced.slice(1);
-  }
+  const formatLabelText = (fieldName) => {
+    const s = String(fieldName || '').trim();
+    if (!s) return 'Field';
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
 
-  function ensureUniqueId(input) {
-    const raw = input.getAttribute('name') || 'field';
-    const base = `input-${raw
-      .toString()
-      .trim()
-      .toLowerCase()
-      .replace(/[^a-z0-9_-]/g, '-') || 'field'}`;
+  const ensureUniqueId = (input) => {
+    const rawName = input.getAttribute('name') || 'field';
+    const base = `input-${rawName.toString().trim().toLowerCase().replace(/[^a-z0-9_-]/g, '-') || 'field'}`;
     let candidate = base;
     let n = 1;
-    while (document.getElementById(candidate)) {
-      candidate = `${base}-${n++}`;
-    }
+    while (document.getElementById(candidate)) candidate = `${base}-${n++}`;
     input.id = candidate;
     return candidate;
-  }
+  };
 
-  function upsertLabelForInput(input) {
+  const upsertLabelForInput = (input) => {
     const id = input.id || ensureUniqueId(input);
     const text = formatLabelText(input.getAttribute('name'));
-    const parent = input.parentNode;
-    let label = parent.querySelector(`label.field-label[for="${id}"]`);
+    const container = input.parentNode;
+
+    let label = container.querySelector(`label[for="${id}"]`);
     if (!label) {
       label = document.createElement('label');
-      label.className = 'field-label';
       label.setAttribute('for', id);
       label.textContent = text;
-      parent.appendChild(label);
+      label.classList.add('field-label');
+      container.appendChild(label);
     } else {
+      label.classList.add('field-label');
       label.setAttribute('for', id);
-      if (!label.textContent || label.textContent.trim() === '') {
-        label.textContent = text;
-      }
+      label.textContent = text;
     }
-    if (!input.getAttribute('placeholder')) {
-      input.setAttribute('placeholder', text);
-    }
-  }
+
+    input.setAttribute('placeholder', text);
+  };
 
   const allInputs = document.querySelectorAll('form input');
   allInputs.forEach((input) => {
