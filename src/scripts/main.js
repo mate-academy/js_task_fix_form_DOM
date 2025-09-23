@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   for (const input of inputs) {
     const temp = (input.name || '').trim();
-    const id = input.id || `input-${counter++}`;
+    const id = input.id || (temp ? temp.toLowerCase() : `input-${counter}`);
 
     input.id = id;
 
@@ -26,6 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
       input.placeholder = temp.charAt(0).toUpperCase() + temp.slice(1);
     }
 
-    input.parentElement.appendChild(label);
+    input.parentElement.insertBefore(label, input);
   }
 });
