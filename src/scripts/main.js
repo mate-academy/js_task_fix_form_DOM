@@ -3,15 +3,22 @@
 const inputMap = [...document.querySelectorAll('.field-text')];
 
 inputMap.forEach((input) => {
+  if (!input.id) {
+    input.id = input.name;
+  }
+
   const label = document.createElement('label');
 
   label.className = 'field-label';
   label.setAttribute('for', input.id);
-  label.textContent = input.name;
 
-  const capitalized = input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  const formattedText = input.name
+    .replace(/([A-Z])/g, ' $1')
+    .replace(/^./, (str) => str.toUpperCase());
 
-  input.setAttribute('placeholder', capitalized);
+  label.textContent = formattedText;
+
+  input.setAttribute('placeholder', formattedText);
 
   input.parentElement.insertBefore(label, input);
 });
