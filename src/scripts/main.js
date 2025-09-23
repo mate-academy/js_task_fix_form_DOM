@@ -1,6 +1,6 @@
 'use strict';
 
-const inputMap = [...document.querySelectorAll('.field-text')];
+const inputMap = [...document.querySelectorAll('form input')];
 
 inputMap.forEach((input) => {
   if (!input.id) {
@@ -13,7 +13,10 @@ inputMap.forEach((input) => {
   label.setAttribute('for', input.id);
 
   const formattedText = input.name
+    .replace(/-/g, ' ')
     .replace(/([A-Z])/g, ' $1')
+    .replace(/\s+/g, ' ')
+    .trim()
     .replace(/^./, (str) => str.toUpperCase());
 
   label.textContent = formattedText;
