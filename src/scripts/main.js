@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     label.classList.add('field-label');
     label.setAttribute('for', input.id);
 
-    label.textContent = input.name;
+    label.textContent = input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
     if (temp) {
       input.placeholder = temp.charAt(0).toUpperCase() + temp.slice(1);
