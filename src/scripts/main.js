@@ -2,32 +2,40 @@
 
 // write code here
 document.addEventListener('DOMContentLoaded', () => {
-  const inputs = document.querySelectorAll('form input');
+  const forms = document.querySelectorAll('form');
 
-  inputs.forEach((input) => {
-    const inputName = input.getAttribute('name'); // <--- renamed
+  forms.forEach((form) => {
+    const inputs = form.querySelectorAll('input');
 
-    if (!inputName) {
-      return;
-    }
+    inputs.forEach((input) => {
+      const inputName = input.getAttribute('name');
 
-    const words = inputName.replace(/([A-Z])/g, '$1').trim();
-    const placeholder =
-      words.charAt(0).toUpperCase() + words.slice(1).toLowerCase();
+      if (!inputName) {
+        return;
+      }
 
-    const label = document.createElement('label');
+      // Розбиваємо camelCase → "firstName" => "First Name"
+      const words = inputName.replace(/([A-Z])/g, ' $1').trim();
+      const placeholder = words.charAt(0).toUpperCase() + words.slice(1);
+      // Перша літера велика, далі як є
 
-    label.classList.add('field-label');
+      // Створюємо label
+      const label = document.createElement('label');
 
-    // Якщо інпуту немає id — задаємо один (щоб label[for] працював)
-    if (!input.id) {
-      input.id = inputName;
-    }
-    label.setAttribute('for', input.id);
-    label.textContent = words.toUpperCase();
+      label.classList.add('field-label');
 
-    input.setAttribute('placeholder', placeholder);
+      // Якщо id немає — створюємо з name (замінюючи пробіли на -)
+      if (!input.id) {
+        input.id = inputName.replace(/\s+/g, '-').toLowerCase();
+      }
+      label.setAttribute('for', input.id);
+      label.textContent = placeholder; // Текст як у плейсхолдері
 
-    input.parentNode.insertBefore(label, input);
+      // Додаємо placeholder
+      input.setAttribute('placeholder', placeholder);
+
+      // Апендимо label у контейнер (div.field)
+      input.parentNode.appendChild(label);
+    });
   });
 });
