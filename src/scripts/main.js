@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
       label.className = 'field-label';
       label.setAttribute('for', input.id);
       label.textContent = placeholder;
-      input.parentNode.appendChild(label);
+      input.parentNode.insertBefore(label, input);
     });
   });
 });
