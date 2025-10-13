@@ -20,14 +20,23 @@ inputs.forEach((input) => {
 
   if (!input.id) {
     const idSafe = nameValue
-      .replace(/[^a-zA-Z0-9-_]/g, '')
       .replace(/\s+/g, '-')
+      .replace(/[^a-zA-Z0-9-_]/g, '')
       .toLowerCase();
 
     input.id = `${idSafe}-input`;
   }
 
-  if (document.querySelector(`label[for = "${input.id}"]`)) {
+  input.placeholder = labelText;
+
+  const existingLabel = document.querySelector(
+    `label[for="${CSS.escape(input.id)}"]`,
+  );
+
+  if (existingLabel) {
+    existingLabel.classList.add('field-label');
+    existingLabel.textContent = labelText;
+
     return;
   }
 
@@ -36,10 +45,6 @@ inputs.forEach((input) => {
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
   label.textContent = labelText;
-
-  if (!input.placeholder) {
-    input.placeholder = labelText;
-  }
 
   if (input.parentElement) {
     input.parentElement.insertBefore(label, input);
