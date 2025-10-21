@@ -1,13 +1,13 @@
 'use strict';
 
 function initLoginForm() {
-  const formWrap = document.querySelector('.login-wrap');
+  const form = document.querySelector('form');
 
-  if (!formWrap) {
+  if (!form) {
     return;
   }
 
-  const inputs = formWrap.querySelectorAll('input');
+  const inputs = form.querySelectorAll('input');
 
   function capitalize(inputName) {
     if (inputName) {
