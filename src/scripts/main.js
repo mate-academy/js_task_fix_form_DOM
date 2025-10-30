@@ -7,7 +7,7 @@ for (const field of fields) {
   const inputName = field.getAttribute('name');
   const label = document.createElement('label');
 
-  const formatted = inputName.replace(/([A-Z])/g, ' $1');
+  const formatted = inputName.replace(/([A-Z])/g, ' $1').toLowerCase();
   const capitalize = formatted.charAt(0).toUpperCase() + formatted.slice(1);
 
   label.textContent = capitalize;
