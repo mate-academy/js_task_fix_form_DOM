@@ -1,5 +1,15 @@
 'use strict';
 
+function formatName(nameValue) {
+  if (nameValue.includes('-')) {
+    const parts = nameValue.split('-');
+
+    return parts[1][0].toUpperCase() + parts[1].slice(1) + ' ' + parts[0];
+  } else {
+    return nameValue[0].toUpperCase() + nameValue.slice(1);
+  }
+}
+
 const inputs = [...document.querySelectorAll('form input')];
 
 inputs.forEach((input) => {
@@ -7,8 +17,8 @@ inputs.forEach((input) => {
 
   label.classList.add('field-label');
   label.setAttribute('for', input.id);
-  label.textContent = input.name[0].toUpperCase() +  input.name.slice(1);
+  label.textContent = formatName(input.name);
+  input.placeholder = formatName(input.name);
 
-  input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
   input.parentElement.insertBefore(label, input);
 });
