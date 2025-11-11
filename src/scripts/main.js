@@ -8,13 +8,14 @@ for (const input of inputs) {
 
   label.className = 'field-label';
   label.setAttribute('for', input['id']);
-  label.textContent = input['name'].replace(/([A-Z])/g, ' $1').toUpperCase();
-  input.before(label);
 
   const title = input['name'].replace(/([A-Z])/g, ' $1');
 
   const theFirst = title.slice(0, 1).toUpperCase();
   const theRest = title.slice(1).toLowerCase();
+
+  label.textContent = theFirst.concat(theRest);
+  input.before(label);
 
   input.placeholder = theFirst.concat(theRest);
 }
