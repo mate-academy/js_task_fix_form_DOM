@@ -1,10 +1,10 @@
 'use strict';
 
 // write code here
-const inputs = document.querySelectorAll('input');
-const arr = Array.from(inputs);
+const form = document.querySelector('form');
+const inputs = Array.from(form.querySelectorAll('input'));
 
-for (const input of arr) {
+for (const input of inputs) {
   if (!input.id) {
     input.id = input.name + '-id';
   }
