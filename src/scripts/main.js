@@ -1,6 +1,6 @@
 'use strict';
 
-const textInput = document.querySelectorAll('input');
+const textInput = document.querySelectorAll('form input');
 
 for (const elm of textInput) {
   const elmName = elm.name;
