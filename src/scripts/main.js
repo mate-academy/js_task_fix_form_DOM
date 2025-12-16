@@ -12,7 +12,8 @@ inputs.forEach((input) => {
 
   input.parentNode.insertBefore(label, input);
 
-  const inputPlaceholder = input.getAttribute('name').toLocaleUpperCase();
+  const inputPlaceholder =
+    input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
   input.setAttribute('placeholder', inputPlaceholder);
 });
