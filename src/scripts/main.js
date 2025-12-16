@@ -1,7 +1,7 @@
 'use strict';
 
 // write code here
-const inputs = document.querySelectorAll('.field-text');
+const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((input) => {
   const label = document.createElement('label');
@@ -12,5 +12,7 @@ inputs.forEach((input) => {
 
   input.parentNode.insertBefore(label, input);
 
-  input.setAttribute('placeholder', input.getAttribute('name'));
+  const inputPlaceholder = input.getAttribute('name').toLocaleUpperCase();
+
+  input.setAttribute('placeholder', inputPlaceholder);
 });
