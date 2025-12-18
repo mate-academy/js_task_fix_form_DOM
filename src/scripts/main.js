@@ -3,7 +3,7 @@
 const inputs = document.querySelectorAll('input');
 
 for (const input of inputs) {
-  const label = document.createElement('label');
+  const label = document.createElement('form label');
 
   label.classList.add('field-label');
 
@@ -13,4 +13,4 @@ for (const input of inputs) {
   input.placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
   input.parentElement.insertBefore(label, input);
-};
+}
