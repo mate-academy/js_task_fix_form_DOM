@@ -1,6 +1,6 @@
 'use strict';
 
-const inputs = document.querySelectorAll('.field-text');
+const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((input) => {
   const value = input.name;
@@ -10,8 +10,8 @@ inputs.forEach((input) => {
 
   lbl.className = 'field-label';
   lbl.id = value;
-  lbl.innerText = toShow;
-  lbl.for = forWho;
+  lbl.textContent = toShow;
+  lbl.htmlFor = forWho;
 
   input.placeholder = value.charAt(0).toUpperCase() + value.slice(1);
   input.before(lbl);
