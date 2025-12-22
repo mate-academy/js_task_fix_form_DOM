@@ -3,7 +3,14 @@
 const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((input) => {
-  const value = input.name;
+  let value = input.name;
+
+  if (value === 'firstName') {
+    value = 'first Name';
+  } else if (value === 'lastName') {
+    value = 'last Name';
+  }
+
   const toShow = value.toUpperCase();
   const lbl = document.createElement('label');
   const forWho = input.id;
