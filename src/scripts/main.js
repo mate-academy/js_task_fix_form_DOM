@@ -1,6 +1,6 @@
 'use strict';
 
-const fields = document.querySelectorAll('.field-text');
+const fields = document.querySelectorAll('form input');
 
 fields.forEach((element) => {
   const nameOfInput = element.name;
