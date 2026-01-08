@@ -1,6 +1,6 @@
 'use strict';
 
-const listOfForms = [...document.querySelectorAll('input.field-text')];
+const listOfForms = [...document.querySelectorAll('form input')];
 
 function ajoutLabel(list) {
   for (const element of list) {
