@@ -1,20 +1,26 @@
 /* eslint-disable prettier/prettier */
 'use strict';
 
-const inputsFromForm = document.querySelectorAll('input');
+const form = document.querySelectorAll('form');
+const inputsFromForm = [];
 
-inputsFromForm.forEach((element) =>
+form.forEach((element) => {
+  const inputs = element.querySelectorAll('input');
+
+  inputs.forEach((input) => inputsFromForm.push(input));
+});
+
+inputsFromForm.forEach((element) => {
   element.setAttribute(
     'placeholder',
     element.name[0].toUpperCase() + element.name.slice(1),
-  ));
+  );
 
-inputsFromForm.forEach((element) => {
   const labelElement = document.createElement('label');
 
   labelElement.classList.add('field-label');
   labelElement.setAttribute('for', element.id);
-  labelElement.textContent = element.name;
+  labelElement.textContent = element.name.toUpperCase();
 
   element.parentNode.appendChild(labelElement);
 });
