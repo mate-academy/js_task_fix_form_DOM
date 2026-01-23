@@ -1,6 +1,6 @@
 'use strict';
 
-const pathInputs = document.querySelectorAll('input');
+const pathInputs = document.querySelectorAll('form input');
 
 pathInputs.forEach((targetInput) => {
   const labelInput = document.createElement('label');
@@ -9,12 +9,14 @@ pathInputs.forEach((targetInput) => {
   labelInput.className = 'field-label';
   labelInput.htmlFor = targetInput.id;
 
-  targetInput.after(labelInput);
-});
+  targetInput.before(labelInput);
 
-pathInputs.forEach((targetInput) => {
   const textPlaceholder =
     targetInput.name[0].toUpperCase() + targetInput.name.slice(1);
 
   targetInput.setAttribute('placeholder', textPlaceholder);
+});
+
+pathInputs.forEach((targetInput) => {
+
 });
