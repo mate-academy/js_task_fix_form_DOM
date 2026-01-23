@@ -17,6 +17,4 @@ pathInputs.forEach((targetInput) => {
   targetInput.setAttribute('placeholder', textPlaceholder);
 });
 
-pathInputs.forEach((targetInput) => {
-
-});
+pathInputs.forEach((targetInput) => {});
