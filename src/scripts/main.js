@@ -2,7 +2,7 @@
 
 // write code here
 
-const inputElement = document.querySelectorAll('.field-text');
+const inputElement = document.querySelectorAll('form input');
 
 inputElement.forEach((input) => {
   const inputName = input.name;
