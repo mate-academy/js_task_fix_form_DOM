@@ -12,4 +12,6 @@ inputs.forEach((input) => {
   const placeholder = input.name.charAt(0).toUpperCase() + input.name.slice(1);
 
   input.placeholder = placeholder;
+
+  input.parentElement.prepend(label);
 });
