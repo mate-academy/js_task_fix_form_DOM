@@ -1,12 +1,12 @@
 'use strict';
 
 // write code here
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('form input');
 
 [...inputs].forEach((element) => {
   const label = document.createElement('label');
 
-  label.classList.toggle('field-label');
+  label.classList.add('field-label');
   label.htmlFor = element.id;
   label.textContent = element.name;
 
