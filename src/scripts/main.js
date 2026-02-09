@@ -9,7 +9,9 @@ fields.forEach((item) => {
   label.setAttribute('for', item.id);
   label.textContent = item.name;
 
-  item.placeholder = item.name[0].toUpperCase() + item.name.slice(1);
+  const placeholder = item.name.toLowerCase();
+
+  item.placeholder = placeholder[0].toUpperCase() + placeholder.slice(1);
 
   item.before(label);
 });
