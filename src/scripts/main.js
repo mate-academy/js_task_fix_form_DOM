@@ -10,7 +10,7 @@ forms.forEach((form) => {
 
     label.classList.add('field-label');
 
-    const inputName = input.name.replace(/([A-Z])/g, ' $1');
+    const inputName = input.name.replace(/([A-Z])/g, ' $1').trim();
     const fieldName = `${inputName[0].toUpperCase()}${inputName.substring(1)}`;
 
     label.textContent = fieldName;
