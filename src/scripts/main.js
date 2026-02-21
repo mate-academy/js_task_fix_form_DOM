@@ -3,6 +3,10 @@
 const inputs = document.querySelectorAll('form input');
 
 inputs.forEach((input, i) => {
+  if (['submit', 'button', 'reset', 'hidden', 'image'].includes(input.type)) {
+    return;
+  }
+
   if (!input.id) {
     input.id = `${input.name || 'field'}-${i}`;
   }
@@ -16,9 +20,13 @@ inputs.forEach((input, i) => {
 
   label.textContent = labelText.replace(/\b\w/g, (c) => c.toUpperCase());
 
+  const capitalized = labelText.replace(/\b\w/g, (c) => c.toUpperCase());
+
+  label.textContent = capitalized;
+
   if (input.parentNode) {
     input.parentNode.insertBefore(label, input);
   }
 
-  input.placeholder = labelText.charAt(0).toUpperCase() + labelText.slice(1);
+  input.placeholder = capitalized;
 });
