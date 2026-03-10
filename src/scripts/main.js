@@ -13,7 +13,7 @@ inputs.forEach((input, index) => {
     label.className = 'field-label';
     label.htmlFor = input.id;
     label.textContent = toLabelText(input.name);
-    input.parentElement.appendChild(label);
+    input.parentElement.insertBefore(label, input);
   }
   input.placeholder = toLabelText(input.name);
 });
