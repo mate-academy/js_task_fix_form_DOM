@@ -6,13 +6,13 @@ const inputs = document.querySelectorAll('form input');
 for (const input of inputs) {
   const label = document.createElement('label');
   const inputParent = input.closest('div');
+  const inputName = input.name.split(/(?=[A-Z])/).join(' ');
+  const inputPlaceholder =
+    inputName.charAt(0).toUpperCase() + inputName.slice(1);
 
   label.classList.add('field-label');
-  label.for = input.id;
-  label.textContent = input.name.toUpperCase();
-
-  const inputPlaceholder =
-    input.name.charAt(0).toUpperCase() + input.name.slice(1);
+  label.htmlFor = input.id;
+  label.textContent = inputName.toUpperCase();
 
   input.placeholder = inputPlaceholder;
 
