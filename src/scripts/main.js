@@ -1,19 +1,19 @@
 'use strict';
 
-  let k = document.querySelectorAll('form .field .field-text');
+  let inputElements = document.querySelectorAll('form .field .field-text');
 
-  let m = Array.from(k);
+  let m = Array.from(inputElements);
 
   m.forEach((el) => {
-    let k = el.getAttribute('name');
-    let p = el.getAttribute('id');
+    let inputName = el.getAttribute('name');
+    let inputId = el.getAttribute('id');
 
-    k = k[0].toUpperCase() + k.slice(1);
-    el.setAttribute('placeholder', k);
+    inputName = inputName[0].toUpperCase() + inputName.slice(1);
+    el.setAttribute('placeholder', inputName);
     const label = document.createElement('label');
     label.className = 'field-label';
-    label.htmlFor = p;
-    label.textContent = k;
+    label.htmlFor = inputId;
+    label.textContent = inputName;
 
     el.before(label);
   });
