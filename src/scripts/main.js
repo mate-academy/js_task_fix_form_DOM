@@ -1,5 +1,3 @@
-'use strict';
-
 const inputs = document.querySelectorAll('form input');
 
 function capitalize(text) {
