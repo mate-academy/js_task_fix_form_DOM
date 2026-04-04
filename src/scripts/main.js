@@ -17,5 +17,5 @@ inputs.forEach((input) => {
 
   input.placeholder = formatedName;
 
-  input.parentElement.appendChild(label);
+  input.parentElement.insertBefore(label, input);
 });
