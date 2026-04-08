@@ -5,6 +5,10 @@ const inputs = document.querySelectorAll('form input');
 inputs.forEach((input) => {
   const inputName = input.getAttribute('name');
 
+  if (!inputName) {
+    return;
+  }
+
   if (!input.id) {
     input.id = `input-${inputName}`;
   }
