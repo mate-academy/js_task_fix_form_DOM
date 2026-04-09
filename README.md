@@ -1,5 +1,5 @@
 1. Replace `<your_account>` with your Github username in the link
-    - [DEMO LINK](https://<your_account>.github.io/js_task_fix_form_DOM/)
+    - [DEMO LINK](https://AndreaTkachuk.github.io/js_task_fix_form_DOM/)
 2. Follow [this instructions](https://mate-academy.github.io/layout_task-guideline/)
     - Run `npm run test` command to test your code;
     - Run `npm run test:only -- -n` to run fast test ignoring linter;
@@ -14,6 +14,7 @@ Look at this form... Looks like something is missing here. Labels? Placeholders?
 Your task is to make script, which fixes problems in this form.
 1) Add `<label>` for inputs.
 2) Add placeholders for each input.
+
 
 Rely on the `name` of the input when writing your script.
 
