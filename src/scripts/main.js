@@ -12,9 +12,7 @@ inputs.forEach((input) => {
 
   label.setAttribute('for', id);
 
-  const labelText = inputName
-    .replace(/([A-Z])/g, ' $1')
-    .replace(/^./, (char) => char.toUpperCase());
+  const labelText = inputName.charAt(0).toUpperCase() + inputName.slice(1);
 
   label.textContent = labelText;
 
