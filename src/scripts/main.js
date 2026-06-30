@@ -23,6 +23,6 @@ forms.forEach((form) => {
 
       input.placeholder = capitalized;
     }
-    input.parentElement.insertBefore(label, input);
+    input.parentElement.appendChild(label);
   });
 });
