@@ -1,9 +1,30 @@
 'use strict';
 
 // write code here
-const inputs = document.querySelectorAll('input');
+const form1 = document.querySelector('form:nth-of-type(1)');
+const form2 = document.querySelector('form:nth-of-type(2)');
+const inputs1 = form1.querySelectorAll('input');
+const inputs2 = form2.querySelectorAll('input');
 
-inputs.forEach((input) => {
+inputs1.forEach((input) => {
+  const label = document.createElement('label');
+
+  label.classList.add('field-label');
+
+  const forAttr = input.getAttribute('id');
+
+  label.htmlFor = forAttr;
+
+  const nameAttr = input.getAttribute('name');
+
+  label.textContent = nameAttr;
+
+  input.placeholder = capitalize(nameAttr);
+
+  input.before(label);
+});
+
+inputs2.forEach((input) => {
   const label = document.createElement('label');
 
   label.classList.add('field-label');
