@@ -1,7 +1,12 @@
 'use strict';
 
 // write code here
-const inputs = [...document.querySelectorAll('input')];
+const forms = document.querySelectorAll('form');
+const inputs = [];
+
+for (const form of forms) {
+  inputs.push(...form.querySelectorAll('input'));
+}
 
 for (const input of inputs) {
   const label = document.createElement('label');
