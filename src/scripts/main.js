@@ -10,7 +10,10 @@ function formatFieldName(text) {
   return result.charAt(0).toUpperCase() + result.slice(1);
 }
 
-const inputs = Array.from(document.querySelectorAll('input'));
+const forms = Array.from(document.querySelectorAll('form'));
+const inputs = forms.flatMap((form) => {
+  return Array.from(form.querySelectorAll('input'));
+});
 
 inputs.forEach((item) => {
   const newLabel = document.createElement('label');
