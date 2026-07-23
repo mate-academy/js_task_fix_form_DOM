@@ -1,14 +1,22 @@
 'use strict';
 
 // write code here
-const inputs = document.getElementsByTagName('input');
+const forms = document.querySelectorAll('form');
 
-for (let i = 0; i < inputs.length; i++) {
-  const input = inputs[i];
-  const placeholder = input.name.toUpperCase();
+forms.forEach((form) => {
+  const inputs = form.getElementsByTagName('input');
 
-  input.insertAdjacentHTML(
-    'beforebegin',
-    `<label class="field-label" for="${input.id}">${placeholder}</label>`,
-  );
-}
+  for (let i = 0; i < inputs.length; i++) {
+    const input = inputs[i];
+    const placeholder = input.name.toUpperCase();
+
+    const label = document.createElement('label');
+
+    label.class = 'field-label';
+    label.setAttribute('for', input.id);
+    label.textContent = placeholder;
+
+    input.placeholder = placeholder;
+    input.parentElement.append(label);
+  }
+});
