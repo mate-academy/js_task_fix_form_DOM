@@ -12,7 +12,7 @@ forms.forEach((form) => {
 
     const label = document.createElement('label');
 
-    label.class = 'field-label';
+    label.className = 'field-label';
     label.setAttribute('for', input.id);
     label.textContent = placeholder;
 
