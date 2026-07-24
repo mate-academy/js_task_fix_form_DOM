@@ -7,7 +7,7 @@ for (const input of inputs) {
   const lowerInputName = input.name.replace(/([A-Z])/g, ' $1').toLowerCase();
 
   label.className = 'field-label';
-  label.for = input.id;
+  label.htmlFor = input.id;
   label.textContent = lowerInputName;
   input.parentElement.append(label);
   input.placeholder = lowerInputName[0].toUpperCase() + lowerInputName.slice(1);
