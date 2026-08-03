@@ -8,8 +8,8 @@ for (const input of listInput) {
   label.className = 'field-label';
   label.htmlFor = input.id;
   label.textContent = `${input.name}`;
-  input.before(label);
-
+  input.parentNode.appendChild(label);
+  
   const nameInput = input.name.toLowerCase();
 
   input.placeholder = nameInput[0].toUpperCase() + nameInput.slice(1);
