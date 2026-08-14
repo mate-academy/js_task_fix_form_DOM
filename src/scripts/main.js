@@ -1,7 +1,7 @@
 'use strict';
 
 // write code here
-const listOfInputs = document.querySelectorAll('input');
+const listOfInputs = document.querySelector('form').querySelectorAll('input');
 
 listOfInputs.forEach((input) => {
   const label = document.createElement('label');
@@ -10,10 +10,8 @@ listOfInputs.forEach((input) => {
   label.setAttribute('for', input.getAttribute('id'));
   label.textContent = input.getAttribute('name');
 
-  input.insertAdjacentElement('beforebegin', label);
-});
+  input.parentElement.appendChild(label);
 
-listOfInputs.forEach((input) => {
   const nameAttribute = input.getAttribute('name').split('');
 
   nameAttribute[0] = nameAttribute[0].toUpperCase();
