@@ -16,7 +16,7 @@ allInputs.forEach((input) => {
   newLabel.setAttribute('class', 'field-label');
   newLabel.setAttribute('for', inputId);
   newLabel.textContent = inputName;
-  input.setAttribute('placeholder', inputName.toUpperCase());
+  input.setAttribute('placeholder', inputName.charAt(0).toUpperCase() + inputName.slice(1).toLowerCase());
 
   const parentElement = input.parentElement;
 
