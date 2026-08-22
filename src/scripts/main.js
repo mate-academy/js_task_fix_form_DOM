@@ -3,14 +3,12 @@
 const forms = document.querySelectorAll('form');
 
 for (const form of forms) {
-  const fields = form.querySelectorAll('.field');
+  const inputs = form.querySelectorAll('input');
 
-  for (const field of fields) {
-    const fieldName = field.querySelector('input').name;
-
+  for (const input of inputs) {
     let capitalizedFieldName = '';
 
-    for (const char of fieldName) {
+    for (const char of input.name) {
       if (char.toUpperCase() === char) {
         capitalizedFieldName += ` ${char}`;
         continue;
@@ -23,15 +21,14 @@ for (const form of forms) {
 
     capitalizedFieldName = capitalizedFieldName.join('');
 
-    const fieldInput = field.querySelector('input');
+    input.placeholder = capitalizedFieldName;
 
-    fieldInput.placeholder = capitalizedFieldName;
-    fieldInput.insertAdjacentHTML('beforebegin', '<label>');
+    const inputLabel = document.createElement('label');
 
-    const fieldLabel = fieldInput.previousElementSibling;
+    input.after(inputLabel);
 
-    fieldLabel.className = 'field-label';
-    fieldLabel.htmlFor = fieldInput.id;
-    fieldLabel.textContent = capitalizedFieldName;
+    inputLabel.className = 'field-label';
+    inputLabel.htmlFor = input.id;
+    inputLabel.textContent = capitalizedFieldName;
   }
 }
