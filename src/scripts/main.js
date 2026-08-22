@@ -25,7 +25,7 @@ for (const form of forms) {
 
     const inputLabel = document.createElement('label');
 
-    input.after(inputLabel);
+    input.parentElement.append(inputLabel);
 
     inputLabel.className = 'field-label';
     inputLabel.htmlFor = input.id;
