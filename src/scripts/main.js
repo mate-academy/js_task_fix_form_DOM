@@ -9,7 +9,7 @@ for (const child of inputs) {
   newLabel.setAttribute('for', child.id);
   newLabel.textContent = child.name;
   child.setAttribute('placeholder', capitalizeFirst(child.name));
-  child.before(newLabel);
+  child.parentElement.append(newLabel);
 }
 
 function capitalizeFirst(word) {
