@@ -1,3 +1,17 @@
 'use strict';
 
-// write code here
+const inputs = document.querySelectorAll('input');
+
+for (const child of inputs) {
+  const newLabel = document.createElement('label');
+
+  newLabel.className = 'field-label';
+  newLabel.setAttribute('for', child.id);
+  newLabel.textContent = child.name;
+  child.setAttribute('placeholder', capitalizeFirst(child.name));
+  child.before(newLabel);
+}
+
+function capitalizeFirst(word) {
+  return word[0].toUpperCase() + word.slice(1);
+}
