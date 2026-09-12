@@ -1,9 +1,10 @@
 'use strict';
 
-const fieldInputs = document.querySelectorAll('.field-text');
+const fields = document.querySelectorAll('.field');
 let counter = 0;
 
-for (const input of fieldInputs) {
+for (const field of fields) {
+  const input = field.querySelector('.field-text');
   const label = document.createElement('label');
 
   label.textContent = input.name;
@@ -12,5 +13,5 @@ for (const input of fieldInputs) {
   label.htmlFor = input.id;
   input.placeholder = input.name[0].toUpperCase() + input.name.slice(1);
 
-  input.before(label);
+  field.appendChild(label);
 }
