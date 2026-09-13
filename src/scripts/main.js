@@ -1,18 +1,22 @@
 'use strict';
 
 // write code here
-const inputs = [...document.querySelectorAll('input')];
+const forms = [...document.querySelectorAll('form')];
 
-inputs.forEach((input) => {
-  const inputName = replacer(input.getAttribute('name'));
-  const label = document.createElement('label');
-  const id = input.getAttribute('id');
+forms.forEach((form) => {
+  const inputs = [...form.querySelectorAll('input')];
 
-  input.setAttribute('placeholder', inputName);
-  input.parentNode.insertBefore(label, input);
-  label.setAttribute('for', id);
-  label.classList.add(`field-label`);
-  label.textContent = inputName;
+  inputs.forEach((input) => {
+    const inputName = replacer(input.getAttribute('name'));
+    const label = document.createElement('label');
+    const id = input.getAttribute('id');
+
+    input.setAttribute('placeholder', inputName);
+    input.parentNode.insertBefore(label, input);
+    label.setAttribute('for', id);
+    label.classList.add(`field-label`);
+    label.textContent = inputName;
+  });
 });
 
 function replacer(str) {
