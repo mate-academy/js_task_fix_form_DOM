@@ -17,6 +17,6 @@ inputs.forEach((input) => {
 
 function replacer(str) {
   return str
-    .replace(/([A-Z])/g, ' $git add ./src1')
+    .replace(/([A-Z])/g, ' $1')
     .replace(/^./, (firstChar) => firstChar.toUpperCase());
 }
