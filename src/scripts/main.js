@@ -1,16 +1,11 @@
 'use strict';
 
-const fieldLabels = {
-  firstName: 'First name',
-  lastName: 'Last name',
-  email: 'Email',
-  password: 'Password',
-};
+const inputs = document.querySelectorAll('form input');
 
-const inputs = document.querySelectorAll('.field-text');
+const capitalize = (str) => str[0].toUpperCase() + str.slice(1);
 
 inputs.forEach((input) => {
-  const labelText = fieldLabels[input.name];
+  const labelText = capitalize(input.name);
 
   input.placeholder = labelText;
 
