@@ -18,7 +18,7 @@ function createLabel(inputs) {
     label.setAttribute('class', 'field-label');
     label.textContent = item.name;
     item.placeholder = item.name.toUpperCase();
-    item.before(label);
+    item.parentElement.appendChild(label)
   });
 }
 
