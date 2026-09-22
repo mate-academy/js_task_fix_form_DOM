@@ -18,7 +18,7 @@ function formEdit(form) {
     label.setAttribute('for', input.getAttribute('id'));
     label.classList.add('field-label');
     input.setAttribute('placeholder', capitalizeName);
-    input.before(label);
+    input.parentElement.append(label);
   }
 }
 // write code here
