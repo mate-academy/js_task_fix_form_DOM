@@ -1,3 +1,24 @@
 'use strict';
 
 // write code here
+'use strict';
+
+const forms = document.querySelectorAll('form');
+
+for (const form of forms) {
+  const inputs = form.querySelectorAll('input');
+
+  for (const input of inputs) {
+    const label = document.createElement('label');
+
+    label.classList.add('field-label');
+    label.setAttribute('for', input.id);
+
+    const capitalizedName = input.name[0].toUpperCase() + input.name.slice(1);
+
+    label.textContent = capitalizedName;
+    input.placeholder = capitalizedName;
+
+    input.parentElement.append(label);
+  }
+}
