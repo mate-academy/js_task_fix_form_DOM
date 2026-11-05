@@ -11,7 +11,7 @@ formInputs.forEach((input) => {
   labelElement.setAttribute('for', inputId);
   labelElement.textContent = inputName;
 
-  input.insertAdjacentElement('beforebegin', labelElement);
+  input.parentElement.appendChild(labelElement);
 
   input.setAttribute(
     'placeholder',
