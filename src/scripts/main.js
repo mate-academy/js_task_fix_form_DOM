@@ -4,7 +4,7 @@ const capitalizeFirst = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
 
-const inputs = document.querySelectorAll('input');
+const inputs = document.querySelectorAll('form input');
 const fields = document.querySelectorAll('.field');
 
 for (let i = 0; i < inputs.length; i++) {
