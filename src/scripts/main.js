@@ -1,5 +1,7 @@
 'use strict';
 
+// const { lazy } = require("react");
+
 // write code here
 const form = document.querySelector('form');
 const inputs = form.querySelectorAll('input');
