@@ -1,6 +1,6 @@
 'use strict';
 
-const inputsWrappers = [...document.querySelectorAll('.field')];
+const inputsWrappers = [...document.querySelectorAll('form .field')];
 
 function renderLabels(arrInputs) {
   arrInputs.forEach((div) => {
