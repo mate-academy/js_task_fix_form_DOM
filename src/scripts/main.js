@@ -1,7 +1,6 @@
 'use strict';
 
 const inputsWrappers = [...document.querySelectorAll('.field')];
-const inputs = [...document.querySelectorAll('.field-text')];
 
 function renderLabels(arrInputs) {
   arrInputs.forEach((div) => {
@@ -23,7 +22,8 @@ function renderLabels(arrInputs) {
 }
 
 function addPlaceholder(elements) {
-  elements.forEach((input) => {
+  elements.forEach((div) => {
+    const input = div.querySelector('.field-text');
     const inputName = String(input.name);
 
     input.placeholder = inputName[0].toUpperCase() + inputName.slice(1);
@@ -31,4 +31,4 @@ function addPlaceholder(elements) {
 }
 
 renderLabels(inputsWrappers);
-addPlaceholder(inputs);
+addPlaceholder(inputsWrappers);
